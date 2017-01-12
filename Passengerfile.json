@@ -1,0 +1,20 @@
+{
+
+    "port": 8081,
+    "daemonize": true,
+    "user": "www-data",
+
+    "environment": "production",
+    "app_type": "node",
+    "startup_file": "server.js",
+
+    "max_pool_size": 1,
+    "min_instances": 1,
+    "pool_idle_time": 0,
+    "max_preloader_idle_time": 0,
+    "force_max_concurrent_requests_per_process": 0,
+
+    "max_request_queue_size": 0,
+    "sticky_sessions": false
+
+}

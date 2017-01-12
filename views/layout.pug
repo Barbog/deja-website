@@ -1,0 +1,52 @@
+doctype html
+= '\n'
+html(lang=getLocale())
+  = '\n'
+  head
+    meta(charset='utf-8')
+    if title
+      title= title + ' | Degošie Jāņi'
+    else
+      title Degošie Jāņi
+    link(rel='icon' href='/favicon.png')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    <!--[if IE]><script src='/libs/html5shiv-3.7.3.min.js'></script><![endif]-->
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto+Slab')
+    link(rel='stylesheet' href='/libs/reset-2.0.css')
+    link(rel='stylesheet' href='/main.css')
+    link(rel='stylesheet' href='/libs/flickity-2.0.5.min.css')
+    each href, locale in altLocales
+      if locale !== getLocale()
+        link(rel='alternate' hreflang=locale href=href)
+  body
+    header
+      .header-top
+      .header-bar
+        a.sign-in(href='/' + getLocale() + '/' + __('Log In').toLowerCase().split(' ').join('-'))= __('Log In').toUpperCase()
+        .lang
+          each href, locale in altLocales
+            if locale === getLocale()
+              a.altlang.disabled(hreflang=locale href=href)= locale.toUpperCase()
+            else
+              a.altlang(hreflang=locale href=href)= locale.toUpperCase()
+        button.header-bar-burger III
+    nav
+      div
+        a.left(href='/' + getLocale() + '/' + __('Gathering').toLowerCase().split(' ').join('-'))= __('Gathering').toUpperCase()
+        a.left(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-'))= __('Burn Etiquette').toUpperCase()
+        a.left.disabled(href='/' + getLocale() + '/' + __('Survival Guide').toLowerCase().split(' ').join('-'))= __('Survival Guide').toUpperCase()
+        a.left.disabled(href='/' + getLocale() + '/' + __('Participation').toLowerCase().split(' ').join('-'))= __('Participation').toUpperCase()
+      div
+        a.right.disabled(href='/' + getLocale() + '/' + __('Visa Application').toLowerCase().split(' ').join('-'))= __('Visa Application').toUpperCase()
+        a.right(href='/' + getLocale() + '/' + __('Donation').toLowerCase().split(' ').join('-'))= __('Donation').toUpperCase()
+        a.right(href='/' + getLocale() + '/' + __('Network').toLowerCase().split(' ').join('-'))= __('Network').toUpperCase()
+        a.right(href='/' + getLocale() + '/' + __('FAQ').toLowerCase().split(' ').join('-'))= __('FAQ').toUpperCase()
+      a.logo(href='/' + getLocale() + '/')
+        img(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='110' height='110')
+    block body
+      section
+        != markdown || ''
+    script(src='/libs/jquery-3.1.1.min.js')
+    script(src='/libs/flickity-pkgd-2.0.5.min.js')
+    script $(function () { $('.disabled').on('click', function (event) { event.preventDefault(); }); $('.header-bar-burger').click(function () { $('body').toggleClass('js-navhide'); }); $('.carousel-container').flickity({ wrapAround: true, autoPlay: 3000, adaptiveHeight: false, dragThreshold: 10, prevNextButtons: false }); $('.altlang').on('click', function (event) { var lang = event.target.hreflang; if (lang) { document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365); } }); });
+= '\n'
