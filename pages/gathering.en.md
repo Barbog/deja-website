@@ -1,5 +1,5 @@
-Gather.
+Gather here.
 
-Gather.
+Gather there.
 
-Gather.
+Gather everywhere.
