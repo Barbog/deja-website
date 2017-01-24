@@ -1,1 +1,4 @@
+---
+typora-root-url: ../static
+---
 
