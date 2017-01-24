@@ -128,11 +128,11 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
           if (err) {
             render('');
           } else {
-            render(showdown.makeHtml(frontMatter(data).body).split('\n').join(''));
+            render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
           }
         });
       } else {
-        render(showdown.makeHtml(frontMatter(data).body).split('\n').join(''));
+        render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
       }
     });
   });
