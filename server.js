@@ -31,7 +31,7 @@ i18n.configure({
   directory: path.join(__dirname, 'locales')
 });
 app.use(i18n.init);
-showdown.setFlavor('vanilla');
+showdown.setFlavor('github');
 showdown.setOption('omitExtraWLInCodeBlocks', true);
 showdown.setOption('parseImgDimensions', true);
 showdown.setOption('simplifiedAutoLink', true);
