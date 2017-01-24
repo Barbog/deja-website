@@ -218,30 +218,35 @@ nav {
       &.disabled:hover { transform: none; }
     }
 
-    &.logo {
+    &.home {
       @media (min-width: (@desktop-size)) { & {
         position: absolute;
-        top: 230px;
+        top: 285px;
         width: 120px;
-        height: 120px;
         margin: 0;
         padding: 0;
         left: 50%;
-        transform: translateX(-50%) rotate(30deg);
-        border-radius: 70px;
-        background: @dark;
+        transform: translateX(-50%);
       } }
-
-      img {
-        margin: 10px auto;
-        max-width: 100%;
-        height: auto;
-
-        @media (min-width: (@desktop-size)) { & {
-          margin: 4%;
-        } }
-      }
     }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    transform: rotate(30deg);
+    border-radius: 120px;
+    background: @dark;
+
+    @media (min-width: (@desktop-size)) { & {
+      position: absolute;
+      top: 225px;
+      left: 50%;
+      transform: translateX(-50%) rotate(30deg);
+    } }
   }
 }
 

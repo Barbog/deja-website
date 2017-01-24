@@ -4,6 +4,9 @@ mixin tree-button(name, edge)
   a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-') + '/' + __(name).toLowerCase().split(' ').join('-') class='tree-' + name.toLowerCase().split(' ').join('-'))
     img(src='/images/principles/' + name.toLowerCase().split(' ').join('-') + '.png' alt=__(name) width=edge height=edge)
 
+block home
+  img.home(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='110' height='110')
+
 block body
   section
     .tree

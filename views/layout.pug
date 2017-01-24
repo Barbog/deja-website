@@ -31,6 +31,8 @@ html(lang=getLocale())
               a.altlang(hreflang=locale href=href)= locale.toUpperCase()
         button.header-bar-burger III
     nav
+      block home
+        a.home(href='/' + getLocale() + '/')= __('Home').toUpperCase()
       div
         a.left(href='/' + getLocale() + '/' + __('Gathering').toLowerCase().split(' ').join('-'))= __('Gathering').toUpperCase()
         a.left(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-'))= __('Burn Etiquette').toUpperCase()
@@ -41,8 +43,6 @@ html(lang=getLocale())
         a.right(href='/' + getLocale() + '/' + __('Donation').toLowerCase().split(' ').join('-'))= __('Donation').toUpperCase()
         a.right(href='/' + getLocale() + '/' + __('Network').toLowerCase().split(' ').join('-'))= __('Network').toUpperCase()
         a.right(href='/' + getLocale() + '/' + __('FAQ').toLowerCase().split(' ').join('-'))= __('FAQ').toUpperCase()
-      a.logo(href='/' + getLocale() + '/')
-        img(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='110' height='110')
     block body
       section
         != markdown || ''
