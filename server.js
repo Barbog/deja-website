@@ -152,7 +152,7 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
 
   for (var locale in navbarHash) {
     if (!navbarHash.hasOwnProperty(locale)) { continue; }
-    catchAll(localeHash, locale, title.toLowerCase(), title, {});
+    catchAll(localeHash, locale, title.toLowerCase().split(' ').join('-'), title, {});
   }
 });
 
