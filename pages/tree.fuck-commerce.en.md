@@ -6,8 +6,7 @@ DeJā is a place where nothing is sold, traded or bartered.  There are no vendo
 
 The gathering is not for profit. 
 
-We choose the joy of participation and sharing over the culture of
-consumption. By removing commercial transactions we encourage human interaction.
+We choose the joy of participation and sharing over the culture of consumption.  By removing commercial transactions we encourage human interaction.
 
 
 ​			
