@@ -1,17 +1,5 @@
 Gather here.
 
-​				
+Gather there.
 
-​	
-
-​												Gather there.
-
-
-
-
-
-
-
-
-
-​					Gather everywhere.
+Gather everywhere.
