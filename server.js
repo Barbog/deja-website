@@ -2,6 +2,7 @@
 'use strict';
 
 const express = require('express');
+const frontMatter = require('front-matter');
 const fs = require('fs');
 const i18n = require('i18n');
 const less = require('less');
@@ -127,11 +128,11 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
           if (err) {
             render('');
           } else {
-            render(showdown.makeHtml(data).split('\n').join(''));
+            render(showdown.makeHtml(frontMatter(data).body).split('\n').join(''));
           }
         });
       } else {
-        render(showdown.makeHtml(data).split('\n').join(''));
+        render(showdown.makeHtml(frontMatter(data).body).split('\n').join(''));
       }
     });
   });
