@@ -7,8 +7,3 @@ Gather here.
 Gather there.
 
 Gather everywhere.
-
-
-
-this is a test
-
