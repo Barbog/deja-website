@@ -165,7 +165,7 @@ i18n.__h('Tree').forEach((subhash) => {
   }
 });
 
-[ 'Be Present', 'Co-creation', 'Community', 'Each 1 Teach 1', 'Environmental Consciouness',
+[ 'Be Present', 'Co-creation', 'Community', 'Each 1 Teach 1', 'Environmental Consciousness',
   'Fuck Commerce', 'Gifting', 'Openness', 'Participation', 'Self-expression',
   'Self Reliance' ].forEach((principle) => {
     const principleHash = {};
