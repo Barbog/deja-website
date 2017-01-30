@@ -8,6 +8,7 @@ const i18n = require('i18n');
 const less = require('less');
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true });
 const path = require('path');
+const randomstring = require('randomstring');
 const redis = require('redis');
 const showdown = new (require('showdown').Converter)();
 
@@ -199,7 +200,7 @@ i18n.getLocales().forEach((locale) => {
           return;
         }
 
-        const token = '1234'; // TODO Randomly generate the token.
+        const token = randomstring.generate({ length: 32, charset: 'alphanumeric' });
         const tokenExpirySeconds = 60 /* s */ * 60 /* m */ * 3 /* h */;
         db.setex('session:' + token, tokenExpirySeconds, email, (err) => {
           if (err) {
