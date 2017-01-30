@@ -8,7 +8,13 @@ const i18n = require('i18n');
 const less = require('less');
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true });
 const path = require('path');
+const redis = require('redis');
 const showdown = new (require('showdown').Converter)();
+
+const db = redis.createClient();
+db.on('error', (err) => {
+  console.error(err.stack);
+});
 
 const app = express();
 app.set('case sensitive routing', true);
@@ -52,6 +58,44 @@ const returnBadAction = (req, res) => {
 app.use((req, res, next) => {
   res.set('Cache-Control', 'private, max-age=60');
   next();
+});
+
+app.use(express.static(path.join(__dirname, 'static')));
+
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
+
+app.use((req, res, next) => {
+  const token = req.cookies.token;
+
+  if (typeof token !== 'string' || token === '') {
+    next();
+    return;
+  }
+
+  db.get('session:' + token, (err, reply) => {
+    if (err) {
+      next();
+      return;
+    }
+
+    if (typeof reply !== 'string' || reply === '') {
+      next();
+      return;
+    }
+
+    db.hgetall('user:' + reply, (err, user) => {
+      if (err) {
+        next();
+        return;
+      }
+
+      res.locals.user = { email: reply, name: user.name };
+      next();
+    });
+  });
 });
 
 app.get('/', (req, res) => {
@@ -104,7 +148,7 @@ i18n.getLocales().forEach((locale) => {
     app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
-      console.log(location);
+
       res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location }, (err, html) => {
         if (err) {
           res.status(500);
@@ -123,22 +167,9 @@ i18n.getLocales().forEach((locale) => {
       const email = req.body ? req.body.email : '';
       const password = req.body ? req.body.password : '';
       const location = (req.body ? req.body.location : '') || ('/' + locale + '/');
-      if (email && password) { // TODO Actually verify the e-mail address and password combination.
-        // TODO Assign the user a token for the session.
-        res.render('redirect', { target: location }, (err, html) => {
-          res.status(301);
-          res.location(location);
-          if (err) {
-            res.type('text/plain; charset=utf-8');
-            res.send(location);
-            console.error(err.stack);
-          } else {
-            res.type('text/html; charset=utf-8');
-            res.send(html);
-          }
-        });
-      } else {
-        res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, email: email, password: password }, (err, html) => {
+
+      const rerender = () => {
+        res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, email: email }, (err, html) => {
           if (err) {
             res.status(500);
             res.type('text/plain; charset=utf-8');
@@ -150,7 +181,48 @@ i18n.getLocales().forEach((locale) => {
             res.send(html);
           }
         });
+      };
+
+      if (typeof email !== 'string' || email === '' || typeof password !== 'string' || password === '') {
+        rerender();
+        return;
       }
+
+      db.hget('user:' + email, 'password', (err, reply) => {
+        if (err) {
+          rerender();
+          return;
+        }
+
+        if (typeof reply !== 'string' || reply === '' || password !== reply) {
+          rerender();
+          return;
+        }
+
+        const token = '1234'; // TODO Randomly generate the token.
+        const tokenExpirySeconds = 60 /* s */ * 60 /* m */ * 3 /* h */;
+        db.setex('session:' + token, tokenExpirySeconds, email, (err) => {
+          if (err) {
+            rerender();
+            return;
+          }
+
+          res.cookie('token', token, { path: '/', maxAge: 1000 * tokenExpirySeconds, httpOnly: true, secure: true });
+
+          res.render('redirect', { target: location }, (err, html) => {
+            res.status(301);
+            res.location(location);
+            if (err) {
+              res.type('text/plain; charset=utf-8');
+              res.send(location);
+              console.error(err.stack);
+            } else {
+              res.type('text/html; charset=utf-8');
+              res.send(html);
+            }
+          });
+        });
+      });
     });
     app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
   };
@@ -261,11 +333,6 @@ i18n.__h('Tree').forEach((subhash) => {
     }
   });
 
-app.use((req, res, next) => {
-  res.set('Cache-Control', 'max-age=60');
-  next();
-});
-
 app.get('/main.css', (req, res) => {
   fs.readFile(path.join(__dirname, 'less', 'main.less'), { encoding: 'utf8' }, (err, data) => {
     if (err) {
@@ -290,8 +357,6 @@ app.get('/main.css', (req, res) => {
   });
 });
 app.all('/main.css', returnBadAction);
-
-app.use(express.static(path.join(__dirname, 'static')));
 
 app.use((req, res) => {
   res.status(404);

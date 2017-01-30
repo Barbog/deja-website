@@ -22,7 +22,10 @@ html(lang=getLocale())
     header
       .header-top
       .header-bar
-        a.sign-in(href='/' + getLocale() + '/' + __('Log In').toLowerCase().split(' ').join('-'))= __('Log In').toUpperCase()
+        if user
+          p.sign-in= __mf('Hi {name}', { name: user.name }).toUpperCase()
+        else
+          a.sign-in(href='/' + getLocale() + '/' + __('Log In').toLowerCase().split(' ').join('-'))= __('Log In').toUpperCase()
         .lang
           each href, locale in altLocales
             if locale === getLocale()
