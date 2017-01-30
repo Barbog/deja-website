@@ -96,6 +96,39 @@ i18n.getLocales().forEach((locale) => {
   app.all('/' + locale + '/', returnBadAction);
 });
 
+(() => {
+  const title = 'Log In';
+  const navbarHash = {};
+  const localeHash = {};
+
+  i18n.__h(title).forEach((subhash) => {
+    for (var locale in subhash) {
+      if (!subhash.hasOwnProperty(locale)) { continue; }
+      navbarHash[locale] = subhash[locale];
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+    }
+  });
+
+  navbarHash.forEach((locale) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+      req.setLocale(locale);
+      res.render('layout', { altLocales: localeHash, title: req.__(title), markdown: '' }, (err, html) => {
+        if (err) {
+          res.status(500);
+          res.type('text/plain; charset=utf-8');
+          res.send('Something broke horribly. Sorry.');
+          console.error(err.stack);
+        } else {
+          res.status(200);
+          res.type('text/html; charset=utf-8');
+          res.send(html);
+        }
+      });
+    });
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+  });
+})();
+
 const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
     req.setLocale(locale);
@@ -136,10 +169,10 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
       }
     });
   });
-  app.all(encodeURI(localeHash[locale]), returnBadAction);
+  app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
 };
 
-[ 'Gathering', 'Burn Etiquette', 'Survival Guide', 'Participation', 'Visa Application', 'Donation', 'Network', 'FAQ', 'Log In' ].forEach((title) => {
+[ 'Gathering', 'Burn Etiquette', 'Survival Guide', 'Participation', 'Visa Application', 'Donation', 'Network', 'FAQ' ].forEach((title) => {
   const navbarHash = {};
   const localeHash = {};
 
