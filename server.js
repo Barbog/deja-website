@@ -24,6 +24,7 @@ app.set('x-powered-by', false);
 app.use(require('morgan')('combined'));
 app.use(require('helmet')());
 app.use(require('body-parser').json());
+app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('cookie-parser')());
 i18n.configure({
   locales: fs.readdirSync(path.join(__dirname, 'locales')).map((locale) => { return path.basename(locale, '.json'); }),
@@ -102,7 +103,9 @@ i18n.getLocales().forEach((locale) => {
   const catchLogin = (locale) => {
     app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
       req.setLocale(locale);
-      res.render('layout', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
+      const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
+      console.log(location);
+      res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location }, (err, html) => {
         if (err) {
           res.status(500);
           res.type('text/plain; charset=utf-8');
@@ -114,6 +117,40 @@ i18n.getLocales().forEach((locale) => {
           res.send(html);
         }
       });
+    });
+    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+      req.setLocale(locale);
+      const email = req.body ? req.body.email : '';
+      const password = req.body ? req.body.password : '';
+      const location = (req.body ? req.body.location : '') || ('/' + locale + '/');
+      if (email && password) { // TODO Actually verify the e-mail address and password combination.
+        // TODO Assign the user a token for the session.
+        res.render('redirect', { target: location }, (err, html) => {
+          res.status(301);
+          res.location(location);
+          if (err) {
+            res.type('text/plain; charset=utf-8');
+            res.send(location);
+            console.error(err.stack);
+          } else {
+            res.type('text/html; charset=utf-8');
+            res.send(html);
+          }
+        });
+      } else {
+        res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, email: email, password: password }, (err, html) => {
+          if (err) {
+            res.status(500);
+            res.type('text/plain; charset=utf-8');
+            res.send('Something broke horribly. Sorry.');
+            console.error(err.stack);
+          } else {
+            res.status(200);
+            res.type('text/html; charset=utf-8');
+            res.send(html);
+          }
+        });
+      }
     });
     app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
   };

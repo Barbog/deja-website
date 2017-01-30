@@ -1,0 +1,17 @@
+extends layout.pug
+
+block body
+  section
+  section
+    form(action=altLocales[getLocale()] method='post')
+      div
+        label(for='email')= __('Email').toUpperCase()
+        input(type='email' id='email' name='email' required='required' value=(password || ''))
+      div
+        label(for='password')= __('Password').toUpperCase()
+        input(type='password' id='password' name='password' required='required' value=(email || ''))
+      if location
+        input(type='hidden' id='location' name='location' value=location)
+      div.buttons
+        button(type='submit')= __('Log In').toUpperCase()
+        a(href='/' + getLocale() + '/' + __('Register').toLowerCase().split(' ').join('-'))= __('Register').toUpperCase()
