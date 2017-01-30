@@ -131,7 +131,7 @@ i18n.getLocales().forEach((locale) => {
 
   for (var locale in navbarHash) {
     if (!navbarHash.hasOwnProperty(locale)) { continue; }
-    catchLogin(localeHash, locale, title.toLowerCase().split(' ').join('-'), title, {});
+    catchLogin(locale);
   }
 })();
 
