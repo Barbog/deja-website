@@ -102,7 +102,7 @@ i18n.getLocales().forEach((locale) => {
   const catchLogin = (locale) => {
     app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
       req.setLocale(locale);
-      res.render('layout', { altLocales: localeHash, title: req.__(title), markdown: '' }, (err, html) => {
+      res.render('layout', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
         if (err) {
           res.status(500);
           res.type('text/plain; charset=utf-8');

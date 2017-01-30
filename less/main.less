@@ -190,7 +190,7 @@ nav {
   width: 40%;
   max-width: 280px;
   margin: 0 0 8px 0;
-  padding: 8px 0;
+  padding: 0;
   background: @dark;
   transition: transform .1s ease-in-out, width .1s ease-in-out;
   @media (max-width: (@desktop-size - 1px)) { .js-navhide & {
@@ -198,6 +198,10 @@ nav {
     width: 0;
     overflow-x: hidden;
   } }
+
+  div {
+    margin: 8px 0;
+  }
 
   button, a {
     display: block;
