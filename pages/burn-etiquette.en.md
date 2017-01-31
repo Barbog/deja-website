@@ -28,8 +28,9 @@ No photos should be taken and published for commercial use!
 
 Please use hand sanitizer:
 
-- after using toilets,
-- before preparing, cooking or consuming food.
+after using toilets,
+
+before preparing, cooking or consuming food.
 
 **CONTRIBUTIONS**
 
