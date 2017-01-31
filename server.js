@@ -262,6 +262,7 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
           res.send(html);
         }
       });
+      return;
     }
     const render = (markdown) => {
       const renderParams = Object.assign({ altLocales: localeHash, title: req.__(title), markdown: markdown }, renderOverrides || {});
