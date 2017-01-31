@@ -211,7 +211,7 @@ i18n.getLocales().forEach((locale) => {
           res.cookie('token', token, { path: '/', maxAge: 1000 * tokenExpirySeconds, httpOnly: true, secure: true });
 
           res.render('redirect', { target: location }, (err, html) => {
-            res.status(307);
+            res.status(303);
             res.location(location);
             if (err) {
               res.type('text/plain; charset=utf-8');
@@ -311,7 +311,7 @@ i18n.getLocales().forEach((locale) => {
       const location = '/' + locale + '/';
 
       res.render('redirect', { target: location }, (err, html) => {
-        res.status(307);
+        res.status(303);
         res.location(location);
         if (err) {
           res.type('text/plain; charset=utf-8');
