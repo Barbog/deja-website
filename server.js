@@ -115,7 +115,7 @@ i18n.getLocales().forEach((locale) => {
 
     const target = '/' + locale + '/';
     res.render('redirect', { target: target }, (err, html) => {
-      res.status(301);
+      res.status(307);
       res.location(target);
       if (err) {
         res.type('text/plain; charset=utf-8');
@@ -211,7 +211,7 @@ i18n.getLocales().forEach((locale) => {
           res.cookie('token', token, { path: '/', maxAge: 1000 * tokenExpirySeconds, httpOnly: true, secure: true });
 
           res.render('redirect', { target: location }, (err, html) => {
-            res.status(301);
+            res.status(307);
             res.location(location);
             if (err) {
               res.type('text/plain; charset=utf-8');
@@ -245,13 +245,54 @@ i18n.getLocales().forEach((locale) => {
   }
 })();
 
+(() => {
+  const title = 'Log Out';
+
+  const catchLogin = (locale) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+      req.setLocale(locale);
+      const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
+      res.cookie('token', '', { path: '/', maxAge: 1, httpOnly: true, secure: true });
+      res.render('redirect', { target: location }, (err, html) => {
+        res.status(307);
+        res.location(location);
+        if (err) {
+          res.type('text/plain; charset=utf-8');
+          res.send(location);
+          console.error(err.stack);
+        } else {
+          res.type('text/html; charset=utf-8');
+          res.send(html);
+        }
+      });
+    });
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+  };
+
+  const navbarHash = {};
+  const localeHash = {};
+
+  i18n.__h(title).forEach((subhash) => {
+    for (var locale in subhash) {
+      if (!subhash.hasOwnProperty(locale)) { continue; }
+      navbarHash[locale] = subhash[locale];
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+    }
+  });
+
+  for (var locale in navbarHash) {
+    if (!navbarHash.hasOwnProperty(locale)) { continue; }
+    catchLogin(locale);
+  }
+})();
+
 const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
     req.setLocale(locale);
     if ([ 'Survival Guide', 'Participation', 'Visa Application' ].indexOf(title) !== -1 && !res.locals.user) {
       const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
       res.render('redirect', { target: target }, (err, html) => {
-        res.status(302);
+        res.status(307);
         res.location(target);
         if (err) {
           res.type('text/plain; charset=utf-8');
