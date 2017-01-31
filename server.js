@@ -248,11 +248,68 @@ i18n.getLocales().forEach((locale) => {
 (() => {
   const title = 'Log Out';
 
-  const catchLogin = (locale) => {
+  const catchLogout = (locale) => {
     app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
       res.cookie('token', '', { path: '/', maxAge: 1, httpOnly: true, secure: true });
+      res.render('redirect', { target: location }, (err, html) => {
+        res.status(307);
+        res.location(location);
+        if (err) {
+          res.type('text/plain; charset=utf-8');
+          res.send(location);
+          console.error(err.stack);
+        } else {
+          res.type('text/html; charset=utf-8');
+          res.send(html);
+        }
+      });
+    });
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+  };
+
+  const navbarHash = {};
+  const localeHash = {};
+
+  i18n.__h(title).forEach((subhash) => {
+    for (var locale in subhash) {
+      if (!subhash.hasOwnProperty(locale)) { continue; }
+      navbarHash[locale] = subhash[locale];
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+    }
+  });
+
+  for (var locale in navbarHash) {
+    if (!navbarHash.hasOwnProperty(locale)) { continue; }
+    catchLogin(locale);
+  }
+})();
+
+(() => {
+  const title = 'Register';
+
+  const catchRegister = (locale) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+      req.setLocale(locale);
+
+      res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
+        if (err) {
+          res.status(500);
+          res.type('text/plain; charset=utf-8');
+          res.send('Something broke horribly. Sorry.');
+          console.error(err.stack);
+        } else {
+          res.status(200);
+          res.type('text/html; charset=utf-8');
+          res.send(html);
+        }
+      });
+    });
+    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+      req.setLocale(locale);
+      const location = '/' + locale + '/';
+
       res.render('redirect', { target: location }, (err, html) => {
         res.status(307);
         res.location(location);
