@@ -7,9 +7,13 @@ typora-root-url: ../static
 
 This event is driven by what each of us collectively and individually chose to share – be it time, skills, energy or resources. DeJā happens because of our collective energy.
 
+
+
 **PICKING UP AFTER YOURSELF**
 
 It is up to each of us to care for the longevity of our event by remaining aware of ourenvironment, and not leaving any trash anywhere on the property.				
+
+
 
 **CONSENT, CONSIDERATION AND BOUNDARIES**
 
@@ -19,18 +23,20 @@ Although DeJā is an extremely free and open-minded environment, it is importan
 
 If you feel someone’s behavior is really disrespectful or you feel threatened, ask them to stop. If they continue, report them at the Info Center.
 
+
+
 **PHOTOGRAPHY AND VIDEO**
 
 Many opportunities for photography arise at DeJā, but please get the permission for both taking the photo and sharing it online from anyone you might photograph.  Also, no one has a right to photograph or film you if you do not wish to be photographed.
 No photos should be taken and published for commercial use!
 
+
+
 **HYGIENE**
 
-Please use hand sanitizer:
+Please use hand sanitizer: after using toilets, before preparing, cooking or consuming food.
 
-after using toilets,
 
-before preparing, cooking or consuming food.
 
 **CONTRIBUTIONS**
 
@@ -38,21 +44,14 @@ These come in the form of time, energy, resources or funds. Everyone involved in
 with producing the event do arise. We ask you to consider contributing in a way in which you feel most comfortable doing so, while keeping in mind that if you decide to contribute financially, you are well within your rights to let us know how you wish for your monetary contribution to be used.
 
 ​		
-**CHILDREN**
-
-Everyone under the age of 18 needs to be accompanied by a guardian in order to enter. Although we strive to make the event inclusive to all, DeJā is still an adult-oriented event. DeJā does not dictate what is appropriate for your kids, nor assumes responsibility for the safety of your children – as their parents, you do.
-
-
-
-**PETS**
-
-At this time we are open to having pets on site during the gathering. Keep in mind that there will be other animals on the farm.   You are responsible for your pets' well being and cleaning up after them.   If not having your pet with you is going to keep you from the event, then, by all means, bring your pet with you, but please, pick up after them when they shit – we don't want to step on a hot pile of steaming crap while running around barefoot!
 
 **LOST PROPERTY**
 
 If you find something that appears to belong to someone else, ask around in the immediate vicinity.  If no one claims it, take it to the Info Center.  Similarly, if you have lost something, then ask at the Info Center.
 
 Tag all of your belongings (keys, cameras, phones, etc.) you would want returned if misplaced with your name, phone number and address.
+
+
 
 **THE LAW**
 

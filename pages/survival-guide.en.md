@@ -176,4 +176,14 @@ You may want to sleep while others are partying, so we suggest that you bring ea
 
 We have chosen the dates to coincide with the Baltic Midsummer solstice festivities for several reasons – to share this magical time of year and the local traditions with all of those who attend from outside the Baltics and to add the element of a burn to the national holiday.
 
-On the 23rd we are asking the participants to unplug from the sound systems and go acoustic and tune into the earth.
+On the 23rd we are asking the participants to unplug from the sound systems and go acoustic instead and tune into the earth.
+
+
+**CHILDREN**
+
+Everyone under the age of 18 needs to be accompanied by a guardian in order to enter. Although we strive to make the event inclusive to all, DeJā is still an adult-oriented event. DeJā does not dictate what is appropriate for your kids, nor assumes responsibility for the safety of your children – as their parents, you do.
+
+
+**PETS**
+
+At this time we are open to having pets on site during the gathering. Keep in mind that there will be other animals on the farm.   You are responsible for your pets' well being and cleaning up after them.   If not having your pet with you is going to keep you from the event, then, by all means, bring your pet with you, but please, pick up after them when they shit – we don't want to step on a hot pile of steaming crap while running around barefoot!
