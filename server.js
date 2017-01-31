@@ -282,7 +282,7 @@ i18n.getLocales().forEach((locale) => {
 
   for (var locale in navbarHash) {
     if (!navbarHash.hasOwnProperty(locale)) { continue; }
-    catchLogin(locale);
+    catchLogout(locale);
   }
 })();
 
@@ -339,7 +339,7 @@ i18n.getLocales().forEach((locale) => {
 
   for (var locale in navbarHash) {
     if (!navbarHash.hasOwnProperty(locale)) { continue; }
-    catchLogin(locale);
+    catchRegister(locale);
   }
 })();
 
