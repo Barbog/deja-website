@@ -16,11 +16,11 @@ A vital aspect of participation is to do our part in keeping trash under control
 
 Preparation is key to leaving a better trace. Please keep this in mind when packing!
 
-- Avoid(red) packaging.
-- Avoid(red) glass – it can shatter.
-- Do not(red) bring: loose glitter, feather boas. Such items are impossible to recover and contaminate the environment.
+- <span style="color:red;">Avoid</span> packaging.
+- <span style="color:red;">Avoid</span> glass – it can shatter.
+- <span style="color:red;">Do not</span> bring: loose glitter, feather boas. Such items are impossible to recover and contaminate the environment.
 
-Do(green) bring:
+<span style="color:green;">Do</span> bring:
 ü **Bags** for your garbage.
 ü **Gloves** – pack work gloves for picking up the sharp bits, and a magnet to help pick up metal.
 
@@ -28,7 +28,7 @@ ü **Your own cup, bowl and eating utensils**: disposable cups, plates and cutl
 
 ü **SMOKERS: buy or make a portable ashtray** (a mint tin, for instance) to collectyour cigarette butts and ashes. Never, ever drop butts!
 
-• Leave space(green) in your car for taking away your trash.
+• <span style="color:green;">Leave space</span> in your car for taking away your trash.
 
 • If taking the bus or sharing a car, ensure you have a way of taking your garbage with
 
