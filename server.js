@@ -248,7 +248,7 @@ i18n.getLocales().forEach((locale) => {
 const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
     req.setLocale(locale);
-    if ([ 'Survival Guide', 'Participation', 'Donation' ].indexOf(title) !== -1 && !res.locals.user) {
+    if ([ 'Survival Guide', 'Participation', 'Visa Application' ].indexOf(title) !== -1 && !res.locals.user) {
       const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
       res.render('redirect', { target: target }, (err, html) => {
         res.status(302);
