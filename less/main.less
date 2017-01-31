@@ -425,12 +425,16 @@ form.log-in {
 
   label, input, .buttons {
     display: block;
+    font-family: @button-font-family;
+    font-size: 16px;
+    line-height: 1em;
+    font-weight: bold;
   }
 
   label {
-    padding-top: 20px;
-    padding-bottom: 4px;
-    color: #000;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    color: @accent;
     &:first-of-type { padding-top: 0; }
   }
 
@@ -440,19 +444,17 @@ form.log-in {
     border: 0;
     padding: 10px;
     background-color: @light;
-    font-family: @button-font-family;
-    font-size: 16px;
-    line-height: 1em;
   }
 
   .buttons {
-    margin: 20px -60px 0 -60px;
+    margin: 40px -60px 0 -60px;
     padding: 10px 60px;
     background-color: @accent;
     a, button, input {
       display: inline-block;
       color: #FFF;
       padding: 10px 0;
+      font-weight: normal;
       transition: transform .1s ease-in-out;
       &:hover { transform: translateY(-4px); }
       &.register { float: right; }
