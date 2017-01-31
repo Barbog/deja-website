@@ -4,3 +4,10 @@ block body
   section
   if !user
     section
+      form.log-in(action=altLocales[getLocale()] method='post')
+        label(for='name')= __('Name').toUpperCase()
+        input(type='text' id='name' name='name' required='required' value=(name || '') autofocus='autofocus')
+        label(for='email')= __('Email').toUpperCase()
+        input(type='email' id='email' name='email' required='required' value=(email || ''))
+        div.buttons
+          button(type='submit')= __('Register').toUpperCase()
