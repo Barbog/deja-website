@@ -308,19 +308,75 @@ i18n.getLocales().forEach((locale) => {
     });
     app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
       req.setLocale(locale);
-      const location = '/' + locale + '/';
+      const name = req.body ? req.body.name : '';
+      const email = req.body ? req.body.email : '';
+      const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
 
-      res.render('redirect', { target: location }, (err, html) => {
-        res.status(303);
-        res.location(location);
+      const rerender = () => {
+        res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, name: name, email: email }, (err, html) => {
+          if (err) {
+            res.status(500);
+            res.type('text/plain; charset=utf-8');
+            res.send('Something broke horribly. Sorry.');
+            console.error(err.stack);
+          } else {
+            res.status(200);
+            res.type('text/html; charset=utf-8');
+            res.send(html);
+          }
+        });
+      };
+
+      if (typeof name !== 'string' || name === '' || typeof email !== 'string' || email === '') {
+        rerender();
+        return;
+      }
+
+      const password = randomstring.generate({ length: 8, readable: true, charset: 'alphanumeric' });
+
+      db.hexists('user:' + email, 'password', (err, reply) => {
         if (err) {
-          res.type('text/plain; charset=utf-8');
-          res.send(location);
-          console.error(err.stack);
-        } else {
-          res.type('text/html; charset=utf-8');
-          res.send(html);
+          rerender();
+          return;
         }
+
+        if (reply) {
+          res.render('redirect', { target: location }, (err, html) => {
+            res.status(303);
+            res.location(location);
+            if (err) {
+              res.type('text/plain; charset=utf-8');
+              res.send(location);
+              console.error(err.stack);
+            } else {
+              res.type('text/html; charset=utf-8');
+              res.send(html);
+            }
+          });
+          return;
+        }
+
+        db.hset('user:' + email, 'password', password, 'name', name, (err) => {
+          if (err) {
+            rerender();
+            return;
+          }
+
+          // TODO Send the password out to the user.
+
+          res.render('redirect', { target: location }, (err, html) => {
+            res.status(303);
+            res.location(location);
+            if (err) {
+              res.type('text/plain; charset=utf-8');
+              res.send(location);
+              console.error(err.stack);
+            } else {
+              res.type('text/html; charset=utf-8');
+              res.send(html);
+            }
+          });
+        });
       });
     });
     app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
