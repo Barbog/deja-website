@@ -22,9 +22,15 @@ We have organized the event into 11 “ministries” that distribute various res
 
 **MINISTRY of CIVIC RESPONSIBILITY**  –  at the heart of the event are 2 agencies composing this ministry. The Information Center and the Volunteer availability sign up hub. This group will be annexed within the Ministry of Integration, wall not included.  (read more. . .)
 
-**MINISTRY of HAZARD**  –  When the shit hits the fan this crew steps in, so when doing your shift here, you MUST be sober. This ministry needs people with medic training, first aid skills, psychology skills,  and those with a disposition to help others. 
+**MINISTRY of HAZARD**  –  When the shit hits the fan this crew steps in, so when doing your shift here, you MUST be sober. This ministry needs people with medic training, first aid skills, psychology skills,  and those with a disposition to help others.  (read more. . .)
 
-**MINISTRY of NOISE**  –  facilitates the quality and quantity of sound at DeJā.  DJ's, VJ's, tech people are welcome to volunteer their talents here.
+**MINISTRY of NOISE**  –  facilitates the quality and quantity of sound at DeJā.  DJ's, VJ's, tech people are welcome to volunteer their talents here.  (read more. . .)
+
+**MINISTRY of the ENVIRONMENT** –  Hemp spirits who magically oversee the grounds, conduct MOOP sweeps, and organize recycling and compost. (read more. . .)
+
+**MINISTRY OF CULTURE** – Deals with all matters related to art, art placement and scheduling workshops. Is also responsible for reviving and introducing the Midsummer's traditions, as well as for documenting the event. If you are artistically inclined, have an art project or a workshop in mind, your skills are needed here!
+
+**MINISTRY of NUTRITION** – coordinates the community kitchen. Always needs a hand. You don't have to be a master chef – all help will be appreciated. 
 
 **MINISTRY of PROPAGANDA** –  aka “Big Brother” is involved in every facet of the event: pre-, during and post throughout the entire year.  It handles social-media presence, keeps the compass fixed to the vision and the philosophy of our gathering. Big Brother is here for you. 
 
@@ -32,22 +38,4 @@ We have organized the event into 11 “ministries” that distribute various res
 
 
 
-
-
-
-
-
-
-**MINISTRY OF CULTURE** – Deals with all matters related to art, art placement and scheduling workshops. Is also responsible for reviving and introducing the Midsummer's traditions, as well as for documenting the event. If you are artistically inclined, have an art project or a workshop in mind, your skills are needed here!
-
-
-
-
-
-**MINISTRY of NUTRITION** – coordinates the community kitchen. Always needs a hand. You don't have to be a master chef – all help will be appreciated. Fluffing.
-
-**MINISTRY of the ENVIRONMENT** – responsible for overseeing the grounds, MOOP sweeps, hygiene, recycling and compost.
-
-
-
-By sharing the structure we hope you have gained a better understanding as to whereyour talents can be beneficial!
+By sharing the structure we hope you have gained a better understanding as to where your talents can be beneficial!
