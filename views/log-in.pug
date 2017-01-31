@@ -4,15 +4,13 @@ block body
   section
   if !user
     section
-      form(action=altLocales[getLocale()] method='post')
-        div
-          label(for='email')= __('Email').toUpperCase()
-          input(type='email' id='email' name='email' required='required' value=(email || ''))
-        div
-          label(for='password')= __('Password').toUpperCase()
-          input(type='password' id='password' name='password' required='required')
+      form.log-in(action=altLocales[getLocale()] method='post')
+        label(for='email')= __('Email').toUpperCase()
+        input(type='email' id='email' name='email' required='required' value=(email || '') autofocus='autofocus')
+        label(for='password')= __('Password').toUpperCase()
+        input(type='password' id='password' name='password' required='required')
         if location
           input(type='hidden' id='location' name='location' value=location)
         div.buttons
           button(type='submit')= __('Log In').toUpperCase()
-          a(href='/' + getLocale() + '/' + __('Register').toLowerCase().split(' ').join('-'))= __('Register').toUpperCase()
+          a.register(href='/' + getLocale() + '/' + __('Register').toLowerCase().split(' ').join('-'))= __('Register').toUpperCase()
