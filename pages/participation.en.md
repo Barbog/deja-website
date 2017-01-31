@@ -26,16 +26,16 @@ We have organized the event into 11 “ministries” that distribute various res
 
 **MINISTRY of NOISE**  –  facilitates the quality and quantity of sound at DeJā.  DJ's, VJ's, tech people are welcome to volunteer their talents here.  (read more. . .)
 
-**MINISTRY of the ENVIRONMENT** –  Hemp spirits who magically oversee the grounds, conduct MOOP sweeps, and organize recycling and compost. (read more. . .)
+**MINISTRY of the ENVIRONMENT** –  Hemp spirits who magically oversee the grounds, conduct MOOP sweeps, and organize recycling and compost. all are welcome to apply. (read more. . .)
 
-**MINISTRY OF CULTURE** – Deals with all matters related to art, art placement and scheduling workshops. Is also responsible for reviving and introducing the Midsummer's traditions, as well as for documenting the event. If you are artistically inclined, have an art project or a workshop in mind, your skills are needed here!
+**MINISTRY OF CULTURE** –  Is responsible for reviving and introducing the Midsummer's traditions to the event, as well as for documenting the gathering.  If you are artistically inclined, have an art project or a workshop in mind, your skills are needed here!  And if you are a Latvian or reside in any of the other 2 Baltic States, you are encouraged to bring your native traditions to the event to share with our village. (read more. . .)
 
-**MINISTRY of NUTRITION** – coordinates the community kitchen. Always needs a hand. You don't have to be a master chef – all help will be appreciated. 
+**MINISTRY of NUTRITION** – Coordinates the community kitchen, prepares the vegan meal plan and takes care of all logistics dealing with the kitchen.   You don't have to be a master chef to apply, you simply need to enjoy cooking or prepping – all help will be appreciated.  (read more. . .)
 
-**MINISTRY of PROPAGANDA** –  aka “Big Brother” is involved in every facet of the event: pre-, during and post throughout the entire year.  It handles social-media presence, keeps the compass fixed to the vision and the philosophy of our gathering. Big Brother is here for you. 
+**MINISTRY of PROPAGANDA** –  aka “Big Brother” is involved in every facet of the event: pre-, during and post throughout the entire year.  It handles social-media presence, keeps the compass fixed to the vision and the philosophy of our gathering. Have any questions? Big Brother is here for you. (read more. . .)
 
-**MINISTRY of FINANCE**  –  transparent book keeping, budgeting, finance distribution, art grant distribution. 
+**MINISTRY of FINANCE**  –  transparent book keeping, budgeting, finance distribution, art grant distribution.  (read more. . .)
 
 
 
-By sharing the structure we hope you have gained a better understanding as to where your talents can be beneficial!
+We hope that by sharing our infrastructure you have gained a better understanding as to where your talents can be beneficial!
