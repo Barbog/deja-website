@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
+const env = require('get-env')();
 const express = require('express');
 const frontMatter = require('front-matter');
 const fs = require('fs');
@@ -72,6 +73,13 @@ app.use((req, res, next) => {
   const token = req.cookies.token;
 
   if (typeof token !== 'string' || token === '') {
+    next();
+    return;
+  }
+
+  if (env === 'dev') {
+    // If you have a token cookie and you are running in a development environment, we always emulate you having a session.
+    res.locals.user = { email: 'john.doe@dev.local', name: 'John Doe' };
     next();
     return;
   }
