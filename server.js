@@ -399,10 +399,90 @@ i18n.getLocales().forEach((locale) => {
   }
 })();
 
+(() => {
+  const title = 'Visa Application';
+
+  const catchVisaApplication = (locale) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+      req.setLocale(locale);
+
+      if (!res.locals.user) {
+        const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
+        res.render('redirect', { target: target }, (err, html) => {
+          res.status(307);
+          res.location(target);
+          if (err) {
+            res.type('text/plain; charset=utf-8');
+            res.send(target);
+            console.error(err.stack);
+          } else {
+            res.type('text/html; charset=utf-8');
+            res.send(html);
+          }
+        });
+        return;
+      }
+
+      const render = (markdown) => {
+        res.render('visa-application', { altLocales: localeHash, title: req.__(title), markdown: markdown }, (err, html) => {
+          if (err) {
+            res.status(500);
+            res.type('text/plain; charset=utf-8');
+            res.send('Something broke horribly. Sorry.');
+            console.error(err.stack);
+          } else {
+            res.status(200);
+            res.type('text/html; charset=utf-8');
+            res.send(html);
+          }
+        });
+      };
+
+      fs.readFile(path.join(__dirname, 'pages', title.toLowerCase().split(' ').join('-') + '.' + locale + '.md'), { encoding: 'utf8' }, (err, data) => {
+        if (err) {
+          fs.readFile(path.join(__dirname, 'pages', title.toLowerCase().split(' ').join('-') + '.en.md'), { encoding: 'utf8' }, (err, data) => {
+            if (err) {
+              render('');
+            } else {
+              render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
+            }
+          });
+        } else {
+          render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
+        }
+      });
+    });
+    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+      req.setLocale(locale);
+
+      res.status(500);
+      res.type('text/plain; charset=utf-8');
+      res.send('Turn back now.'); // TODO
+    });
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+  };
+
+  const navbarHash = {};
+  const localeHash = {};
+
+  i18n.__h(title).forEach((subhash) => {
+    for (var locale in subhash) {
+      if (!subhash.hasOwnProperty(locale)) { continue; }
+      navbarHash[locale] = subhash[locale];
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+    }
+  });
+
+  for (var locale in navbarHash) {
+    if (!navbarHash.hasOwnProperty(locale)) { continue; }
+    catchVisaApplication(locale);
+  }
+})();
+
 const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
     req.setLocale(locale);
-    if ([ 'Survival Guide', 'Participation', 'Visa Application' ].indexOf(title) !== -1 && !res.locals.user) {
+    if ([ 'Survival Guide', 'Participation' ].indexOf(title) !== -1 && !res.locals.user) {
       const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
       res.render('redirect', { target: target }, (err, html) => {
         res.status(307);

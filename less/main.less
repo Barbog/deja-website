@@ -419,10 +419,7 @@ section {
   }
 }
 
-form.log-in {
-  background-color: @dark;
-  padding: 40px;
-
+form {
   label, input, .buttons {
     display: block;
     font-family: @button-font-family;
@@ -447,8 +444,8 @@ form.log-in {
   }
 
   .buttons {
-    margin: 40px -60px 0 -60px;
-    padding: 10px 60px;
+    margin: 40px 0 0 0;
+    padding: 10px 40px;
     background-color: @accent;
     a, button, input {
       display: inline-block;
@@ -458,6 +455,16 @@ form.log-in {
       transition: transform .1s ease-in-out;
       &:hover { transform: translateY(-4px); }
       &.register { float: right; }
+    }
+  }
+
+  &.log-in, &.register {
+    background-color: @dark;
+    padding: 40px;
+
+    .buttons {
+      margin-left: -60px; margin-right: -60px;
+      padding-left: 60px; padding-right: 60px;
     }
   }
 }
