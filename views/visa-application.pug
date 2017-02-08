@@ -3,6 +3,7 @@ extends layout.pug
 block body
   if user
     section
+    section
       != markdown || ''
     section
       form.visa-application(action=altLocales[getLocale()] method='post')

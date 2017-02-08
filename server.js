@@ -432,7 +432,7 @@ i18n.getLocales().forEach((locale) => {
       }
 
       const render = (markdown) => {
-        res.render('visa-application', { altLocales: localeHash, title: req.__(title), markdown: markdown }, (err, html) => {
+        res.render('visa-application', { altLocales: localeHash, title: req.__(title), markdown: markdown, hideNavigation: true }, (err, html) => {
           if (err) {
             res.status(500);
             res.type('text/plain; charset=utf-8');
