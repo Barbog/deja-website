@@ -364,7 +364,7 @@ i18n.getLocales().forEach((locale) => {
           return;
         }
 
-        db.hset('user:' + email, 'password', password, 'name', name, (err) => {
+        db.hmset('user:' + email, 'password', password, 'name', name, (err) => {
           if (err) {
             rerender();
             return;
