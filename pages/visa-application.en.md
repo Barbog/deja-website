@@ -13,6 +13,7 @@ In order to gain entry to celebrate DeJā 2017, you will need to submit this ap
 **No One** under the age of 18 will be allowed on to the premises without adult supervision or guardian.
 
 
+
 **Basic Info** (will be used for Census purposes as well)
 
 1. **Name, Surname**. (Your name and surname should match the name on your ID)
@@ -90,6 +91,7 @@ In order to gain entry to celebrate DeJā 2017, you will need to submit this ap
 	h. Other (space to fill in answer)
 
 
+
 **Fuck Commerce**
 
 12. **Did you know that there are no tickets sold to get into DeJā?**
@@ -149,6 +151,7 @@ In order to gain entry to celebrate DeJā 2017, you will need to submit this ap
 	a. yes  b. no
 
 
+
 **Don’t let it hit the ground, but let the bodies hit the floor!**
 
 22. **MOOP is short for:**
@@ -182,6 +185,7 @@ In order to gain entry to celebrate DeJā 2017, you will need to submit this ap
 	a. yes  b. no
 
 
+
 **Self Expression**
 
 28. **Are you aware that at DeJā it is normal to see people dressed as unicorns, superheroes, in onesies or in nothing at all?**
@@ -199,6 +203,7 @@ In order to gain entry to celebrate DeJā 2017, you will need to submit this ap
 	b. I find that clothes limit my self- expression.
 
 	c. Fantastic!! makes packing so much easier.
+
 
 
 **Consent**
@@ -244,6 +249,7 @@ In order to gain entry to celebrate DeJā 2017, you will need to submit this ap
 	a. yes  b. no
 
 
+
 **PARTICIPATION**
 
 **DeJā is a co-creative and participant driven event. There are no spectators. There is no programme.**
@@ -281,6 +287,7 @@ In order to gain entry to celebrate DeJā 2017, you will need to submit this ap
 41. **Is there something you would like to do that hasn't been mentioned on this list?**
 
 	a. yes (if so, make blank available)  b. no
+
 
 
 **VOLUNTEERING**
