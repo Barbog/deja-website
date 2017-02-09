@@ -1,3 +1,7 @@
+---
+typora-root-url: ../static
+---
+
 **What is DeJā?**
 
 DeJā - *Degošie Jāņi*- is a Baltic Midsummer solstice celebration.  A  canvas for you to come create and express yourself.  A place where you will meet a diverse borderless community of volunteers, participating to collectively co-create and conjure the magic.  In a surrounding where you will be required to exercise your self-reliance. 

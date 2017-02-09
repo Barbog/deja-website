@@ -1,6 +1,5 @@
 ---
 typora-root-url: ../static
-
 ---
 
 DeJā is governed by eleven guidelines for how we behave towards each other as participants. These are not rules, they are a source of inspiration from which you to take to heart and interpret for yourself.
