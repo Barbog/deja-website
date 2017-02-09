@@ -2,6 +2,28 @@
 typora-root-url: ../static
 ---
 
+**Burn Etiquette**
+
+​	The Principles aka The Code of the Republic
+
+​	Consent and Boundaries
+
+​	Photo/Video Policy
+
+​	Bring Your Own Cup
+
+​	Leave No Trace
+
+​	Hygiene
+
+​	Participation
+
+​	Volunteering
+
+​	Participation
+
+(new page)
+
 DeJā is governed by eleven guidelines for how we behave towards each other as participants. These are not rules, they are a source of inspiration from which you to take to heart and interpret for yourself.
 
 **The Code of the Republic**
