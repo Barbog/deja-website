@@ -96,7 +96,7 @@ app.use((req, res, next) => {
     }
 
     db.hgetall('user:' + reply, (err, user) => {
-      if (err) {
+      if (err || !user) {
         next();
         return;
       }
