@@ -592,28 +592,49 @@ i18n.__h('Tree').forEach((subhash) => {
     }
   });
 
-app.get('/main.css', (req, res) => {
+var cssCache = null;
+const renderLess = (callback) => {
   fs.readFile(path.join(__dirname, 'less', 'main.less'), { encoding: 'utf8' }, (err, data) => {
     if (err) {
-      res.status(500);
-      res.type('text/css; charset=utf-8');
-      res.send('/* Error reading file: ' + (typeof err.code === 'undefined' ? 'OOPS' : err.code) + ' */\n');
-      console.error(err.stack);
+      callback(err, null);
     } else {
       less.render(data, {
         'include-path': [ path.join(__dirname, 'less') ],
         plugins: [ lessCleanCss ]
       }).then((out) => {
-        res.status(200);
-        res.type('text/css; charset=utf-8');
-        res.send(out.css + '\n');
+        callback(null, out.css + '\n');
       }, (err) => {
-        res.status(500);
-        res.type('text/css; charset=utf-8');
-        res.send('/* Error parsing file: ' + (typeof err.type === 'undefined' ? 'OOPS' : err.type) + ' */\n');
+        callback(err, null);
       });
     }
   });
+};
+renderLess((err, css) => {
+  if (err) {
+    cssCache = null;
+  } else {
+    cssCache = css;
+  }
+});
+app.get('/main.css', (req, res) => {
+  if (env === 'dev') {
+    renderLess((err, css) => {
+      if (err) {
+        res.status(500);
+        res.type('text/css; charset=utf-8');
+        res.send('/* Error reading file: ' + (err.code || err.type || 'OOPS') + ' */\n');
+      } else {
+        res.status(200);
+        res.type('text/css; charset=utf-8');
+        res.send(css);
+      }
+    });
+    return;
+  }
+
+  res.status(cssCache ? 200 : 500);
+  res.type('text/css; charset=utf-8');
+  res.send(cssCache || '/* Failed to read the styles. */\n');
 });
 app.all('/main.css', returnBadAction);
 
