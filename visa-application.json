@@ -1,0 +1,329 @@
+[
+  {
+    "title": "Basic Information",
+    "subtitle": "Used for Census purposes as well.",
+    "questions": [
+      {
+        "title": "Name, Surname",
+        "subtitle": "Your name and surname should match the name on your ID.",
+        "type": "text"
+      },
+      {
+        "title": "Nickname/Playa name",
+        "type": "text"
+      },
+      {
+        "title": "Which gender do you associate yourself with?",
+        "type": "single",
+        "answers": [
+          "Male",
+          "Female",
+          "Other"
+        ]
+      },
+      {
+        "title": "Date of Birth",
+        "subtitle": "This event requires your date of birth for registration. The date given should match your government issued ID. Failure to provide your valid Date Of Birth may result in your entry to the event being denied.",
+        "type": "date"
+      },
+      {
+        "title": "What is your Country of Residence?",
+        "type": "country"
+      },
+      {
+        "title": "Who invited you? How did come to know of this gathering?",
+        "type": "text"
+      },
+      {
+        "title": "Have you attended any burns?",
+        "subtitle": "Choose all that apply.",
+        "type": "multiple",
+        "answers": [
+          "DeJā",
+          "A regional burn other than DeJā",
+          "Burning Man",
+          "No"
+        ]
+      },
+      {
+        "title": "How many years have you attended DeJā?",
+        "type": "single",
+        "answers": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "title": "Will you be traveling with children?",
+        "subtitle": "If you plan to bring children age 16 or older, they will need to register like an adult. Any co-creator younger than 18 will have to be accompanied by a legal guardian.",
+        "type": "yes/no;textifyes:How many? Please list their names."
+      },
+      {
+        "title": "Are you traveling with or will you be meeting with members to set up a theme camp at DeJā?",
+        "type": "yes/no;textifyes:Which one?"
+      },
+      {
+        "title": "What is your purpose for seeking entry into DeJā?",
+        "subtitle": "More than one answer is allowed.",
+        "type": "multiple",
+        "answers": [
+          "Pleasure (Papardes zieds, Jāņu zāle, Sadziedāšanās)",
+          "Spending time with family & friends",
+          "Cultural exchange",
+          "Volunteer",
+          "Create/Co-create",
+          "I am part of a theme camp",
+          "Share my skills",
+          "Other"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Fuck Commerce",
+    "questions": [
+      {
+        "title": "Did you know that there are no tickets sold to get into DeJā?",
+        "type": "yes/no"
+      },
+      {
+        "title": "I am aware that nothing is sold at the DeJā.",
+        "type": "yes/no"
+      },
+      {
+        "title": "Did you know that DeJā operates with a gifting economy, and did you know the difference between gifting and bartering?",
+        "subtitle": "All gifts are given for the pleasure of giving without expectation of something in return.",
+        "type": "yes/no"
+      },
+      {
+        "title": "I am aware that I have to bring everything I plan to eat, drink or otherwise consume AND take all the trash i make out of the property with me after the event and dispose of it in a proper designated receptacle.",
+        "type": "yes/no"
+      },
+      {
+        "title": "I am aware the only thing that is provided for me is an outhouse.",
+        "type": "yes/no"
+      },
+      {
+        "title": "Are you aware that DeJā is not a party or a music festival?",
+        "type": "single",
+        "answers": [
+          "huh? i thought this was another free hippie gathering",
+          "this isn't the rainbow gathering?",
+          "yes, it is a burn!"
+        ]
+      },
+      {
+        "title": "Are you aware that DeJā observes a set of 11 guidelines which we refer to as the Code of the Republic?",
+        "type": "single",
+        "answers": [
+          "Yes, I have read and understand the Code of the Republic and will ensure that anyone I invite has read it and understands it as well.",
+          "No, I am too lazy to read and want to be publicly shamed.",
+          "I may have heard about these.",
+          "What do you mean there are guidelines?"
+        ]
+      },
+      {
+        "title": "I am aware that this is a 5 day event and that I am encouraged to arrive as early as possible (June 17, 2017) and stay late to help with set up and tear down.",
+        "type": "single",
+        "answers": [
+          "Yes and i will come before the event begins to help set up.",
+          "Yes and i will stay until the end and help with tear down and moop sweeps.",
+          "I promise to stay as long as possible and help out as much as my schedule allows me to."
+        ]
+      },
+      {
+        "title": "Are you willing to stay a day longer to help yourself and your fellow comrades out with strike (clean up and tear down)?",
+        "type": "yes/no"
+      },
+      {
+        "title": "Are you willing to unplug from social media during your stay and immerse yourself in the event?",
+        "type": "yes/no"
+      }
+    ]
+  },
+  {
+    "title": "Don't let it hit the ground, but let the bodies hit the floor!",
+    "questions": [
+      {
+        "title": "MOOP is short for:",
+        "type": "single",
+        "answers": [
+          "Manual Of Operations and Procedure",
+          "Matter Out Of Place",
+          "Master Of Occult Powers",
+          "Migrants Of Other Planets"
+        ]
+      },
+      {
+        "title": "Are you ready to take responsibility for any trash or recyclables which you or anyone else around the site produced?",
+        "type": "yes/no"
+      },
+      {
+        "title": "Are you willing to leave space in your vehicle and take an orphan bag of trash with you when you leave the site?",
+        "type": "yes/no"
+      },
+      {
+        "title": "Are you willing to carry a MOOP bag at all times to place any that you may come across as you wander through the property?",
+        "type": "yes/no"
+      },
+      {
+        "title": "Are you willing to carry a portable ashtray if you're a smoker?",
+        "type": "yes/no"
+      },
+      {
+        "title": "Did you know that there are no rubbish bins other than your own or your own camp's?",
+        "type": "yes/no"
+      }
+    ]
+  },
+  {
+    "title": "Self Expression",
+    "questions": [
+      {
+        "title": "Are you aware that at DeJā it is normal to see people dressed as unicorns, superheroes, in onesies or in nothing at all?",
+        "type": "single",
+        "answers": [
+          "hmmm, this is getting weird.",
+          "yes!",
+          "hell yes! this is amazing!!"
+        ]
+      },
+      {
+        "title": "Are you aware that people will leave their body image issues (towards themselves and others) outside of the gate and most likely will show public displays of affection?",
+        "type": "single",
+        "answers": [
+          "Now this is getting uncomfortable.",
+          "I find that clothes limit my self-expression.",
+          "Fantastic!! makes packing so much easier."
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Consent",
+    "questions": [
+      {
+        "title": "Are you prepared to exchange uncomfortably long hugs with random hippies?",
+        "type": "single",
+        "answers": [
+          "Ready?? I have been waiting for this all year.",
+          "Freaking fucking hippies and their uncomfortably long hugs. gross.",
+          "No, not really, but i am comfortable enough in my skin to say \"no, thank you\" if asked."
+        ]
+      },
+      {
+        "title": "Have you been informed that there will be some barely clothed and even naked bodies at the DeJā?",
+        "subtitle": "Some pretty hot ones too?",
+        "type": "single",
+        "answers": [
+          "I am uncomforable with nudity, maybe i shouldn't go.",
+          "I am comfortable around naked people.",
+          "Unsure how i feel about this, but i am open minded."
+        ]
+      },
+      {
+        "title": "Will you resist your primal urges to grope everyone that looks good to you, and seek the person's consent BEFORE doing anything or otherwise risk overstepping your boundaries?",
+        "type": "single",
+        "answers": [
+          "I always ask for consent. Only yes means yes.",
+          "No means No.",
+          "A slap on the hands means no.",
+          "Ignoring me means no.",
+          "Too impaired to answer means no.",
+          "Communication is the best lubricant."
+        ]
+      },
+      {
+        "title": "Do you know to always ask permission before taking anyone's picture, because not everyone at DeJā wants to be photographed?",
+        "type": "single",
+        "answers": [
+          "No, I skipped this section in the Survival Guide.",
+          "Yes, and thank you for the reminder."
+        ]
+      },
+      {
+        "title": "Are you willing to ask for permission from participants that you have photographed before posting photos on social media after you have left the event?",
+        "type": "yes/no"
+      }
+    ]
+  },
+  {
+    "title": "Participation",
+    "subtitle": "DeJā is a co-creative and participant driven event. There are no spectators. There is no programme.",
+    "questions": [
+      {
+        "title": "Are you aware that an approved visa to DeJā commits you to co-create, to participate and to contribute to making this event an amazing experience?",
+        "type": "single",
+        "answers": [
+          "Yes, i have been planning for this all year.",
+          "I am not really sure what i can do, but i will keep an open mind and be willing to help out where ever i can."
+        ]
+      },
+      {
+        "title": "What will you be sharing?",
+        "subtitle": "Contributions, resources, skills, etc.",
+        "type": "text"
+      },
+      {
+        "title": "Do you plan on making a project?",
+        "subtitle": "Interactive art, burnable art.",
+        "type": "text"
+      },
+      {
+        "title": "Do you plan to hold a workshop?",
+        "type": "yes/no;textifyes"
+      },
+      {
+        "title": "Is there a subject you feel you would like to host a lecture on?",
+        "subtitle": "Interactive art, burnable art.",
+        "type": "text"
+      },
+      {
+        "title": "Would you like to spin a DJ set?",
+        "type": "yes/no;textifyes"
+      },
+      {
+        "title": "Is there something you would like to do that hasn't been mentioned on this list?",
+        "type": "yes/no;textifyes"
+      }
+    ]
+  },
+  {
+    "title": "Volunteering",
+    "subtitle": "DeJā is built on co-creation and a community that takes care of each other. This event does not happen without your efforts to cooperate and volunteer. You do not need prior experience, and if this is your first DeJā, you are highly encouraged to participate! If you'd like to be part of one of the Ministries, please let us know by marking your preferred area(s) in the options below. Note that this is not binding, you only agree to be contacted with the option to participate.",
+    "questions": [
+      {
+        "title": "Which Ministry would you like to volunteer with?",
+        "subtitle": "You may pick more than one, but limit yourself to no more than 2 shift maximum per day. Please note: unless specified all of these positions require help during the event. (° This position requires your help before and/or after event) (°° This position requires your help after the event)",
+        "type": "multiple",
+        "answers": [
+          "Ministry of de'Fence (Border Patrol)",
+          "Ministry of Integration (Greeters)",
+          "Ministry of Public Works ° (pre-event/build) must be available to arrive on property between the 17th - 20th of June",
+          "Ministry of Public Works ° (strike, tear-down/clean-up) must be able to stay until the 25th of June",
+          "Ministry of Hazard (fire wood, fire safety, \"rangers\", first-aid, welfare, \"mal-fare\")",
+          "Ministry of the Environment °° (Hemp Spirits)",
+          "Ministry of Noise (Sound team, DJs)",
+          "Ministry of Nutrition ° (Kitchen team)",
+          "Ministry of Civic Responsibility ° (Volunteer and Information Hubs)",
+          "Ministry of Culture ° (Folklorist, Historian, Documentarian, Art Installations, Workshops)"
+        ]
+      },
+      {
+        "title": "Have you considered donating financially to help with the cost of the infrastructure?",
+        "type": "yes/no;textifyes:How would you like your donation used?",
+        "answers": [
+          "Yes",
+          "I plan on donating resources for the benefit of the community at the event."
+        ]
+      },
+      {
+        "title": "E-mail confirmation",
+        "subtitle": "Please confirm the e-mail you registered on this site with – your visa approval will be sent to it and it will be used to connect you in the appropriate Slack channels.",
+        "type": "email"
+      }
+    ]
+  }
+]
