@@ -2,15 +2,17 @@
 typora-root-url: ../static
 ---
 
-DeJā comes to life via your collective ideas, actions, thoughts, gifts, donations, skills, volunteering and participation. If not for you, DeJā would not be. We are filled with the deepest gratitude for what you have shared with us to make this event a reality.  Thank you!
+DeJā comes to life via collective ideas, actions, thoughts, gifts, donations, skills, volunteering and participation. If not for these DeJā would not be. 
 
- on this page
+( on this page)
 
 - Gifting/Donations/No Ticket sales.
 
 - Donations for 2015/Financial Report & Expenses.
 
 - Donations for 2016/Financial Report & Expenses
+
+  (new page)
 
   ​
 
@@ -20,7 +22,7 @@ DeJā comes to life via your collective ideas, actions, thoughts, gifts, donati
 
   When DeJā was conceived, we wished to create an event that would serve as a gift from our community of burners to the global community.  We agreed that in the spirit of spreading the culture and eliminating commodification, we would do away with ticket sales, thus making the event accessible to anyone who would be willing to make the trek out here in order to participate. 
 
-  We have been able to follow through on this experiment for 3 years now, as the use of land for the midsummer gathering is a gift from the owner to the community.  In turn, many more now have access to the experience and the magic that occurs at a burn.  Our thinking is that if we remove the price of admission, we would not only be more inclusive, but also be able to create a collaborative gift in which those interested would contribute according to their means.  
+  We have been able to follow through on this experiment for 3 years now, as the use of land for the midsummer gathering is a gift from the owner to the community.  In turn, many more now have access to the experience and the magic that occurs at a burn.  Our thinking is that if we remove the price of admission, we would not only be more inclusive, but also be able to create a collaborative gift in which those interested would contribute according to their means.   We are filled with the deepest gratitude for what you have shared with us to make this event a reality.  Thank you!
 
   If we can continue to cover our expenses via donations, we can continue to create this event without charging an admission fee.  This is our ultimate goal, to continue co-creating an event which is funded by the participants as well as those who wish to see it grow.  This will allow us continue gifting the event to the community.   If we continue to host this regional gathering, many more will have access to the experience and the magic that occurs when we gather to burn.
 
