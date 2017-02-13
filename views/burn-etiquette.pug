@@ -8,7 +8,8 @@ block body
   section
     if markdown
       != markdown
-      a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(name).toLowerCase().split(' ').join('-') class='tree-' + name.toLowerCase().split(' ').join('-'))
+      if nextpage
+        a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(nextpage).toLowerCase().split(' ').join('-'))= nextpage
     else
       h1= __('Burn Etiquette')
       ul

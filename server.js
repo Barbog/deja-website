@@ -564,6 +564,35 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   }
 });
 
+const burnHash = {};
+i18n.__h('Burn Etiquette').forEach((subhash) => {
+  for (var locale in subhash) {
+    if (!subhash.hasOwnProperty(locale)) { continue; }
+    burnHash[locale] = subhash[locale];
+  }
+});
+
+[ 'The Code of the Republic', 'Consent and Boundaries', 'Photo & Video Policy',
+  'Bring Your Own Cup', 'Leave No Trace', 'Hygiene', 'Participation' ].forEach((subpage) => {
+    const subpageHash = {};
+    const localeHash = {};
+
+    i18n.__h(subpage).forEach((subhash) => {
+      for (var locale in subhash) {
+        if (!subhash.hasOwnProperty(locale)) { continue; }
+        subpageHash[locale] = subhash[locale];
+        localeHash[locale] = '/' + locale + '/' + treeHash[locale].toLowerCase().split(' ').join('-') + '/' + subpageHash[locale].toLowerCase().split(' ').join('-');
+      }
+    });
+
+    for (var locale in subpageHash) {
+      if (!subpageHash.hasOwnProperty(locale)) { continue; }
+      // TODO Actually provide a nextpage when appropriate.
+      catchAll(localeHash, locale, 'burn-etiquette.' + subpageHash.toLowerCase().split(' ').join('-'), subpage, { nextpage: subpage });
+    }
+  });
+
+
 const treeHash = {};
 i18n.__h('Tree').forEach((subhash) => {
   for (var locale in subhash) {
