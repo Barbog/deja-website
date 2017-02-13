@@ -581,7 +581,7 @@ i18n.__h('Burn Etiquette').forEach((subhash) => {
       for (var locale in subhash) {
         if (!subhash.hasOwnProperty(locale)) { continue; }
         subpageHash[locale] = subhash[locale];
-        localeHash[locale] = '/' + locale + '/' + treeHash[locale].toLowerCase().split(' ').join('-') + '/' + subpageHash[locale].toLowerCase().split(' ').join('-');
+        localeHash[locale] = '/' + locale + '/' + burnHash[locale].toLowerCase().split(' ').join('-') + '/' + subpageHash[locale].toLowerCase().split(' ').join('-');
       }
     });
 
