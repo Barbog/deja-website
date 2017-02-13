@@ -588,7 +588,7 @@ i18n.__h('Burn Etiquette').forEach((subhash) => {
     for (var locale in subpageHash) {
       if (!subpageHash.hasOwnProperty(locale)) { continue; }
       // TODO Actually provide a nextpage when appropriate.
-      catchAll(localeHash, locale, 'burn-etiquette.' + subpageHash.toLowerCase().split(' ').join('-'), subpage, { nextpage: subpage });
+      catchAll(localeHash, locale, 'burn-etiquette.' + subpage.toLowerCase().split(' ').join('-'), subpage, { nextpage: subpage });
     }
   });
 
