@@ -209,7 +209,7 @@ i18n.getLocales().forEach((locale) => {
         }
 
         const token = randomstring.generate({ length: 32, charset: 'alphanumeric' });
-        const tokenExpirySeconds = 60 /* s */ * 60 /* m */ * 3 /* h */;
+        const tokenExpirySeconds = 60/* s */ * 60/* m */ * 3/* h */;
         db.setex('session:' + token, tokenExpirySeconds, email, (err) => {
           if (err) {
             rerender();
@@ -591,7 +591,6 @@ i18n.__h('Burn Etiquette').forEach((subhash) => {
       catchAll(localeHash, locale, 'burn-etiquette.' + subpageHash.toLowerCase().split(' ').join('-'), subpage, { nextpage: subpage });
     }
   });
-
 
 const treeHash = {};
 i18n.__h('Tree').forEach((subhash) => {
