@@ -68,15 +68,13 @@ body {
 
 button, a {
   font-family: @button-font-family;
-  font-size: 11px;
   line-height: 1em;
-  vertical-align: text-top;
   background: transparent;
   cursor: pointer;
   text-decoration: none;
-  color: #000;
+  color: #FFF;
   &.disabled { cursor: default; pointer-events: none; }
-  .buttons & { font-size: 16px; line-height: 1em; }
+  .buttons & { line-height: 1em; }
 }
 
 header {
@@ -453,6 +451,7 @@ form {
       color: #FFF;
       padding: 10px 0;
       font-weight: normal;
+      font-size: 16px;
       transition: transform .1s ease-in-out;
       &:hover { transform: translateY(-4px); }
       &.register { float: right; }
