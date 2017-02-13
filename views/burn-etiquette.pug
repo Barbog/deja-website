@@ -1,0 +1,21 @@
+extends layout.pug
+
+mixin subpage(name)
+  li
+    a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(name).toLowerCase().split(' ').join('-'))= __(name)
+
+block body
+  section
+    if markdown
+      != markdown
+      a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(name).toLowerCase().split(' ').join('-') class='tree-' + name.toLowerCase().split(' ').join('-'))
+    else
+      h1= __('Burn Etiquette')
+      ul
+        +subpage('The Code of the Republic')
+        +subpage('Consent and Boundaries')
+        +subpage('Photo & Video Policy')
+        +subpage('Bring Your Own Cup')
+        +subpage('Leave No Trace')
+        +subpage('Hygiene')
+        +subpage('Participation')

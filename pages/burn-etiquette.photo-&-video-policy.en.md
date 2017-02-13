@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-# Photo & Video policy
+# Photo & Video Policy
 
 Many opportunities for photography will arise at DeJā, please ask the individual(s):
 
