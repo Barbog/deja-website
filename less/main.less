@@ -208,6 +208,8 @@ nav {
     overflow-x: hidden;
   } }
 
+  &:empty { background-color: transparent; }
+
   div {
     margin: 8px 0;
   }
@@ -287,6 +289,8 @@ section {
     background-color: initial;
     &, a { color: initial; }
   }
+
+  &:empty { background-color: transparent; }
 
   @media (min-width: (@desktop-size)) { & {
     margin-bottom: 70px;
