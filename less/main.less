@@ -282,6 +282,8 @@ section {
   &, a { color: lighten(#a98551, 35%); }
 
   &.bgless {
+    padding-left: 0;
+    padding-right: 0;
     background-color: initial;
     &, a { color: initial; }
   }
@@ -482,13 +484,13 @@ form {
 
 .carousel-container {
   display: block;
-  max-width: (140px + 10px) * 5;
+  max-width: @desktop-size;
   height: 140px + 8px + 4px;
   margin: 0 auto;
   position: relative;
 
   @media (min-width: (@desktop-size)) { & {
-    padding: 15px;
+    padding: 15px 0;
     background: @superlight;
   } }
 
