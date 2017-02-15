@@ -666,6 +666,26 @@ app.get('/main.css', (req, res) => {
 });
 app.all('/main.css', returnBadAction);
 
+if (env === 'dev') {
+  app.get('/favicon.png', (req, res) => {
+    const target = '/favicon.dev.png';
+    res.render('redirect', { target: target }, (err, html) => {
+      res.status(307);
+      res.location(target);
+      if (err) {
+        res.type('text/plain; charset=utf-8');
+        res.send(target);
+        console.error(err.stack);
+      } else {
+        res.type('text/html; charset=utf-8');
+        res.send(html);
+      }
+    });
+    return;
+  });
+  app.all('/favicon.png', returnBadAction);
+}
+
 app.use((req, res) => {
   res.status(404);
   res.type('application/json; charset=utf-8');
