@@ -4,8 +4,9 @@
 @dark: #956929;
 
 @fadeintime: .3s;
-@button-font-family: 'Roboto Slab', sans-serif;
-@desktop-size: 780px;
+@button-font-family: 'Roboto Condensed', sans-serif;
+@font-size: 16px;
+@desktop-size: 1020px;
 
 @keyframes fadein {
   from { opacity: 0; }
@@ -140,7 +141,7 @@ header {
       margin: 0 5%;
       padding: 6px 0;
       font-family: @button-font-family;
-      font-size: 12px;
+      font-size: @font-size;
       line-height: 1em;
       text-align: center;
       vertical-align: text-top;
@@ -148,6 +149,7 @@ header {
 
     a.sign-in, .lang a {
       color: #FFF;
+      letter-spacing: 2px;
       transition: transform .1s ease-in-out, width .1s ease-in-out;
       &:hover { transform: translateY(-4px); }
       @media (max-width: (@desktop-size - 1px)) { .js-navhide & {
@@ -194,10 +196,10 @@ header {
 
 nav {
   display: inline-block;
-  width: 40%;
+  width: 30%;
   max-width: 280px;
-  margin: 0 0 8px 0;
-  padding: 0;
+  margin: 0 30px 8px 0;
+  padding: 20px 0;
   background: @dark;
   transition: transform .1s ease-in-out, width .1s ease-in-out;
   @media (max-width: (@desktop-size - 1px)) { .js-navhide & {
@@ -216,8 +218,9 @@ nav {
     margin: 6px 0;
     padding: 6px;
     font-family: @button-font-family;
-    font-size: 11px;
+    font-size: @font-size;
     line-height: 1em;
+    letter-spacing: 2px;
     text-align: center;
     vertical-align: text-top;
     color: #FFF;
@@ -234,7 +237,7 @@ nav {
         position: absolute;
         top: 250px + 15px + 12px + 6px;
         width: 120px;
-        font-size: 12px;
+        font-size: @font-size;
         line-height: 1em;
         margin: 0;
         padding: 0;
@@ -266,14 +269,22 @@ nav {
 }
 
 section {
-  margin: 0 0 8px 0;
+  margin: 0;
+  padding: 30px;
+  background-color: #956929;
   max-width: 100%;
   font-family: @button-font-family;
-  font-size: 16px;
+  font-size: @font-size * 1.2;
   line-height: 1em;
-  color: #fff;
   vertical-align: top;
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
+
+  &, a { color: lighten(#a98551, 35%); }
+
+  &.bgless {
+    background-color: initial;
+    &, a { color: initial; }
+  }
 
   @media (min-width: (@desktop-size)) { & {
     margin-bottom: 70px;
@@ -291,10 +302,10 @@ section {
 
   h1 {
     display: block;
-    margin: 0 0 8px 0;
+    margin: 0;
     padding: 6px 6%;
     font-family: @button-font-family;
-    font-size: 16px;
+    font-size: @font-size * 1.2;
     line-height: 1em;
     background: @dark;
     color: #FFF;
@@ -303,9 +314,9 @@ section {
 
   p, ul {
     margin-bottom: 1em;
-    margin-left: 20px;
+    // margin-left: 20px;
     font-family: @button-font-family;
-    font-size: 16px;
+    font-size: @font-size * 1.2;
     line-height: 1em;
   }
 
@@ -373,7 +384,7 @@ section {
       max-width: 50%;
       vertical-align: middle;
       font-family: @button-font-family;
-      font-size: 30px;
+      font-size: @font-size * 3;
       line-height: 1em;
       color: #fff;
     }
@@ -421,7 +432,7 @@ form {
   label, input, .buttons {
     display: block;
     font-family: @button-font-family;
-    font-size: 16px;
+    font-size: @font-size * 1.2;
     line-height: 1em;
     font-weight: bold;
   }
@@ -451,7 +462,7 @@ form {
       color: #FFF;
       padding: 10px 0;
       font-weight: normal;
-      font-size: 16px;
+      font-size: @font-size * 1.2;
       transition: transform .1s ease-in-out;
       &:hover { transform: translateY(-4px); }
       &.register { float: right; }
@@ -488,7 +499,7 @@ form {
     background: @dark;
     color: #FFF;
     font-family: @button-font-family;
-    font-size: 12px;
+    font-size: @font-size;
     line-height: 1em;
     text-align: center;
     z-index: 1;

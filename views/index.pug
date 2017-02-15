@@ -8,7 +8,7 @@ block home
   img.home(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='110' height='110')
 
 block body
-  section
+  section.bgless
     .tree
       img(src='/images/principles/tree.png' alt=__('Tree of Life') width='210' height='380')
       +tree-button('Be Present', '30')
@@ -22,7 +22,7 @@ block body
       +tree-button('Participation', '30')
       +tree-button('Self-expression', '30')
       +tree-button('Self Reliance', '30')
-  section
+  section.bgless
     h1= __('Upcoming Global Events').toUpperCase()
     .carousel-container
       - var globalEvents = [];
