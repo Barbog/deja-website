@@ -32,10 +32,10 @@ html(lang=getLocale())
               a.altlang.disabled(hreflang=locale href=href)= locale.toUpperCase()
             else
               a.altlang(hreflang=locale href=href)= locale.toUpperCase()
+        block home
+          a.home(href='/' + getLocale() + '/')= __('Home').toUpperCase()
         button.header-bar-burger III
     nav
-      block home
-        a.home(href='/' + getLocale() + '/')= __('Home').toUpperCase()
       if !hideNavigation
         div
           a.left(href='/' + getLocale() + '/' + __('What is DeJā').toLowerCase().split(' ').join('-'))= __('What is DeJā').toUpperCase()

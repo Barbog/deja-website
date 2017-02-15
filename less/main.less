@@ -191,6 +191,32 @@ header {
         display: none;
       } }
     }
+
+    .home {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      width: 120px;
+      margin: 0;
+      padding: 0;
+      color: #FFF;
+      letter-spacing: 2px;
+      text-align: center;
+      transition: transform .1s ease-in-out;
+      transform: translateX(-50%);
+
+      &:hover { transform: translateX(-50%) translateY(-4px); }
+      &.disabled:hover { transform: translateX(-50%); }
+    }
+
+    img.home {
+      top: -35px;
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 120px;
+      background: @dark;
+    }
   }
 }
 
@@ -238,40 +264,6 @@ nav {
       color: #999;
       &.disabled:hover { transform: none; }
     }
-
-    &.home {
-      @media (min-width: (@desktop-size)) { & {
-        position: absolute;
-        top: 250px + 15px + 12px + 6px;
-        width: 120px;
-        font-size: @font-size;
-        line-height: 1em;
-        margin: 0;
-        padding: 0;
-        left: 50%;
-        transform: translateX(-50%);
-
-        &:hover { transform: translateX(-50%) translateY(-4px); }
-        &.disabled:hover { transform: translateX(-50%); }
-      } }
-    }
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 120px;
-    background: @dark;
-
-    @media (min-width: (@desktop-size)) { & {
-      position: absolute;
-      top: 250px + 15px + 12px + 6px - 58px;
-      left: 50%;
-      transform: translateX(-50%);
-    } }
   }
 }
 
