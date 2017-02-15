@@ -546,7 +546,7 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
 };
 
-[ 'What\'s The Gathering', 'Burn Etiquette', 'Survival Guide', 'Participation', 'Donation', 'Network', 'FAQ' ].forEach((title) => {
+[ 'What is DeJā', 'Burn Etiquette', 'Survival Guide', 'Participation', 'Donation', 'Network', 'FAQ' ].forEach((title) => {
   const navbarHash = {};
   const localeHash = {};
 
