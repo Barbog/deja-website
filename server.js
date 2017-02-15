@@ -510,7 +510,7 @@ i18n.getLocales().forEach((locale) => {
 const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
     req.setLocale(locale);
-    if ([ 'Survival Guide', 'Participation' ].indexOf(title) !== -1 && !res.locals.user) {
+    if ([ 'Survival Guide', 'Creation' ].indexOf(title) !== -1 && !res.locals.user) {
       const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
       res.render('redirect', { target: target }, (err, html) => {
         res.status(307);
@@ -566,7 +566,7 @@ const catchAll = (localeHash, locale, view, title, renderOverrides) => {
   app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
 };
 
-[ 'What is DeJā', 'Burn Etiquette', 'Survival Guide', 'Participation', 'Donation', 'Network', 'FAQ' ].forEach((title) => {
+[ 'What is DeJā', 'Burn Etiquette', 'Survival Guide', 'Creation', 'Donation', 'Network', 'FAQ' ].forEach((title) => {
   const navbarHash = {};
   const localeHash = {};
 
