@@ -36,14 +36,7 @@
       },
       {
         "title": "Have you attended any burns?",
-        "subtitle": "Choose all that apply.",
-        "type": "multiple",
-        "answers": [
-          "DeJā",
-          "A regional burn other than DeJā",
-          "Burning Man",
-          "No"
-        ]
+        "type": "yes/no;textifyes:Which ones?"
       },
       {
         "title": "How many years have you attended DeJā?",
