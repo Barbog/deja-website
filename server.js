@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
+const bcrypt = require('bcryptjs');
 const env = require('get-env')();
 const express = require('express');
 const frontMatter = require('front-matter');
@@ -218,37 +219,39 @@ i18n.getLocales().forEach((locale) => {
       }
 
       db.hget('user:' + email, 'password', (err, reply) => {
-        if (err) {
-          rerender();
-          return;
+        if (err || typeof reply !== 'string' || reply === '') {
+          // We still want to run bcrypt to avoid timing attacks.
+          reply = '';
         }
 
-        if (typeof reply !== 'string' || reply === '' || password !== reply) {
-          rerender();
-          return;
-        }
-
-        const token = randomstring.generate({ length: 32, charset: 'alphanumeric' });
-        const tokenExpirySeconds = 60/* s */ * 60/* m */ * 3/* h */;
-        db.setex('session:' + token, tokenExpirySeconds, email, (err) => {
-          if (err) {
+        bcrypt.compare(password, reply, (err, res) => {
+          if (err || !res) {
             rerender();
             return;
           }
 
-          res.cookie('token', token, { path: '/', maxAge: 1000 * tokenExpirySeconds, httpOnly: true, secure: true });
-
-          res.render('redirect', { target: location }, (err, html) => {
-            res.status(303);
-            res.location(location);
+          const token = randomstring.generate({ length: 32, charset: 'alphanumeric' });
+          const tokenExpirySeconds = 60/* s */ * 60/* m */ * 3/* h */;
+          db.setex('session:' + token, tokenExpirySeconds, email, (err) => {
             if (err) {
-              res.type('text/plain; charset=utf-8');
-              res.send(location);
-              console.error(err.stack);
-            } else {
-              res.type('text/html; charset=utf-8');
-              res.send(html);
+              rerender();
+              return;
             }
+
+            res.cookie('token', token, { path: '/', maxAge: 1000 * tokenExpirySeconds, httpOnly: true, secure: true });
+
+            res.render('redirect', { target: location }, (err, html) => {
+              res.status(303);
+              res.location(location);
+              if (err) {
+                res.type('text/plain; charset=utf-8');
+                res.send(location);
+                console.error(err.stack);
+              } else {
+                res.type('text/html; charset=utf-8');
+                res.send(html);
+              }
+            });
           });
         });
       });
@@ -362,47 +365,55 @@ i18n.getLocales().forEach((locale) => {
 
       const password = randomstring.generate({ length: 8, readable: true, charset: 'alphanumeric' });
 
-      db.hexists('user:' + email, 'password', (err, reply) => {
+      bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
           rerender();
           return;
         }
 
-        if (reply) {
-          res.render('redirect', { target: location }, (err, html) => {
-            res.status(303);
-            res.location(location);
-            if (err) {
-              res.type('text/plain; charset=utf-8');
-              res.send(location);
-              console.error(err.stack);
-            } else {
-              res.type('text/html; charset=utf-8');
-              res.send(html);
-            }
-          });
-          return;
-        }
-
-        db.hmset('user:' + email, 'password', password, 'name', name, (err) => {
+        // We still want to run bcrypt to avoid timing attacks.
+        db.hexists('user:' + email, 'password', (err, reply) => {
           if (err) {
             rerender();
             return;
           }
 
-          // TODO Send the password out to the user.
+          if (reply) {
+            res.render('redirect', { target: location }, (err, html) => {
+              res.status(303);
+              res.location(location);
+              if (err) {
+                res.type('text/plain; charset=utf-8');
+                res.send(location);
+                console.error(err.stack);
+              } else {
+                res.type('text/html; charset=utf-8');
+                res.send(html);
+              }
+            });
+            return;
+          }
 
-          res.render('redirect', { target: location }, (err, html) => {
-            res.status(303);
-            res.location(location);
+          db.hmset('user:' + email, 'password', hash, 'name', name, (err) => {
             if (err) {
-              res.type('text/plain; charset=utf-8');
-              res.send(location);
-              console.error(err.stack);
-            } else {
-              res.type('text/html; charset=utf-8');
-              res.send(html);
+              rerender();
+              return;
             }
+
+            // TODO Send the `password` out to the user.
+
+            res.render('redirect', { target: location }, (err, html) => {
+              res.status(303);
+              res.location(location);
+              if (err) {
+                res.type('text/plain; charset=utf-8');
+                res.send(location);
+                console.error(err.stack);
+              } else {
+                res.type('text/html; charset=utf-8');
+                res.send(html);
+              }
+            });
           });
         });
       });
