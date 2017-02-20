@@ -9,6 +9,7 @@ const fs = require('fs');
 const i18n = require('i18n');
 const less = require('less');
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true });
+const mailgun = require('mailgun-js')({ apiKey: 'key-f092a5bb72bd024a03f67de1144de8a8', domain: 'sandboxce71f9fc94ff4e4ca40e1578b8ba3019.mailgun.org' });
 const path = require('path');
 const randomstring = require('randomstring');
 const redis = require('redis');
@@ -400,19 +401,29 @@ i18n.getLocales().forEach((locale) => {
               return;
             }
 
-            // TODO Send the `password` out to the user.
-
-            res.render('redirect', { target: location }, (err, html) => {
-              res.status(303);
-              res.location(location);
+            mailgun.messages().send({
+              from: 'Degošie Jāņi <game@sandboxce71f9fc94ff4e4ca40e1578b8ba3019.mailgun.org>',
+              to: email,
+              subject: 'Your registration with DeJā',
+              text: 'You are in. Your password is ' + password + '.'
+            }, (err) => {
               if (err) {
-                res.type('text/plain; charset=utf-8');
-                res.send(location);
-                console.error(err.stack);
-              } else {
-                res.type('text/html; charset=utf-8');
-                res.send(html);
+                rerender();
+                return;
               }
+
+              res.render('redirect', { target: location }, (err, html) => {
+                res.status(303);
+                res.location(location);
+                if (err) {
+                  res.type('text/plain; charset=utf-8');
+                  res.send(location);
+                  console.error(err.stack);
+                } else {
+                  res.type('text/html; charset=utf-8');
+                  res.send(html);
+                }
+              });
             });
           });
         });
