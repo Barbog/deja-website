@@ -225,8 +225,8 @@ i18n.getLocales().forEach((locale) => {
           reply = '';
         }
 
-        bcrypt.compare(password, reply, (err, res) => {
-          if (err || !res) {
+        bcrypt.compare(password, reply, (err, match) => {
+          if (err || !match) {
             rerender();
             return;
           }
