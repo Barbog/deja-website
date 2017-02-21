@@ -10,10 +10,6 @@ This is your Survival Guide loaded with important information about what to expe
 
 ​	**The Beginner's Guide**
 
-​		**What is DeJā?**
-
-​		**The Basics**
-
 ​			What is Provided?
 
 ​			What isn't Provided?
@@ -22,7 +18,9 @@ This is your Survival Guide loaded with important information about what to expe
 
 ​			Why do i need a Visa?	
 
-​			Why are there no tickets sold?			
+​			Why are there no tickets sold?	
+
+​	**The Basics**
 
 ​			Environment/Weather
 
@@ -101,20 +99,6 @@ This is your Survival Guide loaded with important information about what to expe
 *You are responsible for You.*
 
 *You packed it in, you pack it out.*
-
-(new page)
-
-**What is DeJā?**
-
- A co-creative, autonomous gathering, inspired by the principles of Burning Man and other regional events located around the earth.
-
-A donation driven event and commercial free zone.
-
-An experiment in creativity, expression, participation and a cash-free community.
-
-A temporary village, which inspires a collective of individuals to create the world they wish for.  Co-created by a diverse, artistic, international community. 
-
-(*Latvian. verb.*)  to dance.
 
 
 
@@ -493,7 +477,7 @@ A temporary village, which inspires a collective of individuals to create the wo
 
   -  Be a superhero, a unicorn, a vicar in a tutu, or a nun.  Be a fairy, an elf, a hobbit, or a racoon.
 
-        **Remember: no glitter and feathers!!!**
+         **Remember: no glitter and feathers!!!**
 
 - **LED or other lighting for clothes**
 
