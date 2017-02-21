@@ -2,17 +2,11 @@
 typora-root-url: ../static
 ---
 
-# Consent and Boundaries
+# Consent and Boundaries (bold and banner)
 
 **CONSENT, CONSIDERATION AND BOUNDARIES**
 
-Always ask for consent,
-
-always be considerate,
-
-and always respect!
-
-Communication is the best lubricant – use it!
+Always ask for consent, always be considerate, and always respect! Communication is the best lubricant – use it!
 
 Although DeJā is an extremely free and open-minded environment, it is important to be respectful of other people’s boundaries! We want to help prevent sexual harassment and assault while ensuring that sex positive free expression thrives. It is imperative to know and express our own sexual boundaries and to respect our partners’ boundaries.
 

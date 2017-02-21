@@ -2,13 +2,37 @@
 typora-root-url: ../static
 ---
 
-This is your Survival Guide loaded with important information about what to expect, what you will need and how to prepare to get the most out of this gathering. For your safety and best experience, make sure you read it in its entirety **BEFORE** attending the event, regardless if this is your first burn or if you are a jaded and seasoned veteran, 
+**SURVIVAL GUIDE**  (bold & banner)
+
+This is your Survival Guide loaded with important information about what to expect, what you will need and how to prepare to get the most out of this gathering. For your safety and best experience, make sure you read it in its entirety before attending the event, regardless if this is your first burn or if you are a jaded and seasoned veteran, 
 
 (until the page break, each of these will be a hyperlink to a section in the guide)
 
-**READ IT…**
+**READ IT…** 
 
-​	**The Beginner's Guide**
+​	 (SG table of contents/hyperlinks to section) (create a drop down menu at each point, showing sections in each title)
+
+​	**The Beginner's Guide** 
+
+​	**The Basics**
+
+​	**Preparing**
+
+​	**Tips and Hints**
+
+​	**Getting There**
+
+​	**Arriving and Setting up**
+
+​	**Relationship Survival Guide**
+
+​	**An Introverts Guide to DeJā**
+
+​	**After DeJā**
+
+(new page)
+
+​	**The Beginner's Guide** 
 
 ​			What is Provided?
 
@@ -19,6 +43,8 @@ This is your Survival Guide loaded with important information about what to expe
 ​			Why do i need a Visa?	
 
 ​			Why are there no tickets sold?	
+
+(new page)
 
 ​	**The Basics**
 
@@ -52,11 +78,15 @@ This is your Survival Guide loaded with important information about what to expe
 
 ​			Latvian Law
 
+(new page)
+
 ​		**Preparing**
 
 ​			The Essentials
 
 ​			Environmental Consciousness
+
+(new page)
 
 ​		**Tips and Hints**
 
@@ -64,17 +94,25 @@ This is your Survival Guide loaded with important information about what to expe
 
 ​			Making Your Art Green
 
+(new page)
+
 ​		**Getting There**
+
+(new page)
 
 ​		**Arriving and Setting Up**
 
+(new page)
+
 ​		**Relationship Survival Guide**
+
+(new page)
 
 ​		**An Introvert's Guide to DeJā**
 
+(new page)
+
 ​		**After DeJā**
-
-
 
 (new page)
 
@@ -103,8 +141,6 @@ This is your Survival Guide loaded with important information about what to expe
 
 
 (new page)
-
-**The Basics**
 
 ​	**What is provided?**
 
@@ -156,7 +192,7 @@ This is your Survival Guide loaded with important information about what to expe
 
 (new page)
 
-​	**Why are there not tickets sold?**
+​	**Why are there no tickets sold?**
 
 ​		Being that there are no commercial transactions ocuring at the gathering, we wish to push this idea further and remove the commercial transaction of a ticket sale as well.
 
@@ -477,7 +513,7 @@ This is your Survival Guide loaded with important information about what to expe
 
   -  Be a superhero, a unicorn, a vicar in a tutu, or a nun.  Be a fairy, an elf, a hobbit, or a racoon.
 
-         **Remember: no glitter and feathers!!!**
+          **Remember: no glitter and feathers!!!**
 
 - **LED or other lighting for clothes**
 

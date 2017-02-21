@@ -2,17 +2,19 @@
 typora-root-url: ../static
 ---
 
-# The Code of the Republic
+# The Code of the Republic (banner bold)
 
-## Gifting.
+
+
+## Gifting. (bold)
 
 The economy of our community thrives on gifting instead of bartering.  We gift our time, effort and resources because the act of giving feels good. Gifts come from the heart without expectation of anything in return.
 
-## Fuck Commerce.
+## Fuck Commerce.(bold)
 
 We have removed commercial transactions from our social environments. We choose the joy of participation and sharing over the culture of consumption. DeJā is a place where nothing is sold, traded or bartered. There are no vendors, shops or merchandise. We do not have sponsors; we do not use advertisements or any sort of marketing. By removing commercial transactions we encourage human interaction.
 
-## Co-Creation.
+## Co-Creation. 
 
 DeJā comes to life when we cooperate and collaborate. The strength of our community comes from working together. You will be encouraged to share and explore your own creativity and skills. We all are here to share our passions and learn from each other.
 
