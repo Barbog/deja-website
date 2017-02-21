@@ -14,6 +14,10 @@ DeJā is . . .
 * A temporary village where you will meet a diverse, artisitic, international collective of individuals, participating to collectively co-create and conjure the magic,  In a surrounding where you will be required to exercise your self-reliance.  
 * (*Latvian. verb.*)  to dance.
 
+
+
+
+
 (next page)(maybe an arrow to next page?)
 
 **When is it?**
