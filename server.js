@@ -534,7 +534,7 @@ function catchAllFor(backstack, sitemap) {
     if (typeof page.title !== 'string') { throw new Error('Page title not provided as a string.'); }
     if (!Array.isArray(page.subpages)) { page.subpages = []; }
 
-    const stack = backstack.splice(0);
+    const stack = JSON.parse(JSON.stringify(backstack));
     stack[stack.length] = { title: {}, href: {} };
 
     const reduceToHref = (locale) => {
