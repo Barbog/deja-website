@@ -79,7 +79,7 @@
     ]
   },
   {
-    "title": "The Survival Guide",
+    "title": "Survival Guide",
     "subpages": [
       {
         "title": "The Beginner's Guide",
@@ -183,10 +183,11 @@
     "title": "Creation"
   },
   {
-    "title": "The Visa Application"
+    "title": "Visa Application",
+    "hidden": true
   },
   {
-    "title": "Donations"
+    "title": "Donation"
   },
   {
     "title": "Network"
