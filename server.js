@@ -529,138 +529,82 @@ i18n.getLocales().forEach((locale) => {
   }
 })();
 
-const catchAll = (localeHash, locale, view, title, renderOverrides) => {
-  app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
-    req.setLocale(locale);
-    if ([ 'Survival Guide', 'Creation' ].indexOf(title) !== -1 && !res.locals.user) {
-      const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
-      res.render('redirect', { target: target }, (err, html) => {
-        res.status(307);
-        res.location(target);
-        if (err) {
-          res.type('text/plain; charset=utf-8');
-          res.send(target);
-          console.error(err.stack);
-        } else {
-          res.type('text/html; charset=utf-8');
-          res.send(html);
-        }
-      });
-      return;
-    }
-    const render = (markdown) => {
-      const renderParams = Object.assign({ altLocales: localeHash, title: req.__(title), markdown: markdown }, renderOverrides || {});
-      res.render(view.split('.')[0], renderParams, (err, html) => {
-        if (err) {
-          res.render('layout', renderParams, (err, html) => {
+function catchAllFor(backstack, sitemap) {
+  sitemap.forEach((page) => {
+    if (typeof page.title !== 'string') { throw new Error('Page title not provided as a string.'); }
+    if (!Array.isArray(page.subpages)) { page.subpages = []; }
+
+    const stack = backstack.splice(0);
+    stack[stack.length] = { title: {}, href: {} };
+
+    const reduceToHref = (locale) => {
+      return stack.reduce((prev, next) => { return prev + '/' + next.title[locale].toLowerCase().split(' ').join('-'); }, '/' + locale);
+    };
+
+    i18n.__h(page.title).forEach((subhash) => {
+      for (var locale in subhash) {
+        if (!subhash.hasOwnProperty(locale)) { continue; }
+        stack[stack.length - 1].title[locale] = subhash[locale];
+        stack[stack.length - 1].href[locale] = reduceToHref(locale);
+      }
+    });
+
+    if (!page.hidden) {
+      const catchAll = (localeHash, locale, view, title, renderOverrides) => {
+        app.get(encodeURI(localeHash[locale]), (req, res) => {
+          req.setLocale(locale);
+          const render = (markdown) => {
+            const renderParams = Object.assign({ altLocales: localeHash, title: req.__(title), markdown: markdown }, renderOverrides || {});
+            res.render(view.split('.')[0], renderParams, (err, html) => {
+              if (err) {
+                res.render('layout', renderParams, (err, html) => {
+                  if (err) {
+                    res.status(500);
+                    res.type('text/plain; charset=utf-8');
+                    res.send('Something broke horribly. Sorry.');
+                    console.error(err.stack);
+                  } else {
+                    res.status(200);
+                    res.type('text/html; charset=utf-8');
+                    res.send(html);
+                  }
+                });
+              } else {
+                res.status(200);
+                res.type('text/html; charset=utf-8');
+                res.send(html);
+              }
+            });
+          };
+          fs.readFile(path.join(__dirname, 'pages', encodeURIComponent(view + '.' + locale + '.md')), { encoding: 'utf8' }, (err, data) => {
             if (err) {
-              res.status(500);
-              res.type('text/plain; charset=utf-8');
-              res.send('Something broke horribly. Sorry.');
-              console.error(err.stack);
+              fs.readFile(path.join(__dirname, 'pages', encodeURIComponent(view + '.en.md')), { encoding: 'utf8' }, (err, data) => {
+                if (err) {
+                  render('');
+                } else {
+                  render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
+                }
+              });
             } else {
-              res.status(200);
-              res.type('text/html; charset=utf-8');
-              res.send(html);
+              render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
             }
           });
-        } else {
-          res.status(200);
-          res.type('text/html; charset=utf-8');
-          res.send(html);
-        }
-      });
-    };
-    fs.readFile(path.join(__dirname, 'pages', encodeURIComponent(view + '.' + locale + '.md')), { encoding: 'utf8' }, (err, data) => {
-      if (err) {
-        fs.readFile(path.join(__dirname, 'pages', encodeURIComponent(view + '.en.md')), { encoding: 'utf8' }, (err, data) => {
-          if (err) {
-            render('');
-          } else {
-            render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
-          }
         });
-      } else {
-        render(showdown.makeHtml(frontMatter(data).body.trim()).split('\n').join(''));
+        app.all(encodeURI(localeHash[locale]), returnBadAction);
+      };
+
+      for (var locale in stack[stack.length - 1].title) {
+        if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
+        catchAll(stack[stack.length - 1].href, locale,
+          stack.map((el) => { return el.title.en.toLowerCase().split(' ').join('-'); }).join('.'),
+          page, {});
       }
-    });
-  });
-  app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
-};
-
-[ 'What is DeJā', 'Burn Etiquette', 'Survival Guide', 'Creation', 'Donation', 'Network', 'FAQ' ].forEach((title) => {
-  const navbarHash = {};
-  const localeHash = {};
-
-  i18n.__h(title).forEach((subhash) => {
-    for (var locale in subhash) {
-      if (!subhash.hasOwnProperty(locale)) { continue; }
-      navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
     }
+
+    catchAllFor(stack, page.subpages);
   });
-
-  for (var locale in navbarHash) {
-    if (!navbarHash.hasOwnProperty(locale)) { continue; }
-    catchAll(localeHash, locale, title.toLowerCase().split(' ').join('-'), title, {});
-  }
-});
-
-const burnHash = {};
-i18n.__h('Burn Etiquette').forEach((subhash) => {
-  for (var locale in subhash) {
-    if (!subhash.hasOwnProperty(locale)) { continue; }
-    burnHash[locale] = subhash[locale];
-  }
-});
-
-[ 'The Code of the Republic', 'Consent and Boundaries', 'Photo & Video Policy',
-  'Bring Your Own Cup', 'Leave No Trace', 'Hygiene', 'Participation' ].forEach((subpage) => {
-    const subpageHash = {};
-    const localeHash = {};
-
-    i18n.__h(subpage).forEach((subhash) => {
-      for (var locale in subhash) {
-        if (!subhash.hasOwnProperty(locale)) { continue; }
-        subpageHash[locale] = subhash[locale];
-        localeHash[locale] = '/' + locale + '/' + burnHash[locale].toLowerCase().split(' ').join('-') + '/' + subpageHash[locale].toLowerCase().split(' ').join('-');
-      }
-    });
-
-    for (var locale in subpageHash) {
-      if (!subpageHash.hasOwnProperty(locale)) { continue; }
-      // TODO Actually provide a nextpage when appropriate.
-      catchAll(localeHash, locale, 'burn-etiquette.' + subpage.toLowerCase().split(' ').join('-'), subpage, { nextpage: subpage });
-    }
-  });
-
-const treeHash = {};
-i18n.__h('Tree').forEach((subhash) => {
-  for (var locale in subhash) {
-    if (!subhash.hasOwnProperty(locale)) { continue; }
-    treeHash[locale] = subhash[locale];
-  }
-});
-
-[ 'Be Present', 'Co-creation', 'Community', 'Each 1 Teach 1', 'Environmental Consciousness',
-  'Fuck Commerce', 'Gifting', 'Openness', 'Participation', 'Self-expression',
-  'Self Reliance' ].forEach((principle) => {
-    const principleHash = {};
-    const localeHash = {};
-
-    i18n.__h(principle).forEach((subhash) => {
-      for (var locale in subhash) {
-        if (!subhash.hasOwnProperty(locale)) { continue; }
-        principleHash[locale] = subhash[locale];
-        localeHash[locale] = '/' + locale + '/' + treeHash[locale].toLowerCase().split(' ').join('-') + '/' + principleHash[locale].toLowerCase().split(' ').join('-');
-      }
-    });
-
-    for (var locale in principleHash) {
-      if (!principleHash.hasOwnProperty(locale)) { continue; }
-      catchAll(localeHash, locale, 'tree.' + principle.toLowerCase().split(' ').join('-'), principle, { principle: principle });
-    }
-  });
+}
+catchAllFor([], JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' })));
 
 var cssCache = null;
 const renderLess = (callback) => {
