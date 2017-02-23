@@ -1,5 +1,44 @@
 [
   {
+    "title": "Tree",
+    "hidden": true,
+    "subpages": [
+      {
+        "title": "Be Present"
+      },
+      {
+        "title": "Co-creation"
+      },
+      {
+        "title": "Community"
+      },
+      {
+        "title": "Each 1 Teach 1"
+      },
+      {
+        "title": "Environmental Consciousness"
+      },
+      {
+        "title": "Fuck Commerce"
+      },
+      {
+        "title": "Gifting"
+      },
+      {
+        "title": "Openness"
+      },
+      {
+        "title": "Participation"
+      },
+      {
+        "title": "Self-expression"
+      },
+      {
+        "title": "Self Reliance"
+      }
+    ]
+  },
+  {
     "title": "What is DeJā",
     "subpages": [
       {
