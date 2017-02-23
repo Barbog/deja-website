@@ -533,9 +533,10 @@ function catchAllFor(backstack, sitemap) {
   sitemap.forEach((page) => {
     if (typeof page.title !== 'string') { throw new Error('Page title not provided as a string.'); }
     if (!Array.isArray(page.subpages)) { page.subpages = []; }
+    if (typeof page.render !== 'object' || page.render === null) { page.render = {}; }
 
     const stack = JSON.parse(JSON.stringify(backstack));
-    stack[stack.length] = { title: {}, href: {} };
+    stack[stack.length] = { title: {}, href: {}, render: page.render };
 
     const reduceToHref = (locale) => {
       return stack.reduce((prev, next) => { return prev + '/' + next.title[locale].toLowerCase().split(' ').join('-'); }, '/' + locale);
@@ -597,7 +598,7 @@ function catchAllFor(backstack, sitemap) {
         if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
         catchAll(stack[stack.length - 1].href, locale,
           stack.map((el) => { return el.title.en.toLowerCase().split(' ').join('-'); }).join('.'),
-          page, {});
+          page, stack[stack.length - 1].render);
       }
     }
 
