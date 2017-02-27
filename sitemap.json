@@ -56,25 +56,32 @@
         "title": "The Code of the Republic"
       },
       {
-        "title": "Consent and Boundaries"
+        "title": "Consent and Boundaries",
+        "acl": "email"
       },
       {
-        "title": "Photo & Video Policy"
+        "title": "Photo & Video Policy",
+        "acl": "email"
       },
       {
-        "title": "Bring Your Own Cup"
+        "title": "Bring Your Own Cup",
+        "acl": "email"
       },
       {
-        "title": "Leave No Trace"
+        "title": "Leave No Trace",
+        "acl": "email"
       },
       {
-        "title": "Hygiene"
+        "title": "Hygiene",
+        "acl": "email"
       },
       {
-        "title": "Participation"
+        "title": "Participation",
+        "acl": "email"
       },
       {
-        "title": "Volunteering"
+        "title": "Volunteering",
+        "acl": "email"
       }
     ]
   },
@@ -103,84 +110,109 @@
       },
       {
         "title": "The Basics",
+        "acl": "email",
         "subpages": [
           {
-            "title": "Environment/Weather"
+            "title": "Environment/Weather",
+            "acl": "email"
           },
           {
-            "title": "Water"
+            "title": "Water",
+            "acl": "email"
           },
           {
-            "title": "Electricity"
+            "title": "Electricity",
+            "acl": "email"
           },
           {
-            "title": "Sound"
+            "title": "Sound",
+            "acl": "email"
           },
           {
-            "title": "Cell phones/Tablets/PCs"
+            "title": "Cell phones/Tablets/PCs",
+            "acl": "email"
           },
           {
-            "title": "Fire and Safety Rules"
+            "title": "Fire and Safety Rules",
+            "acl": "email"
           },
           {
-            "title": "Communal Kitchen"
+            "title": "Communal Kitchen",
+            "acl": "email"
           },
           {
-            "title": "Donations/Contributions"
+            "title": "Donations/Contributions",
+            "acl": "email"
           },
           {
-            "title": "Personal Health and Safety"
+            "title": "Personal Health and Safety",
+            "acl": "email"
           },
           {
-            "title": "Children/Minors"
+            "title": "Children/Minors",
+            "acl": "email"
           },
           {
-            "title": "Pets"
+            "title": "Pets",
+            "acl": "email"
           },
           {
-            "title": "23rd of June"
+            "title": "23rd of June",
+            "acl": "email"
           },
           {
-            "title": "Lost Property/Lost and Found"
+            "title": "Lost Property/Lost and Found",
+            "acl": "email"
           },
           {
-            "title": "Generators"
+            "title": "Generators",
+            "acl": "email"
           },
           {
-            "title": "Latvian Law"
+            "title": "Latvian Law",
+            "acl": "email"
           }
         ]
       },
       {
         "title": "Preparing",
+        "acl": "email",
         "subpages": [
           {
-            "title": "The Essentials"
+            "title": "The Essentials",
+            "acl": "email"
           },
           {
-            "title": "Environmental Consciousness"
+            "title": "Environmental Consciousness",
+            "acl": "email"
           }
         ]
       },
       {
-        "title": "Getting There"
+        "title": "Getting There",
+        "acl": "email"
       },
       {
-        "title": "Arriving and Setting Up"
+        "title": "Arriving and Setting Up",
+        "acl": "email"
       },
       {
-        "title": "Relationship Survival Guide"
+        "title": "Relationship Survival Guide",
+        "acl": "email"
       },
       {
-        "title": "An Introvert's Guide to DeJā"
+        "title": "An Introvert's Guide to DeJā",
+        "acl": "email"
       },
       {
-        "title": "After DeJā"
+        "title": "After DeJā",
+        "acl": "email"
       }
     ]
   },
   {
-    "title": "Creation"
+    "title": "Creation",
+    "acl": "email"
   },
   {
     "title": "Visa Application",

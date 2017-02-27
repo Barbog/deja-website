@@ -554,6 +554,22 @@ function catchAllFor(backstack, sitemap) {
       const catchAll = (localeHash, locale, view, title, renderOverrides) => {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
+          if (page.acl && !res.locals.user || !res.locals.user[page.acl]) {
+            const target = '/' + locale + '/';
+            res.render('redirect', { target: target }, (err, html) => {
+              res.status(307);
+              res.location(target);
+              if (err) {
+                res.type('text/plain; charset=utf-8');
+                res.send(target);
+                console.error(err.stack);
+              } else {
+                res.type('text/html; charset=utf-8');
+                res.send(html);
+              }
+            });
+            return;
+          }
           const render = (markdown) => {
             const renderParams = Object.assign({ altLocales: localeHash, title: req.__(title), markdown: markdown }, renderOverrides || {});
             res.render(view.split('.')[0], renderParams, (err, html) => {
