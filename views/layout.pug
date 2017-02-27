@@ -34,11 +34,10 @@ html(lang=getLocale())
               a.altlang(hreflang=locale href=href)= locale.toUpperCase()
         block home
           a.home(href='/' + getLocale() + '/')= __('Home').toUpperCase()
-        button.header-bar-burger III
     block body
       section
         != markdown || ''
     script(src='/libs/jquery-3.1.1.min.js')
     script(src='/libs/flickity-pkgd-2.0.5.min.js')
-    script $(function () { $('.disabled').on('click', function (event) { event.preventDefault(); }); $('.header-bar-burger').click(function () { $('body').toggleClass('js-navhide'); }); $('.carousel-container').flickity({ wrapAround: true, autoPlay: 3000, adaptiveHeight: false, dragThreshold: 10, prevNextButtons: false }); $('.altlang').on('click', function (event) { var lang = event.target.hreflang; if (lang) { document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365); } }); });
+    script $(function () { $('.disabled').on('click', function (event) { event.preventDefault(); }); $('.carousel-container').flickity({ wrapAround: true, autoPlay: 3000, adaptiveHeight: false, dragThreshold: 10, prevNextButtons: false }); $('.altlang').on('click', function (event) { var lang = event.target.hreflang; if (lang) { document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365); } }); });
 = '\n'

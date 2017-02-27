@@ -152,12 +152,6 @@ header {
       letter-spacing: 2px;
       transition: transform .1s ease-in-out, width .1s ease-in-out;
       &:hover { transform: translateY(-4px); }
-      @media (max-width: (@desktop-size - 1px)) { .js-navhide & {
-        transform: translateX(-100%);
-        width: 0;
-        overflow-x: hidden;
-        margin: 0;
-      } }
     }
 
     p.sign-in {
@@ -176,25 +170,10 @@ header {
       }
     }
 
-    .header-bar-burger {
-      display: inline-block;
-      margin: 0 6px;
-      padding: 6px;
-      font-family: @button-font-family;
-      font-size: 12px;
-      line-height: 1em;
-      text-align: center;
-      vertical-align: text-top;
-      color: #000;
-
-      @media (min-width: @desktop-size) { & {
-        display: none;
-      } }
-    }
-
     .home {
       position: absolute;
-      top: 18px;
+      top: 192px;
+      @media (min-width: (@desktop-size)) { & { top: 18px; } }
       left: 50%;
       width: 120px;
       margin: 0;
@@ -228,11 +207,6 @@ nav {
   padding: 20px 0;
   background: @dark;
   transition: transform .1s ease-in-out, width .1s ease-in-out;
-  @media (max-width: (@desktop-size - 1px)) { .js-navhide & {
-    transform: translateX(-100%);
-    width: 0;
-    overflow-x: hidden;
-  } }
 
   &:empty {
     height: 0;
