@@ -10,5 +10,6 @@ block body
       h1= __('Burn Etiquette')
       ul
         each subpage in subpages
-          li
-            a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(subpage.title).toLowerCase().split(' ').join('-'))= __(subpage.title)
+          li.grid
+            a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(subpage.title).toLowerCase().split(' ').join('-'))
+              p= __(subpage.title)
