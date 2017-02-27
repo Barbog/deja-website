@@ -305,26 +305,26 @@ section {
     font-size: @font-size * 1.2;
     line-height: 1em;
 
-    &.grid-logo::after {
-      content: url(/images/logo.png);
-      position: relative;
-      left: 50%;
-      bottom: 622px;
-      display: block;
-      width: 112px;
-      height: 0;
-      transform: translateX(-50%);
-    }
-
     .grid {
       position: relative;
       display: inline-block;
       width: 28%;
       height: 340px;
       margin: 2.5%;
+      vertical-align: top;
 
       &:nth-child(9n + 5) {
         margin-left: 28% + 2.5% * 3;
+        &::after {
+          content: url(/images/logo.png);
+          position: relative;
+          left: -110%;
+          bottom: 231px;
+          display: block;
+          width: 112px;
+          height: 0;
+          transform: translateX(50%);
+        }
       }
 
       a {
