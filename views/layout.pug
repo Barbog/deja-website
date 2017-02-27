@@ -35,18 +35,6 @@ html(lang=getLocale())
         block home
           a.home(href='/' + getLocale() + '/')= __('Home').toUpperCase()
         button.header-bar-burger III
-    nav
-      if !hideNavigation
-        div
-          a.left(href='/' + getLocale() + '/' + __('What is DeJā').toLowerCase().split(' ').join('-'))= __('What is DeJā').toUpperCase()
-          a.left(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-'))= __('Burn Etiquette').toUpperCase()
-          a.left(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Survival Guide').toLowerCase().split(' ').join('-'))= __('Survival Guide').toUpperCase()
-          a.left(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Creation').toLowerCase().split(' ').join('-'))= __('Creation').toUpperCase()
-        div
-          a.right(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Visa Application').toLowerCase().split(' ').join('-'))= __('Visa Application').toUpperCase()
-          a.right(href='/' + getLocale() + '/' + __('Donation').toLowerCase().split(' ').join('-'))= __('Donation').toUpperCase()
-          a.right(href='/' + getLocale() + '/' + __('Network').toLowerCase().split(' ').join('-'))= __('Network').toUpperCase()
-          a.right(href='/' + getLocale() + '/' + __('FAQ').toLowerCase().split(' ').join('-'))= __('FAQ').toUpperCase()
     block body
       section
         != markdown || ''
