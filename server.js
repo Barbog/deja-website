@@ -598,7 +598,7 @@ function catchAllFor(backstack, sitemap) {
         if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
         catchAll(stack[stack.length - 1].href, locale,
           stack.map((el) => { return el.title.en.toLowerCase().split(' ').join('-'); }).join('.'),
-          page, stack[stack.length - 1].render);
+          stack[stack.length - 1].title[locale], stack[stack.length - 1].render);
       }
     }
 
