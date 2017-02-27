@@ -2,14 +2,13 @@ extends layout.pug
 
 block body
   section
+    h1.center.fancy= title
     if markdown
       != markdown
       if nextpage
         a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(nextpage).toLowerCase().split(' ').join('-'))= nextpage
-    else
-      h1.center.fancy= __('Burn Etiquette')
-      ul
-        each subpage in subpages
-          li.grid
-            a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(subpage.title).toLowerCase().split(' ').join('-'))
-              p.fancy= __(subpage.title)
+    ul
+      each subpage in subpages
+        li.grid
+          a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(subpage.title).toLowerCase().split(' ').join('-'))
+            p.fancy= __(subpage.title)
