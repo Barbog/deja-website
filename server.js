@@ -31,7 +31,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.set('x-powered-by', false);
 
-app.use(require('morgan')('combined'));
+app.use(require('morgan')('dev'));
 app.use(require('helmet')());
 app.use(require('body-parser').json());
 app.use(require('body-parser').urlencoded({ extended: true }));
