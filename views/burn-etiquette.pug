@@ -1,9 +1,5 @@
 extends layout.pug
 
-mixin subpage(name)
-  li
-    a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(name).toLowerCase().split(' ').join('-'))= __(name)
-
 block body
   section
     if markdown
@@ -14,4 +10,5 @@ block body
       h1= __('Burn Etiquette')
       ul
         each subpage in subpages
-          +subpage(subpage.title)
+          li
+            a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(subpage.title).toLowerCase().split(' ').join('-'))= __(subpage.title)
