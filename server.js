@@ -571,7 +571,7 @@ function catchAllFor(backstack, sitemap) {
             return;
           }
           const render = (markdown) => {
-            const renderParams = Object.assign({ altLocales: localeHash, title: req.__(title), markdown: markdown }, renderOverrides || {});
+            const renderParams = Object.assign({ altLocales: localeHash, title: req.__(title), subpages: page.subpages, markdown: markdown }, renderOverrides || {});
             res.render(view.split('.')[0], renderParams, (err, html) => {
               if (err) {
                 res.render('layout', renderParams, (err, html) => {

@@ -13,10 +13,5 @@ block body
     else
       h1= __('Burn Etiquette')
       ul
-        +subpage('The Code of the Republic')
-        +subpage('Consent and Boundaries')
-        +subpage('Photo & Video Policy')
-        +subpage('Bring Your Own Cup')
-        +subpage('Leave No Trace')
-        +subpage('Hygiene')
-        +subpage('Participation')
+        each subpage in subpages
+          +subpage(subpage.title)
