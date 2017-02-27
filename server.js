@@ -554,7 +554,7 @@ function catchAllFor(backstack, sitemap) {
       const catchAll = (localeHash, locale, view, title, renderOverrides) => {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
-          if (page.acl && !res.locals.user || !res.locals.user[page.acl]) {
+          if (page.acl && (!res.locals.user || !res.locals.user[page.acl])) {
             const target = '/' + locale + '/';
             res.render('redirect', { target: target }, (err, html) => {
               res.status(307);
