@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-**What is DeJā?**   (header/banner- larger font for this?)(bold isn't showing)
+# What is DeJā?
 
 DeJā is . . .
 
