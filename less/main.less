@@ -252,13 +252,13 @@ section {
   padding: 30px;
   background-color: #956929;
   max-width: 100%;
-  font-family: @section-font-family;
   font-size: @font-size * 1.2;
   line-height: 1em;
   vertical-align: top;
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
 
   &, a { color: lighten(#a98551, 35%); }
+  &, button, a { font-family: @section-font-family; }
 
   &.bgless {
     padding-left: 0;
