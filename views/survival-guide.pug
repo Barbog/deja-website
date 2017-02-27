@@ -1,8 +1,8 @@
 extends layout.pug
 
 block body
-  section.fancy
-    h1.center.fancy= title
+  section
+    h1.center= title
     if markdown
       != markdown
       if nextpage
@@ -11,4 +11,4 @@ block body
       each subpage in subpages
         li.grid
           a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title) ]).join('/').toLowerCase().split(' ').join('-'))
-            p.fancy= __(subpage.title)
+            p= __(subpage.title)
