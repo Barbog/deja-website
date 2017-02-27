@@ -7,7 +7,7 @@ block body
       if nextpage
         a(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-') + '/' + __(nextpage).toLowerCase().split(' ').join('-'))= nextpage
     else
-      h1= __('Burn Etiquette')
+      h1.center= __('Burn Etiquette')
       ul
         each subpage in subpages
           li.grid
