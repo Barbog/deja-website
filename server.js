@@ -555,7 +555,7 @@ function catchAllFor(backstack, sitemap) {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
           if (page.acl && (!res.locals.user || !res.locals.user[page.acl])) {
-            const target = '/' + locale + '/';
+            const target = '/' + locale + '/' + (res.locals.user ? '' : req.__('Log In').toLowerCase().split(' ').join('-'));
             res.render('redirect', { target: target }, (err, html) => {
               res.status(307);
               res.location(target);

@@ -53,31 +53,52 @@
     "title": "Burn Etiquette",
     "subpages": [
       {
-        "title": "The Code of the Republic"
+        "title": "The Code of the Republic",
+        "render": {
+          "nextpage": "Consent and Boundaries"
+        }
       },
       {
         "title": "Consent and Boundaries",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Photo & Video Policy"
+        }
       },
       {
         "title": "Photo & Video Policy",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Bring Your Own Cup"
+        }
       },
       {
         "title": "Bring Your Own Cup",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Leave No Trace"
+        }
       },
       {
         "title": "Leave No Trace",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Hygiene"
+        }
       },
       {
         "title": "Hygiene",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Participation"
+        }
       },
       {
         "title": "Participation",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Volunteering"
+        }
       },
       {
         "title": "Volunteering",
