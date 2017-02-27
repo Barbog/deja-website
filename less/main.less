@@ -305,6 +305,14 @@ section {
     font-size: @font-size * 1.2;
     line-height: 1em;
 
+    &.grid-logo::after {
+      content: url(/images/logo.png);
+      position: absolute;
+      left: 50%;
+      bottom: -100%;
+      transform: translateX(-50%);
+    }
+
     .grid {
       position: relative;
       display: inline-block;
