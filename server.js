@@ -619,6 +619,30 @@ function catchAllFor(backstack, sitemap) {
           stack.map((el) => { return el.title.en.toLowerCase().split(' ').join('-').split('/').join('-'); }).join('.'),
           stack[stack.length - 1].title[locale], stack[stack.length - 1].render);
       }
+    } else if (typeof page.hidden === 'string') {
+      const catchAll = (hash, locale, target) => {
+        app.get(encodeURI(hash), (req, res) => {
+          req.setLocale(locale);
+          res.render('redirect', { target: target }, (err, html) => {
+            res.status(307);
+            res.location(target);
+            if (err) {
+              res.type('text/plain; charset=utf-8');
+              res.send(target);
+              console.error(err.stack);
+            } else {
+              res.type('text/html; charset=utf-8');
+              res.send(html);
+            }
+          });
+        });
+        app.all(encodeURI(hash), returnBadAction);
+      };
+
+      for (var locale in stack[stack.length - 1].title) {
+        if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
+        catchAll(stack[stack.length - 1].href, locale, stack[stack.length - 1].href + '/' + i18n.__h(page.hidden)[locale]);
+      }
     }
 
     catchAllFor(stack, page.subpages);
