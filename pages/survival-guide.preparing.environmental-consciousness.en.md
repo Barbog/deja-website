@@ -14,7 +14,7 @@ Meaning, if it isn’t part of the natural environment, it needs to be discarded
 
 Below are some <span style="color:gold;">tips</span> as to what you can do to help.
 
-<span class="center" style="color:darkolivegreen;"><u>**Leave No Trace!**</u></span>
+<span class="center" style="color:greenyellow;"><u>**Leave No Trace!**</u></span>
 
 Practicing a Leave No Trace Ethic is simple:  Leave the place you visit the same or better than how you found it.
 
@@ -132,7 +132,7 @@ When under pressure, we are all likely to make rushed decisions, miss details an
 
 <span style="color:gold;">**TIP**</span>: Doing this periodically, through the week, will make it easier.
 
--<span style="color:greenyellow;">**Do**</span> a line sweep of your camp with your campmates, making sure you cover the whole area,  picking up every single piece of MOOP.
+<span style="color:greenyellow;">**Do**</span> a line sweep of your camp with your campmates, making sure you cover the whole area,  picking up every single piece of MOOP.
 - Nothing is too small.  If it wasn’t there before you arrived, it must not be there when you leave.
 - If half of your campmates will have left before you, the folks left behind are going to have a lot more work to do.
 - <span style="color:orange;">**Remember**</span> to leave enough time to help pack up, clean up and ensure that there is no evidence you were ever there.
