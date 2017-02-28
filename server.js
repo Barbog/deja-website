@@ -641,7 +641,7 @@ function catchAllFor (backstack, sitemap) {
 
       for (var localeRedirect in stack[stack.length - 1].title) {
         if (!stack[stack.length - 1].title.hasOwnProperty(localeRedirect)) { continue; }
-        catchAllRedirect(stack[stack.length - 1].href, localeRedirect, stack[stack.length - 1].href + '/' +
+        catchAllRedirect(stack[stack.length - 1].href[localeRedirect], localeRedirect, stack[stack.length - 1].href[localeRedirect] + '/' +
           i18n.__({ phrase: page.hidden, locale: localeRedirect }).toLowerCase().split(' ').join('-').split('/').join('-'));
       }
     }
