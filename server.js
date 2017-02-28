@@ -620,7 +620,7 @@ function catchAllFor(backstack, sitemap) {
           stack[stack.length - 1].title[locale], stack[stack.length - 1].render);
       }
     } else if (typeof page.hidden === 'string') {
-      const catchAll = (hash, locale, target) => {
+      const catchAllRedirect = (hash, locale, target) => {
         app.get(encodeURI(hash), (req, res) => {
           req.setLocale(locale);
           res.render('redirect', { target: target }, (err, html) => {
@@ -639,10 +639,10 @@ function catchAllFor(backstack, sitemap) {
         app.all(encodeURI(hash), returnBadAction);
       };
 
-      for (var locale in stack[stack.length - 1].title) {
-        if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
-        catchAll(stack[stack.length - 1].href, locale, stack[stack.length - 1].href + '/' +
-          i18n.__({ phrase: page.hidden, locale: locale }).toLowerCase().split(' ').join('-').split('/').join('-'));
+      for (var localeRedirect in stack[stack.length - 1].title) {
+        if (!stack[stack.length - 1].title.hasOwnProperty(localeRedirect)) { continue; }
+        catchAllRedirect(stack[stack.length - 1].href, localeRedirect, stack[stack.length - 1].href + '/' +
+          i18n.__({ phrase: page.hidden, locale: localeRedirect }).toLowerCase().split(' ').join('-').split('/').join('-'));
       }
     }
 
