@@ -40,9 +40,10 @@
   },
   {
     "title": "What is DeJā",
+    "hidden": "DeJā is",
     "subpages": [
       {
-        "title": "When is it",
+        "title": "DeJā is",
         "render": {
           "nextpage": "History"
         }
