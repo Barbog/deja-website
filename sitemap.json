@@ -262,11 +262,74 @@
             "title": "The Essentials",
             "acl": "email",
             "render": {
+              "nextpage": "The Essentials For your camping area"
+            }
+          },
+          {
+            "title": "The Essentials For your camping area",
+            "acl": "email",
+            "render": {
               "nextpage": "Environmental Consciousness"
             }
           },
           {
             "title": "Environmental Consciousness",
+            "acl": "email",
+            "render": {
+              "nextpage": "Tips and Hints"
+            }
+          },
+          {
+            "title": "Tips and Hints",
+            "acl": "email",
+            "render": {
+              "nextpage": "Plan Ahead and Prepare"
+            }
+          },
+          {
+            "title": "Plan Ahead and Prepare",
+            "acl": "email",
+            "render": {
+              "nextpage": "During DeJā"
+            }
+          },
+          {
+            "title": "During DeJā",
+            "acl": "email",
+            "render": {
+              "nextpage": "Leaving DeJā"
+            }
+          },
+          {
+            "title": "Leaving DeJā",
+            "acl": "email",
+            "render": {
+              "nextpage": "Making Your Camp Green"
+            }
+          },
+          {
+            "title": "Making Your Camp Green",
+            "acl": "email",
+            "render": {
+              "nextpage": "Materials"
+            }
+          },
+          {
+            "title": "Materials",
+            "acl": "email",
+            "render": {
+              "nextpage": "Making Your Art Green"
+            }
+          },
+          {
+            "title": "Making Your Art Green",
+            "acl": "email",
+            "render": {
+              "nextpage": "To Burn or Not To Burn"
+            }
+          },
+          {
+            "title": "To Burn or Not To Burn",
             "acl": "email"
           }
         ]
