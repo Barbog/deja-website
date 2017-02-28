@@ -193,7 +193,7 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
+    app.post(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
       const email = req.body ? req.body.email : '';
       const password = req.body ? req.body.password : '';
@@ -257,7 +257,7 @@ i18n.getLocales().forEach((locale) => {
         });
       });
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale]), returnBadAction);
   };
 
   const navbarHash = {};
@@ -281,7 +281,7 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Log Out';
 
   const catchLogout = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
       res.cookie('token', '', { path: '/', maxAge: 1, httpOnly: true, secure: true });
@@ -298,7 +298,7 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale]), returnBadAction);
   };
 
   const navbarHash = {};
@@ -322,7 +322,7 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Register';
 
   const catchRegister = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
 
       res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
@@ -338,7 +338,7 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
+    app.post(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
       const name = req.body ? req.body.name : '';
       const email = req.body ? req.body.email : '';
@@ -429,7 +429,7 @@ i18n.getLocales().forEach((locale) => {
         });
       });
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale]), returnBadAction);
   };
 
   const navbarHash = {};
@@ -453,7 +453,7 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Visa Application';
 
   const catchVisaApplication = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
 
       if (!res.locals.user) {
@@ -502,14 +502,14 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
+    app.post(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
 
       res.status(500);
       res.type('text/plain; charset=utf-8');
       res.send('Turn back now.'); // TODO
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale]), returnBadAction);
   };
 
   const navbarHash = {};
