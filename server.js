@@ -532,7 +532,7 @@ i18n.getLocales().forEach((locale) => {
   }
 })();
 
-function catchAllFor(backstack, sitemap) {
+function catchAllFor (backstack, sitemap) {
   sitemap.forEach((page) => {
     if (typeof page.title !== 'string') { throw new Error('Page title not provided as a string.'); }
     if (!Array.isArray(page.subpages)) { page.subpages = []; }
