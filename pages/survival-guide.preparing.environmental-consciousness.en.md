@@ -12,7 +12,7 @@ Meaning, if it isn’t part of the natural environment, it needs to be discarded
 
 
 
-Below are some <span style="color:yellow;">tips</span> as to what you can do to help.
+Below are some <span style="color:gold;">tips</span> as to what you can do to help.
 
 <span class="center" style="color:darkolivegreen;"><u>**Leave No Trace!**</u></span>
 
@@ -38,10 +38,10 @@ Practicing a Leave No Trace Ethic is simple:  Leave the place you visit the same
 It is up to each of us to care for the longevity of our event by remaining aware of our environment and not leaving any trash anywhere on the property.
 
 
-<u>**<span class="center" style="gold;">Tips</span> <span style="color:darkolivegreen;">and Hints</span>**</u>
+<u>**<span class="center" style="color:yellow;">Tips and Hints</span>**</u>
 
 
-<span style="color:olive;"><u>**Before DeJā**</u></span>
+**<span style="color:greenyellow;"><u>Before DeJā</u></span>**
 
 Preparation is key to leaving a better trace. Please keep the following in mind when packing!
 
@@ -69,7 +69,7 @@ Preparation is key to leaving a better trace. Please keep the following in mind 
 - <span style="color:lime green;">**Plan**</span> to send trash off the farm with campmates as they leave the event.
 
 
-<span style="color:olive;"><u>**Reduce Packaging**</u></span>
+<span style="color:greenyellow;"><u>**Reduce Packaging**</u></span>
 
 Bringing in less means having less to haul out, 
 
@@ -79,7 +79,7 @@ Bringing in less means having less to haul out,
 - Choose aluminum cans over bottles, and reusable containers over either of those.
 
 
-<span style="color:olive;"><u>**Thinking of Pre-cooking?**</u></span>
+<span style="color:greenyellow;"><u>**Thinking of Pre-cooking?**</u></span>
 
 If you plan on cooking before coming out:
 
@@ -88,7 +88,7 @@ If you plan on cooking before coming out:
 - If you’ve found yourself with a giant pot of food and not enough campmates, invite neighbors over to finish it off.  It beats creating a wet, heavy bag of trash that has to be packed into someone’s trunk.
 
 
-<span style="color:olive;"><u>**During DeJā**</u></span>
+<span style="color:greenyellow;"><u>**During DeJā**</u></span>
 
 **<span style="color:lime;">Be Aware </span>** of very small items.  No Trace really does mean no trace.
 
@@ -107,7 +107,7 @@ If you plan on cooking before coming out:
 
 The toilets are compost toilets.  If it’s not biodegradable, don’t put it in the hole.  This means no tampons, no trash, no cigarette butts etc.
 
-<span style="color:tomato;">**Do Not**</span><span style="color:olive;">**Use the Farm as Your Toilet**</span>
+<span style="color:tomato;">**Do Not**</span><span style="color:greenyellow;">**Use the Farm as Your Toilet**</span>
 This is unacceptable, unsanitary, and just plain gross the morning after if several hundred people are using the farm in this way.  If you bring a pet with you, make certain to remove their waste just as you would your own.
 
 <span style="color:lime;">**Minimize Fire Impacts**</span>  Keep in mind that most non-natural materials (rugs, polyester, plastic, treated wood) are toxic when burned.
@@ -115,7 +115,7 @@ This is unacceptable, unsanitary, and just plain gross the morning after if seve
 <span style="color:lime>;">**Respect Wildlife**</span>  If you happen to come across any wild life that wanders into camp, please Do not harass it.
 
 
-<span style="color:olive;"><u>**Leaving DeJā**</u></span>
+<span style="color:greenyellow;"><u>**Leaving DeJā**</u></span>
 
 <span style="color:tomato;">**Don’t Rush**</span>  do not stress to hurry home.
 
@@ -125,7 +125,7 @@ When under pressure, we are all likely to make rushed decisions, miss details an
 
 
 
-<span style="color:olive;"><u>**Packing and Departure**</u></span>
+<span style="color:greenyellow;"><u>**Packing and Departure**</u></span>
 
 - <span style="color:lime;">**Do**</span> a MOOP sweep of your tent area.
 - As you’re packing your camp, have campmates walk repeatedly around your site picking up anything and everything that’s not part of the farm.
@@ -158,7 +158,7 @@ Learn and consider the 6 R’s:
 Keep these in mind from the beginning through to the end of your DeJā experience.
 
 
-<span style="color:olive;"><u>**Transportation**</u></span>
+<span style="color:greenyellow;"><u>**Transportation**</u></span>
 
 Coming Alone?
 <span style="color:orange;">**Consider**</span> ride sharing to reduce the number of cars going to and from the farm. You can find likely candidates through our car share channel on Slack.
@@ -170,7 +170,7 @@ Coming from far away?
 <span style="color:orange;">**Consider**</span> inflatable furniture, or a metal-framed futon, which can be disassembled to fit compactly in a car and reused at another event.
 
 
-<span style="color:olive;"><u>**Materials**</u></span>
+<span style="color:greenyellow;"><u>**Materials**</u></span>
 
 Think about materials you use to build your camp:
 Rather than using materials you might use once and discard,<span style="color:orange;"> **consider** </span>designing camp structures and elements that can be assembled, disassembled and reused year after year.
@@ -181,7 +181,7 @@ Rather than buying new construction materials:
 - <span style="color:orange;">**Consider**</span> using recycled, repurposed or reclaimed materials.
 - **Do** some research and explore the options for obtaining repurposed materials in your area.
 - Dumpster dive.
-- <span style=color:olive;">**Look**</span> through the classifieds for someone that might have a dome or other infrastructure item they’re hoping to get rid of.
+- <span style=color:greenyellow;">**Look**</span> through the classifieds for someone that might have a dome or other infrastructure item they’re hoping to get rid of.
 
 If you must burn elements of your camp,
 
@@ -190,7 +190,7 @@ If you must burn elements of your camp,
 
 <span style="color:tomato;>"Do not</span> bring anything to the farm without ensuring that you know how it is going to leave.
 
-<span style="color:olive;">**Energy and Lighting**</span>
+<span style="color:greenyellow;">**Energy and Lighting**</span>
 
 Power and light are an integral part of almost every camp. Many people take it for granted that you may have to run a generator and lights to illuminate your space.
 <span style="color:orange;">**Consider**</span> a bio-fuel generator rather than a gas one.
@@ -233,16 +233,16 @@ It is during your planning phase that it is most important to think about the en
 - Burned?
 - What’s the most environmentally friendly choice I can make?
 
-<span style="color:olive;"> Purchase or acquire</span> materials from socially and environmentally conscious sources.
+<span style="color:greenyellow;"> Purchase or acquire</span> materials from socially and environmentally conscious sources.
 
 Explore the options for obtaining repurposed materials in your area.
 
-Wherever possible, consider the <span style ="color:olive;">6</span><span style ="color:darkolivegreen;">R's</span> first before buying new.
+Wherever possible, consider the <span style ="color:greenyellow;">6</span><span style ="color:darkolivegreen;">R's</span> first before buying new.
 
 Although it can be more challenging to use repurposed materials, it is more  interesting and compelling to see how you can transmorph the lifecycle of an object.
 
 
-<span style="color:olive;"><u>**To Burn or Not to Burn?**</u></span>
+<span style="color:greenyellow;"><u>**To Burn or Not to Burn?**</u></span>
 
 If you do choose to burn your art, it’s critical you plan to avoid using toxic materials or paint that would be released into the atmosphere.
 
@@ -250,7 +250,7 @@ Paint, very bad to burn.
 	Plastics, very very bad.
 
 
-<span style="color:olive;"><u>**Lighting and Power**</u></span>
+<span style="color:greenyellow;"><u>**Lighting and Power**</u></span>
 
 For your safety and the safety of others,  light your installation at night, even when it’s just a construction site during your setup phase.
 
@@ -258,7 +258,7 @@ In some cases, it is necessary to provide power to your installation. Rather tha
 
 
 
-<span style="color:olive;"><u>**Leave No Trace**</u></span>
+<span style="color:greenyellow;"><u>**Leave No Trace**</u></span>
 
 Construction materials contribute greatly to MOOP.
 
@@ -272,6 +272,6 @@ When you’re building, use tarps or other coverings to catch splinters, metal s
 Easiest rule of thumb is: **never let it hit the ground**
 
 
-<span style="color:olive;"><u>**Transportation**</u></span>
+<span style="color:greenyellow;"><u>**Transportation**</u></span>
 
 If you’re building a particularly large installation, you will find that your transportation costs constitute a very large chunk of your budget — especially if you’re coming from far away. Consider teaming up with other artists or theme camps to share the ride.
