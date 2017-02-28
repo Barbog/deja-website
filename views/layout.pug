@@ -15,9 +15,10 @@ html(lang=getLocale())
     link(rel='stylesheet' href='/libs/reset-2.0.css')
     link(rel='stylesheet' href='/main.css')
     link(rel='stylesheet' href='/libs/flickity-2.0.5.min.css')
-    each href, locale in altLocales
-      if locale !== getLocale()
-        link(rel='alternate' hreflang=locale href=href)
+    if altLocales
+      each href, locale in altLocales
+        if locale !== getLocale()
+          link(rel='alternate' hreflang=locale href=href)
   body
     header
       .header-top
@@ -26,12 +27,13 @@ html(lang=getLocale())
           p.sign-in= __mf('Hi {name}', { name: user.name }).toUpperCase()
         else
           a.sign-in(href='/' + getLocale() + '/' + __('Log In').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Log In').toUpperCase()
-        .lang
-          each href, locale in altLocales
-            if locale === getLocale()
-              a.altlang.disabled(hreflang=locale href=href)= locale.toUpperCase()
-            else
-              a.altlang(hreflang=locale href=href)= locale.toUpperCase()
+        if altLocales
+          .lang
+            each href, locale in altLocales
+              if locale === getLocale()
+                a.altlang.disabled(hreflang=locale href=href)= locale.toUpperCase()
+              else
+                a.altlang(hreflang=locale href=href)= locale.toUpperCase()
         block home
           a.home(href='/' + getLocale() + '/')= __('Home').toUpperCase()
     block body

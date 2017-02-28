@@ -671,9 +671,18 @@ app.get('/main.css', (req, res) => {
 app.all('/main.css', returnBadAction);
 
 app.use((req, res) => {
-  res.status(404);
-  res.type('application/json; charset=utf-8');
-  res.send('{}');
+  res.render('404', { title: '404' }, (err, html) => {
+    if (err) {
+      res.status(500);
+      res.type('text/plain; charset=utf-8');
+      res.send('Something broke horribly. Sorry.');
+      console.error(err.stack);
+    } else {
+      res.status(404);
+      res.type('text/html; charset=utf-8');
+      res.send(html);
+    }
+  });
 });
 
 const server = app.listen(app.get('port'));
