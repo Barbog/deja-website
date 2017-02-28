@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 
 
-Because your visa application will get your name on the guest list?
+Because your visa application will get your name on the guest list.
 
 
 
