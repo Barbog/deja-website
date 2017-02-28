@@ -641,7 +641,7 @@ function catchAllFor(backstack, sitemap) {
 
       for (var locale in stack[stack.length - 1].title) {
         if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
-        catchAll(stack[stack.length - 1].href, locale, stack[stack.length - 1].href + '/' + i18n.__h(page.hidden)[locale]);
+        catchAll(stack[stack.length - 1].href, locale, stack[stack.length - 1].href + '/' + i18n.__h(page.hidden)[locale].toLowerCase().split(' ').join('-').split('/').join('-'));
       }
     }
 
