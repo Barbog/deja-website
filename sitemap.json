@@ -42,7 +42,10 @@
     "title": "What is DeJā",
     "subpages": [
       {
-        "title": "When is it"
+        "title": "When is it",
+        "render": {
+          "nextpage": "History"
+        }
       },
       {
         "title": "History"
@@ -149,59 +152,101 @@
         "subpages": [
           {
             "title": "Environment/Weather",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Water"
+            }
           },
           {
             "title": "Water",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Electricity"
+            }
           },
           {
             "title": "Electricity",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Sound"
+            }
           },
           {
             "title": "Sound",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Cell phones/Tablets/PCs"
+            }
           },
           {
             "title": "Cell phones/Tablets/PCs",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Fire and Safety Rules"
+            }
           },
           {
             "title": "Fire and Safety Rules",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Communal Kitchen"
+            }
           },
           {
             "title": "Communal Kitchen",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Donations/Contributions"
+            }
           },
           {
             "title": "Donations/Contributions",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Personal Health and Safety"
+            }
           },
           {
             "title": "Personal Health and Safety",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Children/Minors"
+            }
           },
           {
             "title": "Children/Minors",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Pets"
+            }
           },
           {
             "title": "Pets",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "23rd of June"
+            }
           },
           {
             "title": "23rd of June",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Lost Property/Lost and Found"
+            }
           },
           {
             "title": "Lost Property/Lost and Found",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Generators"
+            }
           },
           {
             "title": "Generators",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Latvian Law"
+            }
           },
           {
             "title": "Latvian Law",
@@ -215,7 +260,10 @@
         "subpages": [
           {
             "title": "The Essentials",
-            "acl": "email"
+            "acl": "email",
+            "render": {
+              "nextpage": "Environmental Consciousness"
+            }
           },
           {
             "title": "Environmental Consciousness",
