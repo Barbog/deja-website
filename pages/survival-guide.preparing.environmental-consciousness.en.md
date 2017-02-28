@@ -4,7 +4,12 @@ typora-root-url: ../static
 
 A vital aspect of participation is to do our part in keeping trash under control. 
 
-Meaning, if it isn’t part of the natural environment, it needs to be discarded in its' appropriate place – a fire pit if it is burnable, compost if it returns to the environment, recyclable where applicable, and trash if it needs to go out with you. 
+Meaning, if it isn’t part of the natural environment, it needs to be discarded in its appropriate place – 
+
+- a fire pit if it is burnable, 
+- compost if it returns to the environment, 
+- recyclable where applicable, and 
+- trash if it needs to go out with you. 
 
 
 
@@ -24,7 +29,7 @@ Practicing a Leave No Trace Ethic is simple:  Leave the place you visit the same
 - Leave No Trace **continues** when you get to the farm.
   - During your construction process, when you place tarps below  projects to catch stray nails, wood chips, metal shavings and sawdust.
 
-  - Consider bringing a magnet rake as well as other leave no trace supplies.
+  - IF your project contains metal hardware, or shavings, <span style="color:orange;">**Consider**</span> bringing a magnet rake as well as other leave no trace supplies.
 
     ​
 
@@ -48,26 +53,26 @@ It is up to each of us to care for the longevity of our event by remaining aware
 Preparation is key to leaving a better trace. Please keep the following in mind when packing!
 
 - <span style="color:red;">**Avoid**</span> packing packaging.
-- Condense your items and reduce the amount of trash you will need to leave with by, removing the packaging wrappers from anything you will travel with.
+- Condense your items and reduce the amount of trash you will need to leave with by, removing the packaging wrappers from anything you will travel with you.
 - <span style="color:red;">**Avoid**</span> glass – it can shatter.
 - <span style="color:red;">**Do not**</span> bring: loose glitter, feather boas. Such items are near impossible to recover.
 
-<span style="color:green;">**Do**</span> bring:
+<span style="color:lime green;">**Do**</span> bring:
 
 - **Bags** for your garbage.
 - **Gloves** – pack work gloves for picking up any sharp bits.
 - **Magnet** - to help pick up any metal hardware your project may have left on the ground after being burned.
 - **Your own cup, bowl and eating utensils**: disposable cups, plates and cutlery are one of the biggest sources of trash at festivals. Make sure you always have an easy-to-carry cup with you to use anywhere, anytime. Be responsible for your cup.
 - **SMOKERS: buy or make a portable ashtray** (a mint tin, for instance) to collect your cigarette butts and ashes.
-- **Never, ever drop butts!**
-- <span style="color:green;">**Leave space**</span> in your car for taking away your trash.
+  - **Never, ever drop butts!**
+- <span style="color:lime green;">**Leave space**</span> in your car for taking away your trash.
 - If taking the bus or sharing a car, **ensure** you have a way of taking your garbage with you or arrange for its removal.
 - <span style="color:orange;">**Tag** </span>all of your belongings (keys, cameras, phones, etc.) you would want returned if misplaced: with your name, phone number and address.
 
 <u>**Plan Ahead and Prepare**</u>
 
 - For each item that you’re bringing to DeJā, think through how you’re going to dispose of it.
-- <span style="color:green;">**Plan**</span> to send trash off the farm with campmates as they leave the event.
+- <span style="color:lime green;">**Plan**</span> to send trash off the farm with campmates as they leave the event.
 
 <u>**Reduce Packaging**</u>
 
@@ -90,20 +95,20 @@ If you plan on pre-cooking before coming out:
 
 **During DeJā**
 
-<span style="color:green;">**Be Aware **</span> of very small items
+**<span style="color:lime green;">Be Aware </span>** of very small items
 
 No Trace really does mean no trace.
 
 - Clean as you go.  MOOP attracts more MOOP.
 - When you see trash on the ground, pick it up and take it with you.
-- Be conscious of spare nails or smaller trash particles that may be dismissed as too small for trash including: hair, matches, cigarette butts, feathers, zip ties.
+- Be conscious of smaller trash particles that may be dismissed as too small for trash including:  matches, cigarette butts, feathers, zip ties.
 - After you pick up your trash to carry home, do a last-minute check of your site for cigarette butts, gum wrappers, etc. 
 
 Ensure that the compost pile is treated correctly.  Only biodegradable food waste should be put in the compost pile.
 
-- Food waste such as peanut shells, orange peels and eggshells are also trash. Dispose of these in the compost.
+- Food waste such as nut shells, citrus peels and eggshells are also trash. Dispose of these in the compost.
 
-<span style="color:green;">**Separate**</span> recycling into glass, plastic, aluminum and cardboard/paper.
+<span style="color:lime green;">**Separate**</span> recycling into glass, plastic, aluminum and cardboard/paper.
 
 **No** trash is to be burned, except for cardboard/paper.
 
@@ -119,9 +124,9 @@ The toilets are compost toilets.  If it’s not biodegradable, don’t put it in
 
 <u>**Leaving DeJā**</u>
 
-<span style="color:red;">**Don’t Rush**</span>nor stress to hurry home.
+<span style="color:red;">**Don’t Rush**</span>  do not stress to hurry home.
 
-Long-term exposure to the burn may fatigue your body and impair decision-making.
+Long-term exposure to the burn may fatigue your body and impair decision-making. 
 
 When under pressure, we are all likely to make rushed decisions, miss details and leave things behind.  If you have to catch a plane, make sure to start packing up even earlier than you think you may have to, so you aren’t tempted to leave before fully clearing your site.
 
@@ -129,10 +134,10 @@ When under pressure, we are all likely to make rushed decisions, miss details an
 
 <u>**Packing and Departure**</u>
 
-- <span style="color:green;">**Do**</span> a MOOP sweep of your tent area.
+- <span style="color:lime green;">**Do**</span> a MOOP sweep of your tent area.
 - As you’re packing your camp, have campmates walk repeatedly around your site picking up anything and everything that’s not part of the farm.
 
-<span style="color:orange;">**TIP**</span>: Doing this periodically, through the week, will make it easier.
+<span style="color:yellow;">**TIP**</span>: Doing this periodically, through the week, will make it easier.
 
 - Do a line sweep of your camp with your campmates, making sure you cover the whole area,  picking up every single piece of MOOP.
 - Nothing is too small.  If it wasn’t there before you arrived, it must not be there when you leave.
@@ -140,14 +145,14 @@ When under pressure, we are all likely to make rushed decisions, miss details an
 - <span style="color:orange;">**Remember**</span> to leave enough time to help pack up, clean up and ensure that there is no evidence you were ever there.
 - **Sort** your trash and recycling for drop-off at allocated sites on your way home.
 - <span style="color:red;">**Do not**</span> dump your trash anywhere in neighboring communities that is not a designated trash or recycling site.
-- <span style="color:green;">**Take** your trash with you! And if you have space, please take an orphan bag if you see one at the gate on your way out.
+- <span style="color:lime green;">**Take** your trash with you! And if you have space, please take an orphan bag if you see one at the gate on your way out.
 - If you are hauling anything that is not inside your vehicle, stop periodically and check to make sure your vehicle’s load is secured and hasn’t loosened in the wind.
 
 
 
 
 
-​			<span style="color:green;">**Making Your Camp Green**</span>
+​			<span style="color: dark green;">**Making Your Camp Green**</span>
 
 Whether you represent a massive village, a medium-sized theme camp, or stand alone as a camp of one, there are many ways that you can make your camping experience at DeJā more environmenally friendly
 
@@ -164,7 +169,7 @@ Keep these in mind from the beginning through to the end of your DeJā experienc
 
 
 
-<u>**Transportation**</u>
+<span style="color:orange;"><u>**Transportation**</u></span>
 
 Coming Alone?
 
@@ -196,10 +201,10 @@ Rather than buying new construction materials:
 
 If you must burn elements of your camp,
 
-- <span style="color:red;">**do not** </span>paint or treat them with toxic materials that would be released into the atmosphere when burned.
-- And, if you must burn, <span style="color:orange;">**consider **</span>purchasing carbon offsets to counter what you’re putting into the atmosphere.
+- <span style="color:red;">**do not** </span> paint or treat them with toxic materials that would be released into the atmosphere when burned.
+- And, if you must burn, **<span style="color:orange;">consider </span>**purchasing carbon offsets to counter what you’re putting into the atmosphere.
 
-At the very least, don’t bring anything to the farm without ensuring that you know how it is going to leave.
+<span style="color:dark red;>"**Do not**</span> bring anything to the farm without ensuring that you know how it is going to leave.
 
 
 
@@ -222,20 +227,27 @@ When you need to illuminate yourself, <span style="color:orange;">**consider**</
 
 
 
-<span style="color:green;">**Making Your Art Green**</span>
+<span style="color: dark green;">**Making Your Art Green**</span>
 
 Thank you for contributing art to DeJā.  Art is at the center of our community.  This section can give you some valuable insights and shifts in perspective that will help you make your art more environmentally friendly.
 
 Again, we recommend the 6 R’s:
 
-<span style="color:green;">
 
-- **Respect.  **
-- **Rethink.**  
-- **Reduce.**
-- **Reuse.** 
-- **Recycle.** 
-- **Restore.**</span>
+
+- **<span style="color:dark green;">Respect.  </span>**
+
+- **<span style="color:lime green;">Rethink.</span>**
+
+- **<span style="color:dark green;">Reduce.</span>**
+
+- **<span style="color:limegreen;">Reuse. </span>**
+
+- **<span style="color:dark green;">Recycle.</span>**
+
+- **<span style="color:line green;">Restore.</span>**
+
+  ​
 
 
 
@@ -262,7 +274,7 @@ Although it can be more challenging to use repurposed materials, it is more  in
 
 
 
-**To Burn or Not to Burn?**
+<u>**To Burn or Not to Burn?**</u>
 
 If you do choose to burn your art, it’s critical you plan to avoid using toxic materials or paint that would be released into the atmosphere.
 
@@ -272,7 +284,7 @@ Plastics, very very bad.
 
 
 
-**Lighting and Power**
+<u>**Lighting and Power**</u>
 
 For your safety and the safety of others,  light your installation at night, even when it’s just a construction site during your setup phase.
 
@@ -280,13 +292,13 @@ In some cases, it is necessary to provide power to your installation. Rather tha
 
 
 
-**Leave No Trace**
+<u>**Leave No Trace**</u>
 
-Construction materials contribute greatly to MOOP,
+Construction materials contribute greatly to MOOP.
 
 Wood chips, splinters, nails, screws and sawdust. Yes, all of those are MOOP.
 
-​Anything not of the farm is considered MOOP, folks.
+​Anything not of the farm is considered MOOP.
 
 ​Bring a magnet rake with you if you’re doing metal work, including welding, grinding, screws, nails, staples — magnet rakes are a great way to clean up metal quickly and easily.
 
@@ -298,7 +310,7 @@ and (like in any good shop or kitchen) clean as you go.
 
 
 
-**Transportation**
+<u>**Transportation**</u>
 
 If you’re building a particularly large installation, you will find that your transportation costs constitute a very large chunk of your budget — especially if you’re coming from far away. Consider teaming up with other artists or theme camps to share the ride.
 
