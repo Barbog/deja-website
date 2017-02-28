@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-# Hygiene (banner bold)
+# **Hygiene** 
 
 <span style="color:green;">**Wash**</span> your hands and use hand sanitizer.
 
