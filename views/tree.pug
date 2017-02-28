@@ -3,6 +3,6 @@ extends layout.pug
 block body
   section
     .tree-front
-      img(src='/images/principles/' + title.toLowerCase().split(' ').join('-') + '.png' alt=(__(title) || ''))
+      img(src='/images/principles/' + title.toLowerCase().split(' ').join('-').split('/').join('-') + '.png' alt=(__(title) || ''))
       p= __(title) || ''
     != markdown || ''

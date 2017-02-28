@@ -10,5 +10,5 @@ block body
     ul.grid-logo
       each subpage in subpages
         li.grid
-          a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title) ]).join('/').toLowerCase().split(' ').join('-'))
+          a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).toLowerCase().split(' ').join('-').split('/').join('-') ]).join('/'))
             p= __(subpage.title)

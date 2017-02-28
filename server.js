@@ -176,7 +176,7 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Log In';
 
   const catchLogin = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
 
@@ -193,7 +193,7 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
       req.setLocale(locale);
       const email = req.body ? req.body.email : '';
       const password = req.body ? req.body.password : '';
@@ -257,7 +257,7 @@ i18n.getLocales().forEach((locale) => {
         });
       });
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
   };
 
   const navbarHash = {};
@@ -267,7 +267,7 @@ i18n.getLocales().forEach((locale) => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-');
     }
   });
 
@@ -281,7 +281,7 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Log Out';
 
   const catchLogout = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
       res.cookie('token', '', { path: '/', maxAge: 1, httpOnly: true, secure: true });
@@ -298,7 +298,7 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
   };
 
   const navbarHash = {};
@@ -308,7 +308,7 @@ i18n.getLocales().forEach((locale) => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-');
     }
   });
 
@@ -322,7 +322,7 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Register';
 
   const catchRegister = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
       req.setLocale(locale);
 
       res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
@@ -338,11 +338,11 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
       req.setLocale(locale);
       const name = req.body ? req.body.name : '';
       const email = req.body ? req.body.email : '';
-      const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
+      const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
 
       const rerender = () => {
         res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, name: name, email: email }, (err, html) => {
@@ -429,7 +429,7 @@ i18n.getLocales().forEach((locale) => {
         });
       });
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
   };
 
   const navbarHash = {};
@@ -439,7 +439,7 @@ i18n.getLocales().forEach((locale) => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-');
     }
   });
 
@@ -453,11 +453,11 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Visa Application';
 
   const catchVisaApplication = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
       req.setLocale(locale);
 
       if (!res.locals.user) {
-        const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-');
+        const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
         res.render('redirect', { target: target }, (err, html) => {
           res.status(307);
           res.location(target);
@@ -488,9 +488,9 @@ i18n.getLocales().forEach((locale) => {
         });
       };
 
-      fs.readFile(path.join(__dirname, 'pages', title.toLowerCase().split(' ').join('-') + '.' + locale + '.md'), { encoding: 'utf8' }, (err, data) => {
+      fs.readFile(path.join(__dirname, 'pages', title.toLowerCase().split(' ').join('-').split('/').join('-') + '.' + locale + '.md'), { encoding: 'utf8' }, (err, data) => {
         if (err) {
-          fs.readFile(path.join(__dirname, 'pages', title.toLowerCase().split(' ').join('-') + '.en.md'), { encoding: 'utf8' }, (err, data) => {
+          fs.readFile(path.join(__dirname, 'pages', title.toLowerCase().split(' ').join('-').split('/').join('-') + '.en.md'), { encoding: 'utf8' }, (err, data) => {
             if (err) {
               render('');
             } else {
@@ -502,14 +502,14 @@ i18n.getLocales().forEach((locale) => {
         }
       });
     });
-    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), (req, res) => {
+    app.post(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
       req.setLocale(locale);
 
       res.status(500);
       res.type('text/plain; charset=utf-8');
       res.send('Turn back now.'); // TODO
     });
-    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-')), returnBadAction);
+    app.all(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), returnBadAction);
   };
 
   const navbarHash = {};
@@ -519,7 +519,7 @@ i18n.getLocales().forEach((locale) => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-');
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-');
     }
   });
 
@@ -539,7 +539,7 @@ function catchAllFor(backstack, sitemap) {
     stack[stack.length] = { title: {}, href: {}, render: page.render };
 
     const reduceToHref = (locale) => {
-      return stack.reduce((prev, next) => { return prev + '/' + next.title[locale].toLowerCase().split(' ').join('-'); }, '/' + locale);
+      return stack.reduce((prev, next) => { return prev + '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'); }, '/' + locale);
     };
 
     i18n.__h(page.title).forEach((subhash) => {
@@ -555,7 +555,7 @@ function catchAllFor(backstack, sitemap) {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
           if (page.acl && (!res.locals.user || !res.locals.user[page.acl])) {
-            const target = '/' + locale + '/' + (res.locals.user ? '' : req.__('Log In').toLowerCase().split(' ').join('-'));
+            const target = '/' + locale + '/' + (res.locals.user ? '' : req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-'));
             res.render('redirect', { target: target }, (err, html) => {
               res.status(307);
               res.location(target);
@@ -613,7 +613,7 @@ function catchAllFor(backstack, sitemap) {
       for (var locale in stack[stack.length - 1].title) {
         if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
         catchAll(stack[stack.length - 1].href, locale,
-          stack.map((el) => { return el.title.en.toLowerCase().split(' ').join('-'); }).join('.'),
+          stack.map((el) => { return el.title.en.toLowerCase().split(' ').join('-').split('/').join('-'); }).join('.'),
           stack[stack.length - 1].title[locale], stack[stack.length - 1].render);
       }
     }
