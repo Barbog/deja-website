@@ -4,9 +4,9 @@ typora-root-url: ../static
 
 **23rd of June** - Jāņi, Līgo
 
-​We have chosen the dates of the local midsummer solstice festivities to coincide with our event for several reasons:
+We have chosen the dates of the local midsummer solstice festivities to coincide with our event for several reasons:
 
-​To share this magical time and our local traditions with all of those who attend the event from outside the Baltic States.
+To share this magical time and our local traditions with all of those who attend the event from outside the Baltic States.
 
 To add the element of a burn to this national holiday.
 
