@@ -2,17 +2,22 @@
 typora-root-url: ../static
 ---
 
-A location to gather.
+- A location to gather.
 
-​Outhouses.
+- Outhouses.
 
-​Some power.
+- Some power.
 
-​A well from where water can be used for dish washing and boiling.
+- A well from where water can be used for dish washing and boiling.
 
-​A communal kitchen and option to buy into a meal plan  (read more on this)
+- One sound system.
 
-​One sound system.
+- Natural resources, such as wood, clay, hemp fiber, that you can help gather.
 
-​Natural resources, such as wood, clay, hemp fiber, that you can help gather.
+  ​				
 
+  ​			*Bring what you need, take care.*
+
+  ​			*You are responsible for You.*
+
+  ​
