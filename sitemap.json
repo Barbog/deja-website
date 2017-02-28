@@ -51,6 +51,7 @@
   },
   {
     "title": "Burn Etiquette",
+    "hidden": "The Code of the Republic",
     "subpages": [
       {
         "title": "The Code of the Republic",
@@ -111,18 +112,31 @@
     "subpages": [
       {
         "title": "The Beginner's Guide",
+        "hidden": "What is Provided",
         "subpages": [
           {
-            "title": "What is Provided"
+            "title": "What is Provided",
+            "render": {
+              "nextpage": "What isn't Provided"
+            }
           },
           {
-            "title": "What isn't Provided"
+            "title": "What isn't Provided",
+            "render": {
+              "nextpage": "What should I expect"
+            }
           },
           {
-            "title": "What should I expect"
+            "title": "What should I expect",
+            "render": {
+              "nextpage": "Why do I need a Visa"
+            }
           },
           {
-            "title": "Why do I need a Visa"
+            "title": "Why do I need a Visa",
+            "render": {
+              "nextpage": "Why are there no tickets sold"
+            }
           },
           {
             "title": "Why are there no tickets sold"
@@ -131,7 +145,7 @@
       },
       {
         "title": "The Basics",
-        "acl": "email",
+        "hidden": "Environment/Weather",
         "subpages": [
           {
             "title": "Environment/Weather",
@@ -197,7 +211,7 @@
       },
       {
         "title": "Preparing",
-        "acl": "email",
+        "hidden": "The Essentials",
         "subpages": [
           {
             "title": "The Essentials",
