@@ -23,7 +23,7 @@ Practicing a Leave No Trace Ethic is simple:  Leave the place you visit the same
   - Set your end-of-event line sweep plan and schedule.
 
 
-- Leave No Trace **continues** when you get to the farm.
+- Leave No Trace continues when you get to the farm.
   - During your construction process, when you place tarps below  projects to catch stray nails, wood chips, metal shavings and sawdust.
   - IF your project contains metal hardware, or shavings, <span style="color:orange;">**Consider**</span> bringing a magnet rake as well as other leave no trace supplies.
 
@@ -38,7 +38,7 @@ Practicing a Leave No Trace Ethic is simple:  Leave the place you visit the same
 It is up to each of us to care for the longevity of our event by remaining aware of our environment and not leaving any trash anywhere on the property.
 
 
-<u>**<span class="center" style="color:yellow;">Tips and Hints</span>**</u>
+**<span class="center" style="color:gold;"><u>Tips and Hints</u></span>**
 
 
 **<span style="color:greenyellow;"><u>Before DeJā</u></span>**
