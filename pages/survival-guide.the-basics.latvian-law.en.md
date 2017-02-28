@@ -8,7 +8,5 @@ If you are planning on driving while in Latvia, you should check that your insur
 
 During this time of year, there are many checkpoints on the roads. Please, do not drive while intoxicated!
 
-DeJā does not condone illegal drug use and strongly advises against individuals taking risks with their health out in the open country.
 
-Please bear in mind the limited medical support on site before you consider placing yourself at risk.
 

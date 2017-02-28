@@ -8,7 +8,7 @@ At times DeJā can be potentially challenging, weather wise and emotionally,  c
 
 It is dark on the farm when away from the lit up areas— stay safe: don't be a darkwad and choose to illuminate yourself, your camp area and your artwork at night.
 
-You are responsible for You.
+*You are responsible for You.*
 
 Bring any and all medications that you may need to use.
 

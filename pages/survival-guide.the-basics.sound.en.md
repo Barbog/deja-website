@@ -8,5 +8,5 @@ There is a “quiet camping” area on the property, so you may consider camping
 
 DeJā provides one sound system for the event, you are encouraged to bring your own or collaborate and create a sound camp of your own with other participants. Be thoughtful of your neighbors.
 
-We have a casual curfew, meaning that between the hours of 6:00 and 9:00 music will be turned down/off to allow people to sleep if they so choose to.
+We have a casual curfew, meaning that between the hours of 6:00am and 9:00am music will be turned down/off to allow people to sleep if they so choose to.
 
