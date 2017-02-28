@@ -6,9 +6,9 @@ block body
     if markdown
       != markdown
       if nextpage
-        a(href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title) ]).join('/').toLowerCase().split(' ').join('-').split('/').join('-'))= nextpage
+        a(href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= nextpage
     ul.grid-logo
       each subpage in subpages
         li.grid
-          a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title) ]).join('/').toLowerCase().split(' ').join('-').split('/').join('-'))
+          a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
             p= __(subpage.title)
