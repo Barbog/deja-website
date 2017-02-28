@@ -29,7 +29,7 @@ Practicing a Leave No Trace Ethic is simple:  Leave the place you visit the same
 
 
 - Leave No Trace takes place every moment of the event,
-  - <span style="color:tomato;">**Never**</span>let it hit the ground.
+  - <span style="color:tomato;">**Never**</span> let it hit the ground.
   - MOOP as you go,  pick up other random MOOP.
   - <span style="color:lime;">**Carry**</span> a MOOP bag with you, so that you can play your collective part of this community.
 
@@ -104,6 +104,8 @@ If you plan on cooking before coming out:
 <span style="color:greenyellow green;">**Separate**</span> recycling into glass, plastic, aluminum and cardboard/paper.
 
 <span style="color:tomato;">**No**</span> trash is to be burned, except for cardboard/paper.
+
+<span style="color:lime;"><u>**toilets**</u></span>
 
 The toilets are compost toilets.  If it’s not biodegradable, don’t put it in the hole.  This means no tampons, no trash, no cigarette butts etc.
 
