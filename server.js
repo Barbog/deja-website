@@ -176,7 +176,7 @@ i18n.getLocales().forEach((locale) => {
   const title = 'Log In';
 
   const catchLogin = (locale) => {
-    app.get(encodeURI(localeHash[locale].toLowerCase().split(' ').join('-').split('/').join('-')), (req, res) => {
+    app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
 
