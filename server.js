@@ -450,7 +450,8 @@ i18n.getLocales().forEach((locale) => {
 })();
 
 (() => {
-  const title = 'Visa Application';
+  return;
+  const title = 'Visa Application'; // jshint ignore:line
 
   const catchVisaApplication = (locale) => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {

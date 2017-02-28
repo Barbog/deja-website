@@ -237,7 +237,7 @@
   },
   {
     "title": "Visa Application",
-    "hidden": true
+    "acl": "nobody"
   },
   {
     "title": "Donation"
