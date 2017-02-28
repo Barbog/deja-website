@@ -22,7 +22,7 @@ db.on('error', (err) => {
 
 const app = express();
 app.set('case sensitive routing', true);
-app.set('env', 'production');
+app.set('env', env === 'dev' ? 'development' : 'production');
 app.set('etag', 'strong');
 app.set('port', process.env.PORT || 8080);
 app.set('strict routing', true);
@@ -40,7 +40,9 @@ i18n.configure({
   locales: fs.readdirSync(path.join(__dirname, 'locales')).map((locale) => { return path.basename(locale, '.json'); }),
   defaultLocale: 'en',
   cookie: 'lang',
-  directory: path.join(__dirname, 'locales')
+  directory: path.join(__dirname, 'locales'),
+  updateFiles: env === 'dev',
+  syncFiles: env === 'dev'
 });
 app.use(i18n.init);
 showdown.setFlavor('github');
