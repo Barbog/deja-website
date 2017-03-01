@@ -2,8 +2,6 @@
 typora-root-url: ../static
 ---
 
-# **Volunteer**
-
 There are many opportunities to volunteer at DeJā,  either at the event or year-round, either way you will be playing an invaluable role in this ongoing experiment.
 
 

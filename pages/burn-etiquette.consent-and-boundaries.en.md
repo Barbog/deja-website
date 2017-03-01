@@ -2,9 +2,7 @@
 typora-root-url: ../static
 ---
 
-# **Consent and Boundaries** 
-
-​		<u>**CONSENT, CONSIDERATION AND BOUNDARIES**</u>
+<u>**CONSENT, CONSIDERATION AND BOUNDARIES**</u>
 
 
 
@@ -25,12 +23,4 @@ Each of us wants to help prevent sexual harassment and assault while ensuring th
 Everyone has different boundaries. 
 
 ​	There’s no harm in asking.
-
-
-
-​		
-
-
-
-
 
