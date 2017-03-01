@@ -12,6 +12,9 @@ We have organized the event into 11 “ministries” that distribute various res
 
 
 
+
+## SPLIT ONE PAGE PER MINISTRY
+
 **<u>THE CABINET OF THE REPUBLIC</u>**
 
 **MINISTRY of PUBLIC WORKS** – "first to come, last to pull out."  This crew helps set up the site in the weeks and days leading into the solstice, organizes transport for materials and tools,  then stays for strike.   a place for those who are handy with tools,  have carpentry skills or access to salvagable materials. (read more. . .) 

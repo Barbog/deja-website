@@ -366,7 +366,19 @@
     "acl": "nobody"
   },
   {
-    "title": "Donation"
+    "title": "Donation",
+    "hidden": "Gifting and Donations",
+    "subpages": [
+      {
+        "title": "Gifting and Donations",
+        "render": {
+          "nextpage": "Prior Year Financial Transparency"
+        }
+      },
+      {
+        "title": "Prior Year Financial Transparency"
+      }
+    ]
   },
   {
     "title": "Network"
