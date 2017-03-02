@@ -1,1 +1,21 @@
-extends sections.pug
+extends layout.pug
+
+block body
+  section
+    if siblingpages
+      ul.siblingpages
+        each siblingpage in siblingpages
+          li.siblingpage
+            a(class=(siblingpage.acl && (!user || !user[siblingpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
+              p= __(siblingpage.title)
+    h1.center= title
+    if markdown
+      != markdown
+    if nextpage
+      a.nextpage(href=[ '', getLocale() ].concat(stackpages.splice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= nextpage
+    if subpages
+      ul.grid-logo
+        each subpage in subpages
+          li.grid
+            a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
+              p= __(subpage.title)
