@@ -22,5 +22,5 @@ Each of us wants to help prevent sexual harassment and assault while ensuring th
 
 Everyone has different boundaries. 
 
-​	There’s no harm in asking.
+	There’s no harm in asking.
 
