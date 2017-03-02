@@ -258,8 +258,9 @@ section {
   vertical-align: top;
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
 
-  &, a { color: lighten(#a98551, 35%); }
-  &.disabled, a.disabled { color: #a98551; }
+  &, a { color: lighten(#a98551, 35%);
+    &.disabled { color: #a98551; }
+    &.current { color: @accent; } }
   &, button, a { font-family: @section-font-family; }
 
   &.bgless {
