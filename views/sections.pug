@@ -13,7 +13,7 @@ block body
     if markdown
       != markdown
     if nextpage
-      a.nextpage(href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= nextpage
+      a.nextpage(href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= __('Next Page')
     if subpages && subpages.length > 0
       ul.grid-logo
         each subpage in subpages
