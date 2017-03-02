@@ -134,8 +134,8 @@ header {
       width: 20%;
       max-width: 280px;
       margin: 0 5%;
-      padding: 6px 0;
-      font-size: @font-size;
+      padding: 4.3px 0;
+      font-size: @font-size * 1.2;
       line-height: @line-height;
       text-align: center;
       vertical-align: text-top;
@@ -167,12 +167,14 @@ header {
     .home {
       position: absolute;
       top: 192px;
-      @media (min-width: (@desktop-size)) { & { top: 18px; } }
+      @media (min-width: (@desktop-size)) { & { top: 16px; } }
       left: 50%;
       width: 120px;
       margin: 0;
       padding: 0;
       color: #FFF;
+      font-size: @font-size * 1.2;
+      line-height: @line-height;
       letter-spacing: 2px;
       text-align: center;
       transition: transform .1s ease-in-out;
