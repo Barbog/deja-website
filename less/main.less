@@ -293,8 +293,28 @@ section {
   ol { margin-left: 2em; list-style-type: decimal; }
   ul { margin-left: 2em; list-style-type: cambodian; }
   ul.siblingpages { margin: 0; list-style-type: none;
-    & li { display: inline-block; width: 100% / 3 - 1% * 2; margin: 0 1%;
-      p { text-align: center; font-size: @font-size * 1.4; font-weight: bolder; line-height: @line-height; } } }
+    li {
+      display: inline-block;
+      width: 100% / 3 - 1% * 2;
+      margin: 0 1%;
+      p {
+        text-align: center;
+        font-size: @font-size * 1.4;
+        font-weight: bolder;
+        line-height: @line-height;
+      }
+    }
+    li:first-child:nth-last-child(3n + 2) {
+      ~ li:nth-last-child(2), ~ li:nth-last-child(1) {
+        width: 100% / 2 - 1% * 2;
+      }
+    }
+    li:first-child:nth-last-child(3n + 1) {
+      ~ li:nth-last-child(1) {
+        width: 100% / 1 - 1% * 2;
+      }
+    }
+  }
 
   p, ul {
     margin-bottom: 1em;
