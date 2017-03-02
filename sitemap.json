@@ -362,7 +362,7 @@
     "hidden": "Volunteering",
     "subpages": [
       {
-        "title": "volunteering",
+        "title": "Volunteering",
         "acl": "email",
         "render": {
           "nextpage": "Ministry of Public Works"
