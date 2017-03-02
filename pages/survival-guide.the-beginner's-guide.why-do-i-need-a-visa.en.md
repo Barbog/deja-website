@@ -2,8 +2,6 @@
 typora-root-url: ../static
 ---
 
-
-
 Because your visa application will get your name on the guest list.
 
 
@@ -14,15 +12,13 @@ The visas help us determine how many people will be attending and how they plan 
 
 So if you wish to particiapate, start with making sure you read all the informaion on this site and then submit your visa. 
 
-​			
 
-​				*Not on the list?*
+​
+*Not on the list?*
 
-​					*No entry. No exceptions!* 
+​*No entry. No exceptions!* 
 
 
 
 **Be on time and fill yours out before May 31st.**
-
-
 

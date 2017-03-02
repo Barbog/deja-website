@@ -9,17 +9,9 @@ Everything else, including, but not limited to:
 
 
 
-​				
+​*Leave No Trace*
 
-​					*Leave No Trace*
+*No one will clean up after you.*
 
-​				*No one will clean up after you.*
-
-​					*You packed it in, you pack it out.*
-
-
-
-
-
-
+​*You packed it in, you pack it out.*
 
