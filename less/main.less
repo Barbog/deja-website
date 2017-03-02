@@ -259,6 +259,7 @@ section {
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
 
   &, a { color: lighten(#a98551, 35%); }
+  &.disabled, a.disabled { color: #a98551; }
   &, button, a { font-family: @section-font-family; }
 
   &.bgless {
@@ -302,6 +303,8 @@ section {
 
   ol { margin-left: 2em; list-style-type: decimal; }
   ul { margin-left: 2em; list-style-type: cambodian; }
+  ul.siblingpages { margin: 0; list-style-type: none;
+    & li { display: inline-block; width: 100% / 3 - 1% * 2; margin: 0 1%; text-align: center; } }
 
   p, ul {
     margin-bottom: 1em;

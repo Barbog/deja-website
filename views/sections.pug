@@ -1,18 +1,19 @@
 extends layout.pug
 
 block body
-  section
-    if siblingpages
+  if siblingpages && siblingpages.length > 0
+    section
       ul.siblingpages
         each siblingpage in siblingpages
           li.siblingpage
-            a(class=(siblingpage.acl && (!user || !user[siblingpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
+            a(class=(__(siblingpage.title) === title || (siblingpage.acl && (!user || !user[siblingpage.acl])) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
               p= __(siblingpage.title)
+  section
     h1.center= title
     if markdown
       != markdown
     if nextpage
-      a.nextpage(href=[ '', getLocale() ].concat(stackpages.splice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= nextpage
+      a.nextpage(href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= nextpage
     if subpages
       ul.grid-logo
         each subpage in subpages
