@@ -5,6 +5,7 @@
 
 @fadeintime: .3s;
 @font-size: 14px;
+@line-height: 1em;
 @desktop-size: 1020px;
 
 @keyframes fadein {
@@ -40,7 +41,7 @@
   font-family: 'DKLemonYellowSun';
   src: local('DKLemonYellowSun'), url('/fonts/DK Lemon Yellow Sun.otf');
   font-style: normal;
-  line-height: 1em;
+  line-height: @line-height;
   font-weight: 400;
 }
 
@@ -68,13 +69,13 @@ body {
 }
 
 button, a {
-  line-height: 1em;
+  line-height: @line-height;
   background: transparent;
   cursor: pointer;
   text-decoration: none;
   color: #FFF;
   &.disabled { cursor: default; pointer-events: none; }
-  .buttons & { line-height: 1em; }
+  .buttons & { line-height: @line-height; }
 }
 
 .center {
@@ -145,7 +146,7 @@ header {
       margin: 0 5%;
       padding: 6px 0;
       font-size: @font-size;
-      line-height: 1em;
+      line-height: @line-height;
       text-align: center;
       vertical-align: text-top;
     }
@@ -229,7 +230,7 @@ nav {
     margin: 6px 0;
     padding: 6px;
     font-size: @font-size;
-    line-height: 1em;
+    line-height: @line-height;
     letter-spacing: 2px;
     text-align: center;
     vertical-align: text-top;
@@ -250,7 +251,7 @@ section {
   background-color: #956929;
   max-width: 100%;
   font-size: @font-size * 1.4;
-  line-height: 1em;
+  line-height: @line-height;
   vertical-align: top;
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
 
@@ -291,7 +292,7 @@ section {
     margin: 0 0 1em 0;
     padding: 6px 6%;
     font-size: @font-size * 1.6;
-    line-height: 1em;
+    line-height: @line-height;
     background: @dark;
     color: #FFF;
     overflow-x: hidden;
@@ -305,7 +306,7 @@ section {
   p, ul {
     margin-bottom: 1em;
     font-size: @font-size * 1.4;
-    line-height: 1em;
+    line-height: @line-height;
 
     .grid {
       position: relative;
@@ -425,7 +426,7 @@ section {
       max-width: 50%;
       vertical-align: middle;
       font-size: @font-size * 3;
-      line-height: 1em;
+      line-height: @line-height;
       color: #fff;
     }
   }
@@ -472,7 +473,7 @@ form {
   label, input, .buttons {
     display: block;
     font-size: @font-size * 1.2;
-    line-height: 1em;
+    line-height: @line-height;
     font-weight: bold;
   }
 
@@ -538,7 +539,7 @@ form {
     background: @dark;
     color: #FFF;
     font-size: @font-size;
-    line-height: 1em;
+    line-height: @line-height;
     text-align: center;
     z-index: 1;
 
