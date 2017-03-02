@@ -305,14 +305,10 @@ section {
       }
     }
     li:first-child:nth-last-child(3n + 2) {
-      ~ li:nth-last-child(2), ~ li:nth-last-child(1) {
-        width: 100% / 2 - 1% * 2;
-      }
+      ~ li:nth-last-child(2) { margin-left: 1% + (100% / 3 - 1% * 2) / 2; }
     }
     li:first-child:nth-last-child(3n + 1) {
-      ~ li:nth-last-child(1) {
-        width: 100% / 1 - 1% * 2;
-      }
+      ~ li:nth-last-child(2) { margin-left: 1% + (100% / 3 - 1% * 2); }
     }
   }
 
