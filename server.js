@@ -201,8 +201,8 @@ i18n.getLocales().forEach((locale) => {
       const password = req.body ? req.body.password : '';
       const location = (req.body ? req.body.location : '') || ('/' + locale + '/');
 
-      const rerender = () => {
-        res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, email: email }, (err, html) => {
+      const rerender = (err) => {
+        res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, email: email }, (err, html) => {
           if (err) {
             res.status(500);
             res.type('text/plain; charset=utf-8');
@@ -217,19 +217,29 @@ i18n.getLocales().forEach((locale) => {
       };
 
       if (typeof email !== 'string' || email === '' || typeof password !== 'string' || password === '') {
-        rerender();
+        rerender(new Error('No e-mail and password combination provided.'));
         return;
       }
 
       db.hget('user:' + email, 'password', (err, reply) => {
-        if (err || typeof reply !== 'string' || reply === '') {
+        if (err) {
+          console.error(err.stack);
+        }
+
+        if (typeof reply !== 'string' || reply === '') {
           // We still want to run bcrypt to avoid timing attacks.
           reply = '';
         }
 
         bcrypt.compare(password, reply, (err, match) => {
-          if (err || !match) {
-            rerender();
+          if (err) {
+            rerender(new Error('Internal validation error encountered.'));
+            console.error(err.stack);
+            return;
+          }
+
+          if (!match) {
+            rerender(new Error('Incorrect e-mail and password combination provided.'));
             return;
           }
 
@@ -237,7 +247,8 @@ i18n.getLocales().forEach((locale) => {
           const tokenExpirySeconds = 60/* s */ * 60/* m */ * 3/* h */;
           db.setex('session:' + token, tokenExpirySeconds, email, (err) => {
             if (err) {
-              rerender();
+              rerender(new Error('Internal database error encountered.'));
+              console.error(err.stack);
               return;
             }
 
@@ -346,8 +357,8 @@ i18n.getLocales().forEach((locale) => {
       const email = req.body ? req.body.email : '';
       const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
 
-      const rerender = () => {
-        res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, name: name, email: email }, (err, html) => {
+      const rerender = (err) => {
+        res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, name: name, email: email }, (err, html) => {
           if (err) {
             res.status(500);
             res.type('text/plain; charset=utf-8');
@@ -362,7 +373,7 @@ i18n.getLocales().forEach((locale) => {
       };
 
       if (typeof name !== 'string' || name === '' || typeof email !== 'string' || email === '') {
-        rerender();
+        rerender(new Error('No e-mail and password combination provided.'));
         return;
       }
 
@@ -370,14 +381,16 @@ i18n.getLocales().forEach((locale) => {
 
       bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
-          rerender();
+          rerender(new Error('Internal validation error encountered.'));
+          console.error(err.stack);
           return;
         }
 
         // We still want to run bcrypt to avoid timing attacks.
         db.hexists('user:' + email, 'password', (err, reply) => {
           if (err) {
-            rerender();
+            rerender(new Error('Internal database error encountered.'));
+            console.error(err.stack);
             return;
           }
 
@@ -399,7 +412,8 @@ i18n.getLocales().forEach((locale) => {
 
           db.hmset('user:' + email, 'password', hash, 'name', name, (err) => {
             if (err) {
-              rerender();
+              rerender(new Error('Internal database error encountered.'));
+              console.error(err.stack);
               return;
             }
 
@@ -410,7 +424,8 @@ i18n.getLocales().forEach((locale) => {
               text: 'You are in. Your password is ' + password + '.'
             }, (err) => {
               if (err) {
-                rerender();
+                rerender(new Error('Internal dispatching error encountered.'));
+                console.error(err.stack);
                 return;
               }
 

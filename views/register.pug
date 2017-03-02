@@ -3,6 +3,8 @@ extends layout.pug
 block body
   if !user
     section
+      if err
+        p.center= (typeof err === 'string') ? err : (err.message || err)
       form.register(action=altLocales[getLocale()] method='post')
         label(for='name')= __('Name').toUpperCase()
         input(type='text' id='name' name='name' required='required' value=(name || '') autofocus='autofocus')
