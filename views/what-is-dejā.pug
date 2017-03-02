@@ -2,13 +2,13 @@ extends layout.pug
 
 block body
   section
-    h1.center= title
     if siblingpages
       ul.siblingpages
         each siblingpage in siblingpages
           li.siblingpage
             a(class=(siblingpage.acl && (!user || !user[siblingpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
               p= __(siblingpage.title)
+    h1.center= title
     if markdown
       != markdown
     if nextpage

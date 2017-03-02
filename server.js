@@ -532,7 +532,9 @@ i18n.getLocales().forEach((locale) => {
   }
 })();
 
-function catchAllFor (backstack, sitemap) {
+function catchAllFor (backstack, sitemap, siblingpages) {
+  if (!Array.isArray(sitemap)) { sitemap = []; }
+  if (!Array.isArray(siblingpages)) { siblingpages = []; }
   sitemap.forEach((page) => {
     if (typeof page.title !== 'string') { throw new Error('Page title not provided as a string.'); }
     if (!Array.isArray(page.subpages)) { page.subpages = []; }
@@ -574,7 +576,14 @@ function catchAllFor (backstack, sitemap) {
             return;
           }
           const render = (markdown) => {
-            const renderParams = Object.assign({ altLocales: localeHash, title: req.__(title), stackpages: stack.map((el) => { return el.title.en; }), subpages: page.subpages, markdown: markdown }, renderOverrides || {});
+            const renderParams = Object.assign({
+              altLocales: localeHash,
+              title: req.__(title),
+              stackpages: stack.map((el) => { return el.title.en; }),
+              subpages: page.subpages,
+              siblingpages: siblingpages,
+              markdown: markdown
+            }, renderOverrides || {});
             res.render(view.split('.')[0], renderParams, (err, html) => {
               if (err) {
                 res.render('layout', renderParams, (err, html) => {
