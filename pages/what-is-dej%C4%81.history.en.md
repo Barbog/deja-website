@@ -16,11 +16,11 @@ insert aigars video>
 
 ( add to home page)
 
-1 March —  31 May		Visa applications accepted 
+1 March —  31 May		Visa applications accepted.
 
-17 June  —  20 June     		Early arrivals  
+17 June  —  20 June     		Early arrivals. 
 
-21 June  —   24 June      	DeJā 
+21 June  —   24 June      	DeJā.
 
 25 June  —  deMOOPed      Strike/Clean up.
 
