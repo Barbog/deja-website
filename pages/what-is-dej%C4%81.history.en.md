@@ -20,7 +20,7 @@ insert aigars video>
 
 17 June  —  20 June     		Early arrivals  
 
-21 June  –-   24 June      	DeJā 
+21 June  —   24 June      	DeJā 
 
 25 June  —  deMOOPed      Strike/Clean up.
 
