@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 It is up to each of us to care for the longevity of our event by remaining aware of our environment and not leaving any trash anywhere on the property.	 
 
-<span class="center">**MOOP** is Matter out of Place.</span>
+**MOOP** is Matter out of Place.
 
 If it doesn't look like it belongs on the ground, pick it up and put it with your garbage.
 
