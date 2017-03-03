@@ -4,7 +4,9 @@ typora-root-url: ../static
 
 There are many ways to participate in the creation of DeJā,  either at the event or year-round, either way you are playing an invaluable role in this ongoing experiment.
 
-## How can I participate?
+
+
+**<u>How can I participate?</u>**
 
 Make something/Do Something
 
