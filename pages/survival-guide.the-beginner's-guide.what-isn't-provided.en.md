@@ -14,7 +14,9 @@ If you don't make it happen, who will?
 
 
 
-*Leave No Trace*				*No one will clean up after you.*				
+
+
+*Leave No Trace*.					*No one will clean up after you.*				
 
 ​						*You packed it in, you pack it out.*
 
