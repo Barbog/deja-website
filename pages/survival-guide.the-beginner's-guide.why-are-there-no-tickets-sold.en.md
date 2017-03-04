@@ -10,11 +10,17 @@ We have been enabled to do so because the landowner has granted us use of his pr
 
 
 
+
+
+
+
+
+
 ​*Figure out what You love to give, and give as much as you can.*
 
 
 
 ​	
 
-​*Give for the love of giving.*
+*Give for the love of giving.*
 
