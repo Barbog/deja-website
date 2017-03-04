@@ -41,7 +41,7 @@ typora-root-url: ../static
 - Furry clothing, onesies.
 - Be a superhero, a unicorn, a vicar in a tutu, or a nun.  Be a fairy, an elf, a hobbit, a racoon. . .
   **Remember: no glitter and feathers!!!**
-- **<span style="color:fuchsia;>LED or other lighting for clothes**  
-	-There are no lights once it is dark, so the easiest way to be recognised is by wearing something that emits light. 
-	Buy some form of LED lights operating on battery, and attach them to your clothes or headgear.  The more colourful the better.
+- <span style="color:fuchsia;">**LED or other lighting** </span>for clothes  
+  ​
+  Buy some form of LED lights operating on battery, and attach them to your clothes or headgear.  The more colourful the better.
 
