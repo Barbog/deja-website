@@ -2,6 +2,8 @@
 typora-root-url: ../static
 ---
 
+At DeJā you will find:
+
 - A location to gather.
 
 - Outhouses.
@@ -14,9 +16,9 @@ typora-root-url: ../static
 
 - Natural resources, such as wood, clay, hemp fiber, that you can help gather.
 
+  ​
 
 
-*Bring what you need, take care.*
 
-*You are responsible for You.*
+  *Bring what you need, take care.*			*You are responsible for You.*
 
