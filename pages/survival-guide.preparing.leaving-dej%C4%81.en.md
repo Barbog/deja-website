@@ -25,6 +25,6 @@ When under pressure, we are all likely to make rushed decisions, miss details an
 - <span style="color:orange;">**Remember**</span> to leave enough time to help pack up, clean up and ensure that there is no evidence you were ever there.
 - <span style="color:greenyellow;">**Sort**</span>your trash and recycling for drop-off at allocated sites on your way home.
 - <span style="color:tomato;">**Do not**</span> dump your trash anywhere in neighboring communities that is not a designated trash or recycling site.
-- <span style="color:greenyellow;">**Take** your trash with you! And if you have space, please take an orphan bag if you see one at the gate on your way out.
+- <span style="color:darkolivegreen;">**Take** </span> your trash with you! And if you have space, please take an orphan bag if you happen to see one at the gate on your way out.
 - If you are hauling anything that is not inside your vehicle, stop periodically and check to make sure your vehicle’s load is secured and hasn’t loosened in the wind.
 
