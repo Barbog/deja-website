@@ -27,6 +27,7 @@ typora-root-url: ../static
 
 
 
+
 The toilets are compost toilets. If it’s not biodegradable, don’t put it down the toilet. This means no tampons, no cans, no trash, no cigarette butts etc.
 
 - <span style="color:tomato;">Do Not</span> Use the Farm as Your Toilet
