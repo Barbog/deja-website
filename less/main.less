@@ -102,6 +102,16 @@ button, a {
   }
 } 
 
+.float-left {
+  float: left;
+  position: absolute;
+}
+
+.float-right {
+  float: right;
+  position: absolute;
+}
+
 header {
   @media (min-width: (@desktop-size)) { & {
     position: static;
@@ -264,6 +274,9 @@ nav {
 
   p {
     margin-bottom: .2em;
+    width: 150px;
+    text-align: right;
+    &.float-left { text-align: left; margin-top: -1.2em; margin-left: 170px; width: initial; }
   }
 }
 

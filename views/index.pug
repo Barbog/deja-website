@@ -34,10 +34,14 @@ block body
       a.right(href='/' + getLocale() + '/' + __('Network').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Network').toUpperCase()
       a.right(href='/' + getLocale() + '/' + __('FAQ').toLowerCase().split(' ').join('-').split('/').join('-'))= __('FAQ').toUpperCase()
   nav
-    p= __('1 March — 31 May: Visa applications accepted.')
-    p= __('17 June — 20 June: Early arrivals.')
-    p= __('21 June — 24 June: DeJā.')
-    p= __('25 June — deMOOPed: Strike/Clean up.')
+    p= __('1 March — 31 May:')
+    p.float-left= __('Visa applications accepted.')
+    p= __('17 June — 20 June:')
+    p.float-left= __('Early arrivals.')
+    p= __('21 June — 24 June:')
+    p.float-left= __('DeJā.')
+    p= __('25 June — deMOOPed:')
+    p.float-left= __('Strike/Clean up.')
   section.bgless
     h1= __('Upcoming Global Events').toUpperCase()
     .carousel-container
