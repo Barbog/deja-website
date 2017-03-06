@@ -2,26 +2,49 @@
 typora-root-url: ../static
 ---
 
-<span class="center" style="color:dodgerblue;"><u>**Plan Ahead and Prepare**</u></span>
+**<span class="center" style="color:gold;"><u>Tips and Hints  — During DeJā</u></span>**
 
-- For each item that you’re bringing to DeJā, think through how you’re going to dispose of it.
-- <span style="color:greenyellow green;">**Plan**</span> to send trash off the farm with campmates as they leave the event.
+**<span style="color:dodgerblue;">Be Aware </span>of Very Small Items**
 
-<span style="color:lime;"><u>**Reduce Packaging**</u></span>
+- No Trace really does mean no trace.
+- Be conscious of spare nails or smaller trash particles that may be dismissed as too small for trash including: hair, matches, cigarette butts, feathers, zip ties. 
+- After you pick up your trash to carry home, do a last-minute check of your site for cigarette butts, gum wrappers, etc. because many of those will be hidden under tarps, tents and vehicles.
+- <span style="color:greenyellow;">**Plan**</span> to send trash off the farm with campmates as they leave the event. 
 
-Bringing in less means having less to haul out, 
+<span style="color:tomato;">Never</span> let MOOP hit the ground. Clean as you go. MOOP attracts more MOOP. 
 
-- Leave unnecessary packaging at home.
-  - Unpack toys and camping gear you’re bringing with you.
-  - Food often comes in layers of plastic and cardboard, toss out the packaging before heading to the farm.
-- Choose aluminum cans over bottles, and reusable containers over either of those.
+- When you see trash on the ground, pick it up and take it with you, including cigarette butts, and then empty your pockets into a trash bag later. 
+
+<span style="color:orange;">Ensure</span>  that the compost pile is treated correctly. Only biodegradable food waste should be put in the compost pile.
+
+- Food waste such as peanut shells, orange peels and eggshells are also trash. Dispose of these in the compost.
+
+  ​
+
+<span style="color:limegreen;">Separate</span>  recycling into glass, plastic, aluminum and cardboard/paper. 
+
+- No trash is to be burned, except for cardboard/paper.
 
 
-<span style="color:lime;"><u>**Thinking of Pre-cooking?**</u></span>
 
-If you plan on cooking before coming out:
+The toilets are compost toilets. If it’s not biodegradable, don’t put it down the toilet. This means no tampons, no cans, no trash, no cigarette butts etc.
 
-- Prepare food in sensible quantities that your group can finish at a single sitting — leftovers can quickly become a mess.
-- Coordinate with your campmates as far as what you’re bringing to minimize waste.
-- If you’ve found yourself with a giant pot of food and not enough campmates, invite neighbors over to finish it off.  It beats creating a wet, heavy bag of trash that has to be packed into someone’s trunk.
+- <span style="color:tomato;">Do Not</span> Use the Farm as Your Toilet
+
+  - This is unacceptable, unsanitary, and just plain gross the morning after.
+
+    ​
+
+- Minimize Fire Impacts
+
+  - Keep in mind that most non-natural materials (rugs, polyester, plastic, treated wood) are toxic when burned.
+
+    ​
+
+- Respect Wildlife
+
+  - <span style="color:tomato;">Do not </span> harass wildlife. 
+  - If you bring a pet to the DeJā, make certain to remove their waste just as you would your own.
+
+
 

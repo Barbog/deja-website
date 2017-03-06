@@ -2,31 +2,10 @@
 typora-root-url: ../static
 ---
 
-<span style="color:lime;"><u>**During DeJā**</u></span>
+<span class="center" style="color:gold;"><u>Tips and Hints  — Leaving DeJā</u></span>
 
-**<span style="color:dodgerblue;">Be Aware </span>** of very small items.  No Trace really does mean no trace.
 
-- Clean as you go.  MOOP attracts more MOOP.
-- When you see trash on the ground, pick it up and take it with you.
-- <span style="color:dodgerblue;">Be conscious</span> of smaller trash particles that may be dismissed as too small for trash including:  matches, cigarette butts, feathers, zip ties.
-- After you pick up your trash to carry home, do a last-minute check of your site for cigarette butts, gum wrappers, etc. 
 
-<span style="color:greenyellow;">Ensure </span>that the compost pile is treated correctly.  Only biodegradable food waste should be put in the compost pile.
+<span style="color:dodgerblue;">**As you are preparin to leave**
 
-- Food waste such as nut shells, citrus peels and eggshells are also trash. Dispose of these in the compost.
-
-<span style="color:greenyellow green;">**Separate**</span> recycling into glass, plastic, aluminum and cardboard/paper.
-
-<span style="color:tomato;">**No**</span> trash is to be burned, except for cardboard/paper.
-
-<span style="color:lime;"><u>**toilets**</u></span>
-
-The toilets are compost toilets.  If it’s not biodegradable, don’t put it in the hole.  This means no tampons, no trash, no cigarette butts etc.
-
-<span style="color:tomato;">**Do Not**</span><span style="color:lime;"> **Use the Farm as Your Toilet**</span>
-This is unacceptable, unsanitary, and just plain gross the morning after if several hundred people are using the farm in this way.  If you bring a pet with you, make certain to remove their waste just as you would your own.
-
-<span style="color:greenyellow;">**Minimize Fire Impacts**</span>  Keep in mind that most non-natural materials (rugs, polyester, plastic, treated wood) are toxic when burned.
-
-<span style="color:greenyellow>;">**Respect Wildlife**</span>  If you happen to come across any wild life that wanders into camp, please Do not harass it.
-
+**Do a MOOP sweep of your tent area.As you’re packing your camp, have campmates walk repeatedly around your site picking up anything and everything that’s not part of the farm.TIP : Doing this periodically, through the week, will make it easier.If you are with a village, do a line sweep of your camp with your campmates, making sure you cover the whole area, and picking up every single piece of MOOP. Nothing is too small. If it wasn’t there before you arrived, it must not be there when you leave.If half of your campmates will have left before you, the folks left behind are going to have a lot more work to do. Remember to leave enough time to help pack up, clean up and ensure that there is no evidence you were ever here.Sort your trash and recycling for drop-off at allocated sites on your way home. Do not dump your trash anywhere in neighboring communities that is not a designated trash or recycling site.Take your trash with you! And if you have space, please take an orphan bag if you see one at the gate on your way out. If you are hauling anything that is not inside your vehicle, stop periodically and check to make sure your vehicle’s load is secured and hasn’t loosened in the wind.Don’t Rush Packing and DepartureDon’t stress to hurry home. Long-term exposure to the burn may fatigue your body and impair decision-making. When under pressure, we are all likely to make rushed decisions, miss details and leave things behind. If someone has to catch a plane, make sure to start packing up even earlier than you think you have to, so that you aren’t tempted to leave before fully clearing your site.**
