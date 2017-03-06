@@ -8,17 +8,6 @@ block home
   img.home.disabled(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='110' height='110')
 
 block body
-  nav
-    div
-      a.left(href='/' + getLocale() + '/' + __('What is DeJā').toLowerCase().split(' ').join('-').split('/').join('-'))= __('What is DeJā').toUpperCase()
-      a.left(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Burn Etiquette').toUpperCase()
-      a.left(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Survival Guide').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Survival Guide').toUpperCase()
-      a.left(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Creation').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Creation').toUpperCase()
-    div
-      a.right.disabled(href='/' + getLocale() + '/' + __('Visa Application').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Visa Application').toUpperCase()
-      a.right(href='/' + getLocale() + '/' + __('Donation').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Donation').toUpperCase()
-      a.right(href='/' + getLocale() + '/' + __('Network').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Network').toUpperCase()
-      a.right(href='/' + getLocale() + '/' + __('FAQ').toLowerCase().split(' ').join('-').split('/').join('-'))= __('FAQ').toUpperCase()
   section.bgless.nav-indent
     .tree
       img(src='/images/principles/tree.png' alt=__('Tree of Life') width='210' height='380')
@@ -33,6 +22,22 @@ block body
       +tree-button('Participation', '30')
       +tree-button('Self-expression', '30')
       +tree-button('Self Reliance', '30')
+  nav
+    div
+      a.left(href='/' + getLocale() + '/' + __('What is DeJā').toLowerCase().split(' ').join('-').split('/').join('-'))= __('What is DeJā').toUpperCase()
+      a.left(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Burn Etiquette').toUpperCase()
+      a.left(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Survival Guide').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Survival Guide').toUpperCase()
+      a.left(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Creation').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Creation').toUpperCase()
+    div
+      a.right.disabled(href='/' + getLocale() + '/' + __('Visa Application').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Visa Application').toUpperCase()
+      a.right(href='/' + getLocale() + '/' + __('Donation').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Donation').toUpperCase()
+      a.right(href='/' + getLocale() + '/' + __('Network').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Network').toUpperCase()
+      a.right(href='/' + getLocale() + '/' + __('FAQ').toLowerCase().split(' ').join('-').split('/').join('-'))= __('FAQ').toUpperCase()
+  nav
+    p= __('1 March — 31 May: Visa applications accepted.')
+    p= __('17 June — 20 June: Early arrivals.')
+    p= __('21 June — 24 June: DeJā.')
+    p= __('25 June — deMOOPed: Strike/Clean up.')
   section.bgless
     h1= __('Upcoming Global Events').toUpperCase()
     .carousel-container

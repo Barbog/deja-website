@@ -220,7 +220,7 @@ nav {
   width: 210px;
   margin: 0 0 8px 0;
   padding: 15px 0;
-  background: @dark;
+  &:first-of-type { background: @dark; }
   transition: transform .1s ease-in-out, width .1s ease-in-out;
 
   @media (min-width: (@desktop-size)) { & {
@@ -258,6 +258,10 @@ nav {
       &.disabled:hover { transform: none; }
     }
   }
+
+  p {
+    margin-bottom: .2em;
+  }
 }
 
 section {
@@ -269,7 +273,6 @@ section {
   line-height: @line-height;
   vertical-align: top;
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
-  clear: both;
 
   &, a { color: lighten(#a98551, 35%);
     &.disabled { color: #a98551; }
@@ -300,11 +303,6 @@ section {
     @media (min-width: (@desktop-size)) { & {
       margin-top: 0;
     } }
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
   }
 
   h1 {
