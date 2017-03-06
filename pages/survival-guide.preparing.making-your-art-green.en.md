@@ -44,9 +44,7 @@ If you do choose to burn your art, it’s critical you plan to avoid using toxic
 
 Paint, very bad to burn.
 
-```
 Plastics, very very bad.
-```
 
 
 

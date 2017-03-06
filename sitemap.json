@@ -310,13 +310,6 @@
           },
           {
             "title": "Making Your Art Green",
-            "acl": "email",
-            "render": {
-              "nextpage": "To Burn or Not To Burn"
-            }
-          },
-          {
-            "title": "To Burn or Not To Burn",
             "acl": "email"
           }
         ]
