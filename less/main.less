@@ -332,11 +332,11 @@ section {
         line-height: @line-height;
       }
     }
-    li:first-child:nth-last-child(3n + 2) {
-      ~ li:nth-last-child(2) { margin-left: 1% + (100% / 3 - 1% * 2) / 2; }
+    li:first-child:nth-last-child(2), li:first-child:nth-last-child(3n + 2) ~ li:nth-last-child(2) {
+      margin-left: 1% + (100% / 3 - 1% * 2) / 2;
     }
-    li:first-child:nth-last-child(3n + 1) {
-      ~ li:nth-last-child(2) { margin-left: 1% + (100% / 3 - 1% * 2); }
+    li:first-child:nth-last-child(1), li:first-child:nth-last-child(3n + 1) ~ li:nth-last-child(1) {
+      margin-left: 1% + (100% / 3 - 1% * 2);
     }
   }
 
