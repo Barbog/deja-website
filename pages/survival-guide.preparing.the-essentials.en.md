@@ -54,3 +54,16 @@ typora-root-url: ../static
 - Water-resisting clothes  
   - Poncho (bling it out)  
   - Bring rain boots and warm socks to keep your feet dry.
+
+
+
+
+
+
+
+
+
+
+
+
+
