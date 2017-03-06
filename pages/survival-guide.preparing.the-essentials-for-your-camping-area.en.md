@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<span style="color:dodgerble;";><u>**The Essentials - Very Good to Have**</u></span>  
+<span style="color:dodgerble;";><u>**Very Good to Have**</u></span>  
 
 - <span style="color:yellow;>**Intoxicating aids**</span>
   - It is recommend to bring more then you need, to gift  to others during the event.
