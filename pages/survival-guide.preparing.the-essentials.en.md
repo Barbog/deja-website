@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 <span style="color:orange;">Below</span> is a list of things you should have.
 
-<u>The Essentials - Highly Recommended</u>
+<u>The Essentials - Highly Recommended</u>  
 
 - 3-5 liters of water per person per day.
   - For drinking, food preparation. etc.
@@ -21,7 +21,7 @@ typora-root-url: ../static
 - Plastic Boxes with Lids 
   - Good to store clothes or food in, especially if you forgot to close your tent when it is raining.
   - Ensure that your belongings are waterproof!!
-- Your Own Cup, plate/bowl, fork, spoon, knife and a can opener.	<span style="color:gold;">TIP</span>: Clip on your Cup to carry around - great for when you are gifted a drinks.
+  - Your Own Cup, plate/bowl, fork, spoon, knife and a can opener.<span style="color:gold;">TIP</span>: Clip on your Cup to carry around - great for when you are gifted a drinks.
 
 
 - Camping gear, based on your needs. 
