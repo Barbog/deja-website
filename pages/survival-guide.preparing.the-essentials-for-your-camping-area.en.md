@@ -2,12 +2,9 @@
 typora-root-url: ../static
 ---
 
-<span style="color:dodgerble;";><u>**Very Good to Have**</u></span>  
+<span style="color:dodgerblue;";><u>**Very Good to Have**</u></span>  
 
-- **Intoxicating aids**
 
-  - Because gifting is an essential part of DeJā, it is recommend to bring more then you need, to gift  to others during the event.
-  - <span style="color=orange;">NOTE</span>: Beer is the traditional drink of choice during the Midsummer celebration.**
 
 - <span style="color:yellow;">**Intoxicating aids**</span>
 
@@ -16,12 +13,12 @@ typora-root-url: ../static
   NOTE: Beer is the traditional drink of choice during the Midsummer celebration.
 
 
-- <span style="color:lime;>**Exotic clothing**</span>
+- <span style="color:lime;">**Exotic clothing**</span>
   - Dress up items, costumes, togas, hats. 
     - Whatever you feel comfortable wearing or not wearing at all.
     - Furry clothing, onesies. Be a superhero, a unicorn, a vicar in a tutu, or a nun Be a fairy, an elf, a hobbit, or a racoon.
-    - <span style="color=yellow;">Remember</span>: no glitter and feathers!!!
-- **<span style="color:pink;">LED or other lighting </span>** for clothes  
+    - <span style="color:yellow;">Remember</span>: no glitter and feathers!!!
+- <span style="color:pink;">LED or other lighting </span> for clothes  
   - There are no lights once it is dark, so the easiest way to be recognised is by wearing something that emits light. 
-  - Buy some form of LED lights operating on battery, and attach them to your clothes or headgear. The more colourful the better.
+  - Buy some form of LED lights operating on battery, and attach them to your clothes or headgear.  The more colourful the better.
 
