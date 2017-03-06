@@ -16,19 +16,19 @@ Below are some <span style="color:gold;">tips</span> as to what you can do to he
 
 <span class="center" style="color:greenyellow;"><u>**Leave No Trace!**</u></span>
 
-Practicing a Leave No Trace Ethic is simple:  Leave the place you visit the same or better than how you found it.
+Practicing a Leave No Trace Ethic is simple: <span style="color:lime;"> Leave the place you visit the same or better than how you found it.</span>
 
-- Leave no trace starts before you head out to the farm, it starts when you develop your plan for the burn.
+- Leave no trace <span style="color:lime;"> starts </span>before you head out to the farm, it starts when you develop your plan for the burn.
   - Carefully consider any items you plan on bringing that could become MOOP.
   - Set your end-of-event line sweep plan and schedule.
 
 
-- Leave No Trace continues when you get to the farm.
+- Leave No Trace <span style="color:lime;">continues </span> when you get to the farm.
   - During your construction process, when you place tarps below  projects to catch stray nails, wood chips, metal shavings and sawdust.
   - IF your project contains metal hardware, or shavings, <span style="color:orange;">**Consider**</span> bringing a magnet rake as well as other leave no trace supplies.
 
 
-- Leave No Trace takes place every moment of the event,
+- Leave No Trace takes place <span style="color:dodgerblue;">every moment of the event.</span>
   - <span style="color:tomato;">**Never**</span> let it hit the ground.
   - MOOP as you go,  pick up other random MOOP.
   - <span style="color:lime;">**Carry**</span> a MOOP bag with you, so that you can play your collective part of this community.
