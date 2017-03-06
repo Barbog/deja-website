@@ -2,33 +2,50 @@
 typora-root-url: ../static
 ---
 
-<span class="center" style="color:gold;"><u>Tips and Hints  — Leaving DeJā</u></span>
+<span class="center" style="color:gold;"><u>Tips and Hints</u></span>
 
 
 
-<span style="color:dodgerblue;"><u>**As you are preparing to leave:**</u></span>
+**<span style="color:dodgerblue;">Be Aware </span>of Very Small Items**
 
-<span style="color:lime;"><span style="color:tomato;">**Do not Rush**</span>  — do not stress yourself out to hurrying to get home.
+- No Trace really does mean no trace.
+- Be conscious of spare nails or smaller trash particles that may be dismissed as too small for trash including: hair, matches, cigarette butts, feathers, zip ties. 
+- After you pick up your trash to carry home, do a last-minute check of your site for cigarette butts, gum wrappers, etc. because many of those will be hidden under tarps, tents and vehicles.
+- <span style="color:greenyellow;">**Plan**</span> to send trash off the farm with campmates as they leave the event. 
 
-- Long-term exposure to the burn may fatigue your body and impair decision-making. 
-- When under pressure, we are all likely to make rushed decisions, miss details and leave things behind.  
-- If you have to catch a plane, make sure to start packing up even earlier than you think you may have to, so you aren’t tempted to leave before fully clearing your site.
+<span style="color:tomato;">Never</span> let MOOP hit the ground. Clean as you go. MOOP attracts more MOOP. 
 
+- When you see trash on the ground, pick it up and take it with you, including cigarette butts, and then empty your pockets into a trash bag later. 
 
+<span style="color:orange;">Ensure</span>  that the compost pile is treated correctly. Only biodegradable food waste should be put in the compost pile.
 
-<span style="color:greenyellow;">**Do**</span> a line sweep of your camp with your campmates, making sure you cover the whole area,  picking up every single piece of MOOP.
-
-- <span style="color:limegreen">Do</span> a MOOP sweep of your tent area.
-  - Nothing is too small.  If it wasn’t there before you arrived, it must not be there when you leave.
-- <span style="color:orange;">**Remember**</span> to leave enough time to help pack up, clean up and ensure that there is no evidence you were ever there.
-  - As you’re packing your camp, have campmates walk repeatedly around your site picking up anything and everything that’s not part of the farm.
-- <span style="color:yellow;">**Sort**</span> your trash and recycling for drop-off at allocated sites on your way home.
-- <span style="color:tomato;">**Do not**</span> dump your trash anywhere in neighboring communities that is not a designated trash or recycling site.
-- <span style="color:greenyellow;">**Take** </span> your trash with you! And if you have space, please take an orphan bag if you happen to see one at the gate on your way out.
-- If you are hauling anything that is not inside your vehicle, stop periodically and check to make sure your vehicle’s load is secured and hasn’t loosened in the wind.
-
-<span style="color:gold;">TIP</span> : Doing this periodically, through the week, will make it easier.
-
-- If half of your campmates will have left before you, the folks left behind are going to have a lot more work to do. 
+- Food waste such as peanut shells, orange peels and eggshells are also trash. Dispose of these in the compost.
 
   ​
+
+<span style="color:limegreen;">Separate</span>  recycling into glass, plastic, aluminum and cardboard/paper. 
+
+- No trash is to be burned, except for cardboard/paper.
+
+
+
+
+The toilets are compost toilets. If it’s not biodegradable, don’t put it down the toilet. This means no tampons, no cans, no trash, no cigarette butts etc.
+
+- <span style="color:tomato;">Do Not</span> Use the Farm as Your Toilet
+
+  - This is unacceptable, unsanitary, and just plain gross the morning after.
+
+    ​
+
+- Minimize Fire Impacts
+
+  - Keep in mind that most non-natural materials (rugs, polyester, plastic, treated wood) are toxic when burned.
+
+    ​
+
+- Respect Wildlife
+
+  - <span style="color:tomato;">Do not </span> harass wildlife. 
+  - If you bring a pet to the DeJā, make certain to remove their waste just as you would your own.
+

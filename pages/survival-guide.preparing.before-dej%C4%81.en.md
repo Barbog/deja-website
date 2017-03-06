@@ -2,7 +2,9 @@
 typora-root-url: ../static
 ---
 
-**<span class="center" style="color:gold;"><u>Tips and Hints  — Before DeJā</u></span>**
+<span class="center" style="color:gold;"><u>Tips and Hints</u></span>
+
+
 
 <span style="color:dodgerblue;"><u>**Plan Ahead and Prepare**</u></span>
 

@@ -277,18 +277,11 @@
             "title": "Environmental Consciousness",
             "acl": "email",
             "render": {
-              "nextpage": "Tips and Hints"
+              "nextpage": "Before DeJā"
             }
           },
           {
-            "title": "Tips and Hints",
-            "acl": "email",
-            "render": {
-              "nextpage": "Plan Ahead and Prepare"
-            }
-          },
-          {
-            "title": "Plan Ahead and Prepare",
+            "title": "Before DeJā",
             "acl": "email",
             "render": {
               "nextpage": "During DeJā"
