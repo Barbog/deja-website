@@ -263,11 +263,11 @@
             "title": "The Essentials",
             "acl": "email",
             "render": {
-              "nextpage": "The Essentials For your camping area"
+              "nextpage": "Very Good to Have"
             }
           },
           {
-            "title": "The Essentials For your camping area",
+            "title": "Very Good to Have",
             "acl": "email",
             "render": {
               "nextpage": "Environmental Consciousness"
