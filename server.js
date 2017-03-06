@@ -598,7 +598,7 @@ function catchAllFor (backstack, sitemap) {
               siblingpages: sitemap,
               markdown: markdown
             }, renderOverrides || {});
-            res.render(view.split('.')[0], renderParams, (err, html) => {
+            res.render(encodeURIComponent(view.split('.')[0]), renderParams, (err, html) => {
               if (err) {
                 res.render('layout', renderParams, (err, html) => {
                   if (err) {
