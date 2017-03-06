@@ -217,12 +217,16 @@ header {
 
 nav {
   display: inline-block;
-  width: 30%;
-  max-width: 280px;
+  width: 210px;
   margin: 0 0 8px 0;
   padding: 15px 0;
   background: @dark;
   transition: transform .1s ease-in-out, width .1s ease-in-out;
+
+  @media (min-width: (@desktop-size)) { & {
+    margin-left: 160px;
+    margin-top: 40px;
+  } }
 
   &:empty {
     height: 0;
@@ -265,6 +269,7 @@ section {
   line-height: @line-height;
   vertical-align: top;
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
+  clear: both;
 
   &, a { color: lighten(#a98551, 35%);
     &.disabled { color: #a98551; }
@@ -289,13 +294,17 @@ section {
   } }
 
   &.nav-indent {
+    float: right;
     display: inline-block;
-    width: 70%;
-    max-width: 70%;
     margin-top: 16px;
     @media (min-width: (@desktop-size)) { & {
       margin-top: 0;
     } }
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   }
 
   h1 {
@@ -405,11 +414,12 @@ section {
     @tree-height: 380px;
     width: @tree-width;
     height: auto;
-    margin: 0 auto;
-    max-width: 80%;
+    margin: 0;
+    max-width: 100%;
+    float: right;
 
     @media (min-width: (@desktop-size)) { & {
-      transform: translateX(50%);
+      margin-right: 160px;
     } }
 
     img {
