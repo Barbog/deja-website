@@ -8,7 +8,7 @@ Whether you represent a massive village, a medium-sized theme camp, or stand alo
 
 Learn and consider the 6 R’s:
 
-- **<span style="color:darkgreen;">Respect.  </span>**
+- **<span style="color:darkgreen;">Respect.</span>**
 - **<span style="color:lime;">Rethink.</span>**
 - **<span style="color:darkgreen;">Reduce.</span>**
 - **<span style="color:lime;">Reuse. </span>**
@@ -24,7 +24,7 @@ Coming Alone?
 <span style="color:orange;">**Consider**</span> ride sharing to reduce the number of cars going to and from the farm. You can find likely candidates through our car share channel on Slack.
 
 Do you have a lot of stuff to bring for yourself and/or for your camp?  
-	Maybe you could band together with other folks near you.
+Maybe you could band together with other folks near you.
 Coming from far away?
 <span style="color:orange;">**Consider**</span> inflatable furniture, or a metal-framed futon, which can be disassembled to fit compactly in a car and reused at another event.
 
@@ -66,6 +66,4 @@ Please don’t use glow sticks!
 - They add toxic materials to landfills.
 
 When you need to illuminate yourself, <span style="color:orange;">**consider**</span> a battery or solar-powered LED light string, EL wire, or reflective tape.
-
-
 

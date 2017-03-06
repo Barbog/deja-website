@@ -305,13 +305,6 @@
             "title": "Making Your Camp Green",
             "acl": "email",
             "render": {
-              "nextpage": "Materials"
-            }
-          },
-          {
-            "title": "Materials",
-            "acl": "email",
-            "render": {
               "nextpage": "Making Your Art Green"
             }
           },
