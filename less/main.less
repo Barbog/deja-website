@@ -217,10 +217,13 @@ header {
 
 nav {
   display: inline-block;
-  width: 210px;
   margin: 0 0 8px 0;
   padding: 15px 0;
-  &:first-of-type { background: @dark; }
+  &:first-of-type {
+    width: 210px;
+    background: @dark;
+  }
+  color: @accent;
   transition: transform .1s ease-in-out, width .1s ease-in-out;
 
   @media (min-width: (@desktop-size)) { & {
