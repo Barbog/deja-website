@@ -4,7 +4,13 @@ typora-root-url: ../static
 
 <span style="color:dodgerble;";><u>**Very Good to Have**</u></span>  
 
+- **Intoxicating aids**
+
+  - Because gifting is an essential part of DeJā, it is recommend to bring more then you need, to gift  to others during the event.
+  - <span style="color=orange;">NOTE</span>: Beer is the traditional drink of choice during the Midsummer celebration.**
+
 - <span style="color:yellow;>**Intoxicating aids**</span>
+
   - It is recommend to bring more then you need, to gift  to others during the event.
 
   NOTE: Beer is the traditional drink of choice during the Midsummer celebration.
