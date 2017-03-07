@@ -128,7 +128,7 @@ There is a lot of sexual energy whirling about. Anything and everything can and 
   - Love? Sex? Your wildest fantasies? It’s all there for the taking. 
 - Make sure the person across from you wants the same thing. 
   - If she or he doesn’t, there are others who do. 
-- <span style ="color:lime;"> Be respectful.</u>
+- <span style ="color:lime;"> Be respectful.</u></span>
   -  Just because people are walking around naked does not necessarily mean they wish *you* were naked in a small enclosed space with them. 
 - Learn to take no for an answer, 
   - and don’t be afraid to use the “n” word yourself.
