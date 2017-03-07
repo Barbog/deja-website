@@ -21,7 +21,7 @@ At times, DeJā will feel like it’s been designed for loud, confident and extr
 - Don’t be afraid to try new things. If there was ever a space for exploring, this is it! 
 - Take responsibility for your own pleasure. 
 
-**Connecting with other DeJānites**
+**<u>Connecting with other DeJānites</u>**
 
 Meeting new people is one of the best parts of DeJā, but some people may find this more challenging than others, especially as several DeJāns know each other from previous years and other burner events. Luckily, there’s plenty of ways to feel more integrated.
 
