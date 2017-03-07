@@ -17,7 +17,6 @@ At times, DeJā will feel like it’s been designed for loud, confident and extr
 - Not everyone who goes to DeJā is a party animal – many prefer to sleep in their tent at night and enjoy the daytime activities. 
 - Know yourself and your needs, and do what makes YOU happy.
 - If you’re feeling particularly overwhelmed, or depressed, come talk to one of the greeters who are more than experienced in offering a friendly ear to those who’re feeling overwhelmed.
-- psame thing. If she or he doesn’t, there are others who do. 
 - Get plenty of rest, monitor your substance intake and hydrate.
 - Don’t be afraid to try new things. If there was ever a space for exploring, this is it! 
 - Take responsibility for your own pleasure. 
