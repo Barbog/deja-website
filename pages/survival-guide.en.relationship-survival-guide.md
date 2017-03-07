@@ -2,6 +2,8 @@
 typora-root-url: ../static
 ---
 
+
+
 For all relationships, including friends, it’s a good idea to make some time to be together regularly, but you should also give everybody the space they need to enjoy themselves fully – including yourself! Leave your group and go for an adventure. State your wants and boundaries, and listen to your friend’s or partner’s wants.
 
 Whether it be platonic, romantic, or somewhere in between, Here are a few tips that might help you preserve relationships  at DeJā, (from the experiences of people who have burned before)
@@ -65,7 +67,7 @@ DeJā can be a challenging time for relationships, both with friends and romanti
 - What should we do if we have an argument?
 - Do we expect to spend a large amount of time with each other every day, or will we be more independent of each other?
 - Do you expect me to sleep in the same tent as you each night?
-- How do you feel about me interacting with someone who is naked?	How would you feel if I wanted to get naked?
+ - How do you feel about me interacting with someone who is naked?How would you feel if I wanted to get naked?
 
 Make sure to schedule dates together and keep them.
 
