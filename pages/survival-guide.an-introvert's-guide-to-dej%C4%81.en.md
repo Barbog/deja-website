@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<span class="center" style="color:#12454c"><u>An Introvert's Guide</u></span>
+<span class="center" style="color:#0e4068"><u>An Introvert's Guide</u></span>
 
 At times, DeJā will feel like it’s been designed for loud, confident and extroverted people. Meeting so many new people can be a bit much if you’re shy or a bit introverted (like 25% of the population), and it can be very easy to feel left out. Or it might just be too much if you’re just not feeling at the top of your game.
 
