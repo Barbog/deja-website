@@ -108,6 +108,7 @@ if (env === 'dev') {
 }
 
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use((req, res, next) => {
   res.set('Cache-Control', 'no-store');
