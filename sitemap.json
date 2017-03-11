@@ -316,19 +316,31 @@
       },
       {
         "title": "Getting There",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Arriving and Setting Up"
+        }
       },
       {
         "title": "Arriving and Setting Up",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "Relationship Survival Guide"
+        }
       },
       {
         "title": "Relationship Survival Guide",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "An Introvert's Guide to DeJā"
+        }
       },
       {
         "title": "An Introvert's Guide to DeJā",
-        "acl": "email"
+        "acl": "email",
+        "render": {
+          "nextpage": "After DeJā"
+        }
       },
       {
         "title": "After DeJā",
