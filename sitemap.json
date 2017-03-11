@@ -115,7 +115,7 @@
       {
         "title": "Questions",
         "type": "questions",
-        "acl": "Burn Etiquette.Volunteering",
+        "acl": "Burn Etiquette.Volunteering"
       }
     ]
   },
