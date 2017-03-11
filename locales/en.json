@@ -25,6 +25,7 @@
 	"Leave No Trace": "Leave No Trace",
 	"Hygiene": "Hygiene",
 	"Volunteering": "Volunteering",
+	"Questions": "Questions",
 	"Survival Guide": "Survival Guide",
 	"The Beginner's Guide": "The Beginner's Guide",
 	"What is Provided": "What is Provided",
@@ -94,7 +95,7 @@
 	"Home": "Home",
 	"Email": "Email",
 	"Password": "Password",
-	"Name": "Name",
 	"Next Page": "Next Page",
+	"Name": "Name",
 	"Apply": "Apply"
 }
