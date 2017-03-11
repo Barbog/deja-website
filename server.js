@@ -16,7 +16,7 @@ const redis = require('redis');
 const showdown = new (require('showdown').Converter)();
 
 const db = redis.createClient();
-db.on('error', (err) => {
+db.on('error', err => {
   console.error(err.stack);
 });
 
@@ -37,7 +37,7 @@ app.use(require('body-parser').json());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('cookie-parser')());
 i18n.configure({
-  locales: fs.readdirSync(path.join(__dirname, 'locales')).map((locale) => { return path.basename(locale, '.json'); }),
+  locales: fs.readdirSync(path.join(__dirname, 'locales')).map(locale => path.basename(locale, '.json')),
   defaultLocale: 'en',
   cookie: 'lang',
   directory: path.join(__dirname, 'locales'),
@@ -133,7 +133,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   const localeHash = {};
-  i18n.getLocales().forEach((locale) => {
+  i18n.getLocales().forEach(locale => {
     localeHash[locale] = '/' + locale + '/';
   });
 
@@ -141,7 +141,7 @@ app.get('/', (req, res) => {
 });
 app.all('/', returnBadAction);
 
-i18n.getLocales().forEach((locale) => {
+i18n.getLocales().forEach(locale => {
   app.get('/' + locale, (req, res) => {
     req.setLocale(locale);
 
@@ -165,7 +165,7 @@ i18n.getLocales().forEach((locale) => {
     req.setLocale(locale);
 
     const localeHash = {};
-    i18n.getLocales().forEach((locale) => {
+    i18n.getLocales().forEach(locale => {
       localeHash[locale] = '/' + locale + '/';
     });
 
@@ -177,7 +177,7 @@ i18n.getLocales().forEach((locale) => {
 (() => {
   const title = 'Log In';
 
-  const catchLogin = (locale) => {
+  const catchLogin = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
@@ -201,7 +201,7 @@ i18n.getLocales().forEach((locale) => {
       const password = req.body ? req.body.password : '';
       const location = (req.body ? req.body.location : '') || ('/' + locale + '/');
 
-      const rerender = (err) => {
+      const rerender = err => {
         res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, email: email }, (err, html) => {
           if (err) {
             res.status(500);
@@ -245,7 +245,7 @@ i18n.getLocales().forEach((locale) => {
 
           const token = randomstring.generate({ length: 32, charset: 'alphanumeric' });
           const tokenExpirySeconds = 60/* s */ * 60/* m */ * 3/* h */;
-          db.setex('session:' + token, tokenExpirySeconds, email, (err) => {
+          db.setex('session:' + token, tokenExpirySeconds, email, err => {
             if (err) {
               rerender(new Error('Internal database error encountered.'));
               console.error(err.stack);
@@ -276,7 +276,7 @@ i18n.getLocales().forEach((locale) => {
   const navbarHash = {};
   const localeHash = {};
 
-  i18n.__h(title).forEach((subhash) => {
+  i18n.__h(title).forEach(subhash => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
@@ -293,7 +293,7 @@ i18n.getLocales().forEach((locale) => {
 (() => {
   const title = 'Log Out';
 
-  const catchLogout = (locale) => {
+  const catchLogout = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
@@ -317,7 +317,7 @@ i18n.getLocales().forEach((locale) => {
   const navbarHash = {};
   const localeHash = {};
 
-  i18n.__h(title).forEach((subhash) => {
+  i18n.__h(title).forEach(subhash => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
@@ -334,7 +334,7 @@ i18n.getLocales().forEach((locale) => {
 (() => {
   const title = 'Register';
 
-  const catchRegister = (locale) => {
+  const catchRegister = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
 
@@ -357,7 +357,7 @@ i18n.getLocales().forEach((locale) => {
       const email = req.body ? req.body.email : '';
       const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
 
-      const rerender = (err) => {
+      const rerender = err => {
         res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, name: name, email: email }, (err, html) => {
           if (err) {
             res.status(500);
@@ -410,7 +410,7 @@ i18n.getLocales().forEach((locale) => {
             return;
           }
 
-          db.hmset('user:' + email, 'password', hash, 'name', name, (err) => {
+          db.hmset('user:' + email, 'password', hash, 'name', name, err => {
             if (err) {
               rerender(new Error('Internal database error encountered.'));
               console.error(err.stack);
@@ -422,7 +422,7 @@ i18n.getLocales().forEach((locale) => {
               to: email,
               subject: 'Your registration with DeJā',
               text: 'You are in. Your password is ' + password + '.'
-            }, (err) => {
+            }, err => {
               if (err) {
                 rerender(new Error('Internal dispatching error encountered.'));
                 console.error(err.stack);
@@ -452,7 +452,7 @@ i18n.getLocales().forEach((locale) => {
   const navbarHash = {};
   const localeHash = {};
 
-  i18n.__h(title).forEach((subhash) => {
+  i18n.__h(title).forEach(subhash => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
@@ -470,7 +470,7 @@ i18n.getLocales().forEach((locale) => {
   return;
   const title = 'Visa Application'; // jshint ignore:line
 
-  const catchVisaApplication = (locale) => {
+  const catchVisaApplication = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
 
@@ -491,7 +491,7 @@ i18n.getLocales().forEach((locale) => {
         return;
       }
 
-      const render = (markdown) => {
+      const render = markdown => {
         res.render('visa-application', { altLocales: localeHash, title: req.__(title), markdown: markdown, hideNavigation: true }, (err, html) => {
           if (err) {
             res.status(500);
@@ -533,7 +533,7 @@ i18n.getLocales().forEach((locale) => {
   const navbarHash = {};
   const localeHash = {};
 
-  i18n.__h(title).forEach((subhash) => {
+  i18n.__h(title).forEach(subhash => {
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
@@ -551,7 +551,7 @@ const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.jso
 
 function catchAllFor (backstack, sitemap) {
   if (!Array.isArray(sitemap)) { sitemap = []; }
-  sitemap.forEach((page) => {
+  sitemap.forEach(page => {
     if (typeof page.title !== 'string') { throw new Error('Page title not provided as a string.'); }
     if (!Array.isArray(page.subpages)) { page.subpages = []; }
     if (typeof page.render !== 'object' || page.render === null) { page.render = {}; }
@@ -559,11 +559,11 @@ function catchAllFor (backstack, sitemap) {
     const stack = JSON.parse(JSON.stringify(backstack));
     stack[stack.length] = { title: {}, href: {}, render: page.render };
 
-    const reduceToHref = (locale) => {
-      return stack.reduce((prev, next) => { return prev + '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'); }, '/' + locale);
+    const reduceToHref = locale => {
+      return stack.reduce((prev, next) => prev + '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale);
     };
 
-    i18n.__h(page.title).forEach((subhash) => {
+    i18n.__h(page.title).forEach(subhash => {
       for (var locale in subhash) {
         if (!subhash.hasOwnProperty(locale)) { continue; }
         stack[stack.length - 1].title[locale] = subhash[locale];
@@ -601,11 +601,11 @@ function catchAllFor (backstack, sitemap) {
             });
             return;
           }
-          const render = (markdown) => {
+          const render = markdown => {
             const renderParams = Object.assign({
               altLocales: localeHash,
               title: req.__(title),
-              stackpages: stack.map((el) => { return el.title.en; }),
+              stackpages: stack.map(el => el.title.en),
               subpages: page.subpages,
               siblingpages: sitemap.filter(page => page.title !== 'Questions'),
               markdown: markdown,
@@ -652,7 +652,7 @@ function catchAllFor (backstack, sitemap) {
       for (var locale in stack[stack.length - 1].title) {
         if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
         catchAll(stack[stack.length - 1].href, locale,
-          stack.map((el) => { return el.title.en.toLowerCase().split(' ').join('-').split('/').join('-'); }).join('.'),
+          stack.map(el => el.title.en.toLowerCase().split(' ').join('-').split('/').join('-')).join('.'),
           stack[stack.length - 1].title[locale], stack[stack.length - 1].render);
       }
     } else if (typeof page.hidden === 'string') {
@@ -688,7 +688,7 @@ function catchAllFor (backstack, sitemap) {
 catchAllFor([], JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' })));
 
 var cssCache = null;
-const renderLess = (callback) => {
+const renderLess = callback => {
   fs.readFile(path.join(__dirname, 'less', 'main.less'), { encoding: 'utf8' }, (err, data) => {
     if (err) {
       callback(err, null);
@@ -696,9 +696,9 @@ const renderLess = (callback) => {
       less.render(data, {
         'include-path': [ path.join(__dirname, 'less') ],
         plugins: [ lessCleanCss ]
-      }).then((out) => {
+      }).then(out => {
         callback(null, out.css + '\n');
-      }, (err) => {
+      }, err => {
         callback(err, null);
       });
     }
