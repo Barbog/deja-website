@@ -10,10 +10,10 @@ html(lang=getLocale())
       title Degošie Jāņi
     link(rel='icon' href='/favicon.png')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    <!--[if IE]><script src='/libs/html5shiv-3.7.3.min.js'></script><![endif]-->
-    link(rel='stylesheet' href='/libs/reset-2.0.css')
+    <!--[if IE]><script src='/html5shiv/dist/html5shiv.min.js'></script><![endif]-->
+    link(rel='stylesheet' href='/reset-css/reset.css')
     link(rel='stylesheet' href='/main.css')
-    link(rel='stylesheet' href='/libs/flickity-2.0.5.min.css')
+    link(rel='stylesheet' href='/flickity/dist/flickity.min.css')
     if altLocales
       each href, locale in altLocales
         if locale !== getLocale()
@@ -38,7 +38,7 @@ html(lang=getLocale())
     block body
       section
         != markdown || ''
-    script(src='/libs/jquery-3.1.1.min.js')
-    script(src='/libs/flickity-pkgd-2.0.5.min.js')
+    script(src='/jquery/dist/jquery.min.js')
+    script(src='/flickity/dist/flickity.pkgd.min.js')
     script $(function () { $('.disabled').on('click', function (event) { event.preventDefault(); }); $('.carousel-container').flickity({ wrapAround: true, autoPlay: 3000, adaptiveHeight: false, dragThreshold: 10, prevNextButtons: false }); $('.altlang').on('click', function (event) { var lang = event.target.hreflang; if (lang) { document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365); } }); });
 = '\n'
