@@ -17,6 +17,7 @@
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
     "express": "4.x",
+    "fakeredis": "^2.0.0",
     "front-matter": "^2.1.2",
     "get-env": "^0.5.10",
     "helmet": "^3.5.0",

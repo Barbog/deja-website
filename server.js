@@ -12,7 +12,7 @@ const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced
 const mailgun = require('mailgun-js')({ apiKey: 'key-f092a5bb72bd024a03f67de1144de8a8', domain: 'sandboxce71f9fc94ff4e4ca40e1578b8ba3019.mailgun.org' });
 const path = require('path');
 const randomstring = require('randomstring');
-const redis = require('redis');
+const redis = require(env === 'dev' ? 'fakeredis' : 'redis');
 const showdown = new (require('showdown').Converter)();
 
 const db = redis.createClient();
@@ -97,13 +97,6 @@ app.use((req, res, next) => {
   const token = req.cookies.token;
 
   if (typeof token !== 'string' || token === '') {
-    next();
-    return;
-  }
-
-  if (env === 'dev') {
-    // If you have a token cookie and you are running in a development environment, we always emulate you having a session.
-    res.locals.user = { email: 'john.doe@dev.local', name: 'John Doe' };
     next();
     return;
   }
