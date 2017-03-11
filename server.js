@@ -6,7 +6,6 @@ const env = require('get-env')();
 const express = require('express');
 const frontMatter = require('front-matter');
 const fs = require('fs');
-const http = require('http');
 const https = require('https');
 const i18n = require('i18n');
 const less = require('less');
@@ -764,9 +763,8 @@ app.use((req, res) => {
 });
 
 fs.readFile(path.join(__dirname, 'cert.pfx'), { encoding: null }, (err, pfx) => {
-  const server = err || !pfx ?
-    app.listen(app.get('port')) :
-    https.createServer({ pfx: pfx, passphrase: 'node' }, app).listen(app.get('port'));
+  const port = app.get('port');
+  const server = err || !pfx ? app.listen(port) : https.createServer({ pfx: pfx, passphrase: 'node' }, app).listen(port);
 
   process.once('SIGINT', () => {
     server.once('close', () => {
