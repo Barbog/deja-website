@@ -65,49 +65,49 @@
       },
       {
         "title": "Consent and Boundaries",
-        "acl": "email",
+        "acl": "Burn Etiquette.The Code of the Republic",
         "render": {
           "nextpage": "Photo & Video Policy"
         }
       },
       {
         "title": "Photo & Video Policy",
-        "acl": "email",
+        "acl": "Burn Etiquette.Consent and Boundaries",
         "render": {
           "nextpage": "Bring Your Own Cup"
         }
       },
       {
         "title": "Bring Your Own Cup",
-        "acl": "email",
+        "acl": "Burn Etiquette.Photo & Video Policy",
         "render": {
           "nextpage": "Leave No Trace"
         }
       },
       {
         "title": "Leave No Trace",
-        "acl": "email",
+        "acl": "Burn Etiquette.Bring Your Own Cup",
         "render": {
           "nextpage": "Hygiene"
         }
       },
       {
         "title": "Hygiene",
-        "acl": "email",
+        "acl": "Burn Etiquette.Leave No Trace",
         "render": {
           "nextpage": "Participation"
         }
       },
       {
         "title": "Participation",
-        "acl": "email",
+        "acl": "Burn Etiquette.Hygiene",
         "render": {
           "nextpage": "Volunteering"
         }
       },
       {
         "title": "Volunteering",
-        "acl": "email",
+        "acl": "Burn Etiquette.Participation",
         "render": {
           "nextpage": "Questions"
         }
@@ -115,7 +115,7 @@
       {
         "title": "Questions",
         "type": "questions",
-        "acl": "email"
+        "acl": "Burn Etiquette.Volunteering",
       }
     ]
   },
@@ -469,7 +469,7 @@
   },
   {
     "title": "Visa Application",
-    "acl": "nobody"
+    "acl": "null"
   },
   {
     "title": "Donation",
