@@ -20,6 +20,26 @@ db.on('error', err => {
   console.error(err.stack);
 });
 
+if (env === 'dev') {
+  const email = 'john.doe@example.com';
+  const name = 'John Doe';
+  const password = randomstring.generate({ length: 8, readable: true, charset: 'alphanumeric' });
+
+  bcrypt.hash(password, 10, (err, hash) => {
+    if (err) {
+      throw err;
+    }
+
+    db.hmset('user:' + email, 'password', hash, 'name', name, err => {
+      if (err) {
+        throw err;
+      }
+
+      console.log('The development account for "' + name + ' <' + email + '>" has been created.\n    Password: ' + password);
+    });
+  });
+}
+
 const app = express();
 app.set('case sensitive routing', true);
 app.set('env', env === 'dev' ? 'development' : 'production');
