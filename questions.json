@@ -1,17 +1,19 @@
 {
   "Burn Etiquette": {
-    "nextPage": [ "Survival Guide" ],
-    "questions": [
-      {
-        "question": "When do you deMOOP?",
-        "expectedAnswer": "All the time",
-        "answers": [
-          "All the time",
-          "Every evening",
-          "Right before leaving",
-          "Never"
-        ]
-      }
-    ]
+    "Questions": {
+      "nextPage": [ "Survival Guide" ],
+      "questions": [
+        {
+          "question": "When do you deMOOP?",
+          "expectedAnswer": "All the time",
+          "answers": [
+            "All the time",
+            "Every evening",
+            "Right before leaving",
+            "Never"
+          ]
+        }
+      ]
+    }
   }
 }
