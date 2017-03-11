@@ -140,7 +140,9 @@ app.use((req, res, next) => {
         return;
       }
 
-      res.locals.user = { email: reply, name: user.name };
+      res.locals.user = Object.assign(user, {
+        email: reply
+      });
       next();
     });
   });
@@ -616,35 +618,56 @@ function catchAllFor (backstack, sitemap) {
             });
             return;
           }
+          const prerender = callback => {
+            if (!res.locals.user) {
+              callback(null);
+              return;
+            }
+
+            db.hsetnx('user:' + res.locals.user.email,
+              stack.reduce((prev, next) => prev + '.' + next.title.en, 'view'),
+              Date.now(),
+              callback);
+          };
           const render = markdown => {
-            const renderParams = Object.assign({
-              altLocales: localeHash,
-              title: req.__(title),
-              stackpages: stack.map(el => el.title.en),
-              subpages: page.subpages,
-              siblingpages: sitemap.filter(page => page.title !== 'Questions'),
-              markdown: markdown,
-              questions: page.questions.questions
-            }, renderOverrides || {});
-            res.render(encodeURIComponent(page.type || view.split('.')[0]), renderParams, (err, html) => {
+            prerender(err => {
               if (err) {
-                res.render('layout', renderParams, (err, html) => {
-                  if (err) {
-                    res.status(500);
-                    res.type('text/plain; charset=utf-8');
-                    res.send('Something broke horribly. Sorry.');
-                    console.error(err.stack);
-                  } else {
-                    res.status(200);
-                    res.type('text/html; charset=utf-8');
-                    res.send(html);
-                  }
-                });
-              } else {
-                res.status(200);
-                res.type('text/html; charset=utf-8');
-                res.send(html);
+                res.status(500);
+                res.type('text/plain; charset=utf-8');
+                res.send('Something broke horribly. Sorry.');
+                console.error(err.stack);
+                return;
               }
+
+              const renderParams = Object.assign({
+                altLocales: localeHash,
+                title: req.__(title),
+                stackpages: stack.map(el => el.title.en),
+                subpages: page.subpages,
+                siblingpages: sitemap.filter(page => page.title !== 'Questions'),
+                markdown: markdown,
+                questions: page.questions.questions
+              }, renderOverrides || {});
+              res.render(encodeURIComponent(page.type || view.split('.')[0]), renderParams, (err, html) => {
+                if (err) {
+                  res.render('layout', renderParams, (err, html) => {
+                    if (err) {
+                      res.status(500);
+                      res.type('text/plain; charset=utf-8');
+                      res.send('Something broke horribly. Sorry.');
+                      console.error(err.stack);
+                    } else {
+                      res.status(200);
+                      res.type('text/html; charset=utf-8');
+                      res.send(html);
+                    }
+                  });
+                } else {
+                  res.status(200);
+                  res.type('text/html; charset=utf-8');
+                  res.send(html);
+                }
+              });
             });
           };
           fs.readFile(path.join(__dirname, 'pages', encodeURIComponent(view + '.' + locale + '.md')), { encoding: 'utf8' }, (err, data) => {

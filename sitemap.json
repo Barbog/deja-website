@@ -65,49 +65,49 @@
       },
       {
         "title": "Consent and Boundaries",
-        "acl": "Burn Etiquette.The Code of the Republic",
+        "acl": "view.Burn Etiquette.The Code of the Republic",
         "render": {
           "nextpage": "Photo & Video Policy"
         }
       },
       {
         "title": "Photo & Video Policy",
-        "acl": "Burn Etiquette.Consent and Boundaries",
+        "acl": "view.Burn Etiquette.Consent and Boundaries",
         "render": {
           "nextpage": "Bring Your Own Cup"
         }
       },
       {
         "title": "Bring Your Own Cup",
-        "acl": "Burn Etiquette.Photo & Video Policy",
+        "acl": "view.Burn Etiquette.Photo & Video Policy",
         "render": {
           "nextpage": "Leave No Trace"
         }
       },
       {
         "title": "Leave No Trace",
-        "acl": "Burn Etiquette.Bring Your Own Cup",
+        "acl": "view.Burn Etiquette.Bring Your Own Cup",
         "render": {
           "nextpage": "Hygiene"
         }
       },
       {
         "title": "Hygiene",
-        "acl": "Burn Etiquette.Leave No Trace",
+        "acl": "view.Burn Etiquette.Leave No Trace",
         "render": {
           "nextpage": "Participation"
         }
       },
       {
         "title": "Participation",
-        "acl": "Burn Etiquette.Hygiene",
+        "acl": "view.Burn Etiquette.Hygiene",
         "render": {
           "nextpage": "Volunteering"
         }
       },
       {
         "title": "Volunteering",
-        "acl": "Burn Etiquette.Participation",
+        "acl": "view.Burn Etiquette.Participation",
         "render": {
           "nextpage": "Questions"
         }
@@ -115,7 +115,7 @@
       {
         "title": "Questions",
         "type": "questions",
-        "acl": "Burn Etiquette.Volunteering"
+        "acl": "view.Burn Etiquette.Volunteering"
       }
     ]
   },
