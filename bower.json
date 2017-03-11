@@ -1,0 +1,20 @@
+{
+  "name": "deja",
+  "description": "Website project for Burning Jāņi",
+  "main": "index.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "UNLICENSED",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "authors": [
+    "Valters Jansons <valter.jansons@gmail.com>"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "private": true
+}

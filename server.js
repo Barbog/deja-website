@@ -765,6 +765,7 @@ app.use((req, res) => {
 fs.readFile(path.join(__dirname, 'cert.pfx'), { encoding: null }, (err, pfx) => {
   const port = app.get('port');
   const server = err || !pfx ? app.listen(port) : https.createServer({ pfx: pfx, passphrase: 'node' }, app).listen(port);
+  module.exports = server;
 
   process.once('SIGINT', () => {
     server.once('close', () => {
