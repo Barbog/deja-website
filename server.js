@@ -607,7 +607,7 @@ function catchAllFor (backstack, sitemap) {
               title: req.__(title),
               stackpages: stack.map((el) => { return el.title.en; }),
               subpages: page.subpages,
-              siblingpages: sitemap,
+              siblingpages: sitemap.filter(page => page.title !== 'Questions'),
               markdown: markdown,
               questions: page.questions.questions
             }, renderOverrides || {});
