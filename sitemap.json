@@ -291,11 +291,11 @@
             "title": "During DeJā",
             "acl": "email",
             "render": {
-              "nextpage": "Leaving DeJā"
+              "nextpage": "After DeJā"
             }
           },
           {
-            "title": "Leaving DeJā",
+            "title": "After DeJā",
             "acl": "email",
             "render": {
               "nextpage": "Making Your Camp Green"
