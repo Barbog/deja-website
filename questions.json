@@ -1,19 +1,17 @@
 {
-  "Section": {
-    "Subsection": {
-      "nextPage": [ "Section", "NextSubsection" ],
-      "questions": [
-        {
-          "question": "First question",
-          "expectedAnswer": "At all times",
-          "answers": [
-            "At all times",
-            "Right before leaving",
-            "Every evening",
-            "Never"
-          ]
-        }
-      ]
+  "Burn Etiquette": {
+    "nextPage": [ "Survival Guide" ],
+    "questions": [
+      {
+        "question": "When do you deMOOP?",
+        "expectedAnswer": "All the time",
+        "answers": [
+          "All the time",
+          "Every evening",
+          "Right before leaving",
+          "Never"
+        ]
+      }
     ]
   }
 }

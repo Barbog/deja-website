@@ -547,7 +547,7 @@ i18n.getLocales().forEach((locale) => {
   }
 })();
 
-const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' }));
+const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.json'), { encoding: 'utf8' }));
 
 function catchAllFor (backstack, sitemap) {
   if (!Array.isArray(sitemap)) { sitemap = []; }
@@ -571,6 +571,15 @@ function catchAllFor (backstack, sitemap) {
       }
     });
 
+    if (page.type === 'questions') {
+      page.questions = questions;
+      stack.forEach(item => {
+        if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
+        page.questions = page.questions[item.title.en];
+      });
+      if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
+    }
+
     if (!page.hidden) {
       const catchAll = (localeHash, locale, view, title, renderOverrides) => {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
@@ -590,14 +599,6 @@ function catchAllFor (backstack, sitemap) {
               }
             });
             return;
-          }
-          if (page.type === 'questions') {
-            page.questions = questions;
-            stack.forEach(item => {
-              if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
-              page.questions = page.questions[item.title.en];
-            });
-            if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
           }
           const render = (markdown) => {
             const renderParams = Object.assign({

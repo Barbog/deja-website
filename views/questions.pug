@@ -11,6 +11,8 @@ block body
   section
     if markdown
       != markdown
-    // TODO QUESTION AWAY
+    if questions && questions.length > 0
+      each question in questions
+        p= JSON.stringify(question)
     if nextpage
       a.nextpage(href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= __('Next Page')
