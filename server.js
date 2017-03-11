@@ -547,6 +547,8 @@ i18n.getLocales().forEach((locale) => {
   }
 })();
 
+const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' }));
+
 function catchAllFor (backstack, sitemap) {
   if (!Array.isArray(sitemap)) { sitemap = []; }
   sitemap.forEach((page) => {
@@ -589,6 +591,14 @@ function catchAllFor (backstack, sitemap) {
             });
             return;
           }
+          if (page.type === 'questions') {
+            page.questions = questions;
+            stack.forEach(item => {
+              if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
+              page.questions = page.questions[item.title.en];
+            });
+            if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
+          }
           const render = (markdown) => {
             const renderParams = Object.assign({
               altLocales: localeHash,
@@ -596,9 +606,10 @@ function catchAllFor (backstack, sitemap) {
               stackpages: stack.map((el) => { return el.title.en; }),
               subpages: page.subpages,
               siblingpages: sitemap,
-              markdown: markdown
+              markdown: markdown,
+              questions: page.questions
             }, renderOverrides || {});
-            res.render(encodeURIComponent(view.split('.')[0]), renderParams, (err, html) => {
+            res.render(encodeURIComponent(page.type || view.split('.')[0]), renderParams, (err, html) => {
               if (err) {
                 res.render('layout', renderParams, (err, html) => {
                   if (err) {
