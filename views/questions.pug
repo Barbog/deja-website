@@ -8,11 +8,19 @@ block body
           li.siblingpage
             a(class=(__(siblingpage.title) === title || (siblingpage.acl && (!user || !user[siblingpage.acl])) ? 'disabled' : '') class=(__(siblingpage.title) === title ? 'current' : '') href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
               p= __(siblingpage.title)
-  section
-    if markdown
+  if markdown
+    section
       != markdown
+  form.questions(action=altLocales[getLocale()] method='post')
     if questions && questions.length > 0
-      each question in questions
-        p= JSON.stringify(question)
-    if nextpage
-      a.nextpage(href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= __('Next Page')
+      each question, qindex in questions
+        section
+          h1.center= __(question.question)
+          input(type='hidden' id=('q' + qindex) name=('q' + qindex) value=question.question)
+          for answer, aindex in question.answers
+            input(type='radio' checked=false id=('a' + qindex + '-' + aindex) name=('a' + qindex) value=answer)
+            label(for=('a' + qindex + '-' + aindex))= __(answer)
+            br
+    section
+      div.buttons
+        button(type='submit')= __('Answer').toUpperCase()

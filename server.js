@@ -571,6 +571,7 @@ function catchAllFor (backstack, sitemap) {
       }
     });
 
+    page.questions = {};
     if (page.type === 'questions') {
       page.questions = questions;
       stack.forEach(item => {

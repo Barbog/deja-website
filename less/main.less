@@ -569,10 +569,29 @@ form {
   &.log-in, &.register {
     background-color: @dark;
     padding: 40px;
+  }
 
+  &.log-in, &.register, &.questions {
     .buttons {
       margin-left: -90px; margin-right: -90px;
       padding-left: 90px; padding-right: 90px;
+    }
+  }
+
+  &.questions {
+    input {
+      &[type='radio'] {
+        display: inline-block;
+        width: auto;
+        margin: 1em 4px 0 0;
+        padding: 0;
+        &:first-of-type { margin: 0; }
+      }
+    }
+
+    label {
+      display: inline-block;
+      padding: 0;
     }
   }
 }
