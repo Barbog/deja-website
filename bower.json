@@ -14,7 +14,12 @@
   "authors": [
     "Valters Jansons <valter.jansons@gmail.com>"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "flickity": "^2.0.5",
+    "html5shiv": "^3.7.3",
+    "jquery": "^3.1.1",
+    "reset-css": "^2.2.0"
+  },
   "devDependencies": {},
   "private": true
 }
