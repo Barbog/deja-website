@@ -4,6 +4,7 @@
 *.less  text eol=lf
 *.md    text eol=lf
 *.pug   text eol=lf
+*.sh    text eol=lf
 
 *.jpg   binary
 *.jpeg  binary

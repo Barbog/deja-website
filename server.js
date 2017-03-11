@@ -6,6 +6,8 @@ const env = require('get-env')();
 const express = require('express');
 const frontMatter = require('front-matter');
 const fs = require('fs');
+const http = require('http');
+const https = require('https');
 const i18n = require('i18n');
 const less = require('less');
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true });
@@ -761,37 +763,41 @@ app.use((req, res) => {
   });
 });
 
-const server = app.listen(app.get('port'));
+fs.readFile(path.join(__dirname, 'cert.pfx'), { encoding: null }, (err, pfx) => {
+  const server = err || !pfx ?
+    app.listen(app.get('port')) :
+    https.createServer({ pfx: pfx, passphrase: 'node' }, app).listen(app.get('port'));
 
-process.once('SIGINT', () => {
-  server.once('close', () => {
-    console.log('Server clean-up finished.');
-    process.exit(0);
-  });
-  server.close();
-  server.getConnections((err, count) => {
-    if (err) {
-      console.error(err.stack);
-      process.exit(1);
-      return;
-    }
-    if (count > 0) {
-      console.log('Waiting for ' + count + ' open connections to close themselves.');
-    }
+  process.once('SIGINT', () => {
+    server.once('close', () => {
+      console.log('Server clean-up finished.');
+      process.exit(0);
+    });
+    server.close();
+    server.getConnections((err, count) => {
+      if (err) {
+        console.error(err.stack);
+        process.exit(1);
+        return;
+      }
+      if (count > 0) {
+        console.log('Waiting for ' + count + ' open connections to close themselves.');
+      }
+    });
+
+    process.on('SIGINT', () => {
+      console.log('Forcing the server shut-down.');
+      process.exit(0);
+    });
   });
 
-  process.on('SIGINT', () => {
-    console.log('Forcing the server shut-down.');
-    process.exit(0);
-  });
+  if (process.platform === 'win32') {
+    var readline = require('readline').createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+    readline.on('SIGINT', () => {
+      process.emit('SIGINT');
+    });
+  }
 });
-
-if (process.platform === 'win32') {
-  var readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-  readline.on('SIGINT', () => {
-    process.emit('SIGINT');
-  });
-}

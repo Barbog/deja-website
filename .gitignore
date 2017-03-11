@@ -23,3 +23,6 @@ Thumbs.db
 .eslintcache
 .npm
 npm-debug.log*
+
+# Custom files
+cert.pfx
