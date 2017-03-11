@@ -114,7 +114,7 @@
       },
       {
         "title": "Questions",
-        "type": "question",
+        "type": "questions",
         "acl": "email"
       }
     ]
@@ -266,7 +266,7 @@
           },
           {
             "title": "Questions",
-            "type": "question",
+            "type": "questions",
             "acl": "email"
           }
         ]
@@ -333,7 +333,7 @@
           },
           {
             "title": "Questions",
-            "type": "question",
+            "type": "questions",
             "acl": "email"
           }
         ]
@@ -462,7 +462,7 @@
       },
       {
         "title": "Questions",
-        "type": "question",
+        "type": "questions",
         "acl": "email"
       }
     ]
