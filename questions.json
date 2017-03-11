@@ -1,16 +1,19 @@
 {
   "Section": {
-    "Subsection": [
-      {
-        "question": "First question",
-        "expectedAnswer": "At all times",
-        "answers": [
-          "At all times",
-          "Right before leaving",
-          "Every evening",
-          "Never"
-        ]
-      }
+    "Subsection": {
+      "nextPage": [ "Section", "NextSubsection" ],
+      "questions": [
+        {
+          "question": "First question",
+          "expectedAnswer": "At all times",
+          "answers": [
+            "At all times",
+            "Right before leaving",
+            "Every evening",
+            "Never"
+          ]
+        }
+      ]
     ]
   }
 }
