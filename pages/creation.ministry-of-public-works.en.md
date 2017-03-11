@@ -6,35 +6,9 @@ typora-root-url: ../static
 
 
 
-This is the place for those who are handy with tools and wish to become handier.   
+This is the place for those who are handy with tools or wish to become handier.   
 
-<u>Requirements:</u>
 
-- Ability and/or interest in building things. 
-
-- A functioning level of sobriety. 
-
-- Free time on the weekends leading to the event, after the event, or both ideally. 
-
-  ​
-
-<u>Duties are pre-event and post-event:</u>
-
-This crew manages the following responsibilities: 
-
-- Prepares the site in the weeks leading to the solstice. 
-
-  NOTE: we have about 6 weekends prior to the event where the window to get it done is hinged on the weather.  
-
-- Organize transport for materials and tools.
-
-- Designs and build any of the various posts that will be needed for our temporary village. 
-
-- Stays for strike
-
-  - kas ir STRIKE?  — tear down and moop patrol.
-
-    
 
 <u>Needed:</u>
 
@@ -44,7 +18,42 @@ NOTE: Carpentry skills and/or the ability to build are a preferred requirement i
 
 
 
- 
+<u>Requirements:</u>
+
+- Ability and/or interest in building things. 
+- A functioning level of sobriety. 
+- Free time on the weekends leading to the event, after the event, or both ideally. 
+
+
+
+<u>Need to Know:</u> 
+
+- The bulk of your duties will be pre-event in the weeks and days leading up to the midsummer. 
+- Early entry starts on Saturday the 17th of June.
+- During the event the bulk of your volunteering will be done and will resume on the 25th for Strike.
+
+​
+
+<u>Duties are pre-event and post-event:</u>
+
+This crew manages the following responsibilities: 
+
+- Prepares the site in the weeks leading to the solstice. 
+
+  - co-leads will comunicate with Ingus to learn from him what needs to be done to prepare the property.
+
+  NOTE: we have about 6 weekends prior to the event where the window to get it done is hinged on the weather.  
+
+- The co-leads will organize a team to head out to the property, set it up and build certain needed structures.
+
+- Organize the procuring and transport of materials and tools.
+- Designs and build any of the various posts that will be needed for our temporary village. 
+- Stays for strike
+
+  - kas ir STRIKE?  — tear down and moop patrol.
+
+
+
 
 
 
