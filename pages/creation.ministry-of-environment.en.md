@@ -8,10 +8,7 @@ typora-root-url: ../static
 
 <u>Need to know</u>
 
-- Co-leads are required to cover the shifts  which are short on volunteers. 
-
-
-- ​
+- Co-leads are required to cover the shifts  which are short on volunteers. ​
 
 
 
