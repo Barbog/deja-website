@@ -1,6 +1,23 @@
 #!/usr/bin/env node
 'use strict';
 
+if (typeof Array.prototype.shuffle !== 'function') {
+  /**
+   * Randomize array element order in-place.
+   * Using Durstenfeld shuffle algorithm.
+   * Sourced from http://stackoverflow.com/a/12646864.
+   */
+  Array.prototype.shuffle = function () {
+    for (var i = this.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = this[i];
+      this[i] = this[j];
+      this[j] = temp;
+    }
+    return this;
+  };
+}
+
 const bcrypt = require('bcryptjs');
 const env = require('get-env')();
 const express = require('express');
@@ -619,27 +636,70 @@ function catchAllFor (backstack, sitemap) {
             return;
           }
           const prerender = callback => {
-            if (page.type === 'questions') {
-              // TODO Pick three for the user and keep track of them.
-              res.locals.questions = page.questions.questions;
-            }
-
-            if (!res.locals.user) {
-              callback(null);
-              return;
-            }
-
-            const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'view');
-            const value = Date.now();
-            db.hsetnx('user:' + res.locals.user.email, field, value, err => {
-              if (err) {
-                callback(err);
+            const setViewStatus = () => {
+              if (!res.locals.user) {
+                callback(null);
                 return;
               }
 
-              res.locals.user[field] = value;
-              callback(null);
-            });
+              const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'view');
+              const value = Date.now();
+              db.hsetnx('user:' + res.locals.user.email, field, value, err => {
+                if (err) {
+                  callback(err);
+                  return;
+                }
+
+                res.locals.user[field] = value;
+                callback(null);
+              });
+            };
+
+            if (page.type === 'questions') {
+              if (!res.locals.user) {
+                callback(new Error('No user to assign question choices to.'));
+                return;
+              }
+
+              const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'questions');
+              if (res.locals.user[field]) {
+                res.locals.questions = res.locals.user[field];
+                setViewStatus();
+              } else {
+                res.locals.questions = page.questions.questions.slice(0).shuffle().splice(0, 3);
+                const value = JSON.stringify(res.locals.questions);
+                db.hsetnx('user:' + res.locals.user.email, field, value, (err, reply) => {
+                  if (err) {
+                    callback(err);
+                    return;
+                  }
+
+                  if (reply === 1) {
+                    res.locals.user[field] = value;
+                    setViewStatus();
+                  } else if (reply === 0) {
+                    db.hget('user:' + res.locals.user.email, field, (err, reply) => {
+                      if (err) {
+                        callback(err);
+                      }
+
+                      if (typeof reply !== 'string' || reply === '') {
+                        db.hset('user:' + res.locals.user.email, field, value, err => callback(err));
+                        return;
+                      }
+
+                      res.locals.user[field] = JSON.parse(reply);
+                      res.locals.questions = res.locals.user[field];
+                      setViewStatus();
+                    });
+                  } else {
+                    callback(new Error('Unexpected return value from HSETNX.'));
+                  }
+                });
+              }
+            } else {
+              setViewStatus();
+            }
           };
           const render = markdown => {
             prerender(err => {
