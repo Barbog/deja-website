@@ -635,6 +635,37 @@ function catchAllFor (backstack, sitemap) {
             });
             return;
           }
+          const preroute = callback => {
+            if (page.type === 'questions') {
+              if (!res.locals.user) {
+                callback(false);
+                return;
+              }
+
+              const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
+              if (res.locals.user[field]) {
+                const target = '/' + locale + '/' + page.questions.nextPage
+                  .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-')).join('/');
+                res.render('redirect', { target: target }, (err, html) => {
+                  res.status(303);
+                  res.location(target);
+                  if (err) {
+                    res.type('text/plain; charset=utf-8');
+                    res.send(target);
+                    console.error(err.stack);
+                  } else {
+                    res.type('text/html; charset=utf-8');
+                    res.send(html);
+                  }
+                });
+                callback(true);
+              } else {
+                callback(false);
+              }
+            } else {
+              callback(false);
+            }
+          };
           const prerender = callback => {
             const setViewStatus = () => {
               if (!res.locals.user) {
@@ -712,42 +743,46 @@ function catchAllFor (backstack, sitemap) {
             }
           };
           const render = markdown => {
-            prerender(err => {
-              if (err) {
-                res.status(500);
-                res.type('text/plain; charset=utf-8');
-                res.send('Something broke horribly. Sorry.');
-                console.error(err.stack);
-                return;
-              }
+            preroute(intercepted => {
+              if (intercepted) { return; }
 
-              const renderParams = Object.assign({
-                altLocales: localeHash,
-                title: req.__(title),
-                stackpages: stack.map(el => el.title.en),
-                subpages: page.subpages,
-                siblingpages: sitemap.filter(page => page.title !== 'Questions'),
-                markdown: markdown
-              }, renderOverrides || {});
-              res.render(encodeURIComponent(page.type || view.split('.')[0]), renderParams, (err, html) => {
+              prerender(err => {
                 if (err) {
-                  res.render('layout', renderParams, (err, html) => {
-                    if (err) {
-                      res.status(500);
-                      res.type('text/plain; charset=utf-8');
-                      res.send('Something broke horribly. Sorry.');
-                      console.error(err.stack);
-                    } else {
-                      res.status(200);
-                      res.type('text/html; charset=utf-8');
-                      res.send(html);
-                    }
-                  });
-                } else {
-                  res.status(200);
-                  res.type('text/html; charset=utf-8');
-                  res.send(html);
+                  res.status(500);
+                  res.type('text/plain; charset=utf-8');
+                  res.send('Something broke horribly. Sorry.');
+                  console.error(err.stack);
+                  return;
                 }
+
+                const renderParams = Object.assign({
+                  altLocales: localeHash,
+                  title: req.__(title),
+                  stackpages: stack.map(el => el.title.en),
+                  subpages: page.subpages,
+                  siblingpages: sitemap.filter(page => page.title !== 'Questions'),
+                  markdown: markdown
+                }, renderOverrides || {});
+                res.render(encodeURIComponent(page.type || view.split('.')[0]), renderParams, (err, html) => {
+                  if (err) {
+                    res.render('layout', renderParams, (err, html) => {
+                      if (err) {
+                        res.status(500);
+                        res.type('text/plain; charset=utf-8');
+                        res.send('Something broke horribly. Sorry.');
+                        console.error(err.stack);
+                      } else {
+                        res.status(200);
+                        res.type('text/html; charset=utf-8');
+                        res.send(html);
+                      }
+                    });
+                  } else {
+                    res.status(200);
+                    res.type('text/html; charset=utf-8');
+                    res.send(html);
+                  }
+                });
               });
             });
           };
