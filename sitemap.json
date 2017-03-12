@@ -168,6 +168,7 @@
       {
         "title": "The Basics",
         "hidden": "Environment/Weather",
+        "acl": "answer.Survival Guide.The Beginner's Guide.Questions",
         "subpages": [
           {
             "title": "Environment/Weather",
@@ -284,6 +285,7 @@
       {
         "title": "Preparing",
         "hidden": "The Essentials",
+        "acl": "answer.Survival Guide.The Basics.Questions",
         "subpages": [
           {
             "title": "The Essentials",
@@ -385,6 +387,7 @@
   {
     "title": "Creation",
     "hidden": "Volunteering",
+    "acl": "email",
     "subpages": [
       {
         "title": "Volunteering",
