@@ -22,8 +22,8 @@ db.on('error', err => {
 });
 
 if (env === 'dev') {
-  const email = 'john.doe@example.com';
-  const name = 'John Doe';
+  const email = 'a.c@d.c';
+  const name = 'Alternating Current';
   const password = randomstring.generate({ length: 8, readable: true, charset: 'alphanumeric' });
 
   bcrypt.hash(password, 10, (err, hash) => {
