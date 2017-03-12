@@ -146,12 +146,22 @@
           },
           {
             "title": "Why do I need a Visa",
+            "acl": "email",
             "render": {
               "nextpage": "Why are there no tickets sold"
             }
           },
           {
-            "title": "Why are there no tickets sold"
+            "title": "Why are there no tickets sold",
+            "acl": "view.Survival Guide.The Beginner's Guide.Why do I need a Visa",
+            "render": {
+              "nextpage": "Questions"
+            }
+          },
+          {
+            "title": "Questions",
+            "type": "questions",
+            "acl": "view.Survival Guide.The Beginner's Guide.Why are there no tickets sold"
           }
         ]
       },
@@ -161,105 +171,105 @@
         "subpages": [
           {
             "title": "Environment/Weather",
-            "acl": "email",
+            "acl": "answer.Survival Guide.The Beginner's Guide.Questions",
             "render": {
               "nextpage": "Water"
             }
           },
           {
             "title": "Water",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Environment/Weather",
             "render": {
               "nextpage": "Electricity"
             }
           },
           {
             "title": "Electricity",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Water",
             "render": {
               "nextpage": "Sound"
             }
           },
           {
             "title": "Sound",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Electricity",
             "render": {
               "nextpage": "Cell phones/Tablets/PCs"
             }
           },
           {
             "title": "Cell phones/Tablets/PCs",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Sound",
             "render": {
               "nextpage": "Fire and Safety Rules"
             }
           },
           {
             "title": "Fire and Safety Rules",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Cell phones/Tablets/PCs",
             "render": {
               "nextpage": "Communal Kitchen"
             }
           },
           {
             "title": "Communal Kitchen",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Fire and Safety Rules",
             "render": {
               "nextpage": "Donations/Contributions"
             }
           },
           {
             "title": "Donations/Contributions",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Communal Kitchen",
             "render": {
               "nextpage": "Personal Health and Safety"
             }
           },
           {
             "title": "Personal Health and Safety",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Donations/Contributions",
             "render": {
               "nextpage": "Children/Minors"
             }
           },
           {
             "title": "Children/Minors",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Personal Health and Safety",
             "render": {
               "nextpage": "Pets"
             }
           },
           {
             "title": "Pets",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Children/Minors",
             "render": {
               "nextpage": "23rd of June"
             }
           },
           {
             "title": "23rd of June",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Pets",
             "render": {
               "nextpage": "Lost Property/Lost and Found"
             }
           },
           {
             "title": "Lost Property/Lost and Found",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.23rd of June",
             "render": {
               "nextpage": "Generators"
             }
           },
           {
             "title": "Generators",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Lost Property/Lost and Found",
             "render": {
               "nextpage": "Latvian Law"
             }
           },
           {
             "title": "Latvian Law",
-            "acl": "email",
+            "acl": "view.Survival Guide.The Basics.Generators",
             "render": {
               "nextpage": "Questions"
             }
@@ -267,7 +277,7 @@
           {
             "title": "Questions",
             "type": "questions",
-            "acl": "email"
+            "acl": "view.Survival Guide.The Basics.Latvian Law"
           }
         ]
       },
@@ -277,56 +287,56 @@
         "subpages": [
           {
             "title": "The Essentials",
-            "acl": "email",
+            "acl": "answer.Survival Guide.The Basics.Questions",
             "render": {
               "nextpage": "Very Good to Have"
             }
           },
           {
             "title": "Very Good to Have",
-            "acl": "email",
+            "acl": "view.Survival Guide.Preparing.The Essentials",
             "render": {
               "nextpage": "Environmental Consciousness"
             }
           },
           {
             "title": "Environmental Consciousness",
-            "acl": "email",
+            "acl": "view.Survival Guide.Preparing.Very Good to Have",
             "render": {
               "nextpage": "Before DeJā"
             }
           },
           {
             "title": "Before DeJā",
-            "acl": "email",
+            "acl": "view.Survival Guide.Preparing.Environmental Consciousness",
             "render": {
               "nextpage": "During DeJā"
             }
           },
           {
             "title": "During DeJā",
-            "acl": "email",
+            "acl": "view.Survival Guide.Preparing.Before DeJā",
             "render": {
               "nextpage": "After DeJā"
             }
           },
           {
             "title": "After DeJā",
-            "acl": "email",
+            "acl": "view.Survival Guide.Preparing.During DeJā",
             "render": {
               "nextpage": "Making Your Camp Green"
             }
           },
           {
             "title": "Making Your Camp Green",
-            "acl": "email",
+            "acl": "view.Survival Guide.Preparing.After DeJā",
             "render": {
               "nextpage": "Making Your Art Green"
             }
           },
           {
             "title": "Making Your Art Green",
-            "acl": "email",
+            "acl": "view.Survival Guide.Preparing.Making Your Camp Green",
             "render": {
               "nextpage": "Questions"
             }
@@ -334,41 +344,41 @@
           {
             "title": "Questions",
             "type": "questions",
-            "acl": "email"
+            "acl": "view.Survival Guide.Preparing.Making Your Art Green"
           }
         ]
       },
       {
         "title": "Getting There",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Preparing.Questions",
         "render": {
           "nextpage": "Arriving and Setting Up"
         }
       },
       {
         "title": "Arriving and Setting Up",
-        "acl": "email",
+        "acl": "view.Survival Guide.Getting There",
         "render": {
           "nextpage": "Relationship Survival Guide"
         }
       },
       {
         "title": "Relationship Survival Guide",
-        "acl": "email",
+        "acl": "view.Survival Guide.Arriving and Setting Up",
         "render": {
           "nextpage": "An Introvert's Guide to DeJā"
         }
       },
       {
         "title": "An Introvert's Guide to DeJā",
-        "acl": "email",
+        "acl": "view.Survival Guide.Relationship Survival Guide",
         "render": {
           "nextpage": "After DeJā"
         }
       },
       {
         "title": "After DeJā",
-        "acl": "email"
+        "acl": "view.Survival Guide.An Introvert's Guide to DeJā"
       }
     ]
   },
@@ -385,77 +395,77 @@
       },
       {
         "title": "Ministry of Public Works",
-        "acl": "email",
+        "acl": "view.Creation.Volunteering",
         "render": {
           "nextpage": "Ministry of De'Fence"
         }
       },
       {
         "title": "Ministry of De'Fence",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Public Works",
         "render": {
           "nextpage": "Ministry of Integration"
         }
       },
       {
         "title": "Ministry of Integration",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of De'Fence",
         "render": {
           "nextpage": "Ministry of Civic Responsibility"
         }
       },
       {
         "title": "Ministry of Civic Responsibility",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Integration",
         "render": {
           "nextpage": "Ministry of Hazard"
         }
       },
       {
         "title": "Ministry of Hazard",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Civic Responsibility",
         "render": {
           "nextpage": "Ministry of Noise"
         }
       },
       {
         "title": "Ministry of Noise",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Hazard",
         "render": {
           "nextpage": "Ministry of the Environment"
         }
       },
       {
         "title": "Ministry of the Environment",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Noise",
         "render": {
           "nextpage": "Ministry of Culture"
         }
       },
       {
         "title": "Ministry of Culture",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Environment",
         "render": {
           "nextpage": "Ministry of Nutrition"
         }
       },
       {
         "title": "Ministry of Nutrition",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Culture",
         "render": {
           "nextpage": "Ministry of Propaganda"
         }
       },
       {
         "title": "Ministry of Propaganda",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Nutrition",
         "render": {
           "nextpage": "Ministry of Finance"
         }
       },
       {
         "title": "Ministry of Finance",
-        "acl": "email",
+        "acl": "view.Creation.Ministry of Propaganda",
         "render": {
           "nextpage": "Questions"
         }
@@ -463,7 +473,7 @@
       {
         "title": "Questions",
         "type": "questions",
-        "acl": "email"
+        "acl": "view.Creation.Ministry of Finance"
       }
     ]
   },
