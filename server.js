@@ -663,7 +663,12 @@ function catchAllFor (backstack, sitemap) {
 
               const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'questions');
               if (res.locals.user[field]) {
-                res.locals.questions = res.locals.user[field];
+                try {
+                  res.locals.questions = JSON.parse(res.locals.user[field]);
+                } catch (err) {
+                  callback(err);
+                  return;
+                }
                 setViewStatus();
               } else {
                 res.locals.questions = page.questions.questions.slice(0).shuffle().splice(0, 3);
@@ -688,8 +693,13 @@ function catchAllFor (backstack, sitemap) {
                         return;
                       }
 
-                      res.locals.user[field] = JSON.parse(reply);
-                      res.locals.questions = res.locals.user[field];
+                      res.locals.user[field] = reply;
+                      try {
+                        res.locals.questions = JSON.parse(reply);
+                      } catch (err) {
+                        callback(err);
+                        return;
+                      }
                       setViewStatus();
                     });
                   } else {
