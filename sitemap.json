@@ -406,77 +406,77 @@
       },
       {
         "title": "Ministry of Public Works",
-        "acl": "view.Creation.Volunteering",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of De'Fence"
         }
       },
       {
         "title": "Ministry of De'Fence",
-        "acl": "view.Creation.Ministry of Public Works",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Integration"
         }
       },
       {
         "title": "Ministry of Integration",
-        "acl": "view.Creation.Ministry of De'Fence",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Civic Responsibility"
         }
       },
       {
         "title": "Ministry of Civic Responsibility",
-        "acl": "view.Creation.Ministry of Integration",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Hazard"
         }
       },
       {
         "title": "Ministry of Hazard",
-        "acl": "view.Creation.Ministry of Civic Responsibility",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Noise"
         }
       },
       {
         "title": "Ministry of Noise",
-        "acl": "view.Creation.Ministry of Hazard",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of the Environment"
         }
       },
       {
         "title": "Ministry of the Environment",
-        "acl": "view.Creation.Ministry of Noise",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Culture"
         }
       },
       {
         "title": "Ministry of Culture",
-        "acl": "view.Creation.Ministry of Environment",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Nutrition"
         }
       },
       {
         "title": "Ministry of Nutrition",
-        "acl": "view.Creation.Ministry of Culture",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Propaganda"
         }
       },
       {
         "title": "Ministry of Propaganda",
-        "acl": "view.Creation.Ministry of Nutrition",
+        "acl": "email",
         "render": {
           "nextpage": "Ministry of Finance"
         }
       },
       {
         "title": "Ministry of Finance",
-        "acl": "view.Creation.Ministry of Propaganda"
+        "acl": "email",
       }
     ]
   },
