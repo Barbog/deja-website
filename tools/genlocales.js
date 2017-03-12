@@ -14,13 +14,12 @@ let iterateMap = shallow => {
   if (Array.isArray(shallow)) {
     shallow.forEach(item => {
       sitemap[sitemap.length] = item.title;
-      output[item.title] = item.title;
       iterateMap(item.subpages);
     });
   }
 };
 iterateMap(JSON.parse(fs.readFileSync(path.join(root, 'sitemap.json'), { encoding: 'utf8' })));
-sitemap.sort().forEach(item => { output[item] = item; });
+sitemap.filter(item => typeof item === 'string').sort().forEach(item => { output[item] = item; });
 
 let spawnSync = require('child_process').spawnSync;
 
@@ -28,7 +27,7 @@ spawnSync('git', [ 'grep', '-Fe', '__(\'', '--', 'views' ], { cwd: root, encodin
   .stdout.split('\n')
   .map(line => line.split('__(\'')).filter(line => line.length > 1).map(line => line[1])
   .map(line => line.split('\')')[0])
-  .sort().forEach(line => { output[line] = line; });
+  .filter(item => typeof item === 'string').sort().forEach(line => { output[line] = line; });
 
 let questions = [];
 let iterateQs = shallow => {
@@ -47,6 +46,20 @@ let iterateQs = shallow => {
   }
 };
 iterateQs(JSON.parse(fs.readFileSync(path.join(root, 'questions.json'), { encoding: 'utf8' })));
-questions.sort().forEach(item => { output[item] = item; });
+questions.filter(item => typeof item === 'string').sort().forEach(item => { output[item] = item; });
+
+let visaApplication = [];
+JSON.parse(fs.readFileSync(path.join(root, 'visa-application.json'), { encoding: 'utf8' })).forEach(section => {
+  visaApplication[visaApplication.length] = section.title;
+  if (section.subtitle) { visaApplication[visaApplication.length] = section.subtitle; }
+  if (section.questions) { section.questions.forEach(question => {
+    visaApplication[visaApplication.length] = question.title;
+    if (question.subtitle) { visaApplication[visaApplication.length] = question.subtitle; }
+    if (question.answers) { question.answers.forEach(answer => {
+      visaApplication[visaApplication.length] = answer;
+    }); }
+  }); }
+});
+visaApplication.filter(item => typeof item === 'string').sort().forEach(item => { output[item] = item; });
 
 fs.writeFileSync(locales, JSON.stringify(output, null, '\t') + '\n', { encoding: 'utf8' });
