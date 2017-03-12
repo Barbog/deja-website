@@ -767,7 +767,86 @@ function catchAllFor (backstack, sitemap) {
         });
         if (page.type === 'questions') {
           app.post(encodeURI(localeHash[locale]), (req, res) => {
-            res.status(501).send({ f: 'u' }); // TODO Test questions.
+            if (!res.locals.user) {
+              res.status(400);
+              res.type('text/plain; charset=utf-8');
+              res.send('WHO_ARE_YOU');
+              return;
+            }
+
+            const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'questions');
+            if (!res.locals.user[field]) {
+              const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
+              res.render('redirect', { target: target }, (err, html) => {
+                res.status(307);
+                res.location(target);
+                if (err) {
+                  res.type('text/plain; charset=utf-8');
+                  res.send(target);
+                  console.error(err.stack);
+                } else {
+                  res.type('text/html; charset=utf-8');
+                  res.send(html);
+                }
+              });
+              return;
+            }
+
+            try {
+              res.locals.questions = JSON.parse(res.locals.user[field]);
+            } catch (err) {
+              res.status(500);
+              res.type('text/plain; charset=utf-8');
+              res.send('Something broke horribly. Sorry.');
+              console.error(err.stack);
+              return;
+            }
+
+            for (let i = 0; i < res.locals.questions.length; i++) {
+              if (res.locals.questions[i].question !== req.body['q' + i]) {
+                res.status(400);
+                res.type('text/plain; charset=utf-8');
+                res.send('WHAT_IN_QUESTION');
+                return;
+              }
+
+              if (res.locals.questions[i].expectedAnswer !== req.body['a' + i]) {
+                // TODO Prettyfy this place.
+                res.status(400);
+                res.type('text/plain; charset=utf-8');
+                res.send('WHAT_IN_ANSWER');
+                return;
+              }
+            }
+
+            const fieldAns = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
+            const valueAns = Date.now();
+            db.hsetnx('user:' + res.locals.user.email, fieldAns, valueAns, err => {
+              if (err) {
+                res.status(500);
+                res.type('text/plain; charset=utf-8');
+                res.send('Something broke horribly. Sorry.');
+                console.error(err.stack);
+                return;
+              }
+
+              res.locals.user[fieldAns] = valueAns;
+
+              const target = '/' + locale + '/' + page.questions.nextPage
+                .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-')).join('/');
+              res.render('redirect', { target: target }, (err, html) => {
+                res.status(307);
+                res.location(target);
+                if (err) {
+                  res.type('text/plain; charset=utf-8');
+                  res.send(target);
+                  console.error(err.stack);
+                } else {
+                  res.type('text/html; charset=utf-8');
+                  res.send(html);
+                }
+              });
+            });
           });
         }
         app.all(encodeURI(localeHash[locale]), returnBadAction);
