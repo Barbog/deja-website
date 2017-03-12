@@ -15,5 +15,28 @@
         }
       ]
     }
+  },
+  "Survival Guide": {
+    "The Beginner's Guide": {
+      "Questions": {
+        "nextPage": [ "Survival Guide", "The Basics" ],
+        "questions": [
+        ]
+      }
+    },
+    "The Basics": {
+      "Questions": {
+        "nextPage": [ "Survival Guide", "Preparing" ],
+        "questions": [
+        ]
+      }
+    },
+    "Preparing": {
+      "Questions": {
+        "nextPage": [ "Survival Guide", "Getting There" ],
+        "questions": [
+        ]
+      }
+    }
   }
 }

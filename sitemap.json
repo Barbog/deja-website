@@ -468,15 +468,7 @@
       },
       {
         "title": "Ministry of Finance",
-        "acl": "view.Creation.Ministry of Propaganda",
-        "render": {
-          "nextpage": "Questions"
-        }
-      },
-      {
-        "title": "Questions",
-        "type": "questions",
-        "acl": "view.Creation.Ministry of Finance"
+        "acl": "view.Creation.Ministry of Propaganda"
       }
     ]
   },
