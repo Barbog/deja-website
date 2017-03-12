@@ -30,4 +30,23 @@ spawnSync('git', [ 'grep', '-Fe', '__(\'', '--', 'views' ], { cwd: root, encodin
   .map(line => line.split('\')')[0])
   .sort().forEach(line => { output[line] = line; });
 
+let questions = [];
+let iterateQs = shallow => {
+  if (Array.isArray(shallow.questions)) {
+    shallow.questions.forEach(item => {
+      questions[questions.length] = item.question;
+      item.answers.forEach(item => { questions[questions.length] = item; });
+      questions[questions.length] = item.expectedAnswer;
+    });
+  } else {
+    for (let key in shallow) {
+      if (shallow.hasOwnProperty(key)) {
+        iterateQs(shallow[key]);
+      }
+    }
+  }
+};
+iterateQs(JSON.parse(fs.readFileSync(path.join(root, 'questions.json'), { encoding: 'utf8' })));
+questions.sort().forEach(item => { output[item] = item; });
+
 fs.writeFileSync(locales, JSON.stringify(output, null, '\t') + '\n', { encoding: 'utf8' });
