@@ -333,7 +333,7 @@ i18n.getLocales().forEach(locale => {
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
       res.cookie('token', '', { path: '/', maxAge: 1, httpOnly: true, secure: true });
       res.render('redirect', { target: location }, (err, html) => {
-        res.status(307);
+        res.status(303);
         res.location(location);
         if (err) {
           res.type('text/plain; charset=utf-8');
@@ -511,7 +511,7 @@ i18n.getLocales().forEach(locale => {
       if (!res.locals.user) {
         const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
         res.render('redirect', { target: target }, (err, html) => {
-          res.status(307);
+          res.status(303);
           res.location(target);
           if (err) {
             res.type('text/plain; charset=utf-8');
@@ -622,7 +622,7 @@ function catchAllFor (backstack, sitemap) {
           if (page.acl && (!res.locals.user || !res.locals.user[page.acl])) {
             const target = '/' + locale + '/' + (res.locals.user ? '' : req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-'));
             res.render('redirect', { target: target }, (err, html) => {
-              res.status(307);
+              res.status(303);
               res.location(target);
               if (err) {
                 res.type('text/plain; charset=utf-8');
@@ -778,7 +778,7 @@ function catchAllFor (backstack, sitemap) {
             if (!res.locals.user[field]) {
               const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
               res.render('redirect', { target: target }, (err, html) => {
-                res.status(307);
+                res.status(303);
                 res.location(target);
                 if (err) {
                   res.type('text/plain; charset=utf-8');
@@ -835,7 +835,7 @@ function catchAllFor (backstack, sitemap) {
               const target = '/' + locale + '/' + page.questions.nextPage
                 .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-')).join('/');
               res.render('redirect', { target: target }, (err, html) => {
-                res.status(307);
+                res.status(303);
                 res.location(target);
                 if (err) {
                   res.type('text/plain; charset=utf-8');
@@ -863,7 +863,7 @@ function catchAllFor (backstack, sitemap) {
         app.get(encodeURI(hash), (req, res) => {
           req.setLocale(locale);
           res.render('redirect', { target: target }, (err, html) => {
-            res.status(307);
+            res.status(303);
             res.location(target);
             if (err) {
               res.type('text/plain; charset=utf-8');
