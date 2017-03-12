@@ -624,10 +624,17 @@ function catchAllFor (backstack, sitemap) {
               return;
             }
 
-            db.hsetnx('user:' + res.locals.user.email,
-              stack.reduce((prev, next) => prev + '.' + next.title.en, 'view'),
-              Date.now(),
-              callback);
+            const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'view');
+            const value = Date.now();
+            db.hsetnx('user:' + res.locals.user.email, field, value, err => {
+              if (err) {
+                callback(err);
+                return;
+              }
+
+              res.locals.user[field] = value;
+              callback(null);
+            });
           };
           const render = markdown => {
             prerender(err => {
