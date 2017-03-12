@@ -1,17 +1,26 @@
 #!/usr/bin/env node
 'use strict';
 
+let output = {};
+
 let path = require('path');
 let root = path.join(__dirname, '..');
 let locales = path.join(root, 'locales', 'en.json');
 
 let fs = require('fs');
-fs.writeFileSync(locales, '{}');
 
-let server = require(path.join(root, 'server'));
-server.close();
-
-let output = JSON.parse(fs.readFileSync(locales, { encoding: 'utf8' }));
+let sitemap = [];
+let iterateMap = shallow => {
+  if (Array.isArray(shallow)) {
+    shallow.forEach(item => {
+      sitemap[sitemap.length] = item.title;
+      output[item.title] = item.title;
+      iterateMap(item.subpages);
+    });
+  }
+};
+iterateMap(JSON.parse(fs.readFileSync(path.join(root, 'sitemap.json'), { encoding: 'utf8' })));
+sitemap.sort().forEach(item => { output[item] = item; });
 
 let spawnSync = require('child_process').spawnSync;
 
