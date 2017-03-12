@@ -619,6 +619,11 @@ function catchAllFor (backstack, sitemap) {
             return;
           }
           const prerender = callback => {
+            if (page.type === 'questions') {
+              // TODO Pick three for the user and keep track of them.
+              res.locals.questions = page.questions.questions;
+            }
+
             if (!res.locals.user) {
               callback(null);
               return;
@@ -652,8 +657,7 @@ function catchAllFor (backstack, sitemap) {
                 stackpages: stack.map(el => el.title.en),
                 subpages: page.subpages,
                 siblingpages: sitemap.filter(page => page.title !== 'Questions'),
-                markdown: markdown,
-                questions: page.questions.questions
+                markdown: markdown
               }, renderOverrides || {});
               res.render(encodeURIComponent(page.type || view.split('.')[0]), renderParams, (err, html) => {
                 if (err) {
@@ -691,6 +695,11 @@ function catchAllFor (backstack, sitemap) {
             }
           });
         });
+        if (page.type === 'questions') {
+          app.post(encodeURI(localeHash[locale]), (req, res) => {
+            res.status(501).send({ f: 'u' }); // TODO Test questions.
+          });
+        }
         app.all(encodeURI(localeHash[locale]), returnBadAction);
       };
 
