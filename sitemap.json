@@ -380,7 +380,10 @@
       },
       {
         "title": "After DeJā",
-        "acl": "view.Survival Guide.An Introvert's Guide to DeJā"
+        "acl": "view.Survival Guide.An Introvert's Guide to DeJā",
+        "render": {
+          "nextpage": "Final Questions"
+        }
       },
       {
         "title": "Final Questions",
