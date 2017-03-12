@@ -793,41 +793,38 @@ app.use((req, res) => {
   });
 });
 
-fs.readFile(path.join(__dirname, 'cert.pfx'), { encoding: null }, (err, pfx) => {
-  const port = app.get('port');
-  const server = err || !pfx ? app.listen(port) : https.createServer({ pfx: pfx, passphrase: 'node' }, app).listen(port);
-  module.exports = server;
+let pfx = null;
+try {
+  pfx = fs.readFileSync(path.join(__dirname, 'cert.pfx'), { encoding: null });
+} catch (err) {
+  pfx = null;
+  if (err.code !== 'ENOENT') {
+    throw err;
+  }
+}
 
-  process.once('SIGINT', () => {
-    server.once('close', () => {
-      console.log('Server clean-up finished.');
-      process.exit(0);
-    });
-    server.close();
-    server.getConnections((err, count) => {
-      if (err) {
-        console.error(err.stack);
-        process.exit(1);
-        return;
-      }
-      if (count > 0) {
-        console.log('Waiting for ' + count + ' open connections to close themselves.');
-      }
-    });
+const server = pfx ? https.createServer({ pfx: pfx, passphrase: 'node' }, app).listen(app.get('port')) : app.listen(app.get('port'));
+module.exports = server;
 
-    process.on('SIGINT', () => {
-      console.log('Forcing the server shut-down.');
-      process.exit(0);
-    });
+process.once('SIGINT', () => {
+  server.once('close', () => {
+    console.log('Server clean-up finished.');
+    process.exit(0);
+  });
+  server.close();
+  server.getConnections((err, count) => {
+    if (err) {
+      console.error(err.stack);
+      process.exit(1);
+      return;
+    }
+    if (count > 0) {
+      console.log('Waiting for ' + count + ' open connections to close themselves.');
+    }
   });
 
-  if (process.platform === 'win32') {
-    var readline = require('readline').createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
-    readline.on('SIGINT', () => {
-      process.emit('SIGINT');
-    });
-  }
+  process.on('SIGINT', () => {
+    console.log('Forcing the server shut-down.');
+    process.exit(0);
+  });
 });
