@@ -8,7 +8,7 @@ A burn is a non-commercial gathering co-created by the attending participants wh
 
 <span style="color:#77011e;"><u>Why do i need a visa?</u></span>
 
-DeJā is an interactive and participatory event, by filling out your visa application you enter the rabbit hole. Doing so is your first step in getting involved and also let's us know that you are interesed in participaing.   Once you have submitted your visa, you will receive a notification with details you will need to read and your name will be added to the guest list. 
+DeJā is an interactive and participatory event, by filling out your visa application you enter the rabbit hole. Doing so is your first step in getting involved and also let's us know that you are interesed in participating.   Once you have submitted your visa, you will receive a notification with details you will need to read and your name will be added to the guest list. 
 
 <span style="color:#77011e;"><u>Why do I need to be on the guest list if this is a burn?</u></span>
 
