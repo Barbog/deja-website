@@ -16,7 +16,7 @@ DeJā is a private gathering celebrated on private property, open to those who l
 
 The visas help us determine how many people will be attending and how they plan to participate. This in turn helps us with the logistics of the infrastructure as well as providing a census. 
 
-<u><span style="color:#77011e;">Why can't I open the visa application tab?</u></span>
+<span style="color:#77011e;"><u>Why can't I open the visa application tab?</u></span>
 
 If you wish to participate, you will need to start by reading:
 
