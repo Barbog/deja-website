@@ -12,8 +12,9 @@ html(lang=getLocale())
     meta(name='viewport' content='width=device-width, initial-scale=1')
     <!--[if IE]><script src='/html5shiv/dist/html5shiv.min.js'></script><![endif]-->
     link(rel='stylesheet' href='/reset-css/reset.css')
-    link(rel='stylesheet' href='/main.css')
     link(rel='stylesheet' href='/flickity/dist/flickity.min.css')
+    link(rel='stylesheet' href='/EasyAutocomplete/dist/easy-autocomplete.min.css')
+    link(rel='stylesheet' href='/main.css')
     if altLocales
       each href, locale in altLocales
         if locale !== getLocale()
@@ -40,5 +41,6 @@ html(lang=getLocale())
         != markdown || ''
     script(src='/jquery/dist/jquery.min.js')
     script(src='/flickity/dist/flickity.pkgd.min.js')
-    script $(function () { $('.disabled').on('click', function (event) { event.preventDefault(); }); $('.carousel-container').flickity({ wrapAround: true, autoPlay: 3000, adaptiveHeight: false, dragThreshold: 10, prevNextButtons: false }); $('.altlang').on('click', function (event) { var lang = event.target.hreflang; if (lang) { document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365); } }); });
+    script(src='/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js')
+    script $(function () { $('.disabled').on('click', function (event) { event.preventDefault(); }); $('.carousel-container').flickity({ wrapAround: true, autoPlay: 3000, adaptiveHeight: false, dragThreshold: 10, prevNextButtons: false }); $('.easyautocomplete-country').each(function () { var country = $(this); country.easyAutocomplete({ url: '/EasyAutocomplete/demo/resources/countries.json', getValue: 'name', highlightPhrase: false, list: { match: { enabled: true }, sort: { enabled: true, method: function (ao, bo) { var a = ao.name.toLowerCase(); var b = bo.name.toLowerCase(); var c = country.val().toLowerCase(); var ac = a.substr(0, c.length) === c; var bc = b.substr(0, c.length) === c; return ac !== bc ? ac ? -1 : 1 : a < b ? -1 : a > b ? 1 : 0; } } } }); }); $('.altlang').on('click', function (event) { var lang = event.target.hreflang; if (lang) { document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365); } }); });
 = '\n'

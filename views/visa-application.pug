@@ -13,14 +13,14 @@ block body
                 when 'text'
                 when 'email'
                 when 'date'
-                  input(type=question.type id=question.title name=question.title required='required' value='')
+                  input(type=question.type id=question.id name=question.id required='required' value='')
                 when 'country'
-                  input(type='text' autocomplete='country' id=question.title name=question.title required='required' value='')
+                  input.easyautocomplete-country(type='text' id=question.id name=question.id required='required' value='')
                 when 'single'
                 when 'multiple'
                   for answer in question.answers
-                    - let answerId = question.title + '.' + answer
-                    input(type='radio' checked=false id=answerId name=question.title required='required' value=answer)
+                    - let answerId = question.id + '.' + answer
+                    input(type=(question.type === 'multiple' ? 'checkbox' : 'radio') checked=false id=answerId name=question.id required='required' value=answer)
                     label(for=answerId)= __(answer)
                 // "yes/no"
                 // "yes/no;textifyes"
@@ -30,4 +30,4 @@ block body
                 // "yes/no;textifyes:Which ones?"
               br
         div.buttons
-          button(type='submit')= __('Apply').toUpperCase()
+          button(type='submit')= __('Continue').toUpperCase()
