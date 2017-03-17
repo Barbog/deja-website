@@ -22,7 +22,3 @@ In 2016  xx participants collectively donated xxxxEUR.
 Attached below is the budget in PDF format showing how they were aportioned.
 
   Since we do not wish to charge for this event, we are asking you to keep this in mind and to please consider making a donation/gift for our 2016 gathering.
-
-
-# 
-
