@@ -4,7 +4,30 @@ block body
   if user
     section
       != markdown || ''
-    section
-      form.visa-application(action=altLocales[getLocale()] method='post')
+    form.visa-application(action=altLocales[getLocale()] method='post')
+      section
+        if questions && questions.length > 0
+          each question in questions
+              h1= __(question.title)
+              case question.type
+                when 'text'
+                when 'email'
+                when 'date'
+                  input(type=question.type id=question.title name=question.title required='required' value='')
+                when 'country'
+                  input(type='text' autocomplete='country' id=question.title name=question.title required='required' value='')
+                when 'single'
+                when 'multiple'
+                  for answer in question.answers
+                    - let answerId = question.title + '.' + answer
+                    input(type='radio' checked=false id=answerId name=question.title required='required' value=answer)
+                    label(for=answerId)= __(answer)
+                // "yes/no"
+                // "yes/no;textifyes"
+                // "yes/no;textifyes:How many? Please list their names."
+                // "yes/no;textifyes:How would you like your donation used?"
+                // "yes/no;textifyes:Which one?"
+                // "yes/no;textifyes:Which ones?"
+              br
         div.buttons
           button(type='submit')= __('Apply').toUpperCase()

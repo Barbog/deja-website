@@ -501,6 +501,7 @@ i18n.getLocales().forEach(locale => {
 })();
 
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.json'), { encoding: 'utf8' }));
+const visaApplication = JSON.parse(fs.readFileSync(path.join(__dirname, 'visa-application.json'), { encoding: 'utf8' }));
 
 function catchAllFor (backstack, sitemap) {
   if (!Array.isArray(sitemap)) { sitemap = []; }
@@ -531,6 +532,9 @@ function catchAllFor (backstack, sitemap) {
         if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
         page.questions = page.questions[item.title.en];
       });
+      if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
+    } else if (page.type === 'visa-application') {
+      page.questions = visaApplication.filter(section => section.title === 'Basic Information')[0]; // TODO Filter by sections.
       if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
     }
 
@@ -657,6 +661,9 @@ function catchAllFor (backstack, sitemap) {
                   }
                 });
               }
+            } else if (page.type === 'visa-application') {
+              res.locals.questions = page.questions.questions.slice(0);
+              setViewStatus();
             } else {
               setViewStatus();
             }

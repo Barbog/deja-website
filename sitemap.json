@@ -482,6 +482,7 @@
   },
   {
     "title": "Visa Application",
+    "type": "visa-application",
     "acl": "answer.Survival Guide.Final Questions"
   },
   {

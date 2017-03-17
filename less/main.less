@@ -581,7 +581,7 @@ form {
     }
   }
 
-  &.questions {
+  &.questions, &.visa-application {
     input {
       &[type='radio'] {
         display: inline-block;
@@ -595,6 +595,14 @@ form {
     label {
       display: inline-block;
       padding: 0;
+    }
+  }
+
+  &.visa-application {
+    h1, input {
+      display: inline-block;
+      width: auto;
+      vertical-align: top;
     }
   }
 }
