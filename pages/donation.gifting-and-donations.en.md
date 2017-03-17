@@ -18,11 +18,4 @@ By getting familiar with the ministries in the  [Creation](https://dejā.lv/en/c
 
  If you would like to contribute financially email degosiejani@gmail.com and type DONATION in the subject line. you will receive an email with instructions. 
 
-
-
-
-
-
-
-1. ​
-
+​
