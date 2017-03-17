@@ -28,6 +28,10 @@ block body
               // "yes/no;textifyes:How would you like your donation used?"
               // "yes/no;textifyes:Which one?"
               // "yes/no;textifyes:Which ones?"
+            if question.subtitle
+              br
+              h2= __(question.subtitle)
+            br
             br
         div.buttons
           button(type='submit')= __('Continue').toUpperCase()
