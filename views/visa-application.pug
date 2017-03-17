@@ -8,26 +8,26 @@ block body
       section
         if questions && questions.length > 0
           each question in questions
-              h1= __(question.title)
-              case question.type
-                when 'text'
-                when 'email'
-                when 'date'
-                  input(type=question.type id=question.id name=question.id required='required' value='')
-                when 'country'
-                  input.easyautocomplete-country(type='text' id=question.id name=question.id required='required' value='')
-                when 'single'
-                when 'multiple'
-                  for answer in question.answers
-                    - let answerId = question.id + '.' + answer
-                    input(type=(question.type === 'multiple' ? 'checkbox' : 'radio') checked=false id=answerId name=question.id required='required' value=answer)
-                    label(for=answerId)= __(answer)
-                // "yes/no"
-                // "yes/no;textifyes"
-                // "yes/no;textifyes:How many? Please list their names."
-                // "yes/no;textifyes:How would you like your donation used?"
-                // "yes/no;textifyes:Which one?"
-                // "yes/no;textifyes:Which ones?"
-              br
+            h1= __(question.title)
+            case question.type
+              when 'text'
+              when 'email'
+              when 'date'
+                input(type=question.type id=question.id name=question.id required='required' value='')
+              when 'country'
+                input.easyautocomplete-country(type='text' id=question.id name=question.id required='required' value='')
+              when 'single'
+              when 'multiple'
+                for answer in question.answers
+                  - let answerId = question.id + '.' + answer
+                  input(type=(question.type === 'multiple' ? 'checkbox' : 'radio') checked=false id=answerId name=question.id required='required' value=answer)
+                  label(for=answerId)= __(answer)
+              // "yes/no"
+              // "yes/no;textifyes"
+              // "yes/no;textifyes:How many? Please list their names."
+              // "yes/no;textifyes:How would you like your donation used?"
+              // "yes/no;textifyes:Which one?"
+              // "yes/no;textifyes:Which ones?"
+            br
         div.buttons
           button(type='submit')= __('Continue').toUpperCase()
