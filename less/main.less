@@ -551,6 +551,11 @@ form {
     padding: 10px;
     background-color: @light;
     color: #1a4017;
+
+    &[type="date"] {
+      &::-webkit-inner-spin-button { display: none; }
+      &::-webkit-calendar-picker-indicator { background-color: transparent; }
+    }
   }
 
   .buttons {
@@ -605,18 +610,28 @@ form {
       vertical-align: top;
     }
 
+    input, label {
+      color: @accent;
+    }
+
     .easy-autocomplete {
       input {
         border: 0;
         border-radius: 0;
         box-shadow: none;
         padding: 10px;
-        color: #1a4017;
+        color: @accent;
       }
 
-      ul {
+      ul, li {
+        border: 0;
+        box-shadow: none;
         margin: 0;
-        color: #1a4017;
+        color: @accent;
+        background-color: @light;
+        &.selected {
+          background-color: darken(@light, 2%);
+        }
       }
     }
   }
