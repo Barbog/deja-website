@@ -43,7 +43,8 @@
       {
         "id": "previous-burns",
         "title": "Have you attended any burns?",
-        "type": "yes/no;textifyes:Which ones?"
+        "type": "yes/no;textifyes",
+        "subtitleif": "Which ones?"
       },
       {
         "id": "years-in-deja",
@@ -60,12 +61,14 @@
         "id": "children",
         "title": "Will you be traveling with children?",
         "subtitle": "If you plan to bring children age 16 or older, they will need to register like an adult. Any co-creator younger than 18 will have to be accompanied by a legal guardian.",
-        "type": "yes/no;textifyes:How many? Please list their names."
+        "type": "yes/no;textifyes",
+        "subtitleif": "How many? Please list their names."
       },
       {
         "id": "meetup-at-deja",
         "title": "Are you traveling with or will you be meeting with members to set up a theme camp at DeJā?",
-        "type": "yes/no;textifyes:Which one?"
+        "type": "yes/no;textifyes",
+        "subtitleif": "Which one?"
       },
       {
         "id": "purpose",
@@ -349,7 +352,8 @@
       {
         "id": "financial-donation",
         "title": "Have you considered donating financially to help with the cost of the infrastructure?",
-        "type": "yes/no;textifyes:How would you like your donation used?",
+        "type": "yes/no;textifyes",
+        "subtitleif": "How would you like your donation used?",
         "answers": [
           "Yes",
           "I plan on donating resources for the benefit of the community at the event."

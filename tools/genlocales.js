@@ -55,6 +55,7 @@ JSON.parse(fs.readFileSync(path.join(root, 'visa-application.json'), { encoding:
   if (section.questions) { section.questions.forEach(question => {
     visaApplication[visaApplication.length] = question.title;
     if (question.subtitle) { visaApplication[visaApplication.length] = question.subtitle; }
+    if (question.subtitleif) { visaApplication[visaApplication.length] = question.subtitleif; }
     if (question.answers) { question.answers.forEach(answer => {
       visaApplication[visaApplication.length] = answer;
     }); }
