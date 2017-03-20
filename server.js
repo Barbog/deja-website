@@ -772,12 +772,17 @@ function catchAllFor (backstack, sitemap) {
                 return;
               }
 
-              if (res.locals.questions[i].expectedAnswer !== req.body['a' + i]) {
-                // TODO Prettyfy this place.
-                res.status(400);
-                res.type('text/plain; charset=utf-8');
-                res.send('WHAT_IN_ANSWER');
-                return;
+              let expectedAnswer = res.locals.questions[i].expectedAnswer;
+              let actualAnswer = req.body['a' + i];
+
+              if (expectedAnswer !== null) {
+                if (Array.isArray(expectedAnswer) ? expectedAnswer.indexOf(actualAnswer) === -1 : actualAnswer !== expectedAnswer) {
+                  // TODO Prettyfy this place.
+                  res.status(400);
+                  res.type('text/plain; charset=utf-8');
+                  res.send('WHAT_IN_ANSWER');
+                  return;
+                }
               }
             }
 
