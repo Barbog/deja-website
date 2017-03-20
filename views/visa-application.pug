@@ -23,6 +23,7 @@ block body
                   br
                   input(type=(question.type === 'multiple' ? 'checkbox' : 'radio') checked=false id=answerId name=question.id required='required' value=answer)
                   label(for=answerId)= __(answer)
+                br
               // "yes/no"
               // "yes/no;textifyes"
               // "yes/no;textifyes:How many? Please list their names."
