@@ -18,6 +18,8 @@ if (typeof Array.prototype.shuffle !== 'function') {
   };
 }
 
+const visaPrefix = '2017';
+
 const bcrypt = require('bcryptjs');
 const env = require('get-env')();
 const express = require('express');
@@ -48,7 +50,7 @@ if (env === 'dev') {
       throw err;
     }
 
-    db.hmset('user:' + email, 'password', hash, 'name', name, err => {
+    db.hmset('user:' + email, { password: hash, name: name }, err => {
       if (err) {
         throw err;
       }
@@ -445,7 +447,7 @@ i18n.getLocales().forEach(locale => {
             return;
           }
 
-          db.hmset('user:' + email, 'password', hash, 'name', name, err => {
+          db.hmset('user:' + email, { password: hash, name: name }, err => {
             if (err) {
               rerender(new Error('Internal database error encountered.'));
               console.error(err.stack);
@@ -842,6 +844,150 @@ function catchAllFor (backstack, sitemap) {
                   res.type('text/html; charset=utf-8');
                   res.send(html);
                 }
+              });
+            });
+          });
+        } else if (page.type === 'visa-application') {
+          app.post(encodeURI(localeHash[locale]), (req, res) => {
+            if (!res.locals.user) {
+              res.status(400);
+              res.type('text/plain; charset=utf-8');
+              res.send('WHO_ARE_YOU');
+              return;
+            }
+
+            const h = {};
+
+            res.locals.questions = page.questions.questions.slice(0);
+            for (let i = 0; i < res.locals.questions.length; i++) {
+              let id = res.locals.questions[i].id;
+
+              let ans = typeof req.body[id] === 'string' ? req.body[id] : '';
+              if (!ans) {
+                res.status(400);
+                res.type('text/plain; charset=utf-8');
+                res.send('WHAT_IN_QUESTION');
+                return;
+              }
+
+              switch (res.locals.questions[i].type) {
+                case 'text':
+                case 'email':
+                case 'date':
+                case 'country':
+                  h[id] = JSON.stringify(ans);
+                  break;
+                case 'single':
+                  if (res.locals.questions[i].answers.indexOf(ans) === -1) {
+                    res.status(400);
+                    res.type('text/plain; charset=utf-8');
+                    res.send('WHAT_IN_QUESTION');
+                    return;
+                  }
+                  h[id] = JSON.stringify(ans);
+                  break;
+                case 'multiple':
+                  if (!Array.isArray(ans)) {
+                    res.status(400);
+                    res.type('text/plain; charset=utf-8');
+                    res.send('WHAT_IN_QUESTION');
+                    return;
+                  }
+                  for (var j = 0; j < ans.length; j++) {
+                    if (res.locals.questions[i].answers.indexOf(ans[j]) === -1) {
+                      res.status(400);
+                      res.type('text/plain; charset=utf-8');
+                      res.send('WHAT_IN_QUESTION');
+                      return;
+                    }
+                  }
+                  h[id] = JSON.stringify(ans);
+                  break;
+                case 'yes/no':
+                case 'yes/no;textifyes':
+                case 'yes/no;textifno':
+                  if (ans !== 'yes' && ans !== 'no') {
+                    res.status(400);
+                    res.type('text/plain; charset=utf-8');
+                    res.send('WHAT_IN_QUESTION');
+                    return;
+                  }
+                  const textif = res.locals.questions[i].type.split(';')
+                    .filter(part => part.startsWith('textif'))
+                    .map(part => part.substr('textif'.length))
+                    .reduce((prev, next) => prev + next, '');
+                  if (ans === textif) {
+                    let exp = typeof req.body[id + '.explanation'] === 'string' ? req.body[id + '.explanation'] : '';
+                    if (!exp) {
+                      res.status(400);
+                      res.type('text/plain; charset=utf-8');
+                      res.send('WHAT_IN_QUESTION');
+                      return;
+                    }
+
+                    h[id] = JSON.stringify(ans + ': ' + exp);
+                  } else {
+                    h[id] = JSON.stringify(ans);
+                  }
+                  break;
+              }
+            }
+
+            const moveForward = () => {
+              const target = (stack.slice(0, -1).reduce((prev, next) => prev + '/' + next.title[locale], '/' + locale) +
+                '/' + req.__(page.render.nextpage)).toLowerCase().split(' ').join('-').split('/').join('-');
+              res.render('redirect', { target: target }, (err, html) => {
+                res.status(303);
+                res.location(target);
+                if (err) {
+                  res.type('text/plain; charset=utf-8');
+                  res.send(target);
+                  console.error(err.stack);
+                } else {
+                  res.type('text/html; charset=utf-8');
+                  res.send(html);
+                }
+              });
+            };
+
+            const fieldAns = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
+            db.hget('user:' + res.locals.user.email, fieldAns, (err, reply) => {
+              if (err) {
+                res.status(500);
+                res.type('text/plain; charset=utf-8');
+                res.send('Something broke horribly. Sorry.');
+                console.error(err.stack);
+                return;
+              }
+
+              if ((typeof reply === 'string' || typeof reply === 'number') && reply !== '' && reply !== 0) {
+                moveForward();
+                return;
+              }
+
+              db.hmset('visa:' + (visaPrefix ? visaPrefix + ':' : '') + res.locals.user.email, h, err => {
+                if (err) {
+                  res.status(500);
+                  res.type('text/plain; charset=utf-8');
+                  res.send('Something broke horribly. Sorry.');
+                  console.error(err.stack);
+                  return;
+                }
+
+                const valueAns = Date.now();
+                db.hsetnx('user:' + res.locals.user.email, fieldAns, valueAns, err => {
+                  if (err) {
+                    res.status(500);
+                    res.type('text/plain; charset=utf-8');
+                    res.send('Something broke horribly. Sorry.');
+                    console.error(err.stack);
+                    return;
+                  }
+
+                  res.locals.user[fieldAns] = valueAns;
+
+                  moveForward();
+                });
               });
             });
           });
