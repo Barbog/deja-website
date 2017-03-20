@@ -4,13 +4,45 @@
       "nextPage": [ "Survival Guide" ],
       "questions": [
         {
-          "question": "When do you deMOOP?",
-          "expectedAnswer": "All the time",
+          "question": "How many principles are there in the Code of the Republic?",
+          "expectedAnswer": "11",
           "answers": [
-            "All the time",
-            "Every evening",
-            "Right before leaving",
-            "Never"
+            "10",
+            "11",
+            "12",
+            "13"
+          ]
+        },
+        {
+          "question": "Consent must be clearly granted.",
+          "expectedAnswer": "True",
+          "answers": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "question": "Consent must be clearly granted.",
+          "expectedAnswer": "True",
+          "answers": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "question": "It is the responsibility of each participant to leave no trace at DeJā.",
+          "expectedAnswer": "True",
+          "answers": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "question": "You are encouraged to be a spectator.",
+          "expectedAnswer": "False",
+          "answers": [
+            "True",
+            "False"
           ]
         }
       ]
@@ -21,6 +53,49 @@
       "Questions": {
         "nextPage": [ "Survival Guide", "The Basics" ],
         "questions": [
+          {
+            "question": "What is provided?",
+            "expectedAnswer": "A location to gather",
+            "answers": [
+              "A location to gather",
+              "Free WiFi",
+              "Daft Punk at the trash fence"
+            ]
+          },
+          {
+            "question": "What isn't provided?",
+            "expectedAnswer": "Garbage removal",
+            "answers": [
+              "Outhouses",
+              "Garbage removal",
+              "Some power"
+            ]
+          },
+          {
+            "question": "What should I expect?",
+            "expectedAnswer": "Nothing",
+            "answers": [
+              "Fire",
+              "Free WiFi",
+              "Nothing"
+            ]
+          },
+          {
+            "question": "Why do I need a Visa?",
+            "expectedAnswer": "To get into DeJā",
+            "answers": [
+              "To get into DeJā",
+              "To fly to Berlin"
+            ]
+          },
+          {
+            "question": "Why are there no tickets sold?",
+            "expectedAnswer": "DeJā is an experiment in commerce-free gatherings",
+            "answers": [
+              "DeJā is an experiment in commerce-free gatherings",
+              "Printer cartridge's out of ink"
+            ]
+          }
         ]
       }
     },
@@ -28,6 +103,86 @@
       "Questions": {
         "nextPage": [ "Survival Guide", "Preparing" ],
         "questions": [
+          {
+            "question": "Weather at DeJā is predictable.",
+            "expectedAnswer": "False",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "The well at DeJā provides drinking water.",
+            "expectedAnswer": "False",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "There is unlimited power for your use at DeJā.",
+            "expectedAnswer": "False",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "There is a casual sound curfew between 6 and 9am.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "Cell phone use is highly encouraged.",
+            "expectedAnswer": "False",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "Smoking is not allowed in the barn.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "If/When entering the kitchen, hands must be washed and sanitized.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "Donations for covering expenses are accepted.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "Those under 18 need to be accompanied by an adult.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "Pets are welcome at DeJā.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          }
         ]
       }
     },
@@ -35,12 +190,65 @@
       "Questions": {
         "nextPage": [ "Survival Guide", "Getting There" ],
         "questions": [
+          {
+            "question": "What will I need at DeJā?",
+            "expectedAnswer": null,
+            "answers": [
+              "Water",
+              "Food",
+              "Camping gear",
+              "Garbage bags",
+              "Intoxicating aids",
+              "Costumes",
+              "Lighting"
+            ]
+          },
+          {
+            "question": "DeJā is a leave no trace event.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "It's okay to leave garbage laying around.",
+            "expectedAnswer": "False",
+            "answers": [
+              "True",
+              "False"
+            ]
+          },
+          {
+            "question": "It is a good idea to leave space in your vehicle to take garbage with you when you leave.",
+            "expectedAnswer": "True",
+            "answers": [
+              "True",
+              "False"
+            ]
+          }
         ]
       }
     },
     "Final Questions": {
       "nextPage": [ "Survival Guide" ],
       "questions": [
+        {
+          "question": "MOOP sweeps are highly encouraged.",
+          "expectedAnswer": "True",
+          "answers": [
+            "True",
+            "False"
+          ]
+        },
+        {
+          "question": "If someone asks you for directions, it is okay to share them even if they have not filled out a Visa.",
+          "expectedAnswer": "False",
+          "answers": [
+            "True",
+            "False"
+          ]
+        }
       ]
     }
   }
