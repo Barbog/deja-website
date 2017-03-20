@@ -482,9 +482,17 @@
   },
   {
     "title": "Visa Application",
-    "hidden": "Basic Information",
+    "hidden": "Status",
     "acl": "answer.Survival Guide.Final Questions",
     "subpages": [
+      {
+        "title": "Status",
+        "type": "visa-status",
+        "acl": "answer.Visa Application.Volunteering",
+        "render": {
+          "previouspage": "Basic Information"
+        }
+      },
       {
         "title": "Basic Information",
         "type": "visa-application",
@@ -536,7 +544,10 @@
       {
         "title": "Volunteering",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Participation"
+        "acl": "answer.Visa Application.Participation",
+        "render": {
+          "nextpage": "Status"
+        }
       }
     ]
   },

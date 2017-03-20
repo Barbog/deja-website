@@ -544,7 +544,11 @@ function catchAllFor (backstack, sitemap) {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
           if (page.acl && (!res.locals.user || !res.locals.user[page.acl])) {
-            const target = '/' + locale + '/' + (res.locals.user ? '' : req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-'));
+            const target = ('/' + locale + '/' + res.locals.user ?
+              page.render.previouspage ?
+                stack.slice(0, -1).reduce((prev, next) => prev + '/' + next.title[locale], '/' + locale) + '/' + req.__(page.render.previouspage) :
+                '' :
+              req.__('Log In')).toLowerCase().split(' ').join('-').split('/').join('-');
             res.render('redirect', { target: target }, (err, html) => {
               res.status(303);
               res.location(target);
@@ -570,6 +574,32 @@ function catchAllFor (backstack, sitemap) {
               if (res.locals.user[field]) {
                 const target = '/' + locale + '/' + page.questions.nextPage
                   .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-')).join('/');
+                res.render('redirect', { target: target }, (err, html) => {
+                  res.status(303);
+                  res.location(target);
+                  if (err) {
+                    res.type('text/plain; charset=utf-8');
+                    res.send(target);
+                    console.error(err.stack);
+                  } else {
+                    res.type('text/html; charset=utf-8');
+                    res.send(html);
+                  }
+                });
+                callback(true);
+              } else {
+                callback(false);
+              }
+            } else if (page.type === 'visa-application') {
+              if (!res.locals.user) {
+                callback(false);
+                return;
+              }
+
+              const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
+              if (res.locals.user[field]) {
+                const target = (stack.slice(0, -1).reduce((prev, next) => prev + '/' + next.title[locale], '/' + locale) +
+                  '/' + req.__(page.render.nextpage)).toLowerCase().split(' ').join('-').split('/').join('-');
                 res.render('redirect', { target: target }, (err, html) => {
                   res.status(303);
                   res.location(target);
