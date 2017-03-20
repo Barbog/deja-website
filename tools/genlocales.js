@@ -35,7 +35,15 @@ let iterateQs = shallow => {
     shallow.questions.forEach(item => {
       questions[questions.length] = item.question;
       item.answers.forEach(item => { questions[questions.length] = item; });
-      questions[questions.length] = item.expectedAnswer;
+      if (item.expectedAnswer !== null) {
+        if (Array.isArray(item.expectedAnswer)) {
+          item.expectedAnswer.forEach(answer => {
+            questions[questions.length] = answer;
+          });
+        } else {
+          questions[questions.length] = item.expectedAnswer;
+        }
+      }
     });
   } else {
     for (let key in shallow) {
