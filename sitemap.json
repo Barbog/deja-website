@@ -482,8 +482,63 @@
   },
   {
     "title": "Visa Application",
-    "type": "visa-application",
-    "acl": "answer.Survival Guide.Final Questions"
+    "hidden": "Basic Information",
+    "acl": "answer.Survival Guide.Final Questions",
+    "subpages": [
+      {
+        "title": "Basic Information",
+        "type": "visa-application",
+        "acl": "answer.Survival Guide.Final Questions",
+        "render": {
+          "nextpage": "Fuck Commerce"
+        }
+      },
+      {
+        "title": "Fuck Commerce",
+        "type": "visa-application",
+        "acl": "answer.Visa Application.Basic Information",
+        "render": {
+          "nextpage": "Don't let it hit the ground, but let the bodies hit the floor"
+        }
+      },
+      {
+        "title": "Don't let it hit the ground, but let the bodies hit the floor",
+        "type": "visa-application",
+        "acl": "answer.Visa Application.Fuck Commerce",
+        "render": {
+          "nextpage": "Self Expression"
+        }
+      },
+      {
+        "title": "Self Expression",
+        "type": "visa-application",
+        "acl": "answer.Visa Application.Don't let it hit the ground, but let the bodies hit the floor",
+        "render": {
+          "nextpage": "Consent"
+        }
+      },
+      {
+        "title": "Consent",
+        "type": "visa-application",
+        "acl": "answer.Visa Application.Self Expression",
+        "render": {
+          "nextpage": "Prior Year Financial Transparency"
+        }
+      },
+      {
+        "title": "Participation",
+        "type": "visa-application",
+        "acl": "answer.Visa Application.Self Expression",
+        "render": {
+          "nextpage": "Volunteering"
+        }
+      },
+      {
+        "title": "Volunteering",
+        "type": "visa-application",
+        "acl": "answer.Visa Application.Participation"
+      }
+    ]
   },
   {
     "title": "Donation",

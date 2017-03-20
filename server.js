@@ -535,7 +535,7 @@ function catchAllFor (backstack, sitemap) {
       });
       if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
     } else if (page.type === 'visa-application') {
-      page.questions = visaApplication.filter(section => section.title === 'Basic Information')[0]; // TODO Filter by sections.
+      page.questions = visaApplication.filter(section => section.title === page.title)[0];
       if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
     }
 
