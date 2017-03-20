@@ -258,19 +258,12 @@
             "title": "Lost Property/Lost and Found",
             "acl": "view.Survival Guide.The Basics.23rd of June",
             "render": {
-              "nextpage": "Generators"
-            }
-          },
-          {
-            "title": "Generators",
-            "acl": "view.Survival Guide.The Basics.Lost Property/Lost and Found",
-            "render": {
               "nextpage": "Latvian Law"
             }
           },
           {
             "title": "Latvian Law",
-            "acl": "view.Survival Guide.The Basics.Generators",
+            "acl": "view.Survival Guide.The Basics.Lost Property/Lost and Found",
             "render": {
               "nextpage": "Questions"
             }
