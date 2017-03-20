@@ -158,6 +158,7 @@ app.use((req, res, next) => {
       }
 
       res.locals.user = Object.assign(user, {
+        'answer.Survival Guide.Final Questions': true,
         email: reply
       });
       next();
