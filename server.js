@@ -686,8 +686,8 @@ function catchAllFor (backstack, sitemap) {
                   altLocales: localeHash,
                   title: req.__(title),
                   stackpages: stack.map(el => el.title.en),
-                  subpages: page.subpages,
-                  siblingpages: sitemap.filter(page => page.title !== 'Questions'),
+                  subpages: page.subpages.filter(page => page.type !== 'questions'),
+                  siblingpages: sitemap.filter(page => page.type !== 'questions'),
                   markdown: markdown
                 }, renderOverrides || {});
                 res.render(encodeURIComponent(page.type || view.split('.')[0]), renderParams, (err, html) => {
