@@ -15,11 +15,11 @@ Again, we recommend the 6 R’s:
 - **<span style="color:lime;">Restore.</span>**
 
 
-<span style="color:#4891d9;"><u>**Materials**</u></span>
+<span style="color:#77011e;"><u>**Materials**</u></span>
 
 It is during your planning phase that it is most important to think about the end-game — where will your materials end up?
 
-<span style="color:#4891d9;">**Think**</span> about your material choices chronologically, and ask yourself:
+<span style="color:#limegreen;">**Think**</span> about your material choices chronologically, and ask yourself:
 
 - Where did they come from?
 - How can I use them the most efficiently?
@@ -28,7 +28,7 @@ It is during your planning phase that it is most important to think about the en
 - Burned?
 - What’s the most environmentally friendly choice I can make?
 
-<span style="color:#4891d9;"> Purchase or acquire</span> materials from socially and environmentally conscious sources.
+<span style="color:#limegreen;"> Purchase or acquire</span> materials from socially and environmentally conscious sources.
 
 Explore the options for obtaining repurposed materials in your area.
 
@@ -38,7 +38,7 @@ Although it can be more challenging to use repurposed materials, it is more  in
 
 
 
-<span style="color:#4891d9;"><u>**To Burn or Not to Burn?**</u></span>
+<span style="color:#77011e;"><u>**To Burn or Not to Burn?**</u></span>
 
 If you do choose to burn your art, it’s critical you plan to avoid using toxic materials or paint that would be released into the atmosphere.
 
@@ -48,7 +48,7 @@ Plastics, very very bad.
 
 
 
-<span style="color:#4891d9;"><u>**Lighting and Power**</u></span>
+<span style="color:#77011e;"><u>**Lighting and Power**</u></span>
 
 For your safety and the safety of others,  light your installation at night, even when it’s just a construction site during your setup phase.
 
@@ -56,7 +56,7 @@ In some cases, it is necessary to provide power to your installation. Rather tha
 
 
 
-<span style="color:#4891d9;"><u>**Leave No Trace**</u></span>
+<span style="color:#77011e;"><u>**Leave No Trace**</u></span>
 
 Construction materials contribute greatly to MOOP.
 
@@ -69,7 +69,7 @@ When you’re building, use tarps or other coverings to catch splinters, metal s
 
 Easiest rule of thumb is: **never let it hit the ground**
 
-<span style="color:#4891d9;"><u>**Transportation**</u></span>
+<span style="color:#77011e;"><u>**Transportation**</u></span>
 
 If you’re building a particularly large installation, you will find that your transportation costs constitute a very large chunk of your budget — especially if you’re coming from far away. Consider teaming up with other artists or theme camps to share the ride.
 

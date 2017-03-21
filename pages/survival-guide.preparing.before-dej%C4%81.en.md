@@ -6,11 +6,11 @@ typora-root-url: ../static
 
 
 
-<span style="color:#4891d9;"><u>**Plan Ahead and Prepare**</u></span>
+<span style="color:limegreen;"><u>**Plan Ahead and Prepare**</u></span>
 
 Preparation is key to leaving a better trace. Please keep the following in mind when packing!
 
-<span style="color:#4891d9;"><u>**Reduce Packaging**</u></span>
+<span style="color:limegreen;"><u>**Reduce Packaging**</u></span>
 
 Bringing in less means having less to haul out, 
 
@@ -21,7 +21,7 @@ For each item that you’re bringing to DeJā, think through how you’re going 
   - Food often comes in layers of plastic and cardboard, toss out the packaging before heading to the farm.
 - Choose aluminum cans over bottles, and reusable containers over either of those.
 
-<span style="color:#4891d9;"><u>**Thinking of Pre-cooking?**</u></span>
+<span style="color:limegreen;"><u>**Thinking of Pre-cooking?**</u></span>
 
 If you plan on cooking before coming out:
 
@@ -35,7 +35,7 @@ If you plan on cooking before coming out:
 - <span style="color:#77011e;">**Do not**</span> bring: loose glitter, feather boas. Such items are near impossible to recover.
 
 
-<span style="color:#4891d9;">**Do**</span> bring:
+<span style="color:limegreen;">**Do**</span> bring:
 
 - **Bags** for your garbage.
 - **Gloves** – pack work gloves for picking up any sharp bits.

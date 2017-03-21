@@ -18,7 +18,7 @@ Learn and consider the 6 R’s:
 Keep these in mind from the beginning through to the end of your DeJā experience.
 
 
-<span style="color:#4891d9;"><u>**Transportation**</u></span>
+<span style="color:#77011e;"><u>**Transportation**</u></span>
 
 Coming Alone?
 <span style="color:#fdb913;">**Consider**</span> ride sharing to reduce the number of cars going to and from the farm. You can find likely candidates through our car share channel on Slack.
@@ -30,7 +30,7 @@ Coming from far away?
 
 
 
-<span style="color:#4891d9;"><u>**Materials**</u></span>
+<span style="color:#77011e;"><u>**Materials**</u></span>
 
 Think about materials you use to build your camp:
 Rather than using materials you might use once and discard,<span style="color:#fdb913;"> **consider** </span> designing camp structures and elements that can be assembled, disassembled and reused year after year.
@@ -38,9 +38,9 @@ Rather than using materials you might use once and discard,<span style="color:#f
 Rather than buying new construction materials:
 
 - <span style="color:#fdb913;">**Consider**</span> using recycled, repurposed or reclaimed materials.
-- <span style="color:#4891d9;">**Do**</span> some research and explore the options for obtaining repurposed materials in your area.
+- <span style="color:#limegreen;">**Do**</span> some research and explore the options for obtaining repurposed materials in your area.
 - Dumpster dive.
-- <span style=color:#4891d9;">**Look**</span> through the classifieds for someone that might have a dome or other infrastructure item they’re hoping to get rid of.
+- <span style=color:limegreen;">**Look**</span> through the classifieds for someone that might have a dome or other infrastructure item they’re hoping to get rid of.
 
 If you must burn elements of your camp,
 
@@ -51,7 +51,7 @@ If you must burn elements of your camp,
 
 
 
-<span style="color:#4891d9;"><u>**Energy and Lighting**</u></span>
+<span style="color:#77011e;"><u>**Energy and Lighting**</u></span>
 
 Power and light are an integral part of almost every camp. Many people take it for granted that you may have to run a generator and lights to illuminate your space.
 <span style="color:#fdb913;">**Consider**</span> a bio-fuel generator rather than a gas one.

@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 
 
-<span style="color:#4891d9;">**Be Aware** </span> of Very Small Items
+<span style="color:limegreen;">**Be Aware** </span> of Very Small Items
 
 - No Trace really does mean no trace.
 - Be conscious of spare nails or smaller trash particles that may be dismissed as too small for trash including: hair, matches, cigarette butts, feathers, zip ties. 
@@ -23,7 +23,7 @@ typora-root-url: ../static
 
   ​
 
-<span style="color:#4891d9;">Separate</span>  recycling into glass, plastic, aluminum and cardboard/paper. 
+<span style="color:limegreen;">Separate</span>  recycling into glass, plastic, aluminum and cardboard/paper. 
 
 - No trash is to be burned, except for cardboard/paper.
 
@@ -48,5 +48,4 @@ The toilets are compost toilets. If it’s not biodegradable, don’t put it dow
 
   - <span style="color:#77011e;">Do not </span> harass wildlife. 
   - If you bring a pet to the DeJā, make certain to remove their waste just as you would your own.
-
 
