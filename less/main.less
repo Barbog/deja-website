@@ -641,7 +641,9 @@ form {
     }
 
     input[type="radio"], input[type="checkbox"] {
-      margin: 0 6px .55em 12%;
+      &, &:first-of-type {
+        margin: 0 6px .55em 12%;
+      }
 
       + label {
         color: #fff;
