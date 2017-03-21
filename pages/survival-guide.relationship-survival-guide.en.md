@@ -138,7 +138,7 @@ There is a lot of sexual energy whirling about. Anything and everything can and 
 
 
 
-<span style="color:#fdb913;">TIP:</span>  say yes, more, now, please and thank you
+<span style="color:#fdb913;"> TIP:</span>  say yes, more, now, please and thank you
 
 
 
