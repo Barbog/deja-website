@@ -799,6 +799,22 @@ function catchAllFor (backstack, sitemap) {
               return;
             }
 
+            const rerender = () => {
+              const target = req.url;
+              res.render('redirect', { target: target }, (err, html) => {
+                res.status(303);
+                res.location(target);
+                if (err) {
+                  res.type('text/plain; charset=utf-8');
+                  res.send(target);
+                  console.error(err.stack);
+                } else {
+                  res.type('text/html; charset=utf-8');
+                  res.send(html);
+                }
+              });
+            };
+
             for (let i = 0; i < res.locals.questions.length; i++) {
               if (res.locals.questions[i].question !== req.body['q' + i]) {
                 res.status(400);
@@ -812,10 +828,7 @@ function catchAllFor (backstack, sitemap) {
 
               if (expectedAnswer !== null) {
                 if (Array.isArray(expectedAnswer) ? expectedAnswer.indexOf(actualAnswer) === -1 : actualAnswer !== expectedAnswer) {
-                  // TODO Prettyfy this place.
-                  res.status(400);
-                  res.type('text/plain; charset=utf-8');
-                  res.send('WHAT_IN_ANSWER');
+                  rerender();
                   return;
                 }
               }
