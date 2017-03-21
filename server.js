@@ -864,24 +864,23 @@ function catchAllFor (backstack, sitemap) {
             res.locals.questions = page.questions.questions.slice(0);
             for (let i = 0; i < res.locals.questions.length; i++) {
               let id = res.locals.questions[i].id;
-
-              let ans = typeof req.body[id] === 'string' ? req.body[id] : '';
-              if (!ans) {
-                res.status(400);
-                res.type('text/plain; charset=utf-8');
-                res.send('WHAT_IN_QUESTION');
-                return;
-              }
+              let ans = typeof req.body[id] === 'string' || Array.isArray(req.body[id]) ? req.body[id] : '';
 
               switch (res.locals.questions[i].type) {
                 case 'text':
                 case 'email':
                 case 'date':
                 case 'country':
+                  if (typeof ans !== 'string') {
+                    res.status(400);
+                    res.type('text/plain; charset=utf-8');
+                    res.send('WHAT_IN_QUESTION');
+                    return;
+                  }
                   h[id] = JSON.stringify(ans);
                   break;
                 case 'single':
-                  if (res.locals.questions[i].answers.indexOf(ans) === -1) {
+                  if (typeof ans !== 'string' || res.locals.questions[i].answers.indexOf(ans) === -1) {
                     res.status(400);
                     res.type('text/plain; charset=utf-8');
                     res.send('WHAT_IN_QUESTION');
@@ -921,7 +920,7 @@ function catchAllFor (backstack, sitemap) {
                     .reduce((prev, next) => prev + next, '');
                   if (ans === textif) {
                     let exp = typeof req.body[id + '.explanation'] === 'string' ? req.body[id + '.explanation'] : '';
-                    if (!exp) {
+                    if (typeof exp !== 'string' || exp === '') {
                       res.status(400);
                       res.type('text/plain; charset=utf-8');
                       res.send('WHAT_IN_QUESTION');
