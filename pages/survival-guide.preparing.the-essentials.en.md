@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<span style="color:dodgerblue;"><u>**Practice self-reliance**</u></span> – bring everything you will need to stay healthy, comfortable and safe. Pooling resources with others can make transporting and arranging necessities much easier. 
+<span style="color:limegreen;"><u>**Practice self-reliance**</u></span> – bring everything you will need to stay healthy, comfortable and safe. Pooling resources with others can make transporting and arranging necessities much easier. 
 
 Below is a list of things you should have.
 
@@ -48,7 +48,7 @@ Below is a list of things you should have.
   - Any medicines you might need. 
 - Condoms  if you want to be prepared for finding the fern flower
 - Earplugs, if you're a light sleeper.
-- <span style="color:dodgerblue;">Things to gift:</span>
+- <span style="color:limegreen;">Things to gift:</span>
   - Extra stuff from this list will do much better than trinkets as everybody forgets something.
 - All materials and tools you require for your projects!
 - Clothing – the temperatures can vary drastically, so the key to staying comfortable is having multiple layers. 
