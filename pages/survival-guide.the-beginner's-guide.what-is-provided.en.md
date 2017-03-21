@@ -18,7 +18,9 @@ At DeJā you will find:
 
   ​
 
+  ​
 
 
-  *Bring what you need, take care.*			*You are responsible for You.*
+
+ <span style="color:#fdb913;"> *Bring what you need, take care.*			*You are responsible for You.*</span>
 

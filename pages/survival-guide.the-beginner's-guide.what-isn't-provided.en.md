@@ -16,7 +16,13 @@ If you don't make it happen, who will?
 
 
 
-*Leave No Trace*.					*No one will clean up after you.*				
+*<span style="color:#fdb913;">Leave No Trace.  No one will clean up after you.*	</span>			
 
-​						*You packed it in, you pack it out.*
+
+
+<span style="color:#fdb913;">*You packed it in, you pack it out.*</span>
+
+
+
+
 
