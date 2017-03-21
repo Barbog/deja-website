@@ -4,6 +4,9 @@ mixin tree-button(name, edge)
   a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-').split('/').join('-') + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-') class='tree-' + name.toLowerCase().split(' ').join('-').split('/').join('-'))
     img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-') + '.png' alt=__(name) width=edge height=edge)
 
+mixin section(name, classname)
+  a(class=(classname + (acl((subpages.filter(page => page.title === name)[0] || {}).acl) ? '' : ' disabled')).trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-'))= __(name).toUpperCase()
+
 block home
   img.home.disabled(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='750' height='750')
 
@@ -24,15 +27,15 @@ block body
       +tree-button('Self Reliance', '30')
   nav
     div
-      a.left(href='/' + getLocale() + '/' + __('What is DeJā').toLowerCase().split(' ').join('-').split('/').join('-'))= __('What is DeJā').toUpperCase()
-      a.left(href='/' + getLocale() + '/' + __('Burn Etiquette').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Burn Etiquette').toUpperCase()
-      a.left(href='/' + getLocale() + '/' + __('Survival Guide').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Survival Guide').toUpperCase()
-      a.left(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Creation').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Creation').toUpperCase()
+      +section('What is DeJā', 'left')
+      +section('Burn Etiquette', 'left')
+      +section('Survival Guide', 'left')
+      +section('Creation', 'left')
     div
-      a.right(class=(user ? '' : 'disabled') href='/' + getLocale() + '/' + __('Visa Application').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Visa Application').toUpperCase()
-      a.right(href='/' + getLocale() + '/' + __('Donation').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Donation').toUpperCase()
-      a.right(href='/' + getLocale() + '/' + __('Network').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Network').toUpperCase()
-      a.right(href='/' + getLocale() + '/' + __('FAQ').toLowerCase().split(' ').join('-').split('/').join('-'))= __('FAQ').toUpperCase()
+      +section('Visa Application', 'right')
+      +section('Donation', 'right')
+      +section('Network', 'right')
+      +section('FAQ', 'right')
   nav
     p= __('1 March — 31 May:')
     p.float-left= __('Visa applications accepted.')

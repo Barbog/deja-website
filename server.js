@@ -193,7 +193,7 @@ app.get('/', (req, res) => {
     localeHash[locale] = '/' + locale + '/';
   });
 
-  res.render('index', { altLocales: localeHash });
+  res.render('index', { altLocales: localeHash, subpages: sitemap.slice(0) });
 });
 app.all('/', returnBadAction);
 
@@ -225,7 +225,7 @@ i18n.getLocales().forEach(locale => {
       localeHash[locale] = '/' + locale + '/';
     });
 
-    res.render('index', { altLocales: localeHash });
+    res.render('index', { altLocales: localeHash, subpages: sitemap.slice(0) });
   });
   app.all('/' + locale + '/', returnBadAction);
 });
@@ -554,6 +554,7 @@ app.all('/user/update', returnBadAction);
   }
 })();
 
+const sitemap = JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' }));
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.json'), { encoding: 'utf8' }));
 const visaApplication = JSON.parse(fs.readFileSync(path.join(__dirname, 'visa-application.json'), { encoding: 'utf8' }));
 
@@ -1098,7 +1099,7 @@ function catchAllFor (backstack, sitemap) {
     catchAllFor(stack, page.subpages);
   });
 }
-catchAllFor([], JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' })));
+catchAllFor([], sitemap.slice(0));
 
 var cssCache = null;
 const renderLess = callback => {
