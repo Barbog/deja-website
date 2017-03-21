@@ -2,11 +2,11 @@
 typora-root-url: ../static
 ---
 
-2014:  Year 1  -  121 participants from 16 countries.
+<span style="color:#77011e;">2014:  Year 1 </span> -  121 participants from 16 countries.
 
-2015:  Year 2  -  212 participants from 19 countries.
+<span style="color:#77011e;">2015:  Year 2 </span>  -  212 participants from 19 countries.
 
-2016:  Year 3  -  190 participants from 17 countries.
+<span style="color:#77011e;">2016:  Year 3 </span> -  190 participants from 17 countries.
 
 
 
