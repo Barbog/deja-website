@@ -2,9 +2,7 @@
 typora-root-url: ../static
 ---
 
-<span style="color:006a44;">**Wash**</span> your hands and use hand sanitizer.
-
-<span style="color:fdb913;">**Use hand sanitizer:**</span>  
+<span style="color:006a44;">**Wash**</span> your hands and  <span style="color:fdb913;">**Use hand sanitizer:**</span>  
 
 - After using toilets.
 - Before preparing, cooking or consuming food.

@@ -6,9 +6,9 @@ There are many ways to participate in the creation of DeJā,  either at the even
 
 
 
-**<u><span style="color:#77011e;">How can I participate?</span></u>**
+**<span style="color:#77011e;"><u>How can I participate?</u></span>**
 
-Make something/Do Something
+Make something/Do Something:
 
 - Create artwork
 - Perform
