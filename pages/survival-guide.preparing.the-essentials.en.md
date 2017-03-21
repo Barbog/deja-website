@@ -2,11 +2,11 @@
 typora-root-url: ../static
 ---
 
-<span style="color:greenyellow;">**Practice self-reliance**</span> – bring everything you will need to stay healthy, comfortable and safe. Pooling resources with others can make transporting and arranging necessities much easier. 
+<span style="color:#4891d9;">**Practice self-reliance**</span> – bring everything you will need to stay healthy, comfortable and safe. Pooling resources with others can make transporting and arranging necessities much easier. 
 
-<span style="color:orange;">Below</span> is a list of things you should have.
+Below is a list of things you should have.
 
-<u>The Essentials - Highly Recommended</u>  
+<span style="color:#77011e;"><u>**The Essentials - Highly Recommended**</u> </span>
 
 - 3-5 liters of water per person per day.
   - For drinking, food preparation. etc.
@@ -21,13 +21,13 @@ typora-root-url: ../static
 - Plastic Boxes with Lids 
   - Good to store clothes or food in, especially if you forgot to close your tent when it is raining.
   - Ensure that your belongings are waterproof!!
-  - Your Own Cup, plate/bowl, fork, spoon, knife and a can opener.<span style="color:gold;">TIP</span>: Clip on your Cup to carry around - great for when you are gifted a drinks.
+  - Your Own Cup, plate/bowl, fork, spoon, knife and a can opener  <span style="color:#fdb913;">TIP: </span> Clip on your Cup to carry around - great for when you are gifted a drinks.
 
 
 - Camping gear, based on your needs. 
   - Bear in mind that nights can get cold. 
 - Tent, air-mattress, sleeping-bag.
-- <span style="color:dodgerblue;">Tarp(s). </span>
+- Tarp(s). 
 - Blanket(s)
 - Flashlight or LED light for your tent.
 - Rubbish bags.
@@ -46,13 +46,13 @@ typora-root-url: ../static
   - Any medicines you might need. 
 - Condoms  if you want to be prepared for finding the fern flower
 - Earplugs, if you're a light sleeper.
-- <span style="color:lime;><u>**Things to gift:**</u></span>
+- <span style="color:#77011e;">**Things to gift:**</span>
   - Extra stuff from this list will do much better than trinkets as everybody forgets something.
-- <span style="color:seagreen;>**All materials and tools**</span> you require for your projects!
+- All materials and tools you require for your projects!
 - Clothing – the temperatures can vary drastically, so the key to staying comfortable is having multiple layers. 
 - Sunglasses.
 - Water-resisting clothes  
-  - Poncho (bling it out)  
+  - Poncho  
   - Bring rain boots and warm socks to keep your feet dry.
 
 

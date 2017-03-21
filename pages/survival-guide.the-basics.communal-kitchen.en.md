@@ -9,7 +9,7 @@ If you wish to cook, you are welcome to use the facilities, and you are encourag
 
  <span style="color:#fdb913;">NOTICE: </span>  It is of the most importance that you use the hand washing station before entering the kitchen area to prevent the entire camp from catching a stomach virus.
 
-Remember:
+ <span style="color:#006a44;">Remember:</span>
 
 - Please use the handwashing station before entering the kitchen.
 - Please ensure that anyone working with you in the kitchen does the same. Remind anyone who enters the preparing area to wash their hands.
@@ -19,7 +19,7 @@ Remember:
 
 
 
-One other thing:
+ <span style="color:#77011e;">One other thing:</span>
 
 There will be an option to purchase into the meal plan pre-event.  If you chose this, a portion of your  meal dues will be used to feed the volunteers at the different posts throughout the event. You can learn more about this on our Slack channel.
 
