@@ -2,8 +2,6 @@
 typora-root-url: ../static
 ---
 
-<span style="color:#77011e;";><u>**Very Good to Have**</u></span>  
-
 
 
 - <span style="color:limegreen;">**Intoxicating aids**</span>
