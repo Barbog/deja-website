@@ -22,7 +22,7 @@ block body
                   - let answerId = question.id + '.' + answer
                   - let multi = question.type === 'multiple'
                   br
-                  input(type=(multi ? 'checkbox' : 'radio') checked=false id=answerId name=(question.id + (multi ? '[]' : '')) required=(multi ? false : 'required') value=answer)
+                  input(type=(multi ? 'checkbox' : 'radio') checked=false id=answerId name=question.id required=(multi ? false : 'required') value=answer)
                   label(for=answerId)= __(answer)
                 br
               when 'yes/no'
