@@ -476,7 +476,10 @@
   {
     "title": "Visa Application",
     "hidden": "Status",
-    "acl": "answer.Survival Guide.Final Questions",
+    "acl": [
+      "answer.Burn Etiquette.Questions",
+      "answer.Survival Guide.Final Questions"
+    ],
     "subpages": [
       {
         "title": "Status",
@@ -489,7 +492,10 @@
       {
         "title": "Basic Information",
         "type": "visa-application",
-        "acl": "answer.Survival Guide.Final Questions",
+        "acl": [
+          "answer.Burn Etiquette.Questions",
+          "answer.Survival Guide.Final Questions"
+        ],
         "render": {
           "nextpage": "Fuck Commerce"
         }

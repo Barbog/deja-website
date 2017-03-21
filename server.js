@@ -135,6 +135,26 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
+  res.locals.acl = (acl) => {
+    if (typeof acl === 'undefined' || acl === null) {
+      return true;
+    }
+
+    if (Array.isArray(acl)) {
+      return acl.reduce((prev, next) => prev && res.locals.acl(next), true);
+    }
+
+    if (!res.locals.user) {
+      return false;
+    }
+
+    if (typeof acl === 'string') {
+      return !!res.locals.user[acl];
+    }
+
+    return false;
+  };
+
   const token = req.cookies.token;
 
   if (typeof token !== 'string' || token === '') {
@@ -576,14 +596,14 @@ function catchAllFor (backstack, sitemap) {
       const catchAll = (localeHash, locale, view, title, renderOverrides) => {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
-          if (page.acl && (!res.locals.user || !res.locals.user[page.acl])) {
-            const target = '/' + locale + '/' + res.locals.user ?
+          if (!res.locals.acl(page.acl)) {
+            const target = res.locals.user ?
               page.render.previouspage ?
                 stack.slice(0, -1).reduce((prev, next) => prev +
                   '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
                     '/' + req.__(page.render.previouspage).toLowerCase().split(' ').join('-').split('/').join('-') :
-                '' :
-              req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
+                '/' + locale + '/' :
+              '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
             res.render('redirect', { target: target }, (err, html) => {
               res.status(303);
               res.location(target);

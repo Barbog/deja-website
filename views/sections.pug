@@ -6,7 +6,7 @@ block body
       ul.siblingpages
         each siblingpage in siblingpages
           li.siblingpage
-            a(class=(__(siblingpage.title) === title || (siblingpage.acl && (!user || !user[siblingpage.acl])) ? 'disabled' : '') class=(__(siblingpage.title) === title ? 'current' : '') href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
+            a(class=(__(siblingpage.title) === title || !acl(siblingpage.acl) ? 'disabled' : '') class=(__(siblingpage.title) === title ? 'current' : '') href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
               p= __(siblingpage.title)
   section
     h1.title.center= title
@@ -18,5 +18,5 @@ block body
       ul.grid-logo
         each subpage in subpages
           li.grid
-            a(class=(subpage.acl && (!user || !user[subpage.acl]) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
+            a(class=(!acl(subpage.acl) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
               p= __(subpage.title)
