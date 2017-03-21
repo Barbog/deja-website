@@ -25,7 +25,7 @@ After you have done so, you will be be able to do so.
 
 
 ​
- <span style="color:#fdb913;">Not on the list? No entry. No exceptions!* </span>
+ <span style="color:#fdb913;">Not on the list? No entry. No exceptions! </span>
 
 
 
