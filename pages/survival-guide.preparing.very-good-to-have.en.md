@@ -6,11 +6,11 @@ typora-root-url: ../static
 
 
 
-- <span style="color:#fbd913;">**Intoxicating aids**</span>
+- <span style="color:#4891d9;">**Intoxicating aids**</span>
 
   - It is recommend to bring more then you need, to gift  to others during the event.
 
-  <span style="color:#77011e;">NOTE: </span> Beer is the traditional drink of choice during the Midsummer celebration.
+    <span style="color:#fdb913;">NOTE: </span> Beer is the traditional drink of choice during the Midsummer celebration.
 
 
 - <span style="color:#4891d9;">**Exotic clothing**</span>
