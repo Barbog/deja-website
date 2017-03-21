@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-chaos from order.  
+<span style="color:fdb913;">chaos from order.</span>
 
 The ministry of propaganda, aka “Big Brother”  is involved in every facet of the event: pre-, during and post throughout the entire year.  
 
@@ -18,7 +18,7 @@ This crew handles:
 
 - Cat herding.
 
-- Meet & Greets.
+- hosts Meet & Greets.
 
   ​
 

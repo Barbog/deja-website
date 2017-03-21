@@ -2,17 +2,17 @@
 typora-root-url: ../static
 ---
 
-**MINISTRY of the ENVIRONMENT** –  Is managed by hemp spirits who magically oversee the grounds, conduct MOOP sweeps, and organize recycling and compost.  All are welcome to apply.  No minimal level of sobriety is required to complete the necessary duties of this ministry.
+Is managed by hemp spirits who magically oversee the grounds, conduct MOOP sweeps, and organize recycling and compost.  All are welcome to apply.  No minimal level of sobriety is required to complete the necessary duties of this ministry.
 
 
 
-<u>Need to know</u>
+<span style="color:fdb913;"><u>Need to know</u></span>
 
-- Co-leads are required to cover the shifts  which are short on volunteers. ​
+- 2 Co-leads are required to organize this ministry and must be willing to cover the shifts short on volunteers. 
 
 
 
-<u>Responsibilities</u>
+<span style="color:fdb913;"><u>Responsibilities</u></span>
 
 - Suggested that the Co-leads begin recruiting volunteers pre-event. 
   - use Slack to do so. 

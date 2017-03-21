@@ -2,14 +2,14 @@
 typora-root-url: ../static
 ---
 
-**MINISTRY of CIVIC RESPONSIBILITY**  –  at the heart of the event are 2 agencies composing this ministry: 
+*at the heart of the event are 2 agencies composing this ministry: 
 
 - The Volunteer Sign Up Hub.  
 - The Information Center.
 
 This group will be annexed within the Ministry of Integration, wall not included. 
 
-<u>Note:</u>
+<span style="color:fdb913;"><u>Note:</u></span>
 
 - Co-leads for either agency are required to fill in when no one else volunteers.
 
@@ -24,7 +24,7 @@ This group will be annexed within the Ministry of Integration, wall not included
   ​
 
 
-<u>Volunteer Sign Up Hub</u>
+<span style="color:fdb913;"><u>Volunteer Sign Up Hub</u></span>
 
 - Integrators will show new arrivals where they can sign up to volunteer. 
 - Co-leads  will need to create a volunteer sign up access point,  an interactive method for people to sign up for the various shifts needed at each post.
@@ -46,7 +46,7 @@ This group will be annexed within the Ministry of Integration, wall not included
     ​
 
 
-<u>Information Center</u> 
+<span style="color:fdb913;"><u>Information Center</u> </span>
 
 - Create a visible information access point for sharing and postingg events.
 

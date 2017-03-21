@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-**MINISTRY of PUBLIC WORKS**  –  "first to come, last to pull out."  
+<span style="color:fdb913;">"first to come, last to pull out."</span>
 
 
 
@@ -10,7 +10,7 @@ This is the place for those who are handy with tools or wish to become handier.
 
 
 
-<u>Needed:</u>
+<span style="color:fdb913;"><u>Needed:</u></span>
 
 several helping hands and 2 co-leads are needed to organize this ministry.   If this is something you wish to do, introduce yourself on the public works channel on Slack, meet the rest of the crew that will be working wih you, and use the channel to organize your team and communicate amongst yourselves.  
 
@@ -18,7 +18,7 @@ NOTE: Carpentry skills and/or the ability to build are a preferred requirement i
 
 
 
-<u>Requirements:</u>
+<span style="color:fdb913;"><u>Requirements:</u></span>
 
 - Ability and/or interest in building things. 
 - A functioning level of sobriety. 
@@ -26,7 +26,7 @@ NOTE: Carpentry skills and/or the ability to build are a preferred requirement i
 
 
 
-<u>Need to Know:</u> 
+<span style="color:fdb913;"><u>Need to Know:</u> </span>
 
 - The bulk of your duties will be pre-event in the weeks and days leading up to the midsummer. 
 - Early entry starts on Saturday the 17th of June.
@@ -34,7 +34,7 @@ NOTE: Carpentry skills and/or the ability to build are a preferred requirement i
 
 ​
 
-<u>Duties are pre-event and post-event:</u>
+<span style="color:fdb913;"><u>Duties are pre-event and post-event:</u></span>
 
 This crew manages the following responsibilities: 
 

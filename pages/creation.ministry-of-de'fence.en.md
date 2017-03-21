@@ -2,11 +2,11 @@
 typora-root-url: ../static
 ---
 
-**MINISTRY of De’FENCE** –   Open border gestapo will verify your visa upon arrival at the fence,  issue consensual spankings, and indiscriminately profile you in order to conduct interrogations when necessary.  During the days of DeJā they will be on watch 24 hours a day, working in teams of no less than 2 who will change shifts every 3 hours.
+Open border gestapo will verify your visa upon arrival at the fence,  issue consensual spankings, and indiscriminately profile you in order to conduct interrogations when necessary.  During the days of DeJā they will be on watch 24 hours a day, working in teams of no less than 2 who will change shifts every 3 hours.
 
 
 
-<u>Need to know:</u>
+<span style="color:fdb913;"><u>Need to know:</u></span>
 
 This 24-hour operation begins on the evening of the 20th of June and is scheduled to work in 3 hour shifts throughout the event. 
 
@@ -51,7 +51,7 @@ This 24-hour operation begins on the evening of the 20th of June and is schedule
 - 2 co-leads are needed to manage this post.
 
   - Lead  is required to fill if there is an empty slot that needs to be covered
-  - Leads will start recruiting volunteers before the event.	
+   - Leads will start recruiting volunteers before the event.
 
 - Gate volunteers are to be moderately sober during their shift.
 

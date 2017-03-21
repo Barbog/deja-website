@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-**MINISTRY of INTEGRATION**  –  "we are not a cult"
+"we are not a cult"
 
 Greeters are the first point of contact once paricipants have entered the gates.  Their purpose is to make all arrivals feel welcome and at home.  
 
@@ -12,7 +12,7 @@ No minimal level of sobriety required to fulfill these roles.
 
 
 
-<u>Need to know:</u>
+<span style="color:fdb913;"><u>Need to know:</u></span>
 
 This 24-hour operation begins on the evening of the 20th of June and is scheduled to work in 3 hour shifts throughout the event.  Teams of no less than 2 at each shift.
 
