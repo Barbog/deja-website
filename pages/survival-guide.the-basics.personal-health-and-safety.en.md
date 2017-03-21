@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 Although DeJā  happens on a relatively safe location: 
 
-- Use common sense when exploring, wandering, climbing, etc.
+- <span style="color:#fdb913;">Use common sense </span> when exploring, wandering, climbing, etc.
 
 At times DeJā can be potentially challenging, weather wise and emotionally:
 
@@ -22,5 +22,8 @@ Bring any and all medications that you may need to use.
 
 
 
-*You are responsible for You.*
+
+ <span style="color:#fdb913;">You are responsible for You.</span>
+
+
 

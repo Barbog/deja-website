@@ -12,5 +12,5 @@ Similarly, if you have lost something, check the lost and found at the Info Cent
 
 
 
-TIP: Tag your belongings to make them easier to be found and returned if lost. 
+  <span style="color:#fdb913;">TIP: </span> Tag your belongings to make them easier to be found and returned if lost. 
 
