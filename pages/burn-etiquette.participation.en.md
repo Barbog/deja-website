@@ -2,11 +2,11 @@
 typora-root-url: ../static
 ---
 
-There are many ways to participate in the creation of DeJā,  either at the event or [year-round](https://dejā.lv/en/creation/volunteering), either way you are playing an invaluable role in this ongoing experiment.
+There are many ways to participate in the creation of DeJā,  either at the event or <span style="color:#006a44;"> [year-round](https://dejā.lv/en/creation/volunteering)</span>, either way you are playing an invaluable role in this ongoing experiment.
 
 
 
-**<u>How can I participate?</u>**
+**<u><span style="color:#77011e;">How can I participate?</span></u>**
 
 Make something/Do Something
 
