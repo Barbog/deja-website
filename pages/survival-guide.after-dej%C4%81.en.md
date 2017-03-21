@@ -56,7 +56,7 @@ If you must use <span style="color:dodgerblue;">FB</span>
 
 <span style="color:#fdb913;"><u>Afterburn report</u></span>
 
-- Here we will post how monetary donations were allocated to help fund DeJā 
+- [Here](https://dejā.lv/en/donation/prior-year-financial-transparency) we will post how monetary donations were allocated to help fund DeJā 
 
   ​
 

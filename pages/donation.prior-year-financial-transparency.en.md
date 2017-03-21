@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-## <span style="color:#77011e;"><u>Donations for 2015/Financial Report & Expenses</u></span>
+## <span style="color:#fdb913;"><u>Donations for 2015/Financial Report & Expenses</u></span>
 
 In 2015,  2 generous donations came through from 2 anonymous benefactors.  Their total contribution to the event was 1750EUR
 
@@ -15,7 +15,7 @@ Attached below is the budget in PDF format showing how they were aportioned.
 
 With 212 participants this year, the average was equal  to 8.25EUR in donations per attendee for the 5-day gathering.
 
-## <span style="color:#77011e;"><u>Donations for 2016/Financial Report & Expenses</u></span>
+## <span style="color:#fdb913;"><u>Donations for 2016/Financial Report & Expenses</u></span>
 
 In 2016  xx participants collectively donated xxxxEUR. 
 
