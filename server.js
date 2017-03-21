@@ -210,6 +210,33 @@ i18n.getLocales().forEach(locale => {
   app.all('/' + locale + '/', returnBadAction);
 });
 
+app.post('/user/update', (req, res) => {
+  if (!res.locals.user) {
+    res.status(403);
+    res.type('application/json; charset=utf-8');
+    res.send('{}');
+  }
+
+  const email = res.locals.user.email;
+
+  if (typeof req.body.name === 'string' && req.body.name !== '') {
+    db.hset('user:' + email, 'name', req.body.name, err => {
+      if (err) {
+        throw err;
+      }
+
+      res.status(200);
+      res.type('application/json; charset=utf-8');
+      res.send('{}');
+    });
+  } else {
+    res.status(400);
+    res.type('application/json; charset=utf-8');
+    res.send('{}');
+  }
+});
+app.all('/user/update', returnBadAction);
+
 (() => {
   const title = 'Log In';
 

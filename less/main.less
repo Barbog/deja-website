@@ -115,6 +115,38 @@ button, a {
   position: absolute;
 }
 
+.modal {
+  background: @light;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+
+  input {
+    display: block;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    font-size: @font-size * 1.4;
+    background-color: @light;
+    color: #fff;
+    font-weight: normal;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-size: @font-size * 1.4;
+    background-color: @light;
+    color: @accent;
+    font-weight: bolder;
+    text-align: center;
+  }
+}
+
 header {
   @media (min-width: (@desktop-size)) { & {
     position: static;
