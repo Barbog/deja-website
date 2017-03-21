@@ -16,7 +16,7 @@ We have been enabled to do so because the landowner has granted us use of his pr
 
 
 
-<span style="color:#77011e;">*Figure out what You love to give, and give as much as you can. Give for the love of giving.* </span>
+<span style="color:#fdb913;">*Figure out what You love to give, and give as much as you can. ​Give for the love of giving.* </span>
 
 
 
