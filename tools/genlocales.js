@@ -29,6 +29,12 @@ spawnSync('git', [ 'grep', '-Fe', '__(\'', '--', 'views' ], { cwd: root, encodin
   .map(line => line.split('\')')[0])
   .filter(item => typeof item === 'string').sort().forEach(line => { output[line] = line; });
 
+spawnSync('git', [ 'grep', '-Fe', '__mf(\'', '--', 'views' ], { cwd: root, encoding: 'utf8', stdio: 'pipe' })
+  .stdout.split('\n')
+  .map(line => line.split('__mf(\'')).filter(line => line.length > 1).map(line => line[1])
+  .map(line => line.split('\',')[0])
+  .filter(item => typeof item === 'string').sort().forEach(line => { output[line] = line; });
+
 let questions = [];
 let iterateQs = shallow => {
   if (Array.isArray(shallow.questions)) {
