@@ -546,11 +546,13 @@ function catchAllFor (backstack, sitemap) {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
           if (page.acl && (!res.locals.user || !res.locals.user[page.acl])) {
-            const target = ('/' + locale + '/' + res.locals.user ?
+            const target = '/' + locale + '/' + res.locals.user ?
               page.render.previouspage ?
-                stack.slice(0, -1).reduce((prev, next) => prev + '/' + next.title[locale], '/' + locale) + '/' + req.__(page.render.previouspage) :
+                stack.slice(0, -1).reduce((prev, next) => prev +
+                  '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
+                    '/' + req.__(page.render.previouspage).toLowerCase().split(' ').join('-').split('/').join('-') :
                 '' :
-              req.__('Log In')).toLowerCase().split(' ').join('-').split('/').join('-');
+              req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
             res.render('redirect', { target: target }, (err, html) => {
               res.status(303);
               res.location(target);
@@ -600,8 +602,9 @@ function catchAllFor (backstack, sitemap) {
 
               const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
               if (res.locals.user[field]) {
-                const target = (stack.slice(0, -1).reduce((prev, next) => prev + '/' + next.title[locale], '/' + locale) +
-                  '/' + req.__(page.render.nextpage)).toLowerCase().split(' ').join('-').split('/').join('-');
+                const target = (stack.slice(0, -1).reduce((prev, next) => prev +
+                  '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
+                    '/' + req.__(page.render.nextpage).toLowerCase().split(' ').join('-').split('/').join('-'));
                 res.render('redirect', { target: target }, (err, html) => {
                   res.status(303);
                   res.location(target);
@@ -934,8 +937,9 @@ function catchAllFor (backstack, sitemap) {
             }
 
             const moveForward = () => {
-              const target = (stack.slice(0, -1).reduce((prev, next) => prev + '/' + next.title[locale], '/' + locale) +
-                '/' + req.__(page.render.nextpage)).toLowerCase().split(' ').join('-').split('/').join('-');
+              const target = stack.slice(0, -1).reduce((prev, next) => prev +
+                '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
+                  '/' + req.__(page.render.nextpage).toLowerCase().split(' ').join('-').split('/').join('-');
               res.render('redirect', { target: target }, (err, html) => {
                 res.status(303);
                 res.location(target);
