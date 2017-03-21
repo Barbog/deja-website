@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<u>After DeJā</u>
+<span style="color:limegreen;"><u>After DeJā</u></span>
 
 After experiencing a week of openness,  freedom and self-expression, coming back can be challenging.  Side effects might include temptation to throw everything away and run away to the circus, or something similar.  Take some time to reintegrate into default,
 
@@ -16,17 +16,17 @@ After experiencing a week of openness,  freedom and self-expression, coming bac
   - Though you might be eager to share this experience with them, respect their wants and needs too, 
     - <span style="color:#77011e;"> Do Not </span> force-feed them DeJā stories if they’re not that interested.
 
-**<u>Stay Connected</u>**
+<span style="color:limegreen;">**<u>Stay Connected</u>**</span>
 
 It is not uncommon to experience feelings of wanting to reunite and return.  
 
-<span style="color:gold;">TIP</span>:  carry a notebook and something to write with so you can collect contact information of your new friends. 
+<span style="color:#fdb913;">TIP</span>:  carry a notebook and something to write with so you can collect contact information of your new friends. 
 
-<u>Connect With SLACK</u>
+<span style="color:limegreen;"><u>Connect With SLACK</u>
 
  https://www.balticburners/slack.com 
 
-- <span style="color:limegreeen;">Use it:</span>  
+- <span style="color:limegreen;">Use it:</span>  
   - To plan events, gatherings, workshops, meet & greets.  
   - To organize your camp, a project, a fundraiser. 
   - To check in with any Ministry you may be volunteering with. 
@@ -54,7 +54,7 @@ If you must use <span style="color:dodgerblue;">FB</span>
 
   ​
 
-<u>Afterburn report
+<span style="color:#fdb913;"><u>Afterburn report</u></span>
 
 - Here we will post how monetary donations were allocated to help fund DeJā 
 

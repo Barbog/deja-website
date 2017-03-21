@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<u>**Checking in**</u>
+<span style="color:#fdb913;"><u>**Checking in**</u></span>
 
 When you arrive at DeJā,  you will first be required to check in at the gate.  All co-creators will be required to show their approved visa along with their ID to be able to check in. You can use a digital copy instead of printing it out. 
 
@@ -12,7 +12,7 @@ When you arrive at DeJā,  you will first be required to check in at the gate. 
 
 
 
-<u>**Early arrivals**</u>
+<span style="color:#fdb913;"><u>**Early arrivals**</u></span>
 
 This year the gathering will begin on Wednesday the 21st of June, 2017 so as to include the equinox.
 
@@ -22,7 +22,7 @@ We encourage you to come as early as you can manage if you you are setting up an
 
 
 
-<u>**Parking**</u>
+<span style="color:#fdb913;"><u>**Parking**</u></span>
 
 All cars and vehicles please have: **driver's name,  tent location/color phone number/contact method/ fixed to one of your windows ** so someone can contact you if need be.
 
@@ -33,7 +33,7 @@ All cars and vehicles please have: **driver's name,  tent location/color phone n
 
 
 
-<u>**Camping**</u>
+<span style="color:#fdb913;"><u>**Camping**</u></span>
 
 - There are 3 designated areas for camping:
   - The quiet zone, located on the far side of the western tree line.
@@ -43,7 +43,7 @@ All cars and vehicles please have: **driver's name,  tent location/color phone n
 
 
 
-<u>**Leaving**</u>
+<span style="color:#fdb913;"><u>**Leaving**</u></span>
 
 ​You are welcome to leave DeJā during the week. However, we suggest that you don't.  When you leave, you pop your bubble, by exposing yourself to the default world.
 
@@ -56,4 +56,5 @@ All cars and vehicles please have: **driver's name,  tent location/color phone n
   -  IF we didn't already say it, take your garbage with you and dispose of it properly/ 
 
     ​
+
 
