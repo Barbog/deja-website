@@ -484,7 +484,11 @@
       {
         "title": "Status",
         "type": "visa-status",
-        "acl": "answer.Visa Application.Volunteering",
+        "acl": [
+          "answer.Burn Etiquette.Questions",
+          "answer.Survival Guide.Final Questions",
+          "answer.Visa Application.Volunteering"
+        ],
         "render": {
           "previouspage": "Basic Information"
         }
