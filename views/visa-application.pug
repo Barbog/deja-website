@@ -20,8 +20,9 @@ block body
               when 'multiple'
                 for answer in question.answers
                   - let answerId = question.id + '.' + answer
+                  - let multi = question.type === 'multiple'
                   br
-                  input(type=(question.type === 'multiple' ? 'checkbox' : 'radio') checked=false id=answerId name=(question.id + question.type === 'multiple' ? '[]' : '') required=(question.type === 'multiple' ? false : 'required') value=answer)
+                  input(type=(multi ? 'checkbox' : 'radio') checked=false id=answerId name=(question.id + (multi ? '[]' : '')) required=(multi ? false : 'required') value=answer)
                   label(for=answerId)= __(answer)
                 br
               when 'yes/no'
