@@ -114,8 +114,13 @@
 	"Tree of Life": "Tree of Life",
 	"Upcoming Global Events": "Upcoming Global Events",
 	"Visa applications accepted.": "Visa applications accepted.",
+	"We are burning right now": "We are burning right now",
 	"Welcome!": "Welcome!",
 	"Yes": "Yes",
+	"We burn in %s day": {
+		"one": "We burn in %s day",
+		"other": "We burn in %s days"
+	},
 	"Hi {name}": "Hi {name}",
 	"Your password is {password}.": "Your password is {password}.",
 	"A location to gather": "A location to gather",

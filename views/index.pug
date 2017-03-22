@@ -45,6 +45,13 @@ block body
     p.float-left= __('DeJā.')
     p= __('25 June — deMOOPed:')
     p.float-left= __('Strike/Clean up.')
+    - let now = Date.now()
+    - let burnEnd = +(new Date((new Date()).getFullYear(), 5, 25))
+    - let burnStart = +(new Date((new Date()).getFullYear() + (now > burnEnd ? 1 : 0), 5, 21))
+    if now > burnStart
+      p.float-right.push-up= __('We are burning right now')
+    else
+      p.float-right.push-up= __n('We burn in %s day', 'We burn in %s days', Math.floor((burnStart - now) / 1000 / 60 / 60 / 24))
   section.bgless
     h1= __('Upcoming Global Events').toUpperCase()
     .carousel-container

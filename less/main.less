@@ -313,7 +313,25 @@ nav {
     width: 150px;
     text-align: right;
     line-height: @line-height;
-    &.float-left { text-align: left; margin-top: -(.2em + @line-height); margin-left: 170px; width: initial; }
+    &.float-left {
+      text-align: left;
+      margin-top: -(.2em + @line-height);
+      margin-left: 170px;
+      width: initial;
+    }
+    &.push-up {
+      text-align: center;
+      margin: 0;
+      width: 210px;
+      max-width: 100%;
+      position: relative;
+      color: #FFF;
+      font-size: @font-size * 1.8;
+      @media (min-width: 1020px) { & {
+        margin-right: 160px;
+        transform: translateY(-(.2em + @line-height));
+      } }
+    }
   }
 }
 
