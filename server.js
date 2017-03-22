@@ -38,6 +38,7 @@ const path = require('path');
 const randomstring = require('randomstring');
 const redis = require(env === 'dev' ? 'fakeredis' : 'redis');
 const showdown = new (require('showdown').Converter)();
+const xlsx = require('xlsx');
 
 const db = redis.createClient();
 db.on('error', err => {
@@ -309,9 +310,43 @@ app.get('/admin/visa-application', (req, res, next) => {
         return;
       }
 
+      const worksheet = {};
+      const workbook = { SheetNames: [ 'Visa Applications' ], Sheets: { worksheet } };
+      const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
+
+      const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), []);
+      const data = header.concat(reply.map(application => header.split(0).map(question => application[question.id] || null)));
+
+      for (let r = 0; r < data.length; r++) {
+        for (let c = 0; c < data[r].length; c++) {
+          if (range.s.r > r) { range.s.r = r; }
+          if (range.s.c > c) { range.s.c = c; }
+          if (range.e.r < r) { range.e.r = r; }
+          if (range.e.c < c) { range.e.c = c; }
+
+          let cell = { v: data[r][c] };
+          if (cell.v !== null) {
+            if (typeof cell.v === 'number') {
+              cell.t = 'n';
+            } else if (typeof cell.v === 'boolean') {
+              cell.t = 'b';
+            } else {
+              cell.t = 's';
+            }
+
+            worksheet[xlsx.utils.encode_cell({ c, r })] = cell;
+          }
+        }
+      }
+
+      if (range.s.c < 10000000) {
+        worksheet['!ref'] = xlsx.utils.encode_range(range);
+      }
+
       res.status(200);
-      res.type('application/json; charset=utf-8');
-      res.send(JSON.stringify(reply, null, 2));
+      res.type('application/octet-stream');
+      res.setHeader('Content-Disposition', 'attachment; filename=visa-application.xlsx');
+      res.send(xlsx.write(workbook, { bookType: 'xlsx', bookSST: false, type: 'binary' }));
     });
   });
 });
