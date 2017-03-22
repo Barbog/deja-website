@@ -117,6 +117,10 @@
 	"We are burning right now": "We are burning right now",
 	"Welcome!": "Welcome!",
 	"Yes": "Yes",
+	"latvianburn.org will go down in %s day": {
+		"one": "latvianburn.org will go down in %s day",
+		"other": "latvianburn.org will go down in %s days"
+	},
 	"We burn in %s day": {
 		"one": "We burn in %s day",
 		"other": "We burn in %s days"
