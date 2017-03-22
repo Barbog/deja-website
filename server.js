@@ -597,13 +597,13 @@ function catchAllFor (backstack, sitemap) {
         app.get(encodeURI(localeHash[locale]), (req, res) => {
           req.setLocale(locale);
           if (!res.locals.acl(page.acl)) {
-            const target = res.locals.user ?
-              page.render.previouspage ?
-                stack.slice(0, -1).reduce((prev, next) => prev +
+            const target = res.locals.user
+              ? page.render.previouspage
+                ? stack.slice(0, -1).reduce((prev, next) => prev +
                   '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
-                    '/' + req.__(page.render.previouspage).toLowerCase().split(' ').join('-').split('/').join('-') :
-                '/' + locale + '/' :
-              '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
+                    '/' + req.__(page.render.previouspage).toLowerCase().split(' ').join('-').split('/').join('-')
+                : '/' + locale + '/'
+              : '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
             res.render('redirect', { target: target }, (err, html) => {
               res.status(303);
               res.location(target);
