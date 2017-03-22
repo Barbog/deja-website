@@ -105,6 +105,14 @@ button, a {
   }
 } 
 
+.clear:before, .clear:after {
+  content: '';
+  display: table;
+} 
+.clear:after {
+  clear: both;
+}
+
 .float-left {
   float: left;
   position: absolute;
