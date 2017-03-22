@@ -266,7 +266,7 @@ app.get('/admin/visa-application', (req, res, next) => {
     return;
   }
 
-  redis.keys('visa:*', (err, res) => {
+  db.keys('visa:*', (err, res) => {
     if (err) {
       res.status(500);
       res.type('text/plain; charset=utf-8');
@@ -275,7 +275,7 @@ app.get('/admin/visa-application', (req, res, next) => {
       return;
     }
 
-    async.map(res, redis.hgetall, (err, res) => {
+    async.map(res, db.hgetall, (err, res) => {
       if (err) {
         res.status(500);
         res.type('text/plain; charset=utf-8');
