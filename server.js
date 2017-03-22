@@ -266,7 +266,7 @@ app.get('/admin/visa-application', (req, res, next) => {
     return;
   }
 
-  db.keys('visa:*', (err, res) => {
+  db.keys('visa:*', (err, reply) => {
     if (err) {
       res.status(500);
       res.type('text/plain; charset=utf-8');
@@ -275,7 +275,7 @@ app.get('/admin/visa-application', (req, res, next) => {
       return;
     }
 
-    async.map(res, db.hgetall, (err, res) => {
+    async.map(reply, db.hgetall, (err, reply) => {
       if (err) {
         res.status(500);
         res.type('text/plain; charset=utf-8');
@@ -286,7 +286,7 @@ app.get('/admin/visa-application', (req, res, next) => {
 
       res.status(200);
       res.type('application/json; charset=utf-8');
-      res.send(JSON.stringify(res, null, 2));
+      res.send(JSON.stringify(reply, null, 2));
     });
   });
 });
