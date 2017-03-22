@@ -23,6 +23,7 @@ const shuffle = (array) => {
 
 const visaPrefix = '2017';
 
+const async = require('async');
 const bcrypt = require('bcryptjs');
 const env = require('get-env')();
 const express = require('express');
@@ -258,6 +259,38 @@ app.post('/user/update', (req, res) => {
   }
 });
 app.all('/user/update', returnBadAction);
+
+app.get('/admin/visa-application', (req, res, next) => {
+  if (!res.locals.user || !res.locals.user.admin) {
+    next();
+    return;
+  }
+
+  redis.keys('visa:*', (err, res) => {
+    if (err) {
+      res.status(500);
+      res.type('text/plain; charset=utf-8');
+      res.send('Something broke horribly. Sorry.');
+      console.error(err.stack);
+      return;
+    }
+
+    async.map(res, redis.hgetall, (err, res) => {
+      if (err) {
+        res.status(500);
+        res.type('text/plain; charset=utf-8');
+        res.send('Something broke horribly. Sorry.');
+        console.error(err.stack);
+        return;
+      }
+
+      res.status(200);
+      res.type('application/json; charset=utf-8');
+      res.send(JSON.stringify(res, null, 2));
+    });
+  });
+});
+app.all('/admin/visa-application', returnBadAction);
 
 (() => {
   const title = 'Log In';
