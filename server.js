@@ -876,13 +876,24 @@ function catchAllFor (backstack, sitemap) {
               }
 
               let expectedAnswer = res.locals.questions[i].expectedAnswer;
+              if (expectedAnswer === null) { expectedAnswer = res.locals.questions[i].answers; }
               let actualAnswer = req.body['a' + i];
 
-              if (expectedAnswer !== null) {
-                if (Array.isArray(expectedAnswer) ? expectedAnswer.indexOf(actualAnswer) === -1 : actualAnswer !== expectedAnswer) {
+              if (Array.isArray(expectedAnswer)) {
+                if (!Array.isArray(actualAnswer) || actualAnswer.length === 0) {
                   rerender();
                   return;
                 }
+
+                for (let j = 0; j < actualAnswer.length; j++) {
+                  if (expectedAnswer.indexOf(actualAnswer[j]) === -1) {
+                    rerender();
+                    return;
+                  }
+                }
+              } else if (actualAnswer !== expectedAnswer) {
+                rerender();
+                return;
               }
             }
 
