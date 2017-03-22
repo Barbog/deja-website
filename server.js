@@ -121,7 +121,6 @@ if (env === 'dev') {
         res.send(html);
       }
     });
-    return;
   });
   app.all('/favicon.png', returnBadAction);
 }
