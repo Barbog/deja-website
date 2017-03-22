@@ -1,22 +1,25 @@
 #!/usr/bin/env node
 'use strict';
 
-if (typeof Array.prototype.shuffle !== 'function') {
-  /**
-   * Randomize array element order in-place.
-   * Using Durstenfeld shuffle algorithm.
-   * Sourced from http://stackoverflow.com/a/12646864.
-   */
-  Array.prototype.shuffle = function () {
-    for (var i = this.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = this[i];
-      this[i] = this[j];
-      this[j] = temp;
-    }
-    return this;
-  };
-}
+/**
+ * Randomize array element order in-place.
+ * Using Durstenfeld shuffle algorithm.
+ * Sourced from http://stackoverflow.com/a/12646864.
+ */
+const shuffle = (array) => {
+  if (!Array.isArray(array)) {
+    return null;
+  }
+
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  return array;
+};
 
 const visaPrefix = '2017';
 
@@ -712,7 +715,7 @@ function catchAllFor (backstack, sitemap) {
                 }
                 setViewStatus();
               } else {
-                res.locals.questions = page.questions.questions.slice(0).shuffle().splice(0, 2);
+                res.locals.questions = shuffle(page.questions.questions.slice(0)).splice(0, 2);
                 const value = JSON.stringify(res.locals.questions);
                 db.hsetnx('user:' + res.locals.user.email, field, value, (err, reply) => {
                   if (err) {
