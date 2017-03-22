@@ -18,7 +18,10 @@ block body
           h1.center= __(question.question)
           input(type='hidden' id=('q' + qindex) name=('q' + qindex) value=question.question)
           for answer, aindex in question.answers
-            input(type='radio' checked=false id=('a' + qindex + '-' + aindex) name=('a' + qindex) required='required' value=answer)
+            if (Array.isArray(question.expectedAnswer) || question.expectedAnswer === null)
+              input(type='checkbox' checked=false id=('a' + qindex + '-' + aindex) name=('a' + qindex) value=answer)
+            else
+              input(type='radio' checked=false id=('a' + qindex + '-' + aindex) name=('a' + qindex) required='required' value=answer)
             label(for=('a' + qindex + '-' + aindex))= __(answer)
             br
     section
