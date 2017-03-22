@@ -275,7 +275,32 @@ app.get('/admin/visa-application', (req, res, next) => {
       return;
     }
 
-    async.map(reply, db.hgetall, (err, reply) => {
+    async.map(reply, (key, callback) => {
+      db.hgetall(key, (err, reply) => {
+        if (err) {
+          callback(err);
+          return;
+        }
+
+        let obj = {};
+        Object.keys(reply).forEach(key => {
+          try {
+            if (obj) {
+              obj[key] = JSON.parse(reply[key]);
+            }
+          } catch (err) {
+            obj = null;
+            callback(err);
+            return;
+          }
+        });
+        if (!obj) {
+          return;
+        }
+
+        callback(null, obj);
+      });
+    }, (err, reply) => {
       if (err) {
         res.status(500);
         res.type('text/plain; charset=utf-8');
