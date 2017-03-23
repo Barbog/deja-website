@@ -315,7 +315,7 @@ app.get('/admin/visa-application', (req, res, next) => {
       const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
 
       const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), []);
-      const data = [ header.map(question => question.title) ].concat(reply.map(application => header.split(0).map(question => application[question.id] || null)));
+      const data = [ header.map(question => question.title) ].concat(reply.map(application => header.slice(0).map(question => application[question.id] || null)));
 
       for (let r = 0; r < data.length; ++r) {
         for (let c = 0; c < data[r].length; ++c) {
