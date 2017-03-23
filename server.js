@@ -39,6 +39,7 @@ const less = require('less');
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true });
 const mailgun = require('mailgun-js')({ apiKey: 'key-f092a5bb72bd024a03f67de1144de8a8', domain: 'mg.sparklatvia.lv' });
 const path = require('path');
+const querystring = require('querystring');
 const randomstring = require('randomstring');
 const redis = require(env === 'dev' ? 'fakeredis' : 'redis');
 const showdown = new (require('showdown').Converter)();
@@ -1449,23 +1450,54 @@ const emailApply = (visaPeriod, priority, callback) => {
             return;
           }
 
-          // TODO Push the details over to Slack!
+          let name = JSON.parse(application['name-surname']).split(' ');
+          let surname = name.pop();
+          name = name.join(' ');
 
-          db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
-            if (err) {
-              callback(err);
-              return;
+          const slackData = querystring.stringify({
+            token: 'xoxp-20979710294-21097752741-159203133239-006c72c680ede62e7e52a10ecf3d948c',
+            email: aemail,
+            first_name: name,
+            last_name: surname,
+            resend: true
+          });
+
+          const slackRequest = https.request({
+            hostname: 'balticburners.slack.com',
+            method: 'POST',
+            path: '/api/users.admin.invite?t=' + (new Date()).getTime(),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Content-Length': Buffer.byteLength(slackData)
             }
+          }, res => {
+            res.setEncoding('utf8');
+            res.on('data', () => { /* no-op */ });
+            res.on('end', () => {
+              db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
+                if (err) {
+                  callback(err);
+                  return;
+                }
 
-            db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
-              if (err) {
-                callback(err);
-                return;
-              }
+                db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                  if (err) {
+                    callback(err);
+                    return;
+                  }
 
-              callback(null);
+                  callback(null);
+                });
+              });
             });
           });
+
+          slackRequest.on('error', err => {
+            callback(err);
+          });
+
+          slackRequest.write(slackData);
+          slackRequest.end();
         });
       });
     });
