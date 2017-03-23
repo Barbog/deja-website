@@ -19,7 +19,7 @@ block body
               when 'single'
               when 'multiple'
                 for answer in question.answers
-                  - let answerId = question.id + '.' + answer
+                  - let answerId = question.id + '.' + answer.split(' ').join('-')
                   - let multi = question.type === 'multiple'
                   br
                   input(type=(multi ? 'checkbox' : 'radio') checked=false id=answerId name=question.id required=(multi ? false : 'required') value=answer)
