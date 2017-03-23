@@ -487,7 +487,7 @@
         "acl": [
           "answer.Burn Etiquette.Questions",
           "answer.Survival Guide.Final Questions",
-          "answer.Visa Application.Volunteering"
+          "answer.Visa Application.Volunteering.{visaPeriod}"
         ],
         "render": {
           "previouspage": "Basic Information"
@@ -507,7 +507,7 @@
       {
         "title": "Fuck Commerce",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Basic Information",
+        "acl": "answer.Visa Application.Basic Information.{visaPeriod}",
         "render": {
           "nextpage": "Don't let it hit the ground, but let the bodies hit the floor"
         }
@@ -515,7 +515,7 @@
       {
         "title": "Don't let it hit the ground, but let the bodies hit the floor",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Fuck Commerce",
+        "acl": "answer.Visa Application.Fuck Commerce.{visaPeriod}",
         "render": {
           "nextpage": "Self Expression"
         }
@@ -523,7 +523,7 @@
       {
         "title": "Self Expression",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Don't let it hit the ground, but let the bodies hit the floor",
+        "acl": "answer.Visa Application.Don't let it hit the ground, but let the bodies hit the floor.{visaPeriod}",
         "render": {
           "nextpage": "Consent"
         }
@@ -531,7 +531,7 @@
       {
         "title": "Consent",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Self Expression",
+        "acl": "answer.Visa Application.Self Expression.{visaPeriod}",
         "render": {
           "nextpage": "Participation"
         }
@@ -539,7 +539,7 @@
       {
         "title": "Participation",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Self Expression",
+        "acl": "answer.Visa Application.Self Expression.{visaPeriod}",
         "render": {
           "nextpage": "Volunteering"
         }
@@ -547,7 +547,7 @@
       {
         "title": "Volunteering",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Participation",
+        "acl": "answer.Visa Application.Participation.{visaPeriod}",
         "render": {
           "nextpage": "Status"
         }

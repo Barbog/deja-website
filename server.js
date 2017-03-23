@@ -21,7 +21,11 @@ const shuffle = (array) => {
   return array;
 };
 
-const visaPrefix = '2017';
+const getVisaPeriod = () => {
+  const now = new Date();
+  const applicationEnd = new Date(now.getFullYear(), 5, 1);
+  return '' + (now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1));
+};
 
 const async = require('async');
 const bcrypt = require('bcryptjs');
@@ -153,6 +157,8 @@ app.use((req, res, next) => {
     }
 
     if (typeof acl === 'string') {
+      acl = acl.split('{visaPeriod}').join(getVisaPeriod());
+
       return !!res.locals.user[acl];
     }
 
@@ -261,13 +267,21 @@ app.post('/user/update', (req, res) => {
 });
 app.all('/user/update', returnBadAction);
 
-app.get('/admin/visa-application', (req, res, next) => {
+app.get('/admin/visa-application/:year', (req, res, next) => {
   if (!res.locals.user || !res.locals.user.admin) {
     next();
     return;
   }
 
-  db.keys('visa:*', (err, reply) => {
+  const year = '' + req.params.year;
+  if (isNaN(parseInt(year, 10))) {
+    res.status(400);
+    res.type('text/plain; charset=utf-8');
+    res.send('Year provided must be a number.');
+    return;
+  }
+
+  db.keys('visa:' + year + ':*', (err, reply) => {
     if (err) {
       res.status(500);
       res.type('text/plain; charset=utf-8');
@@ -352,12 +366,12 @@ app.get('/admin/visa-application', (req, res, next) => {
 
       res.status(200);
       res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-      res.setHeader('Content-Disposition', 'attachment; filename=visa-application.xlsx');
+      res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
       res.send(new Buffer(xlsx.write(workbook, { bookType: 'xlsx', bookSST: false, type: 'base64' }), 'base64'));
     });
   });
 });
-app.all('/admin/visa-application', returnBadAction);
+app.all('/admin/visa-application/:year', returnBadAction);
 
 (() => {
   const title = 'Log In';
@@ -1131,7 +1145,8 @@ function catchAllFor (backstack, sitemap) {
               });
             };
 
-            const fieldAns = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
+            const visaPeriod = getVisaPeriod();
+            const fieldAns = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer') + '.' + visaPeriod;
             db.hget('user:' + res.locals.user.email, fieldAns, (err, reply) => {
               if (err) {
                 res.status(500);
@@ -1146,7 +1161,7 @@ function catchAllFor (backstack, sitemap) {
                 return;
               }
 
-              db.hmset('visa:' + (visaPrefix ? visaPrefix + ':' : '') + res.locals.user.email, h, err => {
+              db.hmset('visa:' + visaPeriod + ':' + res.locals.user.email, h, err => {
                 if (err) {
                   res.status(500);
                   res.type('text/plain; charset=utf-8');
