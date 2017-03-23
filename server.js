@@ -1170,8 +1170,8 @@ function catchAllFor (backstack, sitemap) {
                   return;
                 }
 
-                const valueAns = Date.now();
-                db.hsetnx('user:' + res.locals.user.email, fieldAns, valueAns, err => {
+
+                db.hgetall('visa:' + visaPeriod + ':' + res.locals.user.email, (err, application) => {
                   if (err) {
                     res.status(500);
                     res.type('text/plain; charset=utf-8');
@@ -1180,9 +1180,30 @@ function catchAllFor (backstack, sitemap) {
                     return;
                   }
 
-                  res.locals.user[fieldAns] = valueAns;
+                  db.rpush('queue:' + visaPeriod + ':' + (application['previous-burns'] === 'no' ? 'virgin' : 'veteran'), res.locals.user.email, err => {
+                    if (err) {
+                      res.status(500);
+                      res.type('text/plain; charset=utf-8');
+                      res.send('Something broke horribly. Sorry.');
+                      console.error(err.stack);
+                      return;
+                    }
 
-                  moveForward();
+                    const valueAns = Date.now();
+                    db.hsetnx('user:' + res.locals.user.email, fieldAns, valueAns, err => {
+                      if (err) {
+                        res.status(500);
+                        res.type('text/plain; charset=utf-8');
+                        res.send('Something broke horribly. Sorry.');
+                        console.error(err.stack);
+                        return;
+                      }
+
+                      res.locals.user[fieldAns] = valueAns;
+
+                      moveForward();
+                    });
+                  });
                 });
               });
             });
