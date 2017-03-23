@@ -2,5 +2,8 @@ extends layout.pug
 
 block body
   if user
-    section
+    section.visa-status
+      img.center(src='/images/logo_white.png' alt=__('Logo of Degošie Jāņi') width='750' height='750')
+      p= __('Thank you for completing your application')
+      p= __('Your confirmation email will arrive')
       != markdown || ''
