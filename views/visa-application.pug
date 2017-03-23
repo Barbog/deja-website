@@ -35,10 +35,11 @@ block body
                 input(type='radio' checked=false data-question=question.id data-yesno='no' id=(question.id + '.no') name=question.id required='required' value='no')
                 label(for=(question.id + '.no'))= __('No')
                 br
-                if question.subtitleif && (question.type === 'yes/no;textifyes' || question.type === 'yes/no;textifno')
+                if question.type === 'yes/no;textifyes' || question.type === 'yes/no;textifno'
                   div.explanation(data-question=question.id data-yesno=question.type.split(';').filter(part => part.startsWith('textif')).map(part => part.substr('textif'.length)).reduce((prev, next) => prev + next, ''))
                     br
-                    h2= __(question.subtitleif)
+                    question.subtitleif
+                      h2= __(question.subtitleif)
                     input(type='text' id=(question.id + '.explanation') name=(question.id + '.explanation') value='')
             if question.subtitle
               br
