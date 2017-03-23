@@ -310,21 +310,24 @@ app.get('/admin/visa-application', (req, res, next) => {
         return;
       }
 
-      const worksheet = {};
-      const workbook = { SheetNames: [ 'Visa Applications' ], Sheets: { worksheet } };
+      const worksheet = { '!cols': [] };
+      const workbook = { SheetNames: [ 'Visa Applications' ], Sheets: { 'Visa Applications': worksheet } };
       const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
 
       const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), []);
-      const data = header.concat(reply.map(application => header.split(0).map(question => application[question.id] || null)));
+      const data = [ header.map(question => question.title) ].concat(reply.map(application => header.split(0).map(question => application[question.id] || null)));
 
-      for (let r = 0; r < data.length; r++) {
-        for (let c = 0; c < data[r].length; c++) {
+      for (let r = 0; r < data.length; ++r) {
+        for (let c = 0; c < data[r].length; ++c) {
           if (range.s.r > r) { range.s.r = r; }
           if (range.s.c > c) { range.s.c = c; }
           if (range.e.r < r) { range.e.r = r; }
           if (range.e.c < c) { range.e.c = c; }
 
           let cell = { v: data[r][c] };
+          if (r === 0) {
+            worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? cell.v.length : 15 };
+          }
           if (cell.v !== null) {
             if (typeof cell.v === 'number') {
               cell.t = 'n';
@@ -339,14 +342,12 @@ app.get('/admin/visa-application', (req, res, next) => {
         }
       }
 
-      if (range.s.c < 10000000) {
-        worksheet['!ref'] = xlsx.utils.encode_range(range);
-      }
+      worksheet['!ref'] = xlsx.utils.encode_range(range);
 
       res.status(200);
-      res.type('application/octet-stream');
+      res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
       res.setHeader('Content-Disposition', 'attachment; filename=visa-application.xlsx');
-      res.send(xlsx.write(workbook, { bookType: 'xlsx', bookSST: false, type: 'binary' }));
+      res.send(new Buffer(xlsx.write(workbook, { bookType: 'xlsx', bookSST: false, type: 'base64' }), 'base64'));
     });
   });
 });
