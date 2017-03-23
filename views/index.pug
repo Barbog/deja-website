@@ -2,7 +2,7 @@ extends layout.pug
 
 mixin tree-button(name, edge)
   a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-').split('/').join('-') + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-') class='tree-' + name.toLowerCase().split(' ').join('-').split('/').join('-'))
-    img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-') + '.png' alt=__(name) width=edge height=edge)
+    img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-') + '.png' title=__(name) width=edge height=edge)
 
 mixin section(name, classname)
   a(class=(classname + (acl((subpages.filter(page => page.title === name)[0] || {}).acl) ? '' : ' disabled')).trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-'))= __(name).toUpperCase()
