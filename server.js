@@ -306,7 +306,6 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           } catch (err) {
             obj = null;
             callback(err);
-            return;
           }
         });
         if (!obj) {
@@ -616,7 +615,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
               return;
             }
 
-            app.render('email', { password: password }, (err, html) => {
+            app.render('email-password', { password: password }, (err, html) => {
               mailgun.messages().send({
                 from: 'Degošie Jāņi <game@sparklatvia.lv>',
                 to: email,
@@ -1170,7 +1169,6 @@ function catchAllFor (backstack, sitemap) {
                   return;
                 }
 
-
                 db.hgetall('visa:' + visaPeriod + ':' + res.locals.user.email, (err, application) => {
                   if (err) {
                     res.status(500);
@@ -1346,3 +1344,138 @@ process.once('SIGINT', () => {
     process.exit(0);
   });
 });
+
+const cleanVeteranApplicationQueue = () => {
+  const visaPeriod = getVisaPeriod();
+  db.lrange('queue:' + visaPeriod + ':veteran', 0, 0, (err, range) => {
+    if (err) {
+      console.error(err.stack);
+      setTimeout(cleanVeteranApplicationQueue, 60 * 1000);
+      return;
+    }
+
+    const user = range[0];
+    if (typeof user !== 'string' || user === '') {
+      setTimeout(cleanVeteranApplicationQueue, 100);
+      return;
+    }
+
+    // TODO Enable these e-mails once we have proper templates.
+    setTimeout(cleanVeteranApplicationQueue, 60 * 1000);
+    return;
+
+    console.log('Sending out invite e-mail to veteran ' + user + '.');
+    app.render('email-application', {}, (err, html) => {
+      mailgun.messages().send({
+        from: 'Degošie Jāņi <game@sparklatvia.lv>',
+        to: user,
+        subject: 'Your visa application for DeJā',
+        text: '',
+        html: err ? undefined : html
+      }, err => {
+        if (err) {
+          console.error(err.stack);
+          setTimeout(cleanVeteranApplicationQueue, 60 * 1000);
+          return;
+        }
+
+        db.rpush('invited:' + visaPeriod + ':veteran', user, err => {
+          if (err) {
+            console.error(err.stack);
+            setTimeout(cleanVeteranApplicationQueue, 60 * 1000);
+            return;
+          }
+
+          db.lrem('queue:' + visaPeriod + ':veteran', 0, user, err => {
+            if (err) {
+              console.error(err.stack);
+              setTimeout(cleanVeteranApplicationQueue, 60 * 1000);
+              return;
+            }
+
+            setTimeout(cleanVeteranApplicationQueue, 100);
+          });
+        });
+      });
+    });
+  });
+};
+setTimeout(cleanVeteranApplicationQueue, 10 * 1000);
+
+const cleanVirginApplicationQueue = () => {
+  const visaPeriod = getVisaPeriod();
+  db.llen('invited:' + visaPeriod + ':virgin', (err, virginLength) => {
+    if (err) {
+      console.error(err.stack);
+      setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+      return;
+    }
+
+    db.llen('invited:' + visaPeriod + ':veteran', (err, veteranLength) => {
+      if (err) {
+        console.error(err.stack);
+        setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+        return;
+      }
+
+      if (veteranLength <= virginLength * 2) {
+        setTimeout(cleanVirginApplicationQueue, 100);
+        return;
+      }
+
+      db.lrange('queue:' + visaPeriod + ':virgin', 0, 0, (err, range) => {
+        if (err) {
+          console.error(err.stack);
+          setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+          return;
+        }
+
+        const user = range[0];
+        if (typeof user !== 'string' || user === '') {
+          setTimeout(cleanVirginApplicationQueue, 100);
+          return;
+        }
+
+        // TODO Enable these e-mails once we have proper templates.
+        setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+        return;
+
+        console.log('Sending out invite e-mail to virgin ' + user + '.');
+        app.render('email-application', {}, (err, html) => {
+          mailgun.messages().send({
+            from: 'Degošie Jāņi <game@sparklatvia.lv>',
+            to: user,
+            subject: 'Your visa application for DeJā',
+            text: '',
+            html: err ? undefined : html
+          }, err => {
+            if (err) {
+              console.error(err.stack);
+              setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+              return;
+            }
+
+            db.rpush('invited:' + visaPeriod + ':virgin', user, err => {
+              if (err) {
+                console.error(err.stack);
+                setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+                return;
+              }
+
+              db.lrem('queue:' + visaPeriod + ':virgin', 0, user, err => {
+                if (err) {
+                  console.error(err.stack);
+                  setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+                  return;
+                }
+
+                setTimeout(cleanVirginApplicationQueue, 100);
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+};
+setTimeout(cleanVirginApplicationQueue, 10 * 1000);
