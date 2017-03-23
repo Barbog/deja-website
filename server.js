@@ -333,6 +333,12 @@ app.get('/admin/visa-application', (req, res, next) => {
               cell.t = 'n';
             } else if (typeof cell.v === 'boolean') {
               cell.t = 'b';
+            } else if (!isNaN(parseInt(cell.v, 10))) {
+              cell.v = parseInt(cell.v, 10);
+              cell.t = 'n';
+            } else if (cell.v === 'true' || cell.v === 'false') {
+              cell.v = cell.v === 'true';
+              cell.t = 'b';
             } else {
               cell.t = 's';
             }
