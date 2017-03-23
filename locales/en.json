@@ -120,9 +120,9 @@
 	"We are burning right now": "We are burning right now",
 	"Welcome!": "Welcome!",
 	"Yes": "Yes",
-	"latvianburn.org will go down in %s day": {
-		"one": "latvianburn.org will go down in %s day",
-		"other": "latvianburn.org will go down in %s days"
+	"When latvianburn.org goes down in %s day, make sure to log on to sparklatvia.lv or dejā.lv": {
+		"one": "When latvianburn.org goes down in %s day, make sure to log on to sparklatvia.lv or dejā.lv",
+		"other": "When latvianburn.org goes down in %s days, make sure to log on to sparklatvia.lv or dejā.lv"
 	},
 	"We burn in %s day": {
 		"one": "We burn in %s day",
