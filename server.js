@@ -931,15 +931,8 @@ function catchAllFor (backstack, sitemap) {
         });
         if (page.type === 'questions') {
           app.post(encodeURI(localeHash[locale]), (req, res) => {
-            if (!res.locals.user) {
-              res.status(400);
-              res.type('text/plain; charset=utf-8');
-              res.send('WHO_ARE_YOU');
-              return;
-            }
-
             const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'questions');
-            if (!res.locals.user[field]) {
+            if (!res.locals.user || !res.locals.user[field]) {
               const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
               res.render('redirect', { target: target }, (err, html) => {
                 res.status(303);
@@ -984,9 +977,7 @@ function catchAllFor (backstack, sitemap) {
 
             for (let i = 0; i < res.locals.questions.length; i++) {
               if (res.locals.questions[i].question !== req.body['q' + i]) {
-                res.status(400);
-                res.type('text/plain; charset=utf-8');
-                res.send('WHAT_IN_QUESTION');
+                rerender();
                 return;
               }
 
@@ -1050,6 +1041,22 @@ function catchAllFor (backstack, sitemap) {
               return;
             }
 
+            const rerender = () => {
+              const target = req.url;
+              res.render('redirect', { target: target }, (err, html) => {
+                res.status(303);
+                res.location(target);
+                if (err) {
+                  res.type('text/plain; charset=utf-8');
+                  res.send(target);
+                  console.error(err.stack);
+                } else {
+                  res.type('text/html; charset=utf-8');
+                  res.send(html);
+                }
+              });
+            };
+
             const h = {};
 
             res.locals.questions = page.questions.questions.slice(0);
@@ -1063,34 +1070,26 @@ function catchAllFor (backstack, sitemap) {
                 case 'date':
                 case 'country':
                   if (typeof ans !== 'string') {
-                    res.status(400);
-                    res.type('text/plain; charset=utf-8');
-                    res.send('WHAT_IN_QUESTION');
+                    rerender();
                     return;
                   }
                   h[id] = JSON.stringify(ans);
                   break;
                 case 'single':
                   if (typeof ans !== 'string' || res.locals.questions[i].answers.indexOf(ans) === -1) {
-                    res.status(400);
-                    res.type('text/plain; charset=utf-8');
-                    res.send('WHAT_IN_QUESTION');
+                    rerender();
                     return;
                   }
                   h[id] = JSON.stringify(ans);
                   break;
                 case 'multiple':
                   if (!Array.isArray(ans)) {
-                    res.status(400);
-                    res.type('text/plain; charset=utf-8');
-                    res.send('WHAT_IN_QUESTION');
+                    rerender();
                     return;
                   }
                   for (var j = 0; j < ans.length; j++) {
                     if (res.locals.questions[i].answers.indexOf(ans[j]) === -1) {
-                      res.status(400);
-                      res.type('text/plain; charset=utf-8');
-                      res.send('WHAT_IN_QUESTION');
+                      rerender();
                       return;
                     }
                   }
@@ -1100,9 +1099,7 @@ function catchAllFor (backstack, sitemap) {
                 case 'yes/no;textifyes':
                 case 'yes/no;textifno':
                   if (ans !== 'yes' && ans !== 'no') {
-                    res.status(400);
-                    res.type('text/plain; charset=utf-8');
-                    res.send('WHAT_IN_QUESTION');
+                    rerender();
                     return;
                   }
                   const textif = res.locals.questions[i].type.split(';')
@@ -1112,9 +1109,7 @@ function catchAllFor (backstack, sitemap) {
                   if (ans === textif) {
                     let exp = typeof req.body[id + '.explanation'] === 'string' ? req.body[id + '.explanation'] : '';
                     if (typeof exp !== 'string' || exp === '') {
-                      res.status(400);
-                      res.type('text/plain; charset=utf-8');
-                      res.send('WHAT_IN_QUESTION');
+                      rerender();
                       return;
                     }
 
