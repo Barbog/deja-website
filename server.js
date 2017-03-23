@@ -1455,7 +1455,7 @@ const emailApply = (visaPeriod, priority, callback) => {
           name = name.join(' ');
 
           const slackData = querystring.stringify({
-            token: 'xoxp-20979710294-21097752741-159203133239-006c72c680ede62e7e52a10ecf3d948c',
+            token: 'xoxp-20979710294-21097752741-157844649281-cc09711be7af87cf7dc4d0880d48d9f7',
             email: aemail,
             first_name: name,
             last_name: surname,
@@ -1473,7 +1473,7 @@ const emailApply = (visaPeriod, priority, callback) => {
             }
           }, res => {
             res.setEncoding('utf8');
-            res.on('data', () => { /* no-op */ });
+            res.on('data', (data) => { console.log(data); });
             res.on('end', () => {
               db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
                 if (err) {
