@@ -1,7 +1,7 @@
 {
   "Burn Etiquette": {
     "Questions": {
-      "nextPage": [ "Survival Guide" ],
+      "nextPage": [ "Visa Application" ],
       "questions": [
         {
           "question": "How many principles are there in the Code of the Republic?",
@@ -231,7 +231,7 @@
       }
     },
     "Final Questions": {
-      "nextPage": [ "Survival Guide" ],
+      "nextPage": [ "Visa Application" ],
       "questions": [
         {
           "question": "MOOP sweeps are highly encouraged.",
