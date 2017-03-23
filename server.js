@@ -1462,6 +1462,7 @@ const emailApply = (visaPeriod, priority, callback) => {
             resend: true
           });
 
+          console.log('Sending out Slack invite to ' + priority + ' ' + email + ' via ' + aemail + '.');
           const slackRequest = https.request({
             hostname: 'balticburners.slack.com',
             method: 'POST',
