@@ -276,7 +276,7 @@ app.get('/admin/visa-application', (req, res, next) => {
       return;
     }
 
-    async.map(reply, (key, callback) => {
+    async.map(reply.sort(), (key, callback) => {
       db.hgetall(key, (err, reply) => {
         if (err) {
           callback(err);
