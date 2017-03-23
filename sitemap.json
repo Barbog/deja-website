@@ -533,7 +533,7 @@
         "type": "visa-application",
         "acl": "answer.Visa Application.Self Expression",
         "render": {
-          "nextpage": "Prior Year Financial Transparency"
+          "nextpage": "Participation"
         }
       },
       {
