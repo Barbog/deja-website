@@ -1216,10 +1216,11 @@ function catchAllFor (backstack, sitemap) {
                   };
 
                   if (virgin) {
+                    const aemail = JSON.parse(application.email);
                     app.render('email-apply-virgin', {}, (err, html) => {
                       mailgun.messages().send({
                         from: 'Degošie Jāņi <game@sparklatvia.lv>',
-                        to: application.email,
+                        to: JSON.parse(aemail),
                         subject: 'Your visa application status for DeJā',
                         text: 'Thank you for your submission!' + '\n\n' +
                           'You will be receiving another email with more information.',
@@ -1396,11 +1397,12 @@ const emailApply = (visaPeriod, priority, callback) => {
         return;
       }
 
-      console.log('Sending out invite e-mail to ' + priority + ' ' + email + ' via ' + application.email + '.');
+      const aemail = JSON.parse(application.email);
+      console.log('Sending out invite e-mail to ' + priority + ' ' + email + ' via ' + aemail + '.');
       app.render('email-apply', {}, (err, html) => {
         mailgun.messages().send({
           from: 'Degošie Jāņi <game@sparklatvia.lv>',
-          to: application.email,
+          to: aemail,
           subject: 'Your visa application status for DeJā',
           text: 'Congratulations! You are going to DeJā!' + '\n\n' +
             'You won\'t get bombarded with many emails, but you will receive a few with all the information between now and DeJā.' + '\n\n' +
