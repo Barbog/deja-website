@@ -254,16 +254,54 @@ app.post('/user/update', (req, res) => {
       if (err) {
         throw err;
       }
-
-      res.status(200);
-      res.type('application/json; charset=utf-8');
-      res.send('{}');
     });
-  } else {
-    res.status(400);
+  }
+
+  if (typeof req.body.password === 'string' && req.body.password !== '' &&
+    typeof req.body.newpassword === 'string' && req.body.newpassword !== '') {
+    db.hget('user:' + email, 'password', (err, reply) => {
+      if (err) {
+        console.error(err.stack);
+        return;
+      }
+
+      if (typeof reply !== 'string' || reply === '') {
+        // We still want to run bcrypt to avoid any timing attacks.
+        reply = '';
+      }
+
+      bcrypt.compare(req.body.password, reply, (err, match) => {
+        if (err) {
+          console.error(err.stack);
+          return;
+        }
+
+        if (!match) {
+          return;
+        }
+
+        bcrypt.hash(req.body.newpassword, 10, (err, hash) => {
+          if (err) {
+            console.error(err.stack);
+            return;
+          }
+
+          db.hset('user:' + email, 'password', hash, err => {
+            if (err) {
+              console.error(err.stack);
+            }
+          });
+        });
+      });
+    });
+  }
+
+  // We should be waiting on the DB here, really.
+  setTimeout(() => {
+    res.status(200);
     res.type('application/json; charset=utf-8');
     res.send('{}');
-  }
+  }, 10);
 });
 app.all('/user/update', returnBadAction);
 
