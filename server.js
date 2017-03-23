@@ -42,6 +42,7 @@ const path = require('path');
 const randomstring = require('randomstring');
 const redis = require(env === 'dev' ? 'fakeredis' : 'redis');
 const showdown = new (require('showdown').Converter)();
+const url = require('url');
 const xlsx = require('xlsx');
 
 const db = redis.createClient();
@@ -416,7 +417,8 @@ app.all('/admin/visa-application/:year', returnBadAction);
   const catchLogin = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
-      const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/');
+      const location = (typeof req.query.l === 'string' && url.parse('https://xn--dej-3oa.lv' + req.query.l).path === req.query.l ? req.query.l : '') ||
+        (req.body ? req.body.location : '') || ('/' + locale + '/');
 
       res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location }, (err, html) => {
         if (err) {
@@ -594,7 +596,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
       const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
 
       const rerender = err => {
-        res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, name: name, email: email }, (err, html) => {
+        res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, err: err, name: name, email: email }, (err, html) => {
           if (err) {
             res.status(500);
             res.type('text/plain; charset=utf-8');
@@ -757,7 +759,7 @@ function catchAllFor (backstack, sitemap) {
                   '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
                     '/' + req.__(page.render.previouspage).toLowerCase().split(' ').join('-').split('/').join('-')
                 : '/' + locale + '/'
-              : '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
+              : '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-') + '?l=' + req.url;
             res.render('redirect', { target: target }, (err, html) => {
               res.status(303);
               res.location(target);
@@ -971,7 +973,7 @@ function catchAllFor (backstack, sitemap) {
           app.post(encodeURI(localeHash[locale]), (req, res) => {
             const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'questions');
             if (!res.locals.user || !res.locals.user[field]) {
-              const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
+              const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-') + '?l=' + req.url;
               res.render('redirect', { target: target }, (err, html) => {
                 res.status(303);
                 res.location(target);

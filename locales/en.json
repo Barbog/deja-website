@@ -102,7 +102,6 @@
 	"Email": "Email",
 	"Home": "Home",
 	"If the droids you are looking for ever existed, they are long gone.": "If the droids you are looking for ever existed, they are long gone.",
-	"If you did not register for anything, just ignore this message.": "If you did not register for anything, just ignore this message.",
 	"Log In": "Log In",
 	"Logo of Degošie Jāņi": "Logo of Degošie Jāņi",
 	"Name": "Name",
@@ -119,7 +118,6 @@
 	"Upcoming Global Events": "Upcoming Global Events",
 	"Visa applications accepted.": "Visa applications accepted.",
 	"We are burning right now": "We are burning right now",
-	"Welcome!": "Welcome!",
 	"Yes": "Yes",
 	"Your confirmation email will arrive": "Your confirmation email will arrive",
 	"When latvianburn.org goes down in %s day, make sure to log on to sparklatvia.lv or dejā.lv": {
@@ -131,7 +129,6 @@
 		"other": "We burn in %s days"
 	},
 	"Hi {name}": "Hi {name}",
-	"Your password is {password}.": "Your password is {password}.",
 	"A location to gather": "A location to gather",
 	"Camping gear": "Camping gear",
 	"Cell phone use is highly encouraged.": "Cell phone use is highly encouraged.",
@@ -294,5 +291,6 @@
 	"huh? i thought this was another free hippie gathering": "huh? i thought this was another free hippie gathering",
 	"this isn't the rainbow gathering?": "this isn't the rainbow gathering?",
 	"yes!": "yes!",
-	"yes, it is a burn!": "yes, it is a burn!"
+	"yes, it is a burn!": "yes, it is a burn!",
+	"Log Out": "Log Out"
 }
