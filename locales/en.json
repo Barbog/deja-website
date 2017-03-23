@@ -119,10 +119,10 @@
 	"Visa applications accepted.": "Visa applications accepted.",
 	"We are burning right now": "We are burning right now",
 	"Yes": "Yes",
-	"Your confirmation email will arrive": "Your confirmation email will arrive",
-	"When latvianburn.org goes down in %s day, make sure to log on to sparklatvia.lv or dejā.lv": {
-		"one": "When latvianburn.org goes down in %s day, make sure to log on to sparklatvia.lv or dejā.lv",
-		"other": "When latvianburn.org goes down in %s days, make sure to log on to sparklatvia.lv or dejā.lv"
+	"Your confirmation email has been sent": "Your confirmation email has been sent",
+	"When latvianburn.org expires in %s day, make sure to log on to sparklatvia.lv or dejā.lv": {
+		"one": "When latvianburn.org expires in %s day, make sure to log on to sparklatvia.lv or dejā.lv",
+		"other": "When latvianburn.org expires in %s days, make sure to log on to sparklatvia.lv or dejā.lv"
 	},
 	"We burn in %s day": {
 		"one": "We burn in %s day",
@@ -291,6 +291,5 @@
 	"huh? i thought this was another free hippie gathering": "huh? i thought this was another free hippie gathering",
 	"this isn't the rainbow gathering?": "this isn't the rainbow gathering?",
 	"yes!": "yes!",
-	"yes, it is a burn!": "yes, it is a burn!",
-	"Log Out": "Log Out"
+	"yes, it is a burn!": "yes, it is a burn!"
 }
