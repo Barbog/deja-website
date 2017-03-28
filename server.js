@@ -1232,7 +1232,7 @@ function catchAllFor (backstack, sitemap) {
                     });
                   };
 
-                  const virgin = application['previous-burns'] === 'no';
+                  const virgin = application['previous-burns'] === 'no' || application['previous-burns'] === '"no"';
 
                   const pushToQueue = () => {
                     if (page.render.nextpage === 'Status') {
