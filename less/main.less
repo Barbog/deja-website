@@ -66,6 +66,7 @@
 
 body {
   position: absolute;
+  @media (min-width: (@desktop-size)) { & { position: initial; } }
   max-width: 100%;
   width: 100%;
   background: @light;
