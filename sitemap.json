@@ -56,9 +56,11 @@
   {
     "title": "Burn Etiquette",
     "hidden": "The Code of the Republic",
+    "acl": "email",
     "subpages": [
       {
         "title": "The Code of the Republic",
+        "acl": "email",
         "render": {
           "nextpage": "Consent and Boundaries"
         }
@@ -121,32 +123,37 @@
   },
   {
     "title": "Survival Guide",
+    "acl": "answer.Burn Etiquette.Questions",
     "subpages": [
       {
         "title": "The Beginner's Guide",
         "hidden": "What is Provided",
+        "acl": "answer.Burn Etiquette.Questions",
         "subpages": [
           {
             "title": "What is Provided",
+            "acl": "answer.Burn Etiquette.Questions",
             "render": {
               "nextpage": "What isn't Provided"
             }
           },
           {
             "title": "What isn't Provided",
+            "acl": "answer.Burn Etiquette.Questions",
             "render": {
               "nextpage": "What should I expect"
             }
           },
           {
             "title": "What should I expect",
+            "acl": "answer.Burn Etiquette.Questions",
             "render": {
               "nextpage": "Why do I need a Visa"
             }
           },
           {
             "title": "Why do I need a Visa",
-            "acl": "email",
+            "acl": "answer.Burn Etiquette.Questions",
             "render": {
               "nextpage": "Why are there no tickets sold"
             }
@@ -388,104 +395,100 @@
   {
     "title": "Creation",
     "hidden": "Volunteering",
-    "acl": "email",
+    "acl": "answer.Survival Guide.Final Questions",
     "subpages": [
       {
         "title": "Volunteering",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Public Works"
         }
       },
       {
         "title": "Ministry of Public Works",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of De'Fence"
         }
       },
       {
         "title": "Ministry of De'Fence",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Integration"
         }
       },
       {
         "title": "Ministry of Integration",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Civic Responsibility"
         }
       },
       {
         "title": "Ministry of Civic Responsibility",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Hazard"
         }
       },
       {
         "title": "Ministry of Hazard",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Noise"
         }
       },
       {
         "title": "Ministry of Noise",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of the Environment"
         }
       },
       {
         "title": "Ministry of the Environment",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Culture"
         }
       },
       {
         "title": "Ministry of Culture",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Nutrition"
         }
       },
       {
         "title": "Ministry of Nutrition",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Propaganda"
         }
       },
       {
         "title": "Ministry of Propaganda",
-        "acl": "email",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Ministry of Finance"
         }
       },
       {
         "title": "Ministry of Finance",
-        "acl": "email"
+        "acl": "answer.Survival Guide.Final Questions"
       }
     ]
   },
   {
     "title": "Visa Application",
     "hidden": "Status",
-    "acl": [
-      "answer.Burn Etiquette.Questions",
-      "answer.Survival Guide.Final Questions"
-    ],
+    "acl": "answer.Survival Guide.Final Questions",
     "subpages": [
       {
         "title": "Status",
         "type": "visa-status",
         "acl": [
-          "answer.Burn Etiquette.Questions",
           "answer.Survival Guide.Final Questions",
           "answer.Visa Application.Volunteering.{visaPeriod}"
         ],
@@ -496,10 +499,8 @@
       {
         "title": "Basic Information",
         "type": "visa-application",
-        "acl": [
-          "answer.Burn Etiquette.Questions",
-          "answer.Survival Guide.Final Questions"
-        ],
+        "acl": "answer.Survival Guide.Final Questions",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Fuck Commerce"
         }
@@ -557,20 +558,24 @@
   {
     "title": "Donation",
     "hidden": "Gifting and Donations",
+    "acl": "answer.Survival Guide.Final Questions",
     "subpages": [
       {
         "title": "Gifting and Donations",
+        "acl": "answer.Survival Guide.Final Questions",
         "render": {
           "nextpage": "Prior Year Financial Transparency"
         }
       },
       {
-        "title": "Prior Year Financial Transparency"
+        "title": "Prior Year Financial Transparency",
+        "acl": "answer.Survival Guide.Final Questions"
       }
     ]
   },
   {
-    "title": "Network"
+    "title": "Network",
+    "acl": "answer.Survival Guide.Final Questions"
   },
   {
     "title": "FAQ"
