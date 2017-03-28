@@ -612,7 +612,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
       };
 
       if (typeof name !== 'string' || name === '' || typeof email !== 'string' || email === '') {
-        rerender(new Error('No e-mail and password combination provided.'));
+        rerender(new Error('No name and e-mail combination provided.'));
         return;
       }
 
