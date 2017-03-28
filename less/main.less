@@ -286,6 +286,13 @@ nav {
   &:last-of-type {
     &:before, &:after { content: ''; display: table; }
     &:after { clear: both; }
+
+    p {
+      color: @accent;
+      font-weight: bolder;
+      font-size: @font-size * 1.6;
+      line-height: @line-height;
+    }
   }
   color: @accent;
   transition: transform .1s ease-in-out, width .1s ease-in-out;
@@ -328,7 +335,7 @@ nav {
   }
 
   p:first-of-type {
-    margin-top: @line-height * 2;
+    margin-top: @font-size * 2;
   }
 }
 
