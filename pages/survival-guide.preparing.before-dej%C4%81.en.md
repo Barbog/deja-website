@@ -12,7 +12,7 @@ Preparation is key to leaving a better trace. Please keep the following in mind 
 
 <span style="color:limegreen;"><u>**Reduce Packaging**</u></span>
 
-Bringing in less means having less to haul out, 
+Bringing in less means having less to haul out,
 
 For each item that you’re bringing to DeJā, think through how you’re going to dispose of it.
 
@@ -35,6 +35,7 @@ If you plan on cooking before coming out:
 - <span style="color:#77011e;">**Do not**</span> bring: loose glitter, feather boas. Such items are near impossible to recover.
 
 
+
 <span style="color:limegreen;">**Do**</span> bring:
 
 - **Bags** for your garbage.
@@ -46,11 +47,11 @@ If you plan on cooking before coming out:
 
 
 
-
 <span style="color:#fdb913;">**Leave space**</span> in your car for taking away your trash.
 
 If taking the bus or sharing a car, **ensure** you have a way of taking your garbage with you or arrange for its removal.
 
 
 
-<span style="color:#fdb913;">**Tag** </span>all of your belongings (keys, cameras, phones, etc.) you would want returned if misplaced: with your name, phone number and address.
+<span style="color:#fdb913;">**Tag**</span>all of your belongings (keys, cameras, phones, etc.) you would want returned if misplaced: with your name, phone number and address.
+

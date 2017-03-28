@@ -8,7 +8,3 @@ If you are planning on driving while in Latvia, check that your insurance and li
 
 During this time of year, there are many checkpoints on the roads.  <span style="color:#77011e;">Please, do not drive while intoxicated!</span>
 
-
-
-
-

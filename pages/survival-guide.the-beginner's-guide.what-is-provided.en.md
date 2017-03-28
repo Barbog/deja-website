@@ -16,11 +16,7 @@ At DeJā you will find:
 
 - Natural resources, such as wood, clay, hemp fiber, that you can help gather.
 
-  ​
-
-  ​
 
 
-
- <span style="color:#fdb913;"> *Bring what you need, take care.*			*You are responsible for You.*</span>
+<span style="color:#fdb913;">*Bring what you need, take care.*  *You are responsible for You.*</span>
 

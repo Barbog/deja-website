@@ -7,7 +7,8 @@ For all relationships, whether they be platonic, romantic, or somewhere in betwe
 - It is a good idea to make some time to be together regularly, but you should also give everybody the space they need to enjoy themselves fully – including yourself!
 
 
-- Leave your group and go for an adventure. 
+
+- Leave your group and go for an adventure.
 - State your wants and boundaries, and listen to your friend’s or partner’s wants.
 
 DeJā is an experiment in temporary community. You are free to make new rules, and find different ways of relating with people. Learning more about other human beings — and yourself — is a big part of the reason we’re here.
@@ -41,37 +42,38 @@ People who want to party all night and eat food out of a can should not camp wit
 - <span style="color:limegreen;">**Agree**</span> on camp responsibilities, whether you are organizing a theme camp or just camping with friends.
 
 
+
 Theme camps require huge amounts of cooperation and effort. Everyone in your group needs to be committed to building and/or staffing your space.
 
 - Nothing will tear you apart quicker than making assumptions on what others have committed to.
 - Ambitious projects will quickly become forced marches when only a couple of people shoulder the load.
-- With any organized group, people tend to fall into their natural roles. 
+- With any organized group, people tend to fall into their natural roles.
   - It’s good to make sure everybody in your group has similar goals, and that they will pull their weight equally.
   - Make sure people know what is expected of them ahead of time, and find out how people want to contribute.
 
-<span style="color:#77011e;">Avoid</span>  getting upset when things don’t come together on the first day.  
+<span style="color:#77011e;">Avoid</span>  getting upset when things don’t come together on the first day.
 
 - People will need time to acclimate, unwind and decompress when they arrive.
 - <span style="color:#77011e;">Don’t</span>  forget to factor in the unpredictable weather.
-- Keep in mind that some people just don’t belong at a burn. Burns aren't for everyone. 
+- Keep in mind that some people just don’t belong at a burn. Burns aren't for everyone.
 
 <span style="color:#fdb913;"><u>Do yourself a favor, and leave the following people at home:</u></span>
 
-- Those who are attached to modern comforts. 
+- Those who are attached to modern comforts.
   -  Outdoor gatherings in nature, with limited access to modern comforts are not enjoyed by all.
-- Sensitive to noise.  
+- Sensitive to noise.
   - Sometimes it gets loud. If you are sensitive to loud music, and people being up at all hours, you may want to reconsider. If you think you can manage,  plan accordingly for those times it may get intense for you.
-- Those who need babysitting.  
+- Those who need babysitting.
   - Don't be a babysitter.  If you find yourself in such a position, not only will they have a horrible time you will resent them. This is and can be a huge issue for couples.
 
 
 
 <span style="color:#fdb913;">**<u>Couples</u>**</span>
 
-DeJā can be a challenging time for relationships, both with friends and romantic partners. Particularly with partners, it’s important to discuss a few questions in advance before you attend the event. 
+DeJā can be a challenging time for relationships, both with friends and romantic partners. Particularly with partners, it’s important to discuss a few questions in advance before you attend the event.
 
-- Talk about expectations beforehand, as well as during the event. 
-  - If you can make it through the burn, you can most likely make it through anything! 
+- Talk about expectations beforehand, as well as during the event.
+  - If you can make it through the burn, you can most likely make it through anything!
 
 <span style="color:#fdb913;"><u>Some questions to consider for your partner:</u></span>
 
@@ -94,17 +96,17 @@ DeJā can be a challenging time for relationships, both with friends and romanti
 
 <span style="color:#fdb913;"><u>Treats.</u></span>
 
-- Flowers and chocolate, wine and cheese, whatever. The name of this game is “I Went to DeJā. but I Thought \*Only* About You.” 
+- Flowers and chocolate, wine and cheese, whatever. The name of this game is “I Went to DeJā. but I Thought \*Only* About You.”
 
-- Take care of one another. 
+- Take care of one another.
 
   - Watch to insure that enough water is going through you both. If you don’t stay hydrated, you may be broken up by the end of the event.
 
-  ​
+
 
 <span style="color:#fdb913;"><u>Be sure to take time with and time away from one another.</u></span>
 
-Don’t forget that you are individuals. 
+Don’t forget that you are individuals.
 
 - Exposure to the event has a different impact on everyone.
 - Spend all the time together you want, but leave room for yourself and your own interests, too.
@@ -113,8 +115,8 @@ Don’t forget that you are individuals.
   - <span style="color:#77011e;">Don’t</span> be pushy and expect your partner to do the same things you want to do at every second.
 
 
-<span style="color:limegreen;">Remember </span> that there are new friends for you to meet as well, so each of you should feel encouraged to spend time with other people as well as each other.
 
+<span style="color:limegreen;">Remember</span> that there are new friends for you to meet as well, so each of you should feel encouraged to spend time with other people as well as each other.
 
 
 
@@ -122,23 +124,21 @@ Don’t forget that you are individuals.
 
 There is a lot of sexual energy whirling about. Anything and everything can and will happen when you gather a bunch of people in this environment.
 
-- Figure out what you want. 
-  - Love? Sex? Your wildest fantasies? It’s all there for the taking. 
-- Make sure the person across from you wants the same thing. 
-  - If she or he doesn’t, there are others who do. 
-- <span style ="color:lime;"> Be respectful.</u></span>
-  -  Just because people are walking around naked does not necessarily mean they wish *you* were naked in a small enclosed space with them. 
-- Learn to take no for an answer, 
+- Figure out what you want.
+  - Love? Sex? Your wildest fantasies? It’s all there for the taking.
+- Make sure the person across from you wants the same thing.
+  - If she or he doesn’t, there are others who do.
+- <span style ="color:lime;">Be respectful.</u></span>
+  -  Just because people are walking around naked does not necessarily mean they wish *you* were naked in a small enclosed space with them.
+- Learn to take no for an answer,
   - and don’t be afraid to use the “n” word yourself.
 - Get plenty of rest, monitor your substance intake and hydrate.
-- <span style="color:lime;>Always </span> play safe.
+- <span style="color:lime;>Always</span> play safe.
 - Don’t be afraid to try new things. If there was ever a space for exploring, this is it!
-- Take responsibility for your own pleasure. 
-  - You can find anything your heart desires, but you have to ask for it first! 
+- Take responsibility for your own pleasure.
+  - You can find anything your heart desires, but you have to ask for it first!
 
 
 
-<span style="color:#fdb913;"> TIP:</span>  say yes, more, now, please and thank you
-
-
+<span style="color:#fdb913;">TIP:</span>  say yes, more, now, please and thank you
 

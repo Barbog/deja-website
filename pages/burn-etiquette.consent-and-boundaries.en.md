@@ -18,5 +18,5 @@ Each of us wants to help prevent sexual harassment and assault while ensuring th
 
 
 
-Everyone has different boundaries. . . be considerate and ask.  There is no harm in asking.
+Everyone has different boundaries . . . be considerate and ask.  There is no harm in asking.
 

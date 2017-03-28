@@ -8,13 +8,13 @@ Open border gestapo will verify your visa upon arrival at the fence,  issue cons
 
 <span style="color:fdb913;"><u>Need to know:</u></span>
 
-This 24-hour operation begins on the evening of the 20th of June and is scheduled to work in 3 hour shifts throughout the event. 
+This 24-hour operation begins on the evening of the 20th of June and is scheduled to work in 3 hour shifts throughout the event.
 
-- 20th of June  
+- 20th of June
 
   - shift from 21:00 - 23:59
 
-    ​
+
 
 - 21st, 22nd, 23rd of June
 
@@ -34,31 +34,29 @@ This 24-hour operation begins on the evening of the 20th of June and is schedule
 
   - 21:00 — 23:59 (shift 8)
 
-    ​
 
-- 24th of June 
+
+- 24th of June
 
   - 00:00 — 2:59 (shift 1)
+
   - 03:00 — 5:59 (shift 2)
+
   - 06:00 — 8:59 (shift 3)
+
   - 09:00 — 11:59 (shift 4)
 
-  ​
 
 
-- De’Fence will need to cover their post with 2 volunteers per shift. 
+- De’Fence will need to cover their post with 2 volunteers per shift.
 
 - 2 co-leads are needed to manage this post.
 
   - Lead  is required to fill if there is an empty slot that needs to be covered
-   - Leads will start recruiting volunteers before the event.
+  - Leads will start recruiting volunteers before the event.
 
 - Gate volunteers are to be moderately sober during their shift.
 
-  - Should communicate with the Volunteer Director to help fill shifts during the event. 
-  - Will check in participants as they arrive. 
-
-  ​
-
-
+  - Should communicate with the Volunteer Director to help fill shifts during the event.
+  - Will check in participants as they arrive.
 

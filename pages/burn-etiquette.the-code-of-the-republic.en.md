@@ -24,7 +24,7 @@ In order for the community to grow, as well as maintaining the integrity of our 
 
 <span style="color:#77011e;">**<u>Openness.</u>**</span>
 
-We welcome everyone and will include them as we wish to be included -- with respect, consideration and tolerance. However, if you blatantly disregard our code, you will be publicly shamed. 
+We welcome everyone and will include them as we wish to be included -- with respect, consideration and tolerance. However, if you blatantly disregard our code, you will be publicly shamed.
 
 <span style="color:#77011e;">**<u>Be Present.</u>**</span>
 

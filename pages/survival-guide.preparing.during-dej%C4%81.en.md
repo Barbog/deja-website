@@ -6,27 +6,26 @@ typora-root-url: ../static
 
 
 
-<span style="color:limegreen;">**Be Aware** </span> of Very Small Items
+<span style="color:limegreen;">**Be Aware**</span> of Very Small Items
 
 - No Trace really does mean no trace.
-- Be conscious of spare nails or smaller trash particles that may be dismissed as too small for trash including: hair, matches, cigarette butts, feathers, zip ties. 
+- Be conscious of spare nails or smaller trash particles that may be dismissed as too small for trash including: hair, matches, cigarette butts, feathers, zip ties.
 - After you pick up your trash to carry home, do a last-minute check of your site for cigarette butts, gum wrappers, etc. because many of those will be hidden under tarps, tents and vehicles.
-- <span style="color:#fdb913;">**Plan**</span> to send trash off the farm with campmates as they leave the event. 
+- <span style="color:#fdb913;">**Plan**</span> to send trash off the farm with campmates as they leave the event.
 
-<span style="color:#77011e;">Never</span> let MOOP hit the ground. Clean as you go. MOOP attracts more MOOP. 
+<span style="color:#77011e;">Never</span> let MOOP hit the ground. Clean as you go. MOOP attracts more MOOP.
 
-- When you see trash on the ground, pick it up and take it with you, including cigarette butts, and then empty your pockets into a trash bag later. 
+- When you see trash on the ground, pick it up and take it with you, including cigarette butts, and then empty your pockets into a trash bag later.
 
 <span style="color:#fdb913;">Ensure</span>  that the compost pile is treated correctly. Only biodegradable food waste should be put in the compost pile.
 
 - Food waste such as peanut shells, orange peels and eggshells are also trash. Dispose of these in the compost.
 
-  ​
 
-<span style="color:limegreen;">Separate</span>  recycling into glass, plastic, aluminum and cardboard/paper. 
+
+<span style="color:limegreen;">Separate</span>  recycling into glass, plastic, aluminum and cardboard/paper.
 
 - No trash is to be burned, except for cardboard/paper.
-
 
 
 
@@ -36,16 +35,16 @@ The toilets are compost toilets. If it’s not biodegradable, don’t put it dow
 
   - This is unacceptable, unsanitary, and just plain gross the morning after.
 
-    ​
+
 
 - Minimize Fire Impacts
 
   - Keep in mind that most non-natural materials (rugs, polyester, plastic, treated wood) are toxic when burned.
 
-    ​
+
 
 - Respect Wildlife
 
-  - <span style="color:#77011e;">Do not </span> harass wildlife. 
+  - <span style="color:#77011e;">Do not</span> harass wildlife.
   - If you bring a pet to the DeJā, make certain to remove their waste just as you would your own.
 

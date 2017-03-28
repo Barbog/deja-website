@@ -6,9 +6,5 @@ Coordinates the community kitchen, prepares the vegan meal plan and takes care o
 
 
 
-For more information on how you can get involved either as a chef or kitchen hand check out the kitchen_crew_2017 channel on slack. 
-
-
-
-
+For more information on how you can get involved either as a chef or kitchen hand check out the kitchen_crew_2017 channel on slack.
 

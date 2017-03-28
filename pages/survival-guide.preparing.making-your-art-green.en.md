@@ -2,17 +2,19 @@
 typora-root-url: ../static
 ---
 
-<span class="center" style="color:lime;"> <u>**Making Your Art Green**</u></span>
+<span class="center" style="color:lime;"><u>**Making Your Art Green**</u></span>
 
 Thank you for contributing art to DeJā.  Art is at the center of our community.  This section can give you some valuable insights and shifts in perspective that will help you make your art more environmentally friendly.
 
 Again, we recommend the 6 R’s:
-- **<span style="color:#006a44;">Respect.  </span>**
+
+- **<span style="color:#006a44;">Respect.</span>**
 - **<span style="color:lime;">Rethink.</span>**
 - **<span style="color:#006a44;">Reduce.</span>**
-- **<span style="color:lime;">Reuse. </span>**
+- **<span style="color:lime;">Reuse.</span>**
 - **<span style ="color:#006a44;">Recycle.</span>**
 - **<span style="color:lime;">Restore.</span>**
+
 
 
 <span style="color:#77011e;"><u>**Materials**</u></span>
@@ -28,7 +30,7 @@ It is during your planning phase that it is most important to think about the en
 - Burned?
 - What’s the most environmentally friendly choice I can make?
 
-<span style="color:#limegreen;"> Purchase or acquire</span> materials from socially and environmentally conscious sources.
+<span style="color:#limegreen;">Purchase or acquire</span> materials from socially and environmentally conscious sources.
 
 Explore the options for obtaining repurposed materials in your area.
 
@@ -72,6 +74,4 @@ Easiest rule of thumb is: **never let it hit the ground**
 <span style="color:#77011e;"><u>**Transportation**</u></span>
 
 If you’re building a particularly large installation, you will find that your transportation costs constitute a very large chunk of your budget — especially if you’re coming from far away. Consider teaming up with other artists or theme camps to share the ride.
-
-
 

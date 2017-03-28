@@ -10,8 +10,8 @@ typora-root-url: ../static
 
 <span style="color:#77011e;">**Do not Rush**</span>  — do not stress yourself out to hurrying to get home.
 
-- Long-term exposure to the burn may fatigue your body and impair decision-making. 
-- When under pressure, we are all likely to make rushed decisions, miss details and leave things behind.  
+- Long-term exposure to the burn may fatigue your body and impair decision-making.
+- When under pressure, we are all likely to make rushed decisions, miss details and leave things behind.
 - If you have to catch a plane, make sure to start packing up even earlier than you think you may have to, so you aren’t tempted to leave before fully clearing your site.
 
 
@@ -24,11 +24,10 @@ typora-root-url: ../static
   - As you’re packing your camp, have campmates walk repeatedly around your site picking up anything and everything that’s not part of the farm.
 - <span style="color:#fdb913;">**Sort**</span> your trash and recycling for drop-off at allocated sites on your way home.
 - <span style="color:#77011e;">**Do not**</span> dump your trash anywhere in neighboring communities that is not a designated trash or recycling site.
-- <span style="color:limegreen;">**Take** </span> your trash with you! And if you have space, please take an orphan bag if you happen to see one at the gate on your way out.
+- <span style="color:limegreen;">**Take**</span> your trash with you! And if you have space, please take an orphan bag if you happen to see one at the gate on your way out.
 - If you are hauling anything that is not inside your vehicle, stop periodically and check to make sure your vehicle’s load is secured and hasn’t loosened in the wind.
 
 <span style="color:#fdb913;">**TIP**</span> : Doing this periodically, through the week, will make it easier.
 
-- If half of your campmates will have left before you, the folks left behind are going to have a lot more work to do. 
+- If half of your campmates will have left before you, the folks left behind are going to have a lot more work to do.
 
-  ​
