@@ -25,21 +25,28 @@ let spawnSync = require('child_process').spawnSync;
 
 spawnSync('git', [ 'grep', '-Fe', '__(\'', '--', 'views' ], { cwd: root, encoding: 'utf8', stdio: 'pipe' })
   .stdout.split('\n')
-  .map(line => line.split('__(\'')).filter(line => line.length > 1).map(line => line[1])
-  .map(line => line.split('\')')[0])
+  .map(line => line.split('__(\''))
+  .filter(line => line.length > 1)
+  .map(line => line.slice(1).map(part => part.split('\')')[0]))
+  .reduce((prev, next) => prev.concat(next), [])
   .filter(item => typeof item === 'string').sort().forEach(line => { output[line] = line; });
 
 spawnSync('git', [ 'grep', '-Fe', '__n(\'', '--', 'views' ], { cwd: root, encoding: 'utf8', stdio: 'pipe' })
   .stdout.split('\n')
-  .map(line => line.split('__n(\'')).filter(line => line.length > 1).map(line => line[1])
-  .map(line => line.split('\''))
+  .map(line => line.split('__n(\''))
+  .filter(line => line.length > 1)
+  .map(line => line.slice(1).map(part => part.split('\'')))
+  .reduce((prev, next) => prev.concat(next), [])
   .map(line => { return { one: line[0], other: line.length >= 4 ? line[2] : line[0] }; })
+  .reduce((prev, next) => prev.concat(next), [])
   .filter(item => typeof item === 'object' && item !== null && !!item.one).sort().forEach(line => { output[line.one] = line; });
 
 spawnSync('git', [ 'grep', '-Fe', '__mf(\'', '--', 'views' ], { cwd: root, encoding: 'utf8', stdio: 'pipe' })
   .stdout.split('\n')
-  .map(line => line.split('__mf(\'')).filter(line => line.length > 1).map(line => line[1])
-  .map(line => line.split('\',')[0])
+  .map(line => line.split('__mf(\''))
+  .filter(line => line.length > 1)
+  .map(line => line.slice(1).map(part => part.split('\',')[0]))
+  .reduce((prev, next) => prev.concat(next), [])
   .filter(item => typeof item === 'string').sort().forEach(line => { output[line] = line; });
 
 let questions = [];
