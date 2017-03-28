@@ -32,8 +32,7 @@ html(lang=getLocale())
       .header-top
       .header-bar
         if user
-          a(href='#userdata' rel='modal:open')
-            p.sign-in= __mf('Hi {name}', { name: user.name }).toUpperCase()
+          a.sign-in(href='/' + getLocale() + '/' + __('Log Out').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Log Out').toUpperCase()
         else
           a.sign-in(href='/' + getLocale() + '/' + __('Log In').toLowerCase().split(' ').join('-').split('/').join('-'))= __('Log In').toUpperCase()
         if altLocales
