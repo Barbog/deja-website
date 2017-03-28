@@ -5,6 +5,8 @@ block body
     section
       if err
         p.center= (typeof err === 'string') ? err : (err.message || err)
+      if emailCheck
+        p.center= __('Check your e-mail for your password')
       form.log-in(action=altLocales[getLocale()] method='post')
         label(for='email')= __('Email').toUpperCase()
         input(type='email' id='email' name='email' required='required' value=(email || '') autofocus='autofocus')
