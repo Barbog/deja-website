@@ -418,10 +418,11 @@ app.all('/admin/visa-application/:year', returnBadAction);
   const catchLogin = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
+      const emailCheck = req.query.email === 'check';
       const location = (typeof req.query.l === 'string' && url.parse('https://xn--dej-3oa.lv' + req.query.l).path === req.query.l ? req.query.l : '') ||
         (req.body ? req.body.location : '') || ('/' + locale + '/');
 
-      res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location }, (err, html) => {
+      res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, emailCheck: emailCheck }, (err, html) => {
         if (err) {
           res.status(500);
           res.type('text/plain; charset=utf-8');
@@ -436,13 +437,12 @@ app.all('/admin/visa-application/:year', returnBadAction);
     });
     app.post(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
-      const emailCheck = req.query.email === 'check';
       const email = req.body ? typeof req.body.email === 'string' ? req.body.email.toLowerCase() : '' : '';
       const password = req.body ? req.body.password : '';
       const location = (req.body ? req.body.location : '') || ('/' + locale + '/');
 
       const rerender = err => {
-        res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, email: email, emailCheck: emailCheck }, (err, html) => {
+        res.render('log-in', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, email: email }, (err, html) => {
           if (err) {
             res.status(500);
             res.type('text/plain; charset=utf-8');
