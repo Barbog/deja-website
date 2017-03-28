@@ -436,7 +436,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
     });
     app.post(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
-      const email = req.body ? req.body.email : '';
+      const email = req.body ? typeof req.body.email === 'string' ? req.body.email.toLowerCase() : '' : '';
       const password = req.body ? req.body.password : '';
       const location = (req.body ? req.body.location : '') || ('/' + locale + '/');
 
@@ -593,7 +593,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
     app.post(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
       const name = req.body ? req.body.name : '';
-      const email = req.body ? req.body.email : '';
+      const email = req.body ? typeof req.body.email === 'string' ? req.body.email.toLowerCase() : '' : '';
       const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-');
 
       const rerender = err => {
