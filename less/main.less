@@ -164,7 +164,7 @@ header {
     background: url(/images/header.png) center/cover repeat;
 
     height: 158px;
-    margin: 8px;
+    margin: 0 auto;
     overflow-x: hidden;
 
     @media (min-width: (@desktop-size)) { & {
@@ -173,7 +173,6 @@ header {
       left: 0;
       right: 0;
       height: 230px;
-      margin: 0 auto;
       background-size: auto 100%;
     } }
 
@@ -187,7 +186,7 @@ header {
 
   .header-bar {
     height: 24px;
-    background: @dark;
+    background: @accent;
     padding: 12px 0;
 
     @media (min-width: (@desktop-size)) { & {
@@ -196,7 +195,6 @@ header {
       left: 0;
       right: 0;
       margin-top: 0;
-      background: @accent;
     } }
 
     .sign-in, .lang {
@@ -236,7 +234,7 @@ header {
 
     .home {
       position: absolute;
-      top: 192px;
+      top: 174px;
       @media (min-width: (@desktop-size)) { & { top: 16px; } }
       left: 50%;
       width: 120px;
@@ -255,7 +253,7 @@ header {
     }
 
     img.home {
-      top: 139px;
+      top: 123px;
       @media (min-width: (@desktop-size)) { & { top: -35px; } }
       display: block;
       max-width: 100%;
@@ -268,7 +266,7 @@ header {
 
 nav {
   display: block;
-  margin: 0 0 8px 0;
+  margin: 40px 0 8px 0;
   padding: 15px 0;
   width: 210px;
   &:first-of-type {
@@ -283,7 +281,6 @@ nav {
 
   @media (min-width: (@desktop-size)) { & {
     margin-left: 160px;
-    margin-top: 40px;
   } }
 
   &:empty {
