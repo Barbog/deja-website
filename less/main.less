@@ -357,10 +357,17 @@ section {
   } }
 
   &.nav-indent {
-    float: right;
-    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 210px;
     margin-top: 16px;
     @media (min-width: (@desktop-size)) { & {
+      position: initial;
+      float: right;
+      transform: none;
+      display: inline-block;
+      margin-left: 0;
       margin-top: 0;
     } }
   }
