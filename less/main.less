@@ -65,6 +65,7 @@
 }
 
 body {
+  position: absolute;
   max-width: 100%;
   width: 100%;
   background: @light;
@@ -265,8 +266,10 @@ header {
 }
 
 nav {
+  position: relative;
   display: block;
-  transform: translateX(50%);
+  left: 25%;
+  transform: translateX(-50%);
   margin: 40px 0 8px 0;
   padding: 15px 0;
   width: 210px;
@@ -360,14 +363,14 @@ section {
   } }
 
   &.nav-indent {
-    position: absolute;
-    right: 0;
-    transform: translateX(-50%);
-    margin-left: 210px;
+    position: relative;
+    display: block;
+    right: 25%;
+    float: right;
+    transform: translateX(50%);
     margin-top: 16px;
     @media (min-width: (@desktop-size)) { & {
       position: initial;
-      float: right;
       transform: none;
       display: inline-block;
       margin-left: 0;
