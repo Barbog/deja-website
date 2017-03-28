@@ -126,6 +126,7 @@
 		"one": "We burn in %s day",
 		"other": "We burn in %s days"
 	},
+	"Hi {name}": "Hi {name}",
 	"A location to gather": "A location to gather",
 	"Camping gear": "Camping gear",
 	"Cell phone use is highly encouraged.": "Cell phone use is highly encouraged.",
