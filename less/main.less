@@ -105,14 +105,6 @@ button, a {
   }
 } 
 
-.clear:before, .clear:after {
-  content: '';
-  display: table;
-} 
-.clear:after {
-  clear: both;
-}
-
 .float-left {
   float: left;
   position: absolute;
@@ -272,16 +264,19 @@ nav {
   display: block;
   margin: 0 0 8px 0;
   padding: 15px 0;
+  width: 210px;
   &:first-of-type {
-    width: 210px;
     background: @dark;
+  }
+  &:last-of-type {
+    &:before, &:after { content: ''; display: table; }
+    &:after { clear: both; }
   }
   color: @accent;
   transition: transform .1s ease-in-out, width .1s ease-in-out;
 
   @media (min-width: (@desktop-size)) { & {
-    margin-left: 5px;
-    &:first-of-type { margin-left: 160px; }
+    margin-left: 160px;
     margin-top: 40px;
   } }
 
@@ -296,10 +291,10 @@ nav {
     margin: 8px 0;
   }
 
-  button, a {
+  button, a, p {
     display: block;
     width: 100%;
-    margin: 6px 0;
+    margin: 6px -6px;
     padding: 6px;
     font-size: @font-size;
     line-height: @line-height;
@@ -307,7 +302,9 @@ nav {
     text-align: center;
     vertical-align: text-top;
     color: #FFF;
+  }
 
+  button, a {
     transition: transform .1s ease-in-out;
     &:hover { transform: translateY(-4px); }
     &.disabled {
@@ -316,30 +313,8 @@ nav {
     }
   }
 
-  p {
-    margin-bottom: .2em;
-    width: 250px;
-    text-align: right;
-    line-height: @line-height;
-    &.float-left {
-      text-align: left;
-      margin-top: -(.2em + @line-height);
-      margin-left: 270px;
-      width: initial;
-    }
-    &.push-up {
-      text-align: center;
-      margin: 0;
-      width: 210px;
-      max-width: 100%;
-      position: relative;
-      color: #FFF;
-      font-size: @font-size * 1.8;
-      @media (min-width: 1020px) { & {
-        margin-right: 160px;
-        transform: translateY(-(.2em + @line-height));
-      } }
-    }
+  p:first-of-type {
+    margin-top: @line-height * 2;
   }
 }
 

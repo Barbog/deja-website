@@ -4,8 +4,10 @@ mixin tree-button(name, edge)
   a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-').split('/').join('-') + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-') class='tree-' + name.toLowerCase().split(' ').join('-').split('/').join('-'))
     img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-') + '.png' title=__(name) width=edge height=edge)
 
-mixin section(name, classname)
-  a(class=(classname + (acl((subpages.filter(page => page.title === name)[0] || {}).acl) ? '' : ' disabled')).trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-'))= __(name).toUpperCase()
+mixin section(name)
+  - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl)
+  if accessible || (name === 'Visa Application' && acl('email'))
+    a(class=(accessible ? '' : 'disabled').trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-'))= __(name).toUpperCase()
 
 block home
   img.home.disabled(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='750' height='750')
@@ -27,32 +29,27 @@ block body
       +tree-button('Self Reliance', '30')
   nav
     div
-      +section('What is DeJā', 'left')
-      +section('Burn Etiquette', 'left')
-      +section('Survival Guide', 'left')
-      +section('Creation', 'left')
-    div
-      +section('Visa Application', 'right')
-      +section('Donation', 'right')
-      +section('Network', 'right')
-      +section('FAQ', 'right')
-  nav.clear
-    p= __('1 March — 31 May:')
-    p.float-left= __('Visa applications accepted.')
-    p= __('17 June — 20 June:')
-    p.float-left= __('Early arrivals.')
-    p= __('21 June — 24 June:')
-    p.float-left= __('DeJā.')
-    p= __('25 June — deMOOPed:')
-    p.float-left= __('Strike/Clean up.')
+      +section('What is DeJā')
+      +section('Burn Etiquette')
+      +section('Survival Guide')
+      +section('Creation')
+      +section('Visa Application')
+      +section('Donation')
+      +section('Network')
+      +section('FAQ')
+      p #{__('1 March — 31 May:')}#[br]#{__('Visa applications accepted.')}
+      p #{__('17 June — 20 June:')}#[br]#{__('Early arrivals.')}
+      p #{__('21 June — 24 June:')}#[br]#{__('DeJā.')}
+      p #{__('25 June — deMOOPed:')}#[br]#{__('Strike/Clean up.')}
+  nav
     - let now = Date.now()
     - let burnEnd = +(new Date((new Date()).getFullYear(), 5, 25))
     - let burnStart = +(new Date((new Date()).getFullYear() + (now > burnEnd ? 1 : 0), 5, 21))
     - let daysTillBurn = Math.ceil((burnStart - now) / 1000 / 60 / 60 / 24)
     if now > burnStart || daysTillBurn <= 0
-      p.float-right.push-up= __('We are burning right now')
+      p= __('We are burning right now')
     else
-      p.float-right.push-up= __n('We burn in %s day', 'We burn in %s days', daysTillBurn)
+      p= __n('We burn in %s day', 'We burn in %s days', daysTillBurn)
   section.bgless
     h1= __('Upcoming Global Events').toUpperCase()
     .carousel-container
