@@ -68,10 +68,10 @@ body {
   position: absolute;
   @media (min-width: (@desktop-size)) { & { position: initial; } }
   max-width: 100%;
-  width: 100%;
+  width: @desktop-size;
   background: @light;
-  max-width: @desktop-size;
   margin: 0 auto;
+  > * { max-width: 100%; overflow-x: hidden; }
 }
 
 body, button, input, a {
