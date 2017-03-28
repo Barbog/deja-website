@@ -7,6 +7,7 @@
 @font-size: 13px;
 @line-height: 1.2em;
 @desktop-size: 1020px;
+@tree-width: 210px;
 
 @keyframes fadein {
   from { opacity: 0; }
@@ -187,7 +188,6 @@ header {
   }
 
   .header-bar {
-    height: 24px;
     background: @accent;
     padding: 12px 0;
 
@@ -273,11 +273,15 @@ nav {
   transform: translateX(-50%);
   margin: 40px 0 8px 0;
   padding: 15px 0;
-  width: 210px;
+  width: @tree-width;
 
   @media (min-width: (@desktop-size)) { & {
     transform: none;
     left: 0;
+  } }
+
+  @media (max-width: (@tree-width * 2)) { & {
+    left: 50%;
   } }
 
   &:first-of-type {
@@ -384,6 +388,9 @@ section {
       display: inline-block;
       margin-left: 0;
       margin-top: 0;
+    } }
+    @media (max-width: (@tree-width * 2)) { & {
+      right: 50%;
     } }
   }
 
@@ -503,9 +510,8 @@ section {
 
   .tree {
     position: relative;
-    @tree-width: 210px;
-    @tree-height: 380px;
     width: @tree-width;
+    @tree-height: 380px;
     height: auto;
     margin: 0;
     max-width: 100%;
