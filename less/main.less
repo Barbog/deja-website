@@ -266,9 +266,15 @@ header {
 
 nav {
   display: block;
+  transform: translateX(50%);
   margin: 40px 0 8px 0;
   padding: 15px 0;
   width: 210px;
+
+  @media (min-width: (@desktop-size)) { & {
+    transform: none;
+  } }
+
   &:first-of-type {
     background: @dark;
   }
@@ -355,7 +361,7 @@ section {
 
   &.nav-indent {
     position: absolute;
-    left: 50%;
+    right: 0;
     transform: translateX(-50%);
     margin-left: 210px;
     margin-top: 16px;
