@@ -73,11 +73,12 @@ $(function () {
         if (update === null) {
           update = {};
         }
-        update.password = $('#userdata #password').val();
+        update.password = oldpassword;
         update.newpassword = newpassword;
       }
     }
     if (update !== null) {
+      $('#userdata [href="#close"]').remove();
       $.ajax({
         method: 'POST',
         url: '/user/update',
