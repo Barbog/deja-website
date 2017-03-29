@@ -22,12 +22,12 @@ html(lang=getLocale())
           link(rel='alternate' hreflang=locale href=href)
   body
     if user
-      div#userdata.modal(style='display:none')
-        input#realname(type='text' value=user.name data-name=user.name autocomplete='name' placeholder=__('Name'))
-        input#password(type='password' style='display:none' placeholder=__('Current password'))
-        input#newpassword(type='password' placeholder=__('New password, if you want to change it'))
-        input#newpasswordrepeat(type='password' style='display:none' placeholder=__('New password, repeated'))
-        a(href='#close')= __('Close')
+      form#userdata.modal(style='display:none')
+        input#realname(type='text' name='realname' value=user.name data-name=user.name autocomplete='name' placeholder=__('Name'))
+        input#password(type='password' name='password' style='display:none' placeholder=__('Current password'))
+        input#newpassword(type='password' name='newpassword' placeholder=__('New password, if you want to change it'))
+        input#newpasswordrepeat(type='password' name='newpasswordrepeat' style='display:none' placeholder=__('New password, repeated'))
+        button(type='submit')= __('Close')
     header
       .header-top
       .header-bar

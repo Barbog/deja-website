@@ -53,7 +53,7 @@ $(function () {
   $.modal.defaults.escapeClose = false;
   $.modal.defaults.clickClose = false;
   $.modal.defaults.showClose = false;
-  $('#userdata [href="#close"]').on('click', function () {
+  $('#userdata button[type="submit"]').on('click', function () {
     var update = null;
     var name = $('#userdata #realname').val();
     if (name !== $('#userdata #realname').data('name')) {
@@ -80,7 +80,7 @@ $(function () {
       }
     }
     if (update !== null) {
-      $('#userdata [href="#close"]').remove();
+      $('#userdata button[type="submit"]').remove();
       $.ajax({
         method: 'POST',
         url: '/user/update',
