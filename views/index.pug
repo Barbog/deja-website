@@ -13,6 +13,10 @@ block home
   img.home.disabled(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='750' height='750')
 
 block body
+  nav
+    if user
+      a(href='#userdata' rel='modal:open')
+        p= __mf('Hi {name}', { name: user.name }).toUpperCase()
   section.bgless.nav-indent
     .tree
       img(src='/images/principles/tree.png' alt=__('Tree of Life') width='210' height='380')
@@ -27,10 +31,6 @@ block body
       +tree-button('Participation', '30')
       +tree-button('Self-expression', '30')
       +tree-button('Self Reliance', '30')
-  nav
-    if user
-      a(href='#userdata' rel='modal:open')
-        p= __mf('Hi {name}', { name: user.name }).toUpperCase()
   nav
     div
       +section('What is DeJā')
