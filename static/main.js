@@ -43,7 +43,9 @@ $(function () {
     });
   });
   var checkpassword = function () {
-    var val = $('#userdata #newpassword').val().length > 0;
+    var val = $('#userdata #newpassword').val();
+    if (typeof val !== 'string') val = '';
+    val = val.length > 0;
     $('#userdata #password, #userdata #newpasswordrepeat').toggle(val).attr('required', val ? 'required' : false);
     setTimeout(checkpassword, 50);
   };
