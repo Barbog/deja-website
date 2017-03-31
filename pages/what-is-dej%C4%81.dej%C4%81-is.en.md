@@ -4,6 +4,7 @@ typora-root-url: ../static
 
 <span style="color:#77011e;"><u>What is DeJā?</u></span>
 
+<<<<<<< refs/remotes/origin/master
 * DeJā is short for Degošie Jāņi* - a Baltic Midsummer solstice celebration.
 * An autonomous gathering, inspired and guided by the ethos of the [BM](http://burningman.org/) culture.
 * A donation-driven, volunteer run event and commercial free zone. No one gets paid to facilitate the event.  Nothing is for sale at this event.  We do not sell tickets to enter this gathering. We do not promote or advertise the event through media.
@@ -11,6 +12,15 @@ typora-root-url: ../static
 * A  canvas for you to come create and express yourself.
 * A temporary village where you will meet a diverse, artistic, international collective of individuals, participating to collectively co-create and conjure magic,  in a surrounding where you will be required to exercise your self-reliance.
 * (*Latvian. verb.*)  to dance.
+=======
+* DeJā is short for Degošie Jāņi* - a Baltic Midsummer solstice celebration. 
+* Is a burn.  An autonomous gathering, inspired and guided by the ethos of the [BM](http://burningman.org/) culture.
+* A donation-driven, volunteer run event and commercial free zone. No one gets paid to facilitate the event.  Nothing is for sale at this event.  No tickets are sold to enter this gathering. We do not promote or advertise the event through media. 
+* An experiment in creativity, expression, participation and cash-free community.  Created, experienced and returned to nothing by you. 
+* A  canvas for you to come create and express yourself.  
+* A temporary village where you will meet a diverse, artistic, international collective of individuals, participating to collectively co-create and conjure magic,  in a surrounding where you will be required to exercise your self-reliance.  
+* (*Latvian. verb.*)  to dance.  
+>>>>>>> FAWQ
 
 **<span style="color:#77011e;"><u>When is it?**</u></span>
 
