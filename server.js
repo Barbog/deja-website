@@ -1551,3 +1551,63 @@ const cleanVirginApplicationQueue = () => {
   });
 };
 setTimeout(cleanVirginApplicationQueue, 10 * 1000);
+
+const cleanVisaEmailQueue = () => {
+  /* TODO Release.
+  const visaPeriod = getVisaPeriod();
+  db.hgetall('visaqueue:' + visaPeriod, (err, visaQueue) => {
+    if (err) {
+      console.error(err.stack);
+      setTimeout(cleanVisaEmailQueue, 60 * 1000);
+      return;
+    }
+
+    async.eachOf(visaQueue, (sendDate, key, callback) => {
+      if (Date.now() >= visaQueue[key]) {
+        callback(null);
+        return;
+      }
+
+      db.increment('visaid:' + visaPeriod, (err, visaId) => {
+        if (err) {
+          callback(err);
+          return;
+        }
+
+        db.hset('user:' + key, 'visaid:' + visaPeriod, visaId, err => {
+          if (err) {
+            callback(err);
+            return;
+          }
+
+          console.log('Sending out visa e-mail via ' + key + '.');
+          app.render('email-visa', {}, (err, html) => {
+            mailgun.messages().send({
+              from: 'Degošie Jāņi <game@sparklatvia.lv>',
+              to: email,
+              subject: 'Your visa application status for DeJā',
+              text: 'Congratulations, here's your entry into DeJā 2017.' + '\n\n' +
+                'You will need to show the digital or print-out of the visa when you arrive at the gate.',
+              html: err ? undefined : html
+            }, err => {
+              if (err) {
+                callback(err);
+                return;
+              }
+
+              db.hdel('visaqueue:' + visaPeriod, key, callback);
+            });
+          });
+        });
+      });
+    }, err => {
+      if (err) {
+        console.log(err.stack);
+      }
+
+      setTimeout(cleanVisaEmailQueue, 60 * 1000);
+    });
+  });
+  */
+};
+setTimeout(cleanVisaEmailQueue, 10 * 1000);
