@@ -25,13 +25,13 @@
     "i18n": "^0.8.3",
     "less": "^2.7.2",
     "less-plugin-clean-css": "^1.5.1",
-    "mailgun-js": "^0.9.1",
+    "mailgun-js": "^0.10.1",
     "morgan": "^1.8.1",
     "pug": "^2.0.0-beta9",
     "randomstring": "^1.1.5",
     "redis": "^2.7.1",
     "showdown": "^1.6.4",
-    "xlsx": "^0.9.9"
+    "xlsx": "^0.9.10"
   },
   "devDependencies": {},
   "jshintConfig": {
