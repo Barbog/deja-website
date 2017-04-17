@@ -80,14 +80,18 @@ let visaApplication = [];
 JSON.parse(fs.readFileSync(path.join(root, 'visa-application.json'), { encoding: 'utf8' })).forEach(section => {
   visaApplication[visaApplication.length] = section.title;
   if (section.subtitle) { visaApplication[visaApplication.length] = section.subtitle; }
-  if (section.questions) { section.questions.forEach(question => {
-    visaApplication[visaApplication.length] = question.title;
-    if (question.subtitle) { visaApplication[visaApplication.length] = question.subtitle; }
-    if (question.subtitleif) { visaApplication[visaApplication.length] = question.subtitleif; }
-    if (question.answers) { question.answers.forEach(answer => {
-      visaApplication[visaApplication.length] = answer;
-    }); }
-  }); }
+  if (section.questions) {
+    section.questions.forEach(question => {
+      visaApplication[visaApplication.length] = question.title;
+      if (question.subtitle) { visaApplication[visaApplication.length] = question.subtitle; }
+      if (question.subtitleif) { visaApplication[visaApplication.length] = question.subtitleif; }
+      if (question.answers) {
+        question.answers.forEach(answer => {
+          visaApplication[visaApplication.length] = answer;
+        });
+      }
+    });
+  }
 });
 visaApplication.filter(item => typeof item === 'string').sort().forEach(item => { output[item] = item; });
 
