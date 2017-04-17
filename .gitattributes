@@ -5,6 +5,9 @@
 *.md    text eol=lf
 *.pug   text eol=lf
 *.sh    text eol=lf
+*.txt   text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
 
 *.jpg   binary
 *.jpeg  binary
@@ -13,6 +16,9 @@
 
 .gitattributes text eol=lf
 .gitignore text eol=lf
+.npmignore text eol=lf
+LICENSE text eol=lf
+README text eol=lf
 
 /bower_components/** binary
 /node_modules/** binary
