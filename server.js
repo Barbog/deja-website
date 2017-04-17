@@ -1234,43 +1234,38 @@ function catchAllFor (backstack, sitemap) {
 
                   const virgin = application['previous-burns'] === 'no' || application['previous-burns'] === '"no"';
 
-                  const pushToQueue = () => {
-                    if (page.render.nextpage === 'Status') {
-                      db.rpush('queue:' + visaPeriod + ':' + (virgin ? 'virgin' : 'veteran'), res.locals.user.email, err => {
-                        if (err) {
-                          res.status(500);
-                          res.type('text/plain; charset=utf-8');
-                          res.send('Something broke horribly. Sorry.');
-                          console.error(err.stack);
-                          return;
-                        }
+                  if (page.render.nextpage === 'Status') {
+                    db.rpush('queue:' + visaPeriod + ':' + (virgin ? 'virgin' : 'veteran'), res.locals.user.email, err => {
+                      if (err) {
+                        res.status(500);
+                        res.type('text/plain; charset=utf-8');
+                        res.send('Something broke horribly. Sorry.');
+                        console.error(err.stack);
+                        return;
+                      }
 
-                        setUserField();
-                      });
-                    } else {
+                      if (virgin) {
+                        const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+                        app.render('email-apply-virgin', {}, (err, html) => {
+                          mailgun.messages().send({
+                            from: 'Degošie Jāņi <game@sparklatvia.lv>',
+                            to: aemail,
+                            subject: 'Your visa application status for DeJā',
+                            text: 'Thank you for your submission!' + '\n\n' +
+                              'You will be receiving another email with more information.',
+                            html: err ? undefined : html
+                          }, err => {
+                            if (err) {
+                              console.error(err.stack);
+                            }
+                          });
+                        });
+                      }
+
                       setUserField();
-                    }
-                  };
-
-                  if (virgin) {
-                    const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
-                    app.render('email-apply-virgin', {}, (err, html) => {
-                      mailgun.messages().send({
-                        from: 'Degošie Jāņi <game@sparklatvia.lv>',
-                        to: aemail,
-                        subject: 'Your visa application status for DeJā',
-                        text: 'Thank you for your submission!' + '\n\n' +
-                          'You will be receiving another email with more information.',
-                        html: err ? undefined : html
-                      }, err => {
-                        if (err) {
-                          console.error(err.stack);
-                        }
-                        pushToQueue();
-                      });
                     });
                   } else {
-                    pushToQueue();
+                    setUserField();
                   }
                 });
               });
