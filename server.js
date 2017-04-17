@@ -1253,11 +1253,11 @@ function catchAllFor (backstack, sitemap) {
                   };
 
                   if (virgin) {
-                    const aemail = JSON.parse(application.email);
+                    const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
                     app.render('email-apply-virgin', {}, (err, html) => {
                       mailgun.messages().send({
                         from: 'Degošie Jāņi <game@sparklatvia.lv>',
-                        to: JSON.parse(aemail),
+                        to: aemail,
                         subject: 'Your visa application status for DeJā',
                         text: 'Thank you for your submission!' + '\n\n' +
                           'You will be receiving another email with more information.',
@@ -1434,7 +1434,7 @@ const emailApply = (visaPeriod, priority, callback) => {
         return;
       }
 
-      const aemail = JSON.parse(application.email);
+      const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
       console.log('Sending out invite e-mail to ' + priority + ' ' + email + ' via ' + aemail + '.');
       app.render('email-apply', {}, (err, html) => {
         mailgun.messages().send({
@@ -1451,7 +1451,8 @@ const emailApply = (visaPeriod, priority, callback) => {
             return;
           }
 
-          let name = JSON.parse(application['name-surname']).split(' ');
+          let name = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
+          name = typeof name === 'string' ? name.split(' ') : '';
           let surname = name.pop();
           name = name.join(' ');
 
