@@ -575,6 +575,7 @@ section {
       left: 0;
       .transform(initial);
       margin-bottom: 0;
+      padding-bottom: 30px;
       padding-right: 30px;
       max-width: 50%;
       vertical-align: middle;
@@ -582,6 +583,10 @@ section {
       line-height: @line-height;
       color: #fff;
       word-wrap: break-word;
+
+      @media (max-width: (@tree-width * 2)) { & {
+        display: block;
+      } }
 
       @media (min-width: (@desktop-size)) { & {
         font-size: @font-size * 3;
