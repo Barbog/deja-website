@@ -1125,6 +1125,9 @@ function catchAllFor (backstack, sitemap) {
                   h[id] = JSON.stringify(ans);
                   break;
                 case 'multiple':
+                  if (typeof ans === 'string') {
+                    ans = [ ans ];
+                  }
                   if (!Array.isArray(ans)) {
                     rerender();
                     return;
