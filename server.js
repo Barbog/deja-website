@@ -1551,13 +1551,12 @@ const cleanVirginApplicationQueue = () => {
 };
 setTimeout(cleanVirginApplicationQueue, 10 * 1000);
 
-const cleanVisaEmailQueue = () => {
+const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
   /* TODO Release.
-  const visaPeriod = getVisaPeriod();
   db.hgetall('visaqueue:' + visaPeriod, (err, visaQueue) => {
     if (err) {
       console.error(err.stack);
-      setTimeout(cleanVisaEmailQueue, 60 * 1000);
+      setTimeout(rerun, 60 * 1000);
       return;
     }
 
@@ -1604,9 +1603,12 @@ const cleanVisaEmailQueue = () => {
         console.log(err.stack);
       }
 
-      setTimeout(cleanVisaEmailQueue, 60 * 1000);
+      setTimeout(rerun, 60 * 1000);
     });
   });
   */
 };
-setTimeout(cleanVisaEmailQueue, 10 * 1000);
+const cleanVisaEmailQueueForLast = () => cleanVisaEmailQueueFor(getVisaPeriod() - 1, cleanVisaEmailQueueForLast);
+setTimeout(cleanVisaEmailQueueForLast, 10 * 1000);
+const cleanVisaEmailQueueForCurrent = () => cleanVisaEmailQueueFor(getVisaPeriod(), cleanVisaEmailQueueForCurrent);
+setTimeout(cleanVisaEmailQueueForCurrent, 10 * 1000);
