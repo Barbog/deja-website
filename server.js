@@ -1249,11 +1249,11 @@ function catchAllFor (backstack, sitemap) {
 
                       if (virgin) {
                         const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
-                        app.render('email-apply-virgin', {}, (err, html) => {
+                        app.render('email-apply-virgin', { visaPeriod }, (err, html) => {
                           mailgun.messages().send({
                             from: 'Degošie Jāņi <game@sparklatvia.lv>',
                             to: aemail,
-                            subject: 'Your visa application status for DeJā',
+                            subject: 'Your visa application status for DeJā ' + visaPeriod,
                             text: 'Thank you for your submission!' + '\n\n' +
                               'You will be receiving another email with more information.',
                             html: err ? undefined : html
@@ -1434,12 +1434,12 @@ const emailApply = (visaPeriod, priority, callback) => {
 
       const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
       console.log('Sending out invite e-mail to ' + priority + ' ' + email + ' via ' + aemail + '.');
-      app.render('email-apply', {}, (err, html) => {
+      app.render('email-apply', { visaPeriod }, (err, html) => {
         mailgun.messages().send({
           from: 'Degošie Jāņi <game@sparklatvia.lv>',
           to: aemail,
-          subject: 'Your visa application status for DeJā',
-          text: 'Congratulations! You are going to DeJā!' + '\n\n' +
+          subject: 'Your visa application status for DeJā ' + visaPeriod,
+          text: 'Congratulations! You are going to DeJā ' + visaPeriod + '!' + '\n\n' +
             'You won\'t get bombarded with many emails, but you will receive a few with all the information between now and DeJā.' + '\n\n' +
             'Slack will be inviting you to join the Baltic Burners team. Use it to communicate, to organize and to plan.',
           html: err ? undefined : html
@@ -1579,12 +1579,12 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           }
 
           console.log('Sending out visa e-mail via ' + key + '.');
-          app.render('email-visa', {}, (err, html) => {
+          app.render('email-visa', { visaPeriod }, (err, html) => {
             mailgun.messages().send({
               from: 'Degošie Jāņi <game@sparklatvia.lv>',
               to: email,
-              subject: 'Your visa application status for DeJā',
-              text: 'Congratulations, here's your entry into DeJā 2017.' + '\n\n' +
+              subject: 'Your visa application status for DeJā ' + visaPeriod,
+              text: 'Congratulations, here's your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
                 'You will need to show the digital or print-out of the visa when you arrive at the gate.',
               html: err ? undefined : html,
               attachment: [
