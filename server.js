@@ -1586,7 +1586,10 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
               subject: 'Your visa application status for DeJā',
               text: 'Congratulations, here's your entry into DeJā 2017.' + '\n\n' +
                 'You will need to show the digital or print-out of the visa when you arrive at the gate.',
-              html: err ? undefined : html
+              html: err ? undefined : html,
+              attachment: [
+                new mailgun.Attachment({ data: 'directions.pdf', filename: path.join(__dirname, 'email', 'directions.pdf') })
+              ]
             }, err => {
               if (err) {
                 callback(err);
