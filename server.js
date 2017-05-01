@@ -1109,10 +1109,16 @@ function catchAllFor (backstack, sitemap) {
 
               switch (res.locals.questions[i].type) {
                 case 'text':
-                case 'email':
                 case 'date':
                 case 'country':
                   if (typeof ans !== 'string') {
+                    rerender();
+                    return;
+                  }
+                  h[id] = JSON.stringify(ans);
+                  break;
+                case 'email':
+                  if (typeof ans !== 'string' || ans !== res.locals.user.email) {
                     rerender();
                     return;
                   }
@@ -1580,9 +1586,9 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           app.render('email-visa', { visaPeriod }, (err, html) => {
             mailgun.messages().send({
               from: 'Degošie Jāņi <game@sparklatvia.lv>',
-              to: email,
+              to: key,
               subject: 'Your visa application status for DeJā ' + visaPeriod,
-              text: 'Congratulations, here's your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
+              text: 'Congratulations, here\'s your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
                 'You will need to show the digital or print-out of the visa when you arrive at the gate.',
               html: err ? undefined : html,
               attachment: [
@@ -1613,13 +1619,27 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           });
         };
 
+        let name = user.name.split(' ');
+        for (var i = 0; i < name.length; i++) {
+          name[i] = {
+            w: name[i],
+            len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
+          };
+        }
+        let midlen = name[name.length - 1].len / 2;
+        let splitoff = name.reduce((prev, curr) => {
+          return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev);
+        }, -1);
+        name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
+          name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim();
+
         const image = () => {
           gm(path.join(__dirname, 'email', 'visa.png'))
             .gravity('center')
             .font(path.join(__dirname, 'email', 'visa.ttf'))
             .fontSize(42).pointSize(42)
             .fill('white')
-            .drawText(412, 0, user.name || '', 'center')
+            .drawText(412, 0, name, 'center')
             .toBuffer('png', (err, pngBuffer) => {
               if (err) {
                 callback(err);
