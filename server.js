@@ -1588,6 +1588,7 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
                 'You will need to show the digital or print-out of the visa when you arrive at the gate.',
               html: err ? undefined : html,
               attachment: [
+                new mailgun.Attachment({ data: 'details.pdf', filename: path.join(__dirname, 'email', 'details.pdf') }),
                 new mailgun.Attachment({ data: 'directions.pdf', filename: path.join(__dirname, 'email', 'directions.pdf') })
               ]
             }, err => {
