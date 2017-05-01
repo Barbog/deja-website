@@ -407,7 +407,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
       res.status(200);
       res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
       res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
-      res.send(new Buffer(xlsx.write(workbook, { bookType: 'xlsx', bookSST: false, type: 'base64' }), 'base64'));
+      res.send(Buffer.from(xlsx.write(workbook, { bookType: 'xlsx', bookSST: false, type: 'base64' }), 'base64'));
     });
   });
 });
@@ -1407,7 +1407,6 @@ process.once('SIGINT', () => {
     if (err) {
       console.error(err.stack);
       process.exit(1);
-      return;
     }
     if (count > 0) {
       console.log('Waiting for ' + count + ' open connections to close themselves.');
@@ -1559,7 +1558,6 @@ const cleanVirginApplicationQueue = () => {
 setTimeout(cleanVirginApplicationQueue, 10 * 1000);
 
 const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
-  /* TODO Release.
   db.hgetall('visaqueue:' + visaPeriod, (err, visaQueue) => {
     if (err) {
       console.error(err.stack);
@@ -1684,7 +1682,6 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
       setTimeout(rerun, 60 * 1000);
     });
   });
-  */
 };
 const cleanVisaEmailQueueForLast = () => cleanVisaEmailQueueFor(getVisaPeriod() - 1, cleanVisaEmailQueueForLast);
 setTimeout(cleanVisaEmailQueueForLast, 10 * 1000);
