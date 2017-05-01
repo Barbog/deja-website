@@ -31,7 +31,7 @@
     "randomstring": "^1.1.5",
     "redis": "^2.7.1",
     "showdown": "^1.6.4",
-    "xlsx": "^0.9.12"
+    "xlsx": "^0.9.13"
   },
   "devDependencies": {},
   "jshintConfig": {
