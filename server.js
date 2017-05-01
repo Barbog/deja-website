@@ -33,6 +33,7 @@ const env = require('get-env')();
 const express = require('express');
 const frontMatter = require('front-matter');
 const fs = require('fs');
+const gm = require('gm');
 const https = require('https');
 const i18n = require('i18n');
 const less = require('less');
@@ -1572,36 +1573,61 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           return;
         }
 
-        db.hset('user:' + key, 'visaid:' + visaPeriod, visaId, err => {
+      gm(path.join(__dirname, 'email', 'visa.png'))
+        .gravity('center')
+        .font(path.join(__dirname, 'email', 'visa.ttf'))
+        .fontSize(42).pointSize(42)
+        .fill('white')
+        .drawText(412, 0, name, 'center')
+        .toBuffer('png', (err, pngBuffer) => {
           if (err) {
             callback(err);
             return;
           }
 
-          console.log('Sending out visa e-mail via ' + key + '.');
-          app.render('email-visa', { visaPeriod }, (err, html) => {
-            mailgun.messages().send({
-              from: 'Degošie Jāņi <game@sparklatvia.lv>',
-              to: email,
-              subject: 'Your visa application status for DeJā ' + visaPeriod,
-              text: 'Congratulations, here's your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
-                'You will need to show the digital or print-out of the visa when you arrive at the gate.',
-              html: err ? undefined : html,
-              attachment: [
-                new mailgun.Attachment({ data: 'details.pdf', filename: path.join(__dirname, 'email', 'details.pdf') }),
-                new mailgun.Attachment({ data: 'directions.pdf', filename: path.join(__dirname, 'email', 'directions.pdf') })
-              ]
-            }, err => {
-              if (err) {
-                callback(err);
-                return;
-              }
+          db.hset('user:' + key, 'visaid:' + visaPeriod, visaId, err => {
+            if (err) {
+              callback(err);
+              return;
+            }
 
-              db.hdel('visaqueue:' + visaPeriod, key, callback);
+            console.log('Sending out visa e-mail via ' + key + '.');
+            app.render('email-visa', { visaPeriod }, (err, html) => {
+              mailgun.messages().send({
+                from: 'Degošie Jāņi <game@sparklatvia.lv>',
+                to: email,
+                subject: 'Your visa application status for DeJā ' + visaPeriod,
+                text: 'Congratulations, here's your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
+                  'You will need to show the digital or print-out of the visa when you arrive at the gate.',
+                html: err ? undefined : html,
+                attachment: [
+                  new mailgun.Attachment({
+                    data: path.join(__dirname, 'email', 'details.pdf'),
+                    filename: 'details.pdf',
+                    contentType: 'application/pdf'
+                  }),
+                  new mailgun.Attachment({
+                    data: path.join(__dirname, 'email', 'directions.pdf'),
+                    filename: 'directions.pdf',
+                    contentType: 'application/pdf'
+                  }),
+                  new mailgun.Attachment({
+                    data: pngBuffer,
+                    filename: 'visa.png',
+                    contentType: 'image/png'
+                  })
+                ]
+              }, err => {
+                if (err) {
+                  callback(err);
+                  return;
+                }
+
+                db.hdel('visaqueue:' + visaPeriod, key, callback);
+              });
             });
           });
         });
-      });
     }, err => {
       if (err) {
         console.log(err.stack);
