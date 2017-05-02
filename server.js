@@ -1669,7 +1669,7 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           };
 
           if (typeof visaId === 'undefined') {
-            db.increment('visaid:' + visaPeriod, (err, genVisaId) => {
+            db.incr('visaid:' + visaPeriod, (err, genVisaId) => {
               if (err) {
                 callback(err);
                 return;
