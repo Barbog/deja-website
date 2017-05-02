@@ -1625,7 +1625,7 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           };
 
           let aname = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
-          let name = (typeof aname === 'string' ? aname : user.name).split(' ');
+          let name = (typeof aname === 'string' ? aname : user.name).toUpperCase().split(' ');
           for (var i = 0; i < name.length; i++) {
             name[i] = {
               w: name[i],
@@ -1645,7 +1645,7 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
               .font(path.join(__dirname, 'email', 'visa.ttf'))
               .fontSize(42).pointSize(42)
               .fill('white')
-              .drawText(412, 0, name, 'center')
+              .drawText(412, 6, name, 'center')
               .toBuffer('png', (err, pngBuffer) => {
                 if (err) {
                   callback(err);
