@@ -1625,19 +1625,23 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           };
 
           let aname = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
-          let name = (typeof aname === 'string' ? aname : user.name).toUpperCase().split(' ');
-          for (var i = 0; i < name.length; i++) {
-            name[i] = {
-              w: name[i],
-              len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
-            };
+          let name = (typeof aname === 'string' ? aname : user.name).trim().toUpperCase().split(' ');
+          if (name.length > 2) {
+            for (var i = 0; i < name.length; i++) {
+              name[i] = {
+                w: name[i],
+                len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
+              };
+            }
+            let midlen = name[name.length - 1].len / 2;
+            let splitoff = name.reduce((prev, curr) => {
+              return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev);
+            }, -1);
+            name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
+              name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim();
+          } else {
+            name = name.join(' ');
           }
-          let midlen = name[name.length - 1].len / 2;
-          let splitoff = name.reduce((prev, curr) => {
-            return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev);
-          }, -1);
-          name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
-            name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim();
 
           const image = () => {
             gm(path.join(__dirname, 'email', 'visa.png'))
