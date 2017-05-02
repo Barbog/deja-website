@@ -780,7 +780,7 @@ function catchAllFor (backstack, sitemap) {
           const preroute = callback => {
             if (page.type === 'questions') {
               if (!res.locals.user) {
-                callback(false);
+                callback(null, false);
                 return;
               }
 
@@ -800,13 +800,13 @@ function catchAllFor (backstack, sitemap) {
                     res.send(html);
                   }
                 });
-                callback(true);
+                callback(null, true);
               } else {
-                callback(false);
+                callback(null, false);
               }
             } else if (page.type === 'visa-application') {
               if (!res.locals.user) {
-                callback(false);
+                callback(null, false);
                 return;
               }
 
@@ -827,12 +827,12 @@ function catchAllFor (backstack, sitemap) {
                     res.send(html);
                   }
                 });
-                callback(true);
+                callback(null, true);
               } else {
-                callback(false);
+                callback(null, false);
               }
             } else {
-              callback(false);
+              callback(null, false);
             }
           };
           const prerender = callback => {
@@ -915,8 +915,8 @@ function catchAllFor (backstack, sitemap) {
             }
           };
           const render = markdown => {
-            preroute(intercepted => {
-              if (intercepted) { return; }
+            preroute((err, intercepted) => {
+              if (err || intercepted) { return; }
 
               prerender(err => {
                 if (err) {
