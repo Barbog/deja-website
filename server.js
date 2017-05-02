@@ -1566,7 +1566,7 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
     }
 
     async.eachOf(visaQueue, (sendDate, key, callback) => {
-      if (Date.now() >= visaQueue[key]) {
+      if (Date.now() < visaQueue[key]) {
         callback(null);
         return;
       }
@@ -1577,102 +1577,111 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
           return;
         }
 
-        let visaId = user['visaid:' + visaPeriod];
+        db.hgetall('visa:' + visaPeriod + ':' + key, (err, application) => {
+          if (err) {
+            callback(err);
+            return;
+          }
 
-        const send = (pngBuffer) => {
-          console.log('Sending out visa e-mail via ' + key + '.');
-          app.render('email-visa', { visaPeriod }, (err, html) => {
-            mailgun.messages().send({
-              from: 'Degošie Jāņi <game@sparklatvia.lv>',
-              to: key,
-              subject: 'Your visa application status for DeJā ' + visaPeriod,
-              text: 'Congratulations, here\'s your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
-                'You will need to show the digital or print-out of the visa when you arrive at the gate.',
-              html: err ? undefined : html,
-              attachment: [
-                new mailgun.Attachment({
-                  data: path.join(__dirname, 'email', 'details.pdf'),
-                  filename: 'details.pdf',
-                  contentType: 'application/pdf'
-                }),
-                new mailgun.Attachment({
-                  data: path.join(__dirname, 'email', 'directions.pdf'),
-                  filename: 'directions.pdf',
-                  contentType: 'application/pdf'
-                }),
-                new mailgun.Attachment({
-                  data: pngBuffer,
-                  filename: 'visa.png',
-                  contentType: 'image/png'
-                })
-              ]
-            }, err => {
-              if (err) {
-                callback(err);
-                return;
-              }
+          let visaId = user['visaid:' + visaPeriod];
 
-              db.hdel('visaqueue:' + visaPeriod, key, callback);
+          const send = (pngBuffer) => {
+            const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+            console.log('Sending out visa e-mail via ' + aemail + '.');
+            app.render('email-visa', { visaPeriod }, (err, html) => {
+              mailgun.messages().send({
+                from: 'Degošie Jāņi <game@sparklatvia.lv>',
+                to: aemail,
+                subject: 'Your visa application status for DeJā ' + visaPeriod,
+                text: 'Congratulations, here\'s your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
+                  'You will need to show the digital or print-out of the visa when you arrive at the gate.',
+                html: err ? undefined : html,
+                attachment: [
+                  new mailgun.Attachment({
+                    data: path.join(__dirname, 'email', 'details.pdf'),
+                    filename: 'details.pdf',
+                    contentType: 'application/pdf'
+                  }),
+                  new mailgun.Attachment({
+                    data: path.join(__dirname, 'email', 'directions.pdf'),
+                    filename: 'directions.pdf',
+                    contentType: 'application/pdf'
+                  }),
+                  new mailgun.Attachment({
+                    data: pngBuffer,
+                    filename: 'visa.png',
+                    contentType: 'image/png'
+                  })
+                ]
+              }, err => {
+                if (err) {
+                  callback(err);
+                  return;
+                }
+
+                db.hdel('visaqueue:' + visaPeriod, key, callback);
+              });
             });
-          });
-        };
-
-        let name = user.name.split(' ');
-        for (var i = 0; i < name.length; i++) {
-          name[i] = {
-            w: name[i],
-            len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
           };
-        }
-        let midlen = name[name.length - 1].len / 2;
-        let splitoff = name.reduce((prev, curr) => {
-          return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev);
-        }, -1);
-        name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
-          name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim();
 
-        const image = () => {
-          gm(path.join(__dirname, 'email', 'visa.png'))
-            .gravity('center')
-            .font(path.join(__dirname, 'email', 'visa.ttf'))
-            .fontSize(42).pointSize(42)
-            .fill('white')
-            .drawText(412, 0, name, 'center')
-            .toBuffer('png', (err, pngBuffer) => {
+          let aname = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
+          let name = (typeof aname === 'string' ? aname : user.name).split(' ');
+          for (var i = 0; i < name.length; i++) {
+            name[i] = {
+              w: name[i],
+              len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
+            };
+          }
+          let midlen = name[name.length - 1].len / 2;
+          let splitoff = name.reduce((prev, curr) => {
+            return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev);
+          }, -1);
+          name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
+            name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim();
+
+          const image = () => {
+            gm(path.join(__dirname, 'email', 'visa.png'))
+              .gravity('center')
+              .font(path.join(__dirname, 'email', 'visa.ttf'))
+              .fontSize(42).pointSize(42)
+              .fill('white')
+              .drawText(412, 0, name, 'center')
+              .toBuffer('png', (err, pngBuffer) => {
+                if (err) {
+                  callback(err);
+                  return;
+                }
+
+                if (user['visaid:' + visaPeriod] !== visaId) {
+                  db.hset('user:' + key, 'visaid:' + visaPeriod, visaId, err => {
+                    if (err) {
+                      callback(err);
+                      return;
+                    }
+
+                    user['visaid:' + visaPeriod] = visaId;
+                    send(pngBuffer);
+                  });
+                } else {
+                  send(pngBuffer);
+                }
+              });
+          };
+
+          if (typeof visaId === 'undefined') {
+            db.increment('visaid:' + visaPeriod, (err, genVisaId) => {
               if (err) {
                 callback(err);
                 return;
               }
 
-              if (user['visaid:' + visaPeriod] !== visaId) {
-                db.hset('user:' + key, 'visaid:' + visaPeriod, visaId, err => {
-                  if (err) {
-                    callback(err);
-                    return;
-                  }
-
-                  user['visaid:' + visaPeriod] = visaId;
-                  send(pngBuffer);
-                });
-              } else {
-                send(pngBuffer);
-              }
+              visaId = genVisaId;
+              image();
             });
-        };
-
-        if (typeof visaId === 'undefined') {
-          db.increment('visaid:' + visaPeriod, (err, genVisaId) => {
-            if (err) {
-              callback(err);
-              return;
-            }
-
-            visaId = genVisaId;
+          } else {
             image();
-          });
-        } else {
-          image();
-        }
+          }
+        });
       });
     }, err => {
       if (err) {
