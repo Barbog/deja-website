@@ -1593,8 +1593,10 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
                 from: 'Degošie Jāņi <game@sparklatvia.lv>',
                 to: aemail,
                 subject: 'Your visa application status for DeJā ' + visaPeriod,
-                text: 'Congratulations, here\'s your entry into DeJā ' + visaPeriod + '.' + '\n\n' +
-                  'You will need to show the digital or print-out of the visa when you arrive at the gate.',
+                text: 'Congratulations! Enclosed is your visa for DeJā ' + visaPeriod + '.' + '\n\n' +
+                  'You will need to show a digital copy or a printout of it when you arrive at the gate.' + '\n\n' +
+                  'There are 3 attachments in this email. Read them all. Information about donations, meal plan and Slack are enclosed as well as the directions to the property. Please do not share these.' + '\n\n' +
+                  'See you soon!',
                 html: err ? undefined : html,
                 attachment: [
                   new mailgun.Attachment({
