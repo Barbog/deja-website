@@ -1481,19 +1481,32 @@ const emailApply = (visaPeriod, priority, callback) => {
             res.setEncoding('utf8');
             res.on('data', (data) => { console.log(data); });
             res.on('end', () => {
+              let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
+              let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
+              if (visaEmailDate < earliestVisaEmailDate) {
+                visaEmailDate = earliestVisaEmailDate;
+              }
+
               db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
                 if (err) {
                   callback(err);
                   return;
                 }
 
-                db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                db.hset('visaqueue:' + visaPeriod, email, visaEmailDate, err => {
                   if (err) {
                     callback(err);
                     return;
                   }
 
-                  callback(null);
+                  db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                    if (err) {
+                      callback(err);
+                      return;
+                    }
+
+                    callback(null);
+                  });
                 });
               });
             });
