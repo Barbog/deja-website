@@ -1524,51 +1524,56 @@ const emailApply = (visaPeriod, priority, callback) => {
   });
 };
 
-const cleanVeteranApplicationQueue = () => {
-  emailApply(getVisaPeriod(), 'veteran', err => {
+const cleanVeteranApplicationQueueFor = (visaPeriod, rerun) => {
+  emailApply(visaPeriod, 'veteran', err => {
     if (err) {
       console.error(err.stack);
-      setTimeout(cleanVeteranApplicationQueue, 60 * 1000);
+      setTimeout(rerun, 60 * 1000);
     } else {
-      setTimeout(cleanVeteranApplicationQueue, 100);
+      setTimeout(rerun, 100);
     }
   });
 };
-setTimeout(cleanVeteranApplicationQueue, 10 * 1000);
+const cleanVeteranApplicationQueueForLast = () => cleanVeteranApplicationQueueFor(getVisaPeriod() - 1, cleanVeteranApplicationQueueForLast);
+setTimeout(cleanVeteranApplicationQueueForLast, 10 * 1000);
+const cleanVeteranApplicationQueueForCurrent = () => cleanVeteranApplicationQueueFor(getVisaPeriod(), cleanVeteranApplicationQueueForCurrent);
+setTimeout(cleanVeteranApplicationQueueForCurrent, 10 * 1000);
 
-const cleanVirginApplicationQueue = () => {
-  const visaPeriod = getVisaPeriod();
+const cleanVirginApplicationQueueFor = (visaPeriod, rerun) => {
   db.llen('invited:' + visaPeriod + ':virgin', (err, virginLength) => {
     if (err) {
       console.error(err.stack);
-      setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+      setTimeout(rerun, 60 * 1000);
       return;
     }
 
     db.llen('invited:' + visaPeriod + ':veteran', (err, veteranLength) => {
       if (err) {
         console.error(err.stack);
-        setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+        setTimeout(rerun, 60 * 1000);
         return;
       }
 
       if (veteranLength <= virginLength * 2) {
-        setTimeout(cleanVirginApplicationQueue, 100);
+        setTimeout(rerun, 100);
         return;
       }
 
       emailApply(visaPeriod, 'virgin', err => {
         if (err) {
           console.error(err.stack);
-          setTimeout(cleanVirginApplicationQueue, 60 * 1000);
+          setTimeout(rerun, 60 * 1000);
         } else {
-          setTimeout(cleanVirginApplicationQueue, 100);
+          setTimeout(rerun, 100);
         }
       });
     });
   });
 };
-setTimeout(cleanVirginApplicationQueue, 10 * 1000);
+const cleanVirginApplicationQueueForLast = () => cleanVirginApplicationQueueFor(getVisaPeriod() - 1, cleanVirginApplicationQueueForLast);
+setTimeout(cleanVirginApplicationQueueForLast, 10 * 1000);
+const cleanVirginApplicationQueueForCurrent = () => cleanVirginApplicationQueueFor(getVisaPeriod(), cleanVirginApplicationQueueForCurrent);
+setTimeout(cleanVirginApplicationQueueForCurrent, 10 * 1000);
 
 const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
   db.hgetall('visaqueue:' + visaPeriod, (err, visaQueue) => {

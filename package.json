@@ -35,11 +35,10 @@
     "xlsx": "^0.9.13"
   },
   "devDependencies": {},
-  "jshintConfig": {
-    "undef": true,
-    "unused": true,
-    "node": true,
-    "esversion": 6,
-    "globals": {}
+  "semistandard": {
+    "ignore": [
+      "**/bower_components/",
+      "**/node_modules/"
+    ]
   }
 }
