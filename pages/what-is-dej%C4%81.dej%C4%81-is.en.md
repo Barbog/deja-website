@@ -10,7 +10,7 @@ typora-root-url: ../static
 * An experiment in creativity, expression, participation and cash-free community.  Created, experienced and returned to nothing by you. 
 * A  canvas for you to come create and express yourself.  
 * A temporary village where you will meet a diverse, artistic, international collective of individuals, participating to collectively co-create and conjure magic,  in a surrounding where you will be required to exercise your self-reliance.  
-* (*Latvian. verb.*)  to dance.  
+* A Latvian noun meaning "in the dance".  
 
 **<span style="color:#77011e;"><u>When is it?**</u></span>
 

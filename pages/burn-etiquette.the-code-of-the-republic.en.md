@@ -20,7 +20,7 @@ Experience the freedom to be yourself without judgment. Your individuality is on
 
 <span style="color:#77011e;">**<u>Each One, Teach One.</u>**</span>
 
-In order for the community to grow, as well as maintaining the integrity of our culture. those familiar with it are encouraged to help integrate newcomers to the event. We all have skills that we can share with one another. DeJa is an opportunity to learn as well as to teach.  We are responsible for setting the example to those we invite to our gathering and for guiding any newcomers that we may meet.
+In order for the community to grow, as well as maintaining the integrity of our culture, those familiar with it are encouraged to help integrate newcomers to the event. We all have skills that we can share with one another. DeJa is an opportunity to learn as well as to teach.  We are responsible for setting the example to those we invite to our gathering and for guiding any newcomers that we may meet.
 
 <span style="color:#77011e;">**<u>Openness.</u>**</span>
 
