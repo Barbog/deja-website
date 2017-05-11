@@ -23,7 +23,7 @@ const shuffle = (array) => {
 
 const getVisaPeriod = () => {
   const now = new Date();
-  const applicationEnd = new Date(now.getFullYear(), 4, 2); // May 2
+  const applicationEnd = new Date(now.getFullYear(), 5, 2); // June 2
   return '' + (now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1));
 };
 
@@ -1481,7 +1481,7 @@ const emailApply = (visaPeriod, priority, callback) => {
             res.setEncoding('utf8');
             res.on('data', (data) => { console.log(data); });
             res.on('end', () => {
-              let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
+              let earliestVisaEmailDate = +(new Date(visaPeriod, 5, 1)); // June 1
               let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
               if (visaEmailDate < earliestVisaEmailDate) {
                 visaEmailDate = earliestVisaEmailDate;
