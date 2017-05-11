@@ -1481,7 +1481,7 @@ const emailApply = (visaPeriod, priority, callback) => {
             res.setEncoding('utf8');
             res.on('data', (data) => { console.log(data); });
             res.on('end', () => {
-              let earliestVisaEmailDate = +(new Date(visaPeriod, 5, 1)); // June 1
+              let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
               let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
               if (visaEmailDate < earliestVisaEmailDate) {
                 visaEmailDate = earliestVisaEmailDate;
