@@ -418,10 +418,8 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 cell.t = 'b';
               } else {
                 if (Array.isArray(cell.v)) {
-                  worksheet['!rows'][r].hpt = 16 * Math.max(cell.v.length, 1);
-                  cell.v = cell.v.join('\n');
+                  cell.v = cell.v.join(', ');
                 }
-                cell.s.alignment = { wrapText: true };
                 cell.t = 's';
               }
 
