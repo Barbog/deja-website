@@ -393,6 +393,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         const data = [ header.map(question => question.title) ].concat(applications.map(application => header.slice(0).map(question => application[question.id] || null)));
 
         for (let r = 0; r < data.length; ++r) {
+          worksheet['!rows'][r] = { hpt: 4 };
           for (let c = 0; c < data[r].length; ++c) {
             if (range.s.r > r) { range.s.r = r; }
             if (range.s.c > c) { range.s.c = c; }
@@ -417,6 +418,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 cell.t = 'b';
               } else {
                 if (Array.isArray(cell.v)) {
+                  worksheet['!rows'][r].hpt = 4 * Math.max(cell.v.length, 1);
                   cell.v = cell.v.join('\n');
                 }
                 cell.t = 's';
