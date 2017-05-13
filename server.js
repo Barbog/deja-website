@@ -441,7 +441,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           Sheets: {
             'Visa Applications': worksheet
           }
-        }, { bookType: 'xlsx', bookSST: false, type: 'base64' }), 'base64'));
+        }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'));
       });
     });
   });
