@@ -379,15 +379,16 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
 
           let cell = { v: data[r][c] };
           if (r === 0) {
-            worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? cell.v.length : 15 };
+            worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? Math.min(cell.v.length, 30) : 15 };
           }
           if (cell.v !== null) {
+            let vint = parseInt(cell.v, 10);
             if (typeof cell.v === 'number') {
               cell.t = 'n';
             } else if (typeof cell.v === 'boolean') {
               cell.t = 'b';
-            } else if (!isNaN(parseInt(cell.v, 10))) {
-              cell.v = parseInt(cell.v, 10);
+            } else if (!isNaN(vint) && '' + vint === cell.v) {
+              cell.v = vint;
               cell.t = 'n';
             } else if (cell.v === 'true' || cell.v === 'false') {
               cell.v = cell.v === 'true';
