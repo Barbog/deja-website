@@ -322,7 +322,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
     return;
   }
 
-  db.keys('visa:' + year + ':*', (err, reply) => {
+  db.keys('visa:' + year + ':*', (err, applications) => {
     if (err) {
       res.status(500);
       res.type('text/plain; charset=utf-8');
@@ -331,18 +331,18 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
       return;
     }
 
-    async.map(reply.sort(), (key, callback) => {
-      db.hgetall(key, (err, reply) => {
+    async.map(applications.sort(), (key, callback) => {
+      db.hgetall(key, (err, applications) => {
         if (err) {
           callback(err);
           return;
         }
 
         let obj = {};
-        Object.keys(reply).forEach(key => {
+        Object.keys(applications).forEach(key => {
           try {
             if (obj) {
-              obj[key] = JSON.parse(reply[key]);
+              obj[key] = JSON.parse(applications[key]);
             }
           } catch (err) {
             obj = null;
@@ -355,7 +355,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
 
         callback(null, obj);
       });
-    }, (err, reply) => {
+    }, (err, applications) => {
       if (err) {
         res.status(500);
         res.type('text/plain; charset=utf-8');
@@ -364,7 +364,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         return;
       }
 
-      reply = reply.sort((a, b) => {
+      applications = applications.sort((a, b) => {
         var nsA = a['name-surname'].toLowerCase();
         var nsB = b['name-surname'].toLowerCase();
         if (nsA < nsB) return -1;
@@ -382,7 +382,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
       const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
 
       const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), []);
-      const data = [ header.map(question => question.title) ].concat(reply.map(application => header.slice(0).map(question => application[question.id] || null)));
+      const data = [ header.map(question => question.title) ].concat(applications.map(application => header.slice(0).map(question => application[question.id] || null)));
 
       for (let r = 0; r < data.length; ++r) {
         for (let c = 0; c < data[r].length; ++c) {
