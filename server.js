@@ -365,7 +365,6 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
       }
 
       const worksheet = { '!cols': [] };
-      const workbook = { SheetNames: [ 'Visa Applications' ], Sheets: { 'Visa Applications': worksheet } };
       const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
 
       const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), []);
@@ -407,7 +406,14 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
       res.status(200);
       res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
       res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
-      res.send(Buffer.from(xlsx.write(workbook, { bookType: 'xlsx', bookSST: false, type: 'base64' }), 'base64'));
+      res.send(Buffer.from(xlsx.write({
+        SheetNames: [
+          'Visa Applications'
+        ],
+        Sheets: {
+          'Visa Applications': worksheet
+        }
+      }, { bookType: 'xlsx', bookSST: false, type: 'base64' }), 'base64'));
     });
   });
 });
