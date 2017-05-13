@@ -416,6 +416,9 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 cell.v = cell.v === 'true';
                 cell.t = 'b';
               } else {
+                if (Array.isArray(cell.v)) {
+                  cell.v = cell.v.join('\n');
+                }
                 cell.t = 's';
               }
 
