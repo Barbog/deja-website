@@ -364,6 +364,20 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         return;
       }
 
+      reply = reply.sort((a, b) => {
+        var nsA = a['name-surname'].toLowerCase();
+        var nsB = b['name-surname'].toLowerCase();
+        if (nsA < nsB) return -1;
+        if (nsA > nsB) return 1;
+
+        var nnA = a.nickname.toLowerCase();
+        var nnB = b.nickname.toLowerCase();
+        if (nnA < nnB) return -1;
+        if (nnA > nnB) return 1;
+
+        return 0;
+      });
+
       const worksheet = { '!cols': [] };
       const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
 
