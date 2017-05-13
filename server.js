@@ -400,7 +400,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             if (range.e.r < r) { range.e.r = r; }
             if (range.e.c < c) { range.e.c = c; }
 
-            let cell = { v: data[r][c] };
+            let cell = { v: data[r][c], t: 's', s: {} };
             if (r === 0) {
               worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? Math.min(cell.v.length, 30) : 15 };
             }
@@ -420,8 +420,8 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 if (Array.isArray(cell.v)) {
                   worksheet['!rows'][r].hpt = 16 * Math.max(cell.v.length, 1);
                   cell.v = cell.v.join('\n');
-                  cell.s = { wrap: true };
                 }
+                cell.s.alignment = { wrapText: true };
                 cell.t = 's';
               }
 
