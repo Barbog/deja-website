@@ -433,8 +433,8 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         worksheet['!ref'] = xlsx.utils.encode_range(range);
 
         res.status(200);
-        res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
+        res.type('application/vnd.ms-excel.sheet.binary.macroEnabled.12');
+        res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsb');
         res.send(Buffer.from(xlsx.write({
           SheetNames: [
             'Visa Applications'
@@ -442,7 +442,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           Sheets: {
             'Visa Applications': worksheet
           }
-        }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'));
+        }, { bookType: 'xlsb', bookSST: true, type: 'base64' }), 'base64'));
       });
     });
   });
