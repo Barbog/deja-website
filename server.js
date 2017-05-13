@@ -419,9 +419,9 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               } else {
                 if (Array.isArray(cell.v)) {
                   worksheet['!rows'][r].hpt = 16 * Math.max(cell.v.length, 1);
-                  cell.v = cell.v.join('\r\n');
+                  cell.v = cell.v.join('\n');
+                  cell.s = { wrap: true };
                 }
-                cell.w = cell.v;
                 cell.t = 's';
               }
 
