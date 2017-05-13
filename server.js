@@ -713,6 +713,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
 })();
 
 const sitemap = JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' }));
+const ministrySlackChannels = JSON.parse(fs.readFileSync(path.join(__dirname, 'ministry-slack-channels.json'), { encoding: 'utf8' }));
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.json'), { encoding: 'utf8' }));
 const visaApplication = JSON.parse(fs.readFileSync(path.join(__dirname, 'visa-application.json'), { encoding: 'utf8' }));
 
@@ -1460,9 +1461,25 @@ const emailApply = (visaPeriod, priority, callback) => {
           let surname = name.pop();
           name = name.join(' ');
 
+          let channels = [ 'general', 'random' ];
+          let ministries = typeof application['ministry-choice'] === 'string' ? JSON.parse(application['ministry-choice']) : application['ministry-choice'];
+          if (Array.isArray(ministries)) {
+            Object.keys(ministrySlackChannels).forEach(match => {
+              ministries.forEach(ministry => {
+                if (ministry.toLowerCase().indexOf(match.toLowerCase()) !== -1) {
+                  channels = channels.concat(Array.isArray(ministrySlackChannels[match]) ? ministrySlackChannels[match] : [ ministrySlackChannels[match] ]);
+                }
+              });
+            });
+            channels = channels.filter(channel => typeof channel === 'string').sort().filter((channel, index, array) => {
+              return index === 0 || channel !== array[index - 1];
+            });
+          }
+
           const slackData = querystring.stringify({
             token: 'xoxp-20979710294-21097752741-157844649281-cc09711be7af87cf7dc4d0880d48d9f7',
             email: aemail,
+            channels: channels.join(','),
             first_name: name,
             last_name: surname,
             resend: true
