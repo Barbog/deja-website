@@ -386,7 +386,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           return 0;
         });
 
-        const worksheet = { '!cols': [] };
+        const worksheet = { '!cols': [], '!rows': [] };
         const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
 
         const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), []);
