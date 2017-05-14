@@ -1338,7 +1338,8 @@ function catchAllFor (backstack, sitemap) {
                     });
                   };
 
-                  const virgin = application['previous-burns'] === 'no' || application['previous-burns'] === '"no"';
+                  const virgin = (application['previous-burns'] === 'no' || application['previous-burns'] === '"no"') &&
+                    (application['years-in-deja'] === 0 || application['years-in-deja'] === '0' || application['years-in-deja'] === '"0"');
 
                   if (page.render.nextpage === 'Status') {
                     db.rpush('queue:' + visaPeriod + ':' + (virgin ? 'virgin' : 'veteran'), res.locals.user.email, err => {
