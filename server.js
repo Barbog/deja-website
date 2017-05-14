@@ -404,19 +404,20 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         applications = applications.sort((a, b) => {
           var viA = a['__visaid'];
           var viB = b['__visaid'];
-          if ((typeof viA === 'number') !== (typeof viB === 'number')) return typeof viA === 'number' ? 1 : -1;
-          if (viA > viB) return -1;
-          if (viA < viB) return 1;
+          if (viA !== viB) {
+            if (typeof viA === 'number' && typeof viB === 'number') return viA < viB ? -1 : 1;
+            else if (typeof viA === 'number') return 1;
+            else if (typeof viB === 'number') return -1;
+            else return viA > viB ? -1 : 1;
+          }
 
           var nsA = a['name-surname'].toLowerCase();
           var nsB = b['name-surname'].toLowerCase();
-          if (nsA < nsB) return -1;
-          if (nsA > nsB) return 1;
+          if (nsA !== nsB) return nsA < nsB ? -1 : 1;
 
           var nnA = a.nickname.toLowerCase();
           var nnB = b.nickname.toLowerCase();
-          if (nnA < nnB) return -1;
-          if (nnA > nnB) return 1;
+          if (nnA !== nnB) return nnA < nnB ? -1 : 1;
 
           return 0;
         });
