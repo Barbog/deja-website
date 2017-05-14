@@ -374,7 +374,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 visaid = 'TBD';
               }
 
-              obj['__visaid'] = visaid;
+              obj['__visaid'] = '' + visaid;
               callback(null, obj);
             });
           } else {
@@ -392,6 +392,11 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         }
 
         applications = applications.sort((a, b) => {
+          var viA = a['__visaid'].toLowerCase();
+          var viB = b['__visaid'].toLowerCase();
+          if (viA < viB) return -1;
+          if (viA > viB) return 1;
+
           var nsA = a['name-surname'].toLowerCase();
           var nsB = b['name-surname'].toLowerCase();
           if (nsA < nsB) return -1;
