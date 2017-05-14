@@ -344,55 +344,9 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
 
       invitees = invitees.reduce((array, current) => array.concat(Array.isArray(current) ? current : []), []);
 
-      async.map(applications.sort(), (key, callback) => {
-        let email = key.substr(('visa:' + year + ':').length);
-        db.hgetall(key, (err, application) => {
-          if (err) {
-            callback(err);
-            return;
-          }
-
-          let obj = {};
-          Object.keys(application).forEach(key => {
-            try {
-              if (obj) {
-                obj[key] = JSON.parse(application[key]);
-              }
-            } catch (err) {
-              obj = null;
-              callback(err);
-            }
-          });
-          if (!obj) {
-            return;
-          }
-
-          if (invitees.indexOf(email) !== -1) {
-            db.hget('user:' + email, 'visaid:' + year, (err, visaid) => {
-              if (err) {
-                console.error(err.message);
-                visaid = null;
-              }
-
-              if (typeof visaid === 'string') {
-                let visaidInt = parseInt(visaid, 10);
-                if (!isNaN(visaidInt) && ('' + visaidInt) === visaid) {
-                  visaid = visaidInt;
-                }
-              }
-              if (typeof visaid !== 'number' && typeof visaid !== 'string') {
-                visaid = 'TBD';
-              }
-
-              obj['__visaid'] = visaid;
-              callback(null, obj);
-            });
-          } else {
-            obj['__visaid'] = '';
-            callback(null, obj);
-          }
-        });
-      }, (err, applications) => {
+      async.map([ 'queue:' + year + ':veteran', 'queue:' + year + ':virgin' ], (key, callback) => {
+        db.lrange(key, 0, 1000, callback);
+      }, (err, queuees) => {
         if (err) {
           res.status(500);
           res.type('text/plain; charset=utf-8');
@@ -401,88 +355,151 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           return;
         }
 
-        applications = applications.sort((a, b) => {
-          var viA = a['__visaid'];
-          var viB = b['__visaid'];
-          if (viA !== viB) {
-            if (typeof viA === 'number' && typeof viB === 'number') return viA < viB ? -1 : 1;
-            else if (typeof viA === 'number') return -1;
-            else if (typeof viB === 'number') return 1;
-            else return viA > viB ? -1 : 1;
-          }
+        queuees = queuees.reduce((array, current) => array.concat(Array.isArray(current) ? current : []), []);
 
-          var nsA = a['name-surname'].toLowerCase();
-          var nsB = b['name-surname'].toLowerCase();
-          if (nsA !== nsB) return nsA < nsB ? -1 : 1;
-
-          var nnA = a.nickname.toLowerCase();
-          var nnB = b.nickname.toLowerCase();
-          if (nnA !== nnB) return nnA < nnB ? -1 : 1;
-
-          return 0;
-        });
-
-        const worksheet = { '!cols': [], '!rows': [] };
-        const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
-
-        const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
-          {
-            'id': '__visaid',
-            'title': 'Visa ID',
-            'type': 'visaid'
-          }
-        ]);
-        const data = [ header.map(question => question.title) ].concat(applications.map(application => header.slice(0).map(question => application[question.id] || null)));
-
-        for (let r = 0; r < data.length; ++r) {
-          worksheet['!rows'][r] = { hpt: 16 };
-          for (let c = 0; c < data[r].length; ++c) {
-            if (range.s.r > r) { range.s.r = r; }
-            if (range.s.c > c) { range.s.c = c; }
-            if (range.e.r < r) { range.e.r = r; }
-            if (range.e.c < c) { range.e.c = c; }
-
-            let cell = { v: data[r][c], t: 's', s: {} };
-            if (r === 0) {
-              worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? Math.min(cell.v.length, 30) : 15 };
+        async.map(applications.sort(), (key, callback) => {
+          let email = key.substr(('visa:' + year + ':').length);
+          db.hgetall(key, (err, application) => {
+            if (err) {
+              callback(err);
+              return;
             }
-            if (cell.v !== null) {
-              let vint = parseInt(cell.v, 10);
-              if (typeof cell.v === 'number') {
-                cell.t = 'n';
-              } else if (typeof cell.v === 'boolean') {
-                cell.t = 'b';
-              } else if (!isNaN(vint) && '' + vint === cell.v) {
-                cell.v = vint;
-                cell.t = 'n';
-              } else if (cell.v === 'true' || cell.v === 'false') {
-                cell.v = cell.v === 'true';
-                cell.t = 'b';
-              } else {
-                if (Array.isArray(cell.v)) {
-                  cell.v = cell.v.join(', ');
+
+            let obj = {};
+            Object.keys(application).forEach(key => {
+              try {
+                if (obj) {
+                  obj[key] = JSON.parse(application[key]);
                 }
-                cell.t = 's';
+              } catch (err) {
+                obj = null;
+                callback(err);
               }
+            });
+            if (!obj) {
+              return;
+            }
 
-              worksheet[xlsx.utils.encode_cell({ c, r })] = cell;
+            if (invitees.indexOf(email) !== -1) {
+              db.hget('user:' + email, 'visaid:' + year, (err, visaid) => {
+                if (err) {
+                  console.error(err.message);
+                  visaid = null;
+                }
+
+                if (typeof visaid === 'string') {
+                  let visaidInt = parseInt(visaid, 10);
+                  if (!isNaN(visaidInt) && ('' + visaidInt) === visaid) {
+                    visaid = visaidInt;
+                  }
+                }
+                if (typeof visaid !== 'number' && typeof visaid !== 'string') {
+                  visaid = 'TBD';
+                }
+
+                obj['__visaid'] = visaid;
+                callback(null, obj);
+              });
+            } else if (queuees.indexOf(email) !== -1) {
+              obj['__visaid'] = 'Queue';
+              callback(null, obj);
+            } else {
+              obj['__visaid'] = '';
+              callback(null, obj);
+            }
+          });
+        }, (err, applications) => {
+          if (err) {
+            res.status(500);
+            res.type('text/plain; charset=utf-8');
+            res.send('Something broke horribly. Sorry.');
+            console.error(err.stack);
+            return;
+          }
+
+          applications = applications.sort((a, b) => {
+            var viA = a['__visaid'];
+            var viB = b['__visaid'];
+            if (viA !== viB) {
+              if (typeof viA === 'number' && typeof viB === 'number') return viA < viB ? -1 : 1;
+              else if (typeof viA === 'number') return -1;
+              else if (typeof viB === 'number') return 1;
+              else return viA > viB ? -1 : 1;
+            }
+
+            var nsA = a['name-surname'].toLowerCase();
+            var nsB = b['name-surname'].toLowerCase();
+            if (nsA !== nsB) return nsA < nsB ? -1 : 1;
+
+            var nnA = a.nickname.toLowerCase();
+            var nnB = b.nickname.toLowerCase();
+            if (nnA !== nnB) return nnA < nnB ? -1 : 1;
+
+            return 0;
+          });
+
+          const worksheet = { '!cols': [], '!rows': [] };
+          const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
+
+          const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
+            {
+              'id': '__visaid',
+              'title': 'Visa ID',
+              'type': 'visaid'
+            }
+          ]);
+          const data = [ header.map(question => question.title) ].concat(applications.map(application => header.slice(0).map(question => application[question.id] || null)));
+
+          for (let r = 0; r < data.length; ++r) {
+            worksheet['!rows'][r] = { hpt: 16 };
+            for (let c = 0; c < data[r].length; ++c) {
+              if (range.s.r > r) { range.s.r = r; }
+              if (range.s.c > c) { range.s.c = c; }
+              if (range.e.r < r) { range.e.r = r; }
+              if (range.e.c < c) { range.e.c = c; }
+
+              let cell = { v: data[r][c], t: 's', s: {} };
+              if (r === 0) {
+                worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? Math.min(cell.v.length, 30) : 15 };
+              }
+              if (cell.v !== null) {
+                let vint = parseInt(cell.v, 10);
+                if (typeof cell.v === 'number') {
+                  cell.t = 'n';
+                } else if (typeof cell.v === 'boolean') {
+                  cell.t = 'b';
+                } else if (!isNaN(vint) && '' + vint === cell.v) {
+                  cell.v = vint;
+                  cell.t = 'n';
+                } else if (cell.v === 'true' || cell.v === 'false') {
+                  cell.v = cell.v === 'true';
+                  cell.t = 'b';
+                } else {
+                  if (Array.isArray(cell.v)) {
+                    cell.v = cell.v.join(', ');
+                  }
+                  cell.t = 's';
+                }
+
+                worksheet[xlsx.utils.encode_cell({ c, r })] = cell;
+              }
             }
           }
-        }
 
-        worksheet['!ref'] = xlsx.utils.encode_range(range);
+          worksheet['!ref'] = xlsx.utils.encode_range(range);
 
-        res.status(200);
-        res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
-        res.send(Buffer.from(xlsx.write({
-          SheetNames: [
-            'Visa Applications'
-          ],
-          Sheets: {
-            'Visa Applications': worksheet
-          }
-        }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'));
+          res.status(200);
+          res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+          res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
+          res.send(Buffer.from(xlsx.write({
+            SheetNames: [
+              'Visa Applications'
+            ],
+            Sheets: {
+              'Visa Applications': worksheet
+            }
+          }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'));
+        });
       });
     });
   });
