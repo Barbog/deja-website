@@ -394,7 +394,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                   }
                 }
                 if (typeof visaid !== 'number' && typeof visaid !== 'string') {
-                  visaid = 'TBD';
+                  visaid = 'Being Assigned';
                 }
 
                 obj['__visaid'] = visaid;
@@ -426,7 +426,9 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               if (typeof viA === 'number' && typeof viB === 'number') return viA < viB ? -1 : 1;
               else if (typeof viA === 'number') return -1;
               else if (typeof viB === 'number') return 1;
-              else return viA > viB ? -1 : 1;
+              else if (viA === '') return 1;
+              else if (viB === '') return -1;
+              else return viA < viB ? -1 : 1;
             }
 
             var nsA = a['name-surname'].toLowerCase();
