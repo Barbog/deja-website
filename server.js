@@ -521,7 +521,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             }
             return array;
           }, []).sort().forEach(ministry => {
-            let sheetName = ministry.replace(/[^A-z0-9\(\) ]/g, '').replace(/^Ministry of /i, '').trim();
+            let sheetName = ministry.replace(/[^A-z0-9\(\), ]/g, '').replace(/^Ministry of /i, '').split(')')[0].trim();
             while (sheetName.indexOf('  ') !== -1) sheetName = sheetName.split('  ').join(' ');
             sheetName = sheetName.substr(0, 30);
             sheetNames.push(sheetName);
