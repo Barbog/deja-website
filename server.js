@@ -503,16 +503,34 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           const applicationsData = [ applicationsHeader.map(question => question.title) ]
             .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
 
+          let sheetNames = [
+            'Visa Applications'
+          ];
+          let sheets = {
+            'Visa Applications': buildWorksheet(applicationsData)
+          };
+
+          applications.reduce((array, application) => {
+            let applicationMinistries = application['ministry-choice'];
+            if (Array.isArray(applicationMinistries)) {
+              applicationMinistries.forEach(ministry => {
+                if (array.indexOf(ministry) === -1) {
+                  array.push(ministry);
+                }
+              });
+            }
+            return array;
+          }, []).sort().forEach(ministry => {
+            sheetNames.push(ministry);
+            sheets[ministry] = buildWorksheet([]);
+          });
+
           res.status(200);
           res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
           res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
           res.send(Buffer.from(xlsx.write({
-            SheetNames: [
-              'Visa Applications'
-            ],
-            Sheets: {
-              'Visa Applications': buildWorksheet(applicationsData)
-            }
+            SheetNames: sheetNames,
+            Sheets: sheets
           }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'));
         });
       });
