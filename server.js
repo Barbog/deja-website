@@ -406,8 +406,8 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           var viB = b['__visaid'];
           if (viA !== viB) {
             if (typeof viA === 'number' && typeof viB === 'number') return viA < viB ? -1 : 1;
-            else if (typeof viA === 'number') return 1;
-            else if (typeof viB === 'number') return -1;
+            else if (typeof viA === 'number') return -1;
+            else if (typeof viB === 'number') return 1;
             else return viA > viB ? -1 : 1;
           }
 
