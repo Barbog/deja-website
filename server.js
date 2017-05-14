@@ -427,9 +427,9 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
 
         const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
           {
-            "id": "__visaid",
-            "title": "Visa ID",
-            "type": "visaid"
+            'id': '__visaid',
+            'title': 'Visa ID',
+            'type': 'visaid'
           }
         ]);
         const data = [ header.map(question => question.title) ].concat(applications.map(application => header.slice(0).map(question => application[question.id] || null)));
