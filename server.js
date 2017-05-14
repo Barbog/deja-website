@@ -308,6 +308,57 @@ app.post('/user/update', (req, res) => {
 });
 app.all('/user/update', returnBadAction);
 
+const buildWorksheet = data => {
+  const worksheet = { '!cols': [], '!rows': [] };
+  const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
+
+  if (Array.isArray(data)) {
+    for (let r = 0; r < data.length; ++r) {
+      worksheet['!rows'][r] = { hpt: 16 };
+      if (Array.isArray(data[r])) {
+        for (let c = 0; c < data[r].length; ++c) {
+          if (range.s.r > r) { range.s.r = r; }
+          if (range.s.c > c) { range.s.c = c; }
+          if (range.e.r < r) { range.e.r = r; }
+          if (range.e.c < c) { range.e.c = c; }
+
+          let cell = { v: data[r][c], t: 's', s: {} };
+          if (r === 0) {
+            worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? Math.min(cell.v.length, 30) : 15 };
+          }
+          if (cell.v !== null) {
+            let vint = parseInt(cell.v, 10);
+            if (typeof cell.v === 'number') {
+              cell.t = 'n';
+            } else if (typeof cell.v === 'boolean') {
+              cell.t = 'b';
+            } else if (!isNaN(vint) && '' + vint === cell.v) {
+              cell.v = vint;
+              cell.t = 'n';
+            } else if (cell.v === 'true' || cell.v === 'false') {
+              cell.v = cell.v === 'true';
+              cell.t = 'b';
+            } else {
+              if (Array.isArray(cell.v)) {
+                cell.v = cell.v.join(', ');
+              }
+              cell.t = 's';
+            }
+
+            worksheet[xlsx.utils.encode_cell({ c, r })] = cell;
+          }
+        }
+      }
+    }
+  }
+
+  if (range.s.c > range.e.c) range.s.c = range.e.c;
+  if (range.s.r > range.e.r) range.s.r = range.e.r;
+  worksheet['!ref'] = xlsx.utils.encode_range(range);
+
+  return worksheet;
+};
+
 app.get('/admin/visa-application/:year', (req, res, next) => {
   if (!res.locals.user || !res.locals.user.admin) {
     next();
@@ -442,55 +493,15 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             return 0;
           });
 
-          const worksheet = { '!cols': [], '!rows': [] };
-          const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
-
-          const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
+          const applicationsHeader = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
             {
               'id': '__visaid',
               'title': 'Visa ID',
               'type': 'visaid'
             }
           ]);
-          const data = [ header.map(question => question.title) ].concat(applications.map(application => header.slice(0).map(question => application[question.id] || null)));
-
-          for (let r = 0; r < data.length; ++r) {
-            worksheet['!rows'][r] = { hpt: 16 };
-            for (let c = 0; c < data[r].length; ++c) {
-              if (range.s.r > r) { range.s.r = r; }
-              if (range.s.c > c) { range.s.c = c; }
-              if (range.e.r < r) { range.e.r = r; }
-              if (range.e.c < c) { range.e.c = c; }
-
-              let cell = { v: data[r][c], t: 's', s: {} };
-              if (r === 0) {
-                worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? Math.min(cell.v.length, 30) : 15 };
-              }
-              if (cell.v !== null) {
-                let vint = parseInt(cell.v, 10);
-                if (typeof cell.v === 'number') {
-                  cell.t = 'n';
-                } else if (typeof cell.v === 'boolean') {
-                  cell.t = 'b';
-                } else if (!isNaN(vint) && '' + vint === cell.v) {
-                  cell.v = vint;
-                  cell.t = 'n';
-                } else if (cell.v === 'true' || cell.v === 'false') {
-                  cell.v = cell.v === 'true';
-                  cell.t = 'b';
-                } else {
-                  if (Array.isArray(cell.v)) {
-                    cell.v = cell.v.join(', ');
-                  }
-                  cell.t = 's';
-                }
-
-                worksheet[xlsx.utils.encode_cell({ c, r })] = cell;
-              }
-            }
-          }
-
-          worksheet['!ref'] = xlsx.utils.encode_range(range);
+          const applicationsData = [ applicationsHeader.map(question => question.title) ]
+            .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
 
           res.status(200);
           res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -500,7 +511,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               'Visa Applications'
             ],
             Sheets: {
-              'Visa Applications': worksheet
+              'Visa Applications': buildWorksheet(applicationsData)
             }
           }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'));
         });
