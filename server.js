@@ -401,7 +401,9 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 callback(null, obj);
               });
             } else if (queuees.indexOf(email) !== -1) {
-              obj['__visaid'] = 'Queue';
+              let queueNumber = '' + (queuees.indexOf(email) + 1);
+              while (queueNumber.length < 3) queueNumber = '0' + queueNumber;
+              obj['__visaid'] = 'Queue - #' + queueNumber;
               callback(null, obj);
             } else {
               obj['__visaid'] = '';
