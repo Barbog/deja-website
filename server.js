@@ -374,7 +374,13 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 visaid = null;
               }
 
-              if (typeof visaid === 'undefined' || visaid === null) {
+              if (typeof visaid === 'string') {
+                let visaidInt = parseInt(visaid, 10);
+                if (!isNaN(visaidInt) && ('' + visaidInt) === visaid) {
+                  visaid = visaidInt;
+                }
+              }
+              if (typeof visaid !== 'number' && typeof visaid !== 'string') {
                 visaid = 'TBD';
               }
 
