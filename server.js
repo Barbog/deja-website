@@ -335,13 +335,17 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
       db.lrange(key, 0, 1000, callback);
     }, (err, invitees) => {
       if (err) {
-        callback(err);
+        res.status(500);
+        res.type('text/plain; charset=utf-8');
+        res.send('Something broke horribly. Sorry.');
+        console.error(err.stack);
         return;
       }
 
       invitees = invitees.reduce((array, current) => array.concat(Array.isArray(current) ? current : []), []);
 
       async.map(applications.sort(), (key, callback) => {
+        let email = key.substr(('visa:' + year + ':').length);
         db.hgetall(key, (err, application) => {
           if (err) {
             callback(err);
@@ -363,7 +367,20 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             return;
           }
 
-          callback(null, obj);
+          if (invitees.indexOf(email) !== -1) {
+            db.hget('user:' + email, 'visaid:' + year, (err, visaid) => {
+              if (err) {
+                console.error(err.message);
+                visaid = 'TBD';
+              }
+
+              obj['__visaid'] = visaid;
+              callback(null, obj);
+            });
+          } else {
+            obj['__visaid'] = '';
+            callback(null, obj);
+          }
         });
       }, (err, applications) => {
         if (err) {
@@ -391,7 +408,13 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         const worksheet = { '!cols': [], '!rows': [] };
         const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } };
 
-        const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), []);
+        const header = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
+          {
+            "id": "__visaid",
+            "title": "Visa ID",
+            "type": "visaid"
+          }
+        ]);
         const data = [ header.map(question => question.title) ].concat(applications.map(application => header.slice(0).map(question => application[question.id] || null)));
 
         for (let r = 0; r < data.length; ++r) {
