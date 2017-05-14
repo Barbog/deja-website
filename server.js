@@ -339,6 +339,8 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
         return;
       }
 
+      invitees = invitees.reduce((array, current) => array.concat(Array.isArray(current) ? current : []), []);
+
       async.map(applications.sort(), (key, callback) => {
         db.hgetall(key, (err, application) => {
           if (err) {
