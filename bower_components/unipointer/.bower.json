@@ -2,7 +2,7 @@
   "name": "unipointer",
   "main": "unipointer.js",
   "dependencies": {
-    "ev-emitter": "~1.0.1"
+    "ev-emitter": "^1.0.1"
   },
   "homepage": "https://github.com/metafizzy/unipointer",
   "authors": [
@@ -28,14 +28,14 @@
     "tests",
     "package.json"
   ],
-  "version": "2.1.0",
-  "_release": "2.1.0",
+  "version": "2.2.0",
+  "_release": "2.2.0",
   "_resolution": {
     "type": "version",
-    "tag": "v2.1.0",
-    "commit": "c32965b73d1c4b2bf852b2ef9c5fa747c5f6cc88"
+    "tag": "v2.2.0",
+    "commit": "db6999eb37cdda79e87d8e2b370e5f329982ae59"
   },
   "_source": "https://github.com/metafizzy/unipointer.git",
-  "_target": "~2.1.0",
+  "_target": "^2.2.0",
   "_originalSource": "unipointer"
 }

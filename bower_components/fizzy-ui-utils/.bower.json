@@ -6,7 +6,7 @@
   "description": "UI utilities",
   "main": "utils.js",
   "dependencies": {
-    "desandro-matches-selector": "~2.0.0"
+    "desandro-matches-selector": "^2.0.0"
   },
   "moduleType": [
     "amd",
@@ -30,12 +30,12 @@
     "qunit": "~1.20.0"
   },
   "homepage": "https://github.com/metafizzy/fizzy-ui-utils",
-  "version": "2.0.4",
-  "_release": "2.0.4",
+  "version": "2.0.5",
+  "_release": "2.0.5",
   "_resolution": {
     "type": "version",
-    "tag": "v2.0.4",
-    "commit": "5ec1847cdb1fe193047c63ea1b516f2a4abe252a"
+    "tag": "v2.0.5",
+    "commit": "96fd89e0575e6af7b4634138139ee1a80d975b38"
   },
   "_source": "https://github.com/metafizzy/fizzy-ui-utils.git",
   "_target": "^2.0.0",
