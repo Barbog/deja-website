@@ -416,7 +416,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               return;
             }
 
-            let obj = {};
+            let obj = { '__email': email };
             Object.keys(application).forEach(key => {
               try {
                 if (obj) {
@@ -521,11 +521,17 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             }
             return array;
           }, []).sort().forEach(ministry => {
-            let sheetName = ministry.replace(/[^A-z0-9\(\), ]/g, '').replace(/^Ministry of /i, '').split(')')[0].trim();
+            let sheetName = ministry.replace(/[^A-z0-9(), ]/g, '').replace(/^Ministry of /i, '').split(')')[0].trim();
             while (sheetName.indexOf('  ') !== -1) sheetName = sheetName.split('  ').join(' ');
             sheetName = sheetName.substr(0, 30);
             sheetNames.push(sheetName);
-            sheets[sheetName] = buildWorksheet([]);
+            let ministryHeader = [];
+            let ministryData = [ ministryHeader.map(question => question.title) ]
+              .concat(applications.filter(application => {
+                let applicationMinistries = application['ministry-choice'];
+                return Array.isArray(applicationMinistries) ? applicationMinistries.indexOf(ministry) !== -1 : false;
+              }).map(application => ministryHeader.slice(0).map(question => application[question.id] || '')));
+            sheets[sheetName] = buildWorksheet(ministryData);
           });
 
           res.status(200);
