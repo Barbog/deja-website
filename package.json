@@ -15,7 +15,7 @@
   "dependencies": {
     "async": "^2.4.0",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "4.x",
     "fakeredis": "^2.0.0",
@@ -32,7 +32,7 @@
     "randomstring": "^1.1.5",
     "redis": "^2.7.1",
     "showdown": "^1.6.4",
-    "xlsx": "^0.10.1"
+    "xlsx": "^0.10.3"
   },
   "devDependencies": {},
   "semistandard": {
