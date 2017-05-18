@@ -525,11 +525,19 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             while (sheetName.indexOf('  ') !== -1) sheetName = sheetName.split('  ').join(' ');
             sheetName = sheetName.substr(0, 30);
             sheetNames.push(sheetName);
-            let ministryHeader = [];
+            let ministryHeader = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
+              {
+                'id': '__visaid',
+                'title': 'Visa ID',
+                'type': 'visaid'
+              }
+            ]).filter(question => question.id !== 'ministry-choice');
             let ministryData = [ ministryHeader.map(question => question.title) ]
               .concat(applications.filter(application => {
                 let applicationMinistries = application['ministry-choice'];
-                return Array.isArray(applicationMinistries) ? applicationMinistries.indexOf(ministry) !== -1 : false;
+                if (!Array.isArray(applicationMinistries) || applicationMinistries.indexOf(ministry) !== -1) return false;
+                if (typeof application['__visaid'] !== 'string' || application['__visaid'] === '') return false;
+                return true;
               }).map(application => ministryHeader.slice(0).map(question => application[question.id] || '')));
             sheets[sheetName] = buildWorksheet(ministryData);
           });
