@@ -536,7 +536,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               .concat(applications.filter(application => {
                 let applicationMinistries = application['ministry-choice'];
                 if (!Array.isArray(applicationMinistries) || applicationMinistries.indexOf(ministry) !== -1) return false;
-                if (typeof application['__visaid'] !== 'string' || application['__visaid'] === '') return false;
+                if (typeof application['__visaid'] !== 'number' && (typeof application['__visaid'] !== 'string' || application['__visaid'] === '')) return false;
                 return true;
               }).map(application => ministryHeader.slice(0).map(question => application[question.id] || '')));
             sheets[sheetName] = buildWorksheet(ministryData);
