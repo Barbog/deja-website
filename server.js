@@ -1564,6 +1564,59 @@ process.once('SIGINT', () => {
   });
 });
 
+const slack = (method, args, callback) => {
+  if (typeof callback !== 'function') {
+    callback = () => {};
+  }
+  if (typeof method !== 'string' || method === '') {
+    return callback(new Error('No method string provided.'));
+  }
+  if (typeof args !== 'object' || args === null) {
+    return callback(new Error('No arguments object provided.'));
+  }
+
+  args.token = 'xoxp-20979710294-21097752741-157844649281-cc09711be7af87cf7dc4d0880d48d9f7';
+  args = querystring.stringify(args);
+
+  const req = https.request({
+    hostname: 'balticburners.slack.com',
+    method: 'POST',
+    path: '/api/' + method + '?t=' + (new Date()).getTime(),
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Length': Buffer.byteLength(args)
+    }
+  }, res => {
+    res.setEncoding('utf8');
+    let data = '';
+    res.on('data', chunk => { data += chunk; });
+    res.on('end', () => {
+      try {
+        data = JSON.parse(data);
+      } catch (err) {
+        callback(err);
+        return;
+      }
+
+      if (!data.ok) {
+        let err = new Error('Slack API invocation error: ' + data.error);
+        err.code = data.error;
+        callback(err, data);
+        return;
+      }
+
+      callback(null, data);
+    });
+  });
+
+  req.on('error', err => {
+    callback(err);
+  });
+
+  req.write(args);
+  req.end();
+};
+
 const emailApply = (visaPeriod, priority, callback) => {
   db.lrange('queue:' + visaPeriod + ':' + priority, 0, 0, (err, range) => {
     if (err) {
@@ -1620,65 +1673,46 @@ const emailApply = (visaPeriod, priority, callback) => {
             });
           }
 
-          const slackData = querystring.stringify({
-            token: 'xoxp-20979710294-21097752741-157844649281-cc09711be7af87cf7dc4d0880d48d9f7',
+          slack('users.admin.invite', {
             email: aemail,
             channels: channels.join(','),
             first_name: name,
             last_name: surname,
             resend: true
-          });
-
-          console.log('Sending out Slack invite to ' + priority + ' ' + email + ' via ' + aemail + '.');
-          const slackRequest = https.request({
-            hostname: 'balticburners.slack.com',
-            method: 'POST',
-            path: '/api/users.admin.invite?t=' + (new Date()).getTime(),
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-              'Content-Length': Buffer.byteLength(slackData)
+          }, err => {
+            if (err) {
+              console.error(err.stack);
             }
-          }, res => {
-            res.setEncoding('utf8');
-            res.on('data', (data) => { console.log(data); });
-            res.on('end', () => {
-              let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
-              let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
-              if (visaEmailDate < earliestVisaEmailDate) {
-                visaEmailDate = earliestVisaEmailDate;
+
+            let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
+            let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
+            if (visaEmailDate < earliestVisaEmailDate) {
+              visaEmailDate = earliestVisaEmailDate;
+            }
+
+            db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
+              if (err) {
+                callback(err);
+                return;
               }
 
-              db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
+              db.hset('visaqueue:' + visaPeriod, email, visaEmailDate, err => {
                 if (err) {
                   callback(err);
                   return;
                 }
 
-                db.hset('visaqueue:' + visaPeriod, email, visaEmailDate, err => {
+                db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
                   if (err) {
                     callback(err);
                     return;
                   }
 
-                  db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
-                    if (err) {
-                      callback(err);
-                      return;
-                    }
-
-                    callback(null);
-                  });
+                  callback(null);
                 });
               });
             });
           });
-
-          slackRequest.on('error', err => {
-            callback(err);
-          });
-
-          slackRequest.write(slackData);
-          slackRequest.end();
         });
       });
     });
