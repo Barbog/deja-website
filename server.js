@@ -1673,42 +1673,59 @@ const emailApply = (visaPeriod, priority, callback) => {
             });
           }
 
-          slack('users.admin.invite', {
-            email: aemail,
-            channels: channels.join(','),
-            first_name: name,
-            last_name: surname,
-            resend: true
-          }, err => {
+          slack('channels.list', {
+            exclude_archived: true,
+            exclude_members: true
+          }, (err, data) => {
             if (err) {
               console.error(err.stack);
+              channels = null;
+            } else {
+              if (Array.isArray(channels)) {
+                channels = channels
+                  .map(name => data.channels.filter(channel => channel.name === name)[0])
+                  .filter(metadata => typeof metadata === 'object' && metadata !== null)
+                  .map(metadata => metadata.id);
+              }
             }
 
-            let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
-            let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
-            if (visaEmailDate < earliestVisaEmailDate) {
-              visaEmailDate = earliestVisaEmailDate;
-            }
-
-            db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
+            slack('users.admin.invite', {
+              email: aemail,
+              channels: Array.isArray(channels) ? channels.join(',') : undefined,
+              first_name: name,
+              last_name: surname,
+              resend: true
+            }, err => {
               if (err) {
-                callback(err);
-                return;
+                console.error(err.stack);
               }
 
-              db.hset('visaqueue:' + visaPeriod, email, visaEmailDate, err => {
+              let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
+              let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
+              if (visaEmailDate < earliestVisaEmailDate) {
+                visaEmailDate = earliestVisaEmailDate;
+              }
+
+              db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
                 if (err) {
                   callback(err);
                   return;
                 }
 
-                db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                db.hset('visaqueue:' + visaPeriod, email, visaEmailDate, err => {
                   if (err) {
                     callback(err);
                     return;
                   }
 
-                  callback(null);
+                  db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                    if (err) {
+                      callback(err);
+                      return;
+                    }
+
+                    callback(null);
+                  });
                 });
               });
             });
