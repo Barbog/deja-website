@@ -13,7 +13,7 @@
     "node": "^6.10.0"
   },
   "dependencies": {
-    "async": "^2.4.0",
+    "async": "^2.4.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
@@ -22,7 +22,7 @@
     "front-matter": "^2.1.2",
     "get-env": "^0.5.10",
     "gm": "^1.23.0",
-    "helmet": "^3.6.0",
+    "helmet": "^3.6.1",
     "i18n": "^0.8.3",
     "less": "^2.7.2",
     "less-plugin-clean-css": "^1.5.1",
