@@ -1766,7 +1766,7 @@ const cleanVirginApplicationQueueFor = (visaPeriod, rerun) => {
         return;
       }
 
-      if (veteranLength <= virginLength * 2) {
+      if (veteranLength <= virginLength * 1) {
         setTimeout(rerun, 100);
         return;
       }
