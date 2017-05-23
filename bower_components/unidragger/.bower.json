@@ -28,12 +28,12 @@
     "package.json"
   ],
   "homepage": "https://github.com/metafizzy/unidragger",
-  "version": "2.2.0",
-  "_release": "2.2.0",
+  "version": "2.2.1",
+  "_release": "2.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "v2.2.0",
-    "commit": "73e513e20ab90712e82585327fca9bbad58bca7a"
+    "tag": "v2.2.1",
+    "commit": "b149195c596ae7d2768d67ca8e7f274dcd12cf0f"
   },
   "_source": "https://github.com/metafizzy/unidragger.git",
   "_target": "^2.1.0",
