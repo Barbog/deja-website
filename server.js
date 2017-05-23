@@ -1102,9 +1102,9 @@ function catchAllFor (backstack, sitemap) {
               });
             });
           };
-          fs.readFile(path.join(__dirname, 'pages', encodeURIComponent(view + '.' + locale + '.md')), { encoding: 'utf8' }, (err, data) => {
+          fs.readFile(path.join(__dirname, 'pages', locale, encodeURIComponent(view + '.md')), { encoding: 'utf8' }, (err, data) => {
             if (err) {
-              fs.readFile(path.join(__dirname, 'pages', encodeURIComponent(view + '.en.md')), { encoding: 'utf8' }, (err, data) => {
+              fs.readFile(path.join(__dirname, 'pages', 'en', encodeURIComponent(view + '.md')), { encoding: 'utf8' }, (err, data) => {
                 if (err) {
                   render('');
                 } else {
