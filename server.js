@@ -1681,7 +1681,7 @@ const emailApply = (visaPeriod, priority, callback) => {
           let surname = name.pop();
           name = name.join(' ');
 
-          let channels = [ 'general', 'random' ];
+          let channels = [ 'general', 'random', 'carpools' ];
           let ministries = typeof application['ministry-choice'] === 'string' ? JSON.parse(application['ministry-choice']) : application['ministry-choice'];
           if (Array.isArray(ministries)) {
             Object.keys(ministrySlackChannels).forEach(match => {
