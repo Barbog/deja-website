@@ -47,6 +47,12 @@ const showdown = new (require('showdown').Converter)();
 const url = require('url');
 const xlsx = require('xlsx');
 
+const readJsonFileSync = filename => JSON.parse(fs.readFileSync(path.join(__dirname, filename), { encoding: 'utf8' }));
+const sitemap = readJsonFileSync('sitemap.json');
+const ministrySlackChannels = readJsonFileSync('ministry-slack-channels.json');
+const questions = readJsonFileSync('questions.json');
+const visaApplication = readJsonFileSync('visa-application.json');
+
 const db = redis.createClient();
 db.on('error', err => {
   console.error(err.stack);
@@ -854,11 +860,6 @@ app.all('/admin/visa-application/:year', returnBadAction);
     catchRegister(locale);
   }
 })();
-
-const sitemap = JSON.parse(fs.readFileSync(path.join(__dirname, 'sitemap.json'), { encoding: 'utf8' }));
-const ministrySlackChannels = JSON.parse(fs.readFileSync(path.join(__dirname, 'ministry-slack-channels.json'), { encoding: 'utf8' }));
-const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.json'), { encoding: 'utf8' }));
-const visaApplication = JSON.parse(fs.readFileSync(path.join(__dirname, 'visa-application.json'), { encoding: 'utf8' }));
 
 function catchAllFor (backstack, sitemap) {
   if (!Array.isArray(sitemap)) { sitemap = []; }
