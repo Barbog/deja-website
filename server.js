@@ -27,31 +27,53 @@ const getVisaPeriod = () => {
   return '' + (now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1));
 };
 
-const async = require('async');
-const bcrypt = require('bcryptjs');
-const env = require('get-env')();
-const express = require('express');
-const frontMatter = require('front-matter');
 const fs = require('fs');
-const gm = require('gm');
 const https = require('https');
-const i18n = require('i18n');
-const less = require('less');
-const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true });
-const mailgun = require('mailgun-js')({ apiKey: 'key-f092a5bb72bd024a03f67de1144de8a8', domain: 'mg.sparklatvia.lv' });
 const path = require('path');
 const querystring = require('querystring');
-const randomstring = require('randomstring');
-const redis = require(env === 'dev' ? 'fakeredis' : 'redis');
-const showdown = new (require('showdown').Converter)();
 const url = require('url');
-const xlsx = require('xlsx');
 
 const readJsonFileSync = filename => JSON.parse(fs.readFileSync(path.join(__dirname, filename), { encoding: 'utf8' }));
 const sitemap = readJsonFileSync('sitemap.json');
 const ministrySlackChannels = readJsonFileSync('ministry-slack-channels.json');
 const questions = readJsonFileSync('questions.json');
 const visaApplication = readJsonFileSync('visa-application.json');
+
+let keys = {};
+const getKey = name => {
+  if (keys.hasOwnProperty(name)) {
+    return keys[name];
+  }
+
+  let localKeys = readJsonFileSync('keys.json');
+  if (localKeys.hasOwnProperty(name)) {
+    keys[name] = localKeys[name];
+    return localKeys[name];
+  }
+
+  let defaultKeys = readJsonFileSync('keys.def.json');
+  if (defaultKeys.hasOwnProperty(name)) {
+    keys[name] = defaultKeys[name];
+    return defaultKeys[name];
+  }
+
+  return null;
+};
+
+const async = require('async');
+const bcrypt = require('bcryptjs');
+const env = require('get-env')();
+const express = require('express');
+const frontMatter = require('front-matter');
+const gm = require('gm');
+const i18n = require('i18n');
+const less = require('less');
+const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true });
+const mailgun = require('mailgun-js')({ apiKey: getKey('mailgun'), domain: 'mg.sparklatvia.lv' });
+const randomstring = require('randomstring');
+const redis = require(env === 'dev' ? 'fakeredis' : 'redis');
+const showdown = new (require('showdown').Converter)();
+const xlsx = require('xlsx');
 
 const db = redis.createClient();
 db.on('error', err => {
@@ -1576,7 +1598,7 @@ const slack = (method, args, callback) => {
     return callback(new Error('No arguments object provided.'));
   }
 
-  args.token = 'xoxp-20979710294-21097752741-157844649281-cc09711be7af87cf7dc4d0880d48d9f7';
+  args.token = getKey('slack');
   args = querystring.stringify(args);
 
   const req = https.request({
