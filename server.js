@@ -601,6 +601,11 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 'id': '__visaid',
                 'title': 'Visa ID',
                 'type': 'visaid'
+              },
+              {
+                'id': '__virgin',
+                'title': 'Virgin',
+                'type': 'yes/no'
               }
             ]).filter(question => question.id !== 'ministry-choice');
             let ministryData = [ ministryHeader.map(question => question.title) ]
