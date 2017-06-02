@@ -459,35 +459,56 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               return;
             }
 
-            if (invitees.indexOf(email) !== -1) {
-              db.hget('user:' + email, 'visaid:' + year, (err, visaid) => {
-                if (err) {
-                  console.error(err.message);
-                  visaid = null;
-                }
+            db.hget('user:' + email, 'answer.Visa Application.' + visaApplication[visaApplication.length - 1].title + '.' + year, (err, applicationtime) => {
+              if (err) {
+                console.error(err.message);
+                applicationtime = null;
+              }
 
-                if (typeof visaid === 'string') {
-                  let visaidInt = parseInt(visaid, 10);
-                  if (!isNaN(visaidInt) && ('' + visaidInt) === visaid) {
-                    visaid = visaidInt;
+              if (typeof applicationtime === 'string') {
+                let visaidInt = parseInt(applicationtime, 10);
+                if (!isNaN(visaidInt) && ('' + visaidInt) === applicationtime) {
+                  applicationtime = visaidInt;
+                }
+              }
+              if (typeof applicationtime !== 'number' || isNaN(applicationtime)) {
+                applicationtime = '';
+              } else {
+                applicationtime = (new Date(applicationtime)).toUTCString();
+              }
+
+              obj['__applicationtime'] = applicationtime;
+
+              if (invitees.indexOf(email) !== -1) {
+                db.hget('user:' + email, 'visaid:' + year, (err, visaid) => {
+                  if (err) {
+                    console.error(err.message);
+                    visaid = null;
                   }
-                }
-                if (typeof visaid !== 'number' && typeof visaid !== 'string') {
-                  visaid = 'Being Assigned';
-                }
 
-                obj['__visaid'] = visaid;
+                  if (typeof visaid === 'string') {
+                    let visaidInt = parseInt(visaid, 10);
+                    if (!isNaN(visaidInt) && ('' + visaidInt) === visaid) {
+                      visaid = visaidInt;
+                    }
+                  }
+                  if (typeof visaid !== 'number' && typeof visaid !== 'string') {
+                    visaid = 'Being Assigned';
+                  }
+
+                  obj['__visaid'] = visaid;
+                  callback(null, obj);
+                });
+              } else if (queuees.indexOf(email) !== -1) {
+                let queueNumber = '' + (queuees.indexOf(email) + 1);
+                while (queueNumber.length < 3) queueNumber = '0' + queueNumber;
+                obj['__visaid'] = 'Queue - #' + queueNumber;
                 callback(null, obj);
-              });
-            } else if (queuees.indexOf(email) !== -1) {
-              let queueNumber = '' + (queuees.indexOf(email) + 1);
-              while (queueNumber.length < 3) queueNumber = '0' + queueNumber;
-              obj['__visaid'] = 'Queue - #' + queueNumber;
-              callback(null, obj);
-            } else {
-              obj['__visaid'] = '';
-              callback(null, obj);
-            }
+              } else {
+                obj['__visaid'] = '';
+                callback(null, obj);
+              }
+            });
           });
         }, (err, applications) => {
           if (err) {
@@ -529,7 +550,8 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             }
           ]);
           const applicationsData = [ applicationsHeader.map(question => question.title) ]
-            .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
+            .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
+            .concat([ { 'id': '__applicationtime', 'title': 'Application Completion', 'type': 'text' } ]);
 
           let sheetNames = [
             'Visa Applications'
