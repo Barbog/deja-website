@@ -548,10 +548,15 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               'title': 'Visa ID',
               'type': 'visaid'
             }
+          ]).concat([
+            {
+              'id': '__applicationtime',
+              'title': 'Application Completion',
+              'type': 'text'
+            }
           ]);
           const applicationsData = [ applicationsHeader.map(question => question.title) ]
-            .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
-            .concat([ { 'id': '__applicationtime', 'title': 'Application Completion', 'type': 'text' } ]);
+            .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
 
           let sheetNames = [
             'Visa Applications'
