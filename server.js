@@ -459,6 +459,8 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               return;
             }
 
+            obj['__virgin'] = (obj['years-in-deja'] === 0 || obj['years-in-deja'] === '0') && obj['previous-burns'] === 'no';
+
             db.hget('user:' + email, 'answer.Visa Application.' + visaApplication[visaApplication.length - 1].title + '.' + year, (err, applicationtime) => {
               if (err) {
                 console.error(err.message);
@@ -547,6 +549,11 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               'id': '__visaid',
               'title': 'Visa ID',
               'type': 'visaid'
+            },
+            {
+              'id': '__virgin',
+              'title': 'Virgin',
+              'type': 'yes/no'
             }
           ]).concat([
             {
@@ -558,11 +565,20 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
           const applicationsData = [ applicationsHeader.map(question => question.title) ]
             .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
 
+          const virginApplicationsData = [ applicationsHeader.map(question => question.title) ]
+            .concat(applications.filter(application => application['__virgin']).map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
+          const veteranApplicationsData = [ applicationsHeader.map(question => question.title) ]
+            .concat(applications.filter(application => !application['__virgin']).map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
+
           let sheetNames = [
-            'Visa Applications'
+            'Visa Applications',
+            'Virgins',
+            'Veterans'
           ];
           let sheets = {
-            'Visa Applications': buildWorksheet(applicationsData)
+            'Visa Applications': buildWorksheet(applicationsData),
+            'Virgins': buildWorksheet(virginApplicationsData),
+            'Veterans': buildWorksheet(veteranApplicationsData)
           };
 
           applications.reduce((array, application) => {
