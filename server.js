@@ -1461,6 +1461,7 @@ function catchAllFor (backstack, sitemap) {
                     (application['years-in-deja'] === 0 || application['years-in-deja'] === '0' || application['years-in-deja'] === '"0"');
 
                   if (page.render.nextpage === 'Status') {
+                    // After finishing the application form, the user is pushed to the main queue for processing.
                     db.rpush('queue:' + visaPeriod + ':' + (virgin ? 'virgin' : 'veteran'), res.locals.user.email, err => {
                       if (err) {
                         res.status(500);
@@ -1471,8 +1472,18 @@ function catchAllFor (backstack, sitemap) {
                       }
 
                       if (virgin) {
+                        // Virgins get an additional e-mail notification since they may end up on a waiting queue.
+
                         const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
-                        app.render('email-apply-virgin', { visaPeriod }, (err, html) => {
+                        if (typeof aemail !== 'string' || aemail === '') {
+                          res.status(500);
+                          res.type('text/plain; charset=utf-8');
+                          res.send('Something broke horribly. Sorry.');
+                          console.error(err.stack);
+                          return;
+                        }
+
+                        app.render('email-visa-psbqueue', { visaPeriod }, (err, html) => {
                           mailgun.messages().send({
                             from: 'Degošie Jāņi <game@sparklatvia.lv>',
                             to: aemail,
@@ -1689,6 +1700,16 @@ const slack = (method, args, callback) => {
 };
 
 const emailApply = (visaPeriod, priority, callback) => {
+  if (typeof visaPeriod !== 'number') {
+    visaPeriod = parseInt(visaPeriod, 10);
+  }
+  if (typeof visaPeriod !== 'number' || isNaN(visaPeriod)) {
+    throw new Error('Visa period for emailApply() is not a valid number.');
+  }
+
+  let now = new Date();
+  let visasBeingSentOut = visaPeriod <= now.getFullYear();
+
   db.lrange('queue:' + visaPeriod + ':' + priority, 0, 0, (err, range) => {
     if (err) {
       callback(err);
@@ -1701,89 +1722,209 @@ const emailApply = (visaPeriod, priority, callback) => {
       return;
     }
 
-    db.hgetall('visa:' + visaPeriod + ':' + email, (err, application) => {
+    db.hgetall('user:' + email, (err, user) => {
       if (err) {
         callback(err);
         return;
       }
 
-      const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
-      console.log('Sending out invite e-mail to ' + priority + ' ' + email + ' via ' + aemail + '.');
-      app.render('email-apply', { visaPeriod }, (err, html) => {
-        mailgun.messages().send({
-          from: 'Degošie Jāņi <game@sparklatvia.lv>',
-          to: aemail,
-          subject: 'Your visa application status for DeJā ' + visaPeriod,
-          text: 'Congratulations! You are going to DeJā ' + visaPeriod + '!' + '\n\n' +
-            'You won\'t get bombarded with many emails, but you will receive a few with all the information between now and DeJā.' + '\n\n' +
-            'Slack will be inviting you to join the Baltic Burners team. Use it to communicate, to organize and to plan.',
-          html: err ? undefined : html
-        }, err => {
-          if (err) {
-            callback(err);
+      let visaId = user['visaid:' + visaPeriod];
+
+      db.hgetall('visa:' + visaPeriod + ':' + email, (err, application) => {
+        if (err) {
+          callback(err);
+          return;
+        }
+
+        const handle = () => {
+          const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+          if (typeof aemail !== 'string' || aemail === '') {
+            callback(null);
             return;
           }
 
-          let name = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
-          name = typeof name === 'string' ? name.split(' ') : '';
-          let surname = name.pop();
-          name = name.join(' ');
+          if (visasBeingSentOut) {
+            // Visas are not being sent out yet. Ship it.
+            console.log('Sending out a visa e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
 
-          let channels = [ 'general', 'random', 'carpools' ];
-          let ministries = typeof application['ministry-choice'] === 'string' ? JSON.parse(application['ministry-choice']) : application['ministry-choice'];
-          if (Array.isArray(ministries)) {
-            Object.keys(ministrySlackChannels).forEach(match => {
-              ministries.forEach(ministry => {
-                if (ministry.toLowerCase().indexOf(match.toLowerCase()) !== -1) {
-                  channels = channels.concat(Array.isArray(ministrySlackChannels[match]) ? ministrySlackChannels[match] : [ ministrySlackChannels[match] ]);
-                }
+            const send = (pngBuffer) => {
+              const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+              app.render('email-visa-final', { visaPeriod }, (err, html) => {
+                mailgun.messages().send({
+                  from: 'Degošie Jāņi <game@sparklatvia.lv>',
+                  to: aemail,
+                  subject: 'Your visa application status for DeJā ' + visaPeriod,
+                  text: 'Congratulations! Enclosed is your visa for DeJā ' + visaPeriod + '.' + '\n\n' +
+                    'You will need to show a digital copy or a printout of it when you arrive at the gate.' + '\n\n' +
+                    'There are 3 attachments in this email. Read them all. Information about donations, meal plan and Slack are enclosed as well as the directions to the property. Please do not share these.' + '\n\n' +
+                    'Slack will be inviting you to join the Baltic Burners team. Use it to communicate, to organize and to plan. See you soon!',
+                  html: err ? undefined : html,
+                  attachment: [
+                    new mailgun.Attachment({
+                      data: path.join(__dirname, 'email', 'details.pdf'),
+                      filename: 'details.pdf',
+                      contentType: 'application/pdf'
+                    }),
+                    new mailgun.Attachment({
+                      data: path.join(__dirname, 'email', 'directions.pdf'),
+                      filename: 'directions.pdf',
+                      contentType: 'application/pdf'
+                    }),
+                    new mailgun.Attachment({
+                      data: pngBuffer,
+                      filename: 'visa.png',
+                      contentType: 'image/png'
+                    })
+                  ]
+                }, err => {
+                  if (err) {
+                    callback(err);
+                    return;
+                  }
+
+                  let name = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
+                  name = typeof name === 'string' ? name.split(' ') : '';
+                  let surname = name.pop();
+                  name = name.join(' ');
+
+                  let channels = [ 'general', 'random' ];
+                  let ministries = typeof application['ministry-choice'] === 'string' ? JSON.parse(application['ministry-choice']) : application['ministry-choice'];
+                  if (Array.isArray(ministries)) {
+                    Object.keys(ministrySlackChannels).forEach(match => {
+                      ministries.forEach(ministry => {
+                        if (ministry.toLowerCase().indexOf(match.toLowerCase()) !== -1) {
+                          channels = channels.concat(Array.isArray(ministrySlackChannels[match]) ? ministrySlackChannels[match] : [ ministrySlackChannels[match] ]);
+                        }
+                      });
+                    });
+                    channels = channels.filter(channel => typeof channel === 'string').sort().filter((channel, index, array) => {
+                      return index === 0 || channel !== array[index - 1];
+                    });
+                  }
+
+                  slack('channels.list', {
+                    exclude_archived: true,
+                    exclude_members: true
+                  }, (err, data) => {
+                    if (err) {
+                      console.error(err.stack);
+                      channels = null;
+                    } else {
+                      if (Array.isArray(channels)) {
+                        channels = channels
+                          .map(name => data.channels.filter(channel => channel.name === name)[0])
+                          .filter(metadata => typeof metadata === 'object' && metadata !== null)
+                          .map(metadata => metadata.id);
+                      }
+                    }
+
+                    slack('users.admin.invite', {
+                      email: aemail,
+                      channels: Array.isArray(channels) ? channels.join(',') : undefined,
+                      first_name: name,
+                      last_name: surname,
+                      resend: true
+                    }, err => {
+                      if (err) {
+                        console.error(err.stack);
+                      }
+
+                      db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
+                        if (err) {
+                          callback(err);
+                          return;
+                        }
+
+                        db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                          if (err) {
+                            callback(err);
+                            return;
+                          }
+
+                          callback(null);
+                        });
+                      });
+                    });
+                  });
+                });
               });
-            });
-            channels = channels.filter(channel => typeof channel === 'string').sort().filter((channel, index, array) => {
-              return index === 0 || channel !== array[index - 1];
-            });
-          }
+            };
 
-          slack('channels.list', {
-            exclude_archived: true,
-            exclude_members: true
-          }, (err, data) => {
-            if (err) {
-              console.error(err.stack);
-              channels = null;
-            } else {
-              if (Array.isArray(channels)) {
-                channels = channels
-                  .map(name => data.channels.filter(channel => channel.name === name)[0])
-                  .filter(metadata => typeof metadata === 'object' && metadata !== null)
-                  .map(metadata => metadata.id);
-              }
-            }
-
-            slack('users.admin.invite', {
-              email: aemail,
-              channels: Array.isArray(channels) ? channels.join(',') : undefined,
-              first_name: name,
-              last_name: surname,
-              resend: true
-            }, err => {
-              if (err) {
-                console.error(err.stack);
+            const image = () => {
+              let aname = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
+              let name = (typeof aname === 'string' ? aname : user.name).trim().toUpperCase().split(' ');
+              if (name.length > 2) {
+                for (var i = 0; i < name.length; i++) {
+                  name[i] = {
+                    w: name[i],
+                    len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
+                  };
+                }
+                let midlen = name[name.length - 1].len / 2;
+                let splitoff = name.reduce((prev, curr) => {
+                  return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev);
+                }, -1);
+                name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
+                  name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim();
+              } else {
+                name = name.join(' ');
               }
 
-              let earliestVisaEmailDate = +(new Date(visaPeriod, 4, 1)); // May 1
-              let visaEmailDate = Date.now() + 3 * 24 * 60 * 60 * 1000;
-              if (visaEmailDate < earliestVisaEmailDate) {
-                visaEmailDate = earliestVisaEmailDate;
-              }
+              gm(path.join(__dirname, 'email', 'visa.png'))
+                .gravity('center')
+                .font(path.join(__dirname, 'email', 'visa.ttf'))
+                .fontSize(42).pointSize(42)
+                .fill('white')
+                .drawText(412, 6, name, 'center')
+                .toBuffer('png', (err, pngBuffer) => {
+                  if (err) {
+                    callback(err);
+                    return;
+                  }
 
-              db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
+                  if (user['visaid:' + visaPeriod] !== visaId) {
+                    db.hset('user:' + email, 'visaid:' + visaPeriod, visaId, err => {
+                      if (err) {
+                        callback(err);
+                        return;
+                      }
+
+                      user['visaid:' + visaPeriod] = visaId;
+                      send(pngBuffer);
+                    });
+                  } else {
+                    send(pngBuffer);
+                  }
+                });
+            };
+
+            image();
+          } else {
+            // Visas are not being sent out yet.
+            // Resend an email requiring user confirmation about attendance later down the line.
+            console.log('Sending out an informational confirmation e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
+
+            app.render('email-visa-seeyou', { visaPeriod }, (err, html) => {
+              mailgun.messages().send({
+                from: 'Degošie Jāņi <game@sparklatvia.lv>',
+                to: aemail,
+                subject: 'Your visa application status for DeJā ' + visaPeriod,
+                text: 'Thank you for your submission!' + '\n\n' +
+                  'You will be receiving another email with more information. See you next year!',
+                html: err ? undefined : html
+              }, err => {
                 if (err) {
                   callback(err);
                   return;
                 }
 
-                db.hset('visaqueue:' + visaPeriod, email, visaEmailDate, err => {
+                let sendDate = Date.now();
+                let earliestSendDate = +(new Date(visaPeriod, 0, 1)) + Math.floor((10 * 60) + (Math.random() * 30 * 60)) * 1000; // January 1 + 10 to 40 minutes scatter
+                if (sendDate < earliestSendDate) {
+                  sendDate = earliestSendDate;
+                }
+
+                db.hset('unconfirmed:' + visaPeriod + ':' + priority, email, sendDate, err => {
                   if (err) {
                     callback(err);
                     return;
@@ -1800,8 +1941,22 @@ const emailApply = (visaPeriod, priority, callback) => {
                 });
               });
             });
+          }
+        };
+
+        if (typeof visaId === 'undefined') {
+          db.incr('visaid:' + visaPeriod, (err, genVisaId) => {
+            if (err) {
+              callback(err);
+              return;
+            }
+
+            visaId = genVisaId;
+            handle();
           });
-        });
+        } else {
+          handle();
+        }
       });
     });
   });
@@ -1830,25 +1985,45 @@ const cleanVirginApplicationQueueFor = (visaPeriod, rerun) => {
       return;
     }
 
-    db.llen('invited:' + visaPeriod + ':veteran', (err, veteranLength) => {
+    db.hkeys('unconfirmed:' + visaPeriod + ':virgin', (err, unconfirmedVirgins) => {
       if (err) {
         console.error(err.stack);
         setTimeout(rerun, 60 * 1000);
         return;
       }
 
-      if (veteranLength <= virginLength * 1) {
-        setTimeout(rerun, 100);
-        return;
-      }
+      virginLength += Object.keys(unconfirmedVirgins).length;
 
-      emailApply(visaPeriod, 'virgin', err => {
+      db.llen('invited:' + visaPeriod + ':veteran', (err, veteranLength) => {
         if (err) {
           console.error(err.stack);
           setTimeout(rerun, 60 * 1000);
-        } else {
-          setTimeout(rerun, 100);
+          return;
         }
+
+        db.hkeys('unconfirmed:' + visaPeriod + ':veteran', (err, unconfirmedVeterans) => {
+          if (err) {
+            console.error(err.stack);
+            setTimeout(rerun, 60 * 1000);
+            return;
+          }
+
+          veteranLength += Object.keys(unconfirmedVeterans).length;
+
+          if (veteranLength < virginLength * 1) {
+            setTimeout(rerun, 100);
+            return;
+          }
+
+          emailApply(visaPeriod, 'virgin', err => {
+            if (err) {
+              console.error(err.stack);
+              setTimeout(rerun, 60 * 1000);
+            } else {
+              setTimeout(rerun, 100);
+            }
+          });
+        });
       });
     });
   });
@@ -1858,136 +2033,42 @@ setTimeout(cleanVirginApplicationQueueForLast, 10 * 1000);
 const cleanVirginApplicationQueueForCurrent = () => cleanVirginApplicationQueueFor(getVisaPeriod(), cleanVirginApplicationQueueForCurrent);
 setTimeout(cleanVirginApplicationQueueForCurrent, 10 * 1000);
 
-const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
-  db.hgetall('visaqueue:' + visaPeriod, (err, visaQueue) => {
+const cleanUnconfirmedListFor = (visaPeriod, priority, rerun) => {
+  db.hgetall('unconfirmed:' + visaPeriod + ':' + priority, (err, unconfirmed) => {
     if (err) {
       console.error(err.stack);
       setTimeout(rerun, 60 * 1000);
       return;
     }
 
-    async.eachOf(visaQueue, (sendDate, key, callback) => {
-      if (Date.now() < visaQueue[key]) {
+    async.eachOf(unconfirmed, (sendDate, email, callback) => {
+      // Do not continue if the sending time is in the future or if it is 0.
+      // It will be a zero in the period between when the notification has been sent out and the user has actually acknowledged it.
+      if (Date.now() < unconfirmed[email] || unconfirmed[email] === '0' || unconfirmed[email] === 0) {
         callback(null);
         return;
       }
 
-      db.hgetall('user:' + key, (err, user) => {
+      db.hgetall('user:' + email, (err, user) => {
         if (err) {
           callback(err);
           return;
         }
 
-        db.hgetall('visa:' + visaPeriod + ':' + key, (err, application) => {
+        db.hgetall('visa:' + visaPeriod + ':' + email, (err, application) => {
           if (err) {
             callback(err);
             return;
           }
 
-          let visaId = user['visaid:' + visaPeriod];
-
-          const send = (pngBuffer) => {
-            const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
-            console.log('Sending out visa e-mail via ' + aemail + '.');
-            app.render('email-visa', { visaPeriod }, (err, html) => {
-              mailgun.messages().send({
-                from: 'Degošie Jāņi <game@sparklatvia.lv>',
-                to: aemail,
-                subject: 'Your visa application status for DeJā ' + visaPeriod,
-                text: 'Congratulations! Enclosed is your visa for DeJā ' + visaPeriod + '.' + '\n\n' +
-                  'You will need to show a digital copy or a printout of it when you arrive at the gate.' + '\n\n' +
-                  'There are 3 attachments in this email. Read them all. Information about donations, meal plan and Slack are enclosed as well as the directions to the property. Please do not share these.' + '\n\n' +
-                  'See you soon!',
-                html: err ? undefined : html,
-                attachment: [
-                  new mailgun.Attachment({
-                    data: path.join(__dirname, 'email', 'details.pdf'),
-                    filename: 'details.pdf',
-                    contentType: 'application/pdf'
-                  }),
-                  new mailgun.Attachment({
-                    data: path.join(__dirname, 'email', 'directions.pdf'),
-                    filename: 'directions.pdf',
-                    contentType: 'application/pdf'
-                  }),
-                  new mailgun.Attachment({
-                    data: pngBuffer,
-                    filename: 'visa.png',
-                    contentType: 'image/png'
-                  })
-                ]
-              }, err => {
-                if (err) {
-                  callback(err);
-                  return;
-                }
-
-                db.hdel('visaqueue:' + visaPeriod, key, callback);
-              });
-            });
-          };
-
-          let aname = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname'];
-          let name = (typeof aname === 'string' ? aname : user.name).trim().toUpperCase().split(' ');
-          if (name.length > 2) {
-            for (var i = 0; i < name.length; i++) {
-              name[i] = {
-                w: name[i],
-                len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
-              };
-            }
-            let midlen = name[name.length - 1].len / 2;
-            let splitoff = name.reduce((prev, curr) => {
-              return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev);
-            }, -1);
-            name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
-              name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim();
-          } else {
-            name = name.join(' ');
+          const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+          if (typeof aemail !== 'string' || aemail === '') {
+            callback(null);
+            return;
           }
 
-          const image = () => {
-            gm(path.join(__dirname, 'email', 'visa.png'))
-              .gravity('center')
-              .font(path.join(__dirname, 'email', 'visa.ttf'))
-              .fontSize(42).pointSize(42)
-              .fill('white')
-              .drawText(412, 6, name, 'center')
-              .toBuffer('png', (err, pngBuffer) => {
-                if (err) {
-                  callback(err);
-                  return;
-                }
-
-                if (user['visaid:' + visaPeriod] !== visaId) {
-                  db.hset('user:' + key, 'visaid:' + visaPeriod, visaId, err => {
-                    if (err) {
-                      callback(err);
-                      return;
-                    }
-
-                    user['visaid:' + visaPeriod] = visaId;
-                    send(pngBuffer);
-                  });
-                } else {
-                  send(pngBuffer);
-                }
-              });
-          };
-
-          if (typeof visaId === 'undefined') {
-            db.incr('visaid:' + visaPeriod, (err, genVisaId) => {
-              if (err) {
-                callback(err);
-                return;
-              }
-
-              visaId = genVisaId;
-              image();
-            });
-          } else {
-            image();
-          }
+          console.log('(TODO -- Should be!) Sending out a notification confirmation e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
+          // TODO Actually send out these confirmations to people. Dante says no worries about getting the text when the time comes.
         });
       });
     }, err => {
@@ -1999,7 +2080,11 @@ const cleanVisaEmailQueueFor = (visaPeriod, rerun) => {
     });
   });
 };
-const cleanVisaEmailQueueForLast = () => cleanVisaEmailQueueFor(getVisaPeriod() - 1, cleanVisaEmailQueueForLast);
-setTimeout(cleanVisaEmailQueueForLast, 10 * 1000);
-const cleanVisaEmailQueueForCurrent = () => cleanVisaEmailQueueFor(getVisaPeriod(), cleanVisaEmailQueueForCurrent);
-setTimeout(cleanVisaEmailQueueForCurrent, 10 * 1000);
+const cleanVirginUnconfirmedListForLast = () => cleanUnconfirmedListFor(getVisaPeriod() - 1, 'virgin', cleanVirginUnconfirmedListForLast);
+setTimeout(cleanVirginUnconfirmedListForLast, 10 * 1000);
+const cleanVirginUnconfirmedListForCurrent = () => cleanUnconfirmedListFor(getVisaPeriod(), 'virgin', cleanVirginUnconfirmedListForCurrent);
+setTimeout(cleanVirginUnconfirmedListForCurrent, 10 * 1000);
+const cleanVeteranUnconfirmedListForLast = () => cleanUnconfirmedListFor(getVisaPeriod() - 1, 'virgin', cleanVeteranUnconfirmedListForLast);
+setTimeout(cleanVeteranUnconfirmedListForLast, 10 * 1000);
+const cleanVeteranUnconfirmedListForCurrent = () => cleanUnconfirmedListFor(getVisaPeriod(), 'virgin', cleanVeteranUnconfirmedListForCurrent);
+setTimeout(cleanVeteranUnconfirmedListForCurrent, 10 * 1000);
