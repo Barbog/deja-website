@@ -1989,9 +1989,9 @@ const cleanVeteranApplicationQueueFor = (visaPeriod, rerun) => {
     }
   });
 };
-const cleanVeteranApplicationQueueForLast = () => cleanVeteranApplicationQueueFor(getVisaPeriod() - 1, cleanVeteranApplicationQueueForLast);
+const cleanVeteranApplicationQueueForLast = () => { cleanVeteranApplicationQueueFor(getVisaPeriod() - 1, cleanVeteranApplicationQueueForLast); };
 setTimeout(cleanVeteranApplicationQueueForLast, 10 * 1000);
-const cleanVeteranApplicationQueueForCurrent = () => cleanVeteranApplicationQueueFor(getVisaPeriod(), cleanVeteranApplicationQueueForCurrent);
+const cleanVeteranApplicationQueueForCurrent = () => { cleanVeteranApplicationQueueFor(getVisaPeriod(), cleanVeteranApplicationQueueForCurrent); };
 setTimeout(cleanVeteranApplicationQueueForCurrent, 10 * 1000);
 
 const cleanVirginApplicationQueueFor = (visaPeriod, rerun) => {
@@ -2045,9 +2045,9 @@ const cleanVirginApplicationQueueFor = (visaPeriod, rerun) => {
     });
   });
 };
-const cleanVirginApplicationQueueForLast = () => cleanVirginApplicationQueueFor(getVisaPeriod() - 1, cleanVirginApplicationQueueForLast);
+const cleanVirginApplicationQueueForLast = () => { cleanVirginApplicationQueueFor(getVisaPeriod() - 1, cleanVirginApplicationQueueForLast); };
 setTimeout(cleanVirginApplicationQueueForLast, 10 * 1000);
-const cleanVirginApplicationQueueForCurrent = () => cleanVirginApplicationQueueFor(getVisaPeriod(), cleanVirginApplicationQueueForCurrent);
+const cleanVirginApplicationQueueForCurrent = () => { cleanVirginApplicationQueueFor(getVisaPeriod(), cleanVirginApplicationQueueForCurrent); };
 setTimeout(cleanVirginApplicationQueueForCurrent, 10 * 1000);
 
 const cleanUnconfirmedListFor = (visaPeriod, priority, rerun) => {
@@ -2097,11 +2097,11 @@ const cleanUnconfirmedListFor = (visaPeriod, priority, rerun) => {
     });
   });
 };
-const cleanVirginUnconfirmedListForLast = () => cleanUnconfirmedListFor(getVisaPeriod() - 1, 'virgin', cleanVirginUnconfirmedListForLast);
+const cleanVirginUnconfirmedListForLast = () => { cleanUnconfirmedListFor(getVisaPeriod() - 1, 'virgin', cleanVirginUnconfirmedListForLast); };
 setTimeout(cleanVirginUnconfirmedListForLast, 10 * 1000);
-const cleanVirginUnconfirmedListForCurrent = () => cleanUnconfirmedListFor(getVisaPeriod(), 'virgin', cleanVirginUnconfirmedListForCurrent);
+const cleanVirginUnconfirmedListForCurrent = () => { cleanUnconfirmedListFor(getVisaPeriod(), 'virgin', cleanVirginUnconfirmedListForCurrent); };
 setTimeout(cleanVirginUnconfirmedListForCurrent, 10 * 1000);
-const cleanVeteranUnconfirmedListForLast = () => cleanUnconfirmedListFor(getVisaPeriod() - 1, 'virgin', cleanVeteranUnconfirmedListForLast);
+const cleanVeteranUnconfirmedListForLast = () => { cleanUnconfirmedListFor(getVisaPeriod() - 1, 'virgin', cleanVeteranUnconfirmedListForLast); };
 setTimeout(cleanVeteranUnconfirmedListForLast, 10 * 1000);
-const cleanVeteranUnconfirmedListForCurrent = () => cleanUnconfirmedListFor(getVisaPeriod(), 'virgin', cleanVeteranUnconfirmedListForCurrent);
+const cleanVeteranUnconfirmedListForCurrent = () => { cleanUnconfirmedListFor(getVisaPeriod(), 'virgin', cleanVeteranUnconfirmedListForCurrent); };
 setTimeout(cleanVeteranUnconfirmedListForCurrent, 10 * 1000);
