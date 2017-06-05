@@ -24,7 +24,7 @@ const shuffle = (array) => {
 const getVisaPeriod = () => {
   const now = new Date();
   const applicationEnd = new Date(now.getFullYear(), 5, 2); // June 2
-  return '' + (now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1));
+  return now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1);
 };
 
 const fs = require('fs');
@@ -188,7 +188,7 @@ app.use((req, res, next) => {
     }
 
     if (typeof acl === 'string') {
-      acl = acl.split('{visaPeriod}').join(getVisaPeriod());
+      acl = acl.split('{visaPeriod}').join('' + getVisaPeriod());
 
       return !!res.locals.user[acl];
     }
@@ -1412,7 +1412,7 @@ function catchAllFor (backstack, sitemap) {
               });
             };
 
-            const visaPeriod = getVisaPeriod();
+            const visaPeriod = '' + getVisaPeriod();
             const fieldAns = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer') + '.' + visaPeriod;
             db.hget('user:' + res.locals.user.email, fieldAns, (err, reply) => {
               if (err) {
@@ -2027,7 +2027,7 @@ const cleanVirginApplicationQueueFor = (visaPeriod, rerun) => {
 
           veteranLength += Object.keys(unconfirmedVeterans).length;
 
-          if (veteranLength < virginLength * 1 && visaPeriod !== '2017') {
+          if (veteranLength < virginLength * 1 && '' + visaPeriod !== '2017') {
             setTimeout(rerun, 100);
             return;
           }
