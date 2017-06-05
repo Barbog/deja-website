@@ -1825,25 +1825,36 @@ const emailApply = (visaPeriod, priority, callback) => {
                       last_name: surname,
                       resend: true
                     }, err => {
-                      if (err) {
-                        console.error(err.stack);
-                      }
-
-                      db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
-                        if (err) {
-                          callback(err);
-                          return;
-                        }
-
-                        db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                      const pushrem = () => {
+                        db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
                           if (err) {
                             callback(err);
                             return;
                           }
 
-                          callback(null);
+                          db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                            if (err) {
+                              callback(err);
+                              return;
+                            }
+
+                            callback(null);
+                          });
                         });
-                      });
+                      };
+
+                      if (err) {
+                        if (err.code === 'already_in_team') {
+                          // TODO Invite to the channels instead.
+                          console.error(err.stack);
+                          pushrem();
+                        } else {
+                          console.error(err.stack);
+                          pushrem();
+                        }
+                      } else {
+                        pushrem();
+                      }
                     });
                   });
                 });
