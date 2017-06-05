@@ -2021,7 +2021,7 @@ const cleanVirginApplicationQueueFor = (visaPeriod, rerun) => {
 
           veteranLength += Object.keys(unconfirmedVeterans).length;
 
-          if (veteranLength < virginLength * 1) {
+          if (veteranLength < virginLength * 1 && visaPeriod !== '2017') {
             setTimeout(rerun, 100);
             return;
           }
