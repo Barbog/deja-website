@@ -21,8 +21,8 @@ if (argv.length > 5 ||
 const fs = require('fs');
 const path = require('path');
 
-let text = fs.readFileSync(textFile);
-let html = htmlFile ? fs.readFileSync(htmlFile) : undefined;
+let text = fs.readFileSync(textFile, { encoding: 'utf8' });
+let html = htmlFile ? fs.readFileSync(htmlFile, { encoding: 'utf8' }) : undefined;
 
 const readJsonFileSync = filename => JSON.parse(fs.readFileSync(path.join(__dirname, filename), { encoding: 'utf8' }));
 
