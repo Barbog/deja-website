@@ -12,8 +12,7 @@ Dejā ir
 - Radošuma, pašizpausmes, līdzdalības un kopienas eksperiments. To radāt, pieredzat un galu galā demontējat tikai un vienīgi jūs
 - Tukša vide, kurā radīt un izpausties.
   - Īslaicīga mītne, kurā tu sastapsi daudzveidīgu, māksliniecisku un daudznacionālu indivīdu kolektīvu, kas līdzdarbojas, lai uzburtu  maģiju vidē, kur jātrenē sava patstāvība un jāpaļaujas uz saviem spēkiem.
-- (lat.val. lietvārda „deja” lokatīva forma. 
-
+- (lat.val. lietvārda „deja” lokatīva forma.
 
 
 **<span style="color:#77011e;"><u>Kad?**</u></span>
