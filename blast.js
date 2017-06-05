@@ -63,7 +63,7 @@ async.map([ 'invited:' + year + ':veteran', 'invited:' + year + ':virgin' ], (ke
     throw err;
   }
 
-  db.close();
+  db.quit();
 
   let invitees = groups.reduce((array, group) => array.concat(group), []);
   invitees.forEach(invitee => {
