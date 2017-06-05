@@ -58,24 +58,26 @@ db.on('error', err => {
 
 async.map([ 'invited:' + year + ':veteran', 'invited:' + year + ':virgin' ], (key, callback) => {
   db.lrange(key, 0, 1000, callback);
-}, (err, invitees) => {
+}, (err, groups) => {
   if (err) {
     throw err;
   }
 
-  invitees.forEach(invitee => {
-    mailgun.messages().send({
-      from: sender,
-      to: invitee,
-      subject,
-      text,
-      html
-    }, err => {
-      if (err) {
-        console.error(invitee + ': ' + err.message);
-      } else {
-        console.log(invitee + ': OK.');
-      }
+  groups.forEach(group => {
+    group.forEach(invitee => {
+      mailgun.messages().send({
+        from: sender,
+        to: invitee,
+        subject,
+        text,
+        html
+      }, err => {
+        if (err) {
+          console.error(invitee + ': ' + err.message);
+        } else {
+          console.log(invitee + ': OK.');
+        }
+      });
     });
   });
 });
