@@ -1853,9 +1853,43 @@ const emailApply = (visaPeriod, priority, callback) => {
 
                       if (err) {
                         if (err.code === 'already_in_team') {
-                          // TODO Invite to the channels instead.
-                          console.error(err.stack);
-                          pushrem();
+                          slack('users.list', {
+                            presence: false
+                          }, (err, data) => {
+                            let users = [];
+                            if (err) {
+                              console.error(err.stack);
+                            } else {
+                              if (Array.isArray(data.members)) {
+                                users = data.members
+                                  .filter(member => (member.profile || {}).email === aemail)
+                                  .map(member => member.id);
+                              }
+                            }
+
+                            if (users.length === 0) {
+                              console.error('No such Slack user with e-mail ' + aemail + ' found.');
+                              pushrem();
+                            } else {
+                              let user = users[0];
+                              async.each(Array.isArray(channels) ? channels : [], (channel, callback) => {
+                                slack('channels.invite', {
+                                  channel,
+                                  user
+                                }, err => {
+                                  if (err) {
+                                    console.error(err.stack);
+                                  }
+                                  callback(null);
+                                });
+                              }, err => {
+                                if (err) {
+                                  console.error(err.stack);
+                                }
+                                pushrem();
+                              });
+                            }
+                          });
                         } else {
                           console.error(err.stack);
                           pushrem();
