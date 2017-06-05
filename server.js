@@ -459,7 +459,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
               return;
             }
 
-            obj['__virgin'] = (obj['years-in-deja'] === 0 || obj['years-in-deja'] === '0') && obj['previous-burns'] === 'no';
+            obj['__virgin'] = ((obj['years-in-deja'] === 0 || obj['years-in-deja'] === '0') && obj['previous-burns'] === 'no') ? 'yes' : '';
 
             db.hget('user:' + email, 'answer.Visa Application.' + visaApplication[visaApplication.length - 1].title + '.' + year, (err, applicationtime) => {
               if (err) {
