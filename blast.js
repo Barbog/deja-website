@@ -63,21 +63,22 @@ async.map([ 'invited:' + year + ':veteran', 'invited:' + year + ':virgin' ], (ke
     throw err;
   }
 
-  groups.forEach(group => {
-    group.forEach(invitee => {
-      mailgun.messages().send({
-        from: sender,
-        to: invitee,
-        subject,
-        text,
-        html
-      }, err => {
-        if (err) {
-          console.error(invitee + ': ' + err.message);
-        } else {
-          console.log(invitee + ': OK.');
-        }
-      });
+  db.close();
+
+  let invitees = groups.reduce((array, group) => array.concat(group), []);
+  invitees.forEach(invitee => {
+    mailgun.messages().send({
+      from: sender,
+      to: invitee,
+      subject,
+      text,
+      html
+    }, err => {
+      if (err) {
+        console.error(err.message + ': ' + invitee);
+      } else {
+        console.log('OK: ' + invitee);
+      }
     });
   });
 });
