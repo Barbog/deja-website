@@ -479,6 +479,12 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
                 applicationtime = (new Date(applicationtime)).toUTCString();
               }
 
+              if (typeof obj.email !== 'string' || obj.email === '') {
+                obj.email = email;
+              } else if (typeof obj.email === 'string' && obj.email !== email) {
+                obj.email += ' | ' + email;
+              }
+
               obj['__applicationtime'] = applicationtime;
 
               if (invitees.indexOf(email) !== -1) {
