@@ -1743,10 +1743,9 @@ const emailApply = (visaPeriod, priority, callback) => {
         }
 
         const handle = () => {
-          const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+          let aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
           if (typeof aemail !== 'string' || aemail === '') {
-            callback(null);
-            return;
+            aemail = email;
           }
 
           if (visasBeingSentOut) {
@@ -1754,7 +1753,10 @@ const emailApply = (visaPeriod, priority, callback) => {
             console.log('Sending out a visa e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
 
             const send = (pngBuffer) => {
-              const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+              let aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+              if (typeof aemail !== 'string' || aemail === '') {
+                aemail = email;
+              }
               app.render('email-visa-final', { visaPeriod }, (err, html) => {
                 mailgun.messages().send({
                   from: 'Degošie Jāņi <game@sparklatvia.lv>',
@@ -2078,10 +2080,9 @@ const cleanUnconfirmedListFor = (visaPeriod, priority, rerun) => {
             return;
           }
 
-          const aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
+          let aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
           if (typeof aemail !== 'string' || aemail === '') {
-            callback(null);
-            return;
+            aemail = email;
           }
 
           console.log('(TODO -- Should be!) Sending out a notification confirmation e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
