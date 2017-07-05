@@ -483,15 +483,12 @@
   {
     "title": "Visa Application",
     "hidden": "Status",
-    "acl": "answer.Survival Guide.Final Questions",
+    "acl": "none",
     "subpages": [
       {
         "title": "Status",
         "type": "visa-status",
-        "acl": [
-          "answer.Survival Guide.Final Questions",
-          "answer.Visa Application.Volunteering.{visaPeriod}"
-        ],
+        "acl": "none",
         "render": {
           "previouspage": "Basic Information"
         }
@@ -499,8 +496,7 @@
       {
         "title": "Basic Information",
         "type": "visa-application",
-        "acl": "answer.Survival Guide.Final Questions",
-        "acl": "answer.Survival Guide.Final Questions",
+        "acl": "none",
         "render": {
           "nextpage": "Fuck Commerce"
         }
@@ -508,7 +504,7 @@
       {
         "title": "Fuck Commerce",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Basic Information.{visaPeriod}",
+        "acl": "none",
         "render": {
           "nextpage": "Don't let it hit the ground, but let the bodies hit the floor"
         }
@@ -516,7 +512,7 @@
       {
         "title": "Don't let it hit the ground, but let the bodies hit the floor",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Fuck Commerce.{visaPeriod}",
+        "acl": "none",
         "render": {
           "nextpage": "Self Expression"
         }
@@ -524,7 +520,7 @@
       {
         "title": "Self Expression",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Don't let it hit the ground, but let the bodies hit the floor.{visaPeriod}",
+        "acl": "none",
         "render": {
           "nextpage": "Consent"
         }
@@ -532,7 +528,7 @@
       {
         "title": "Consent",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Self Expression.{visaPeriod}",
+        "acl": "none",
         "render": {
           "nextpage": "Participation"
         }
@@ -540,7 +536,7 @@
       {
         "title": "Participation",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Self Expression.{visaPeriod}",
+        "acl": "none",
         "render": {
           "nextpage": "Volunteering"
         }
@@ -548,7 +544,7 @@
       {
         "title": "Volunteering",
         "type": "visa-application",
-        "acl": "answer.Visa Application.Participation.{visaPeriod}",
+        "acl": "none",
         "render": {
           "nextpage": "Status"
         }
