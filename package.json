@@ -22,17 +22,17 @@
     "front-matter": "^2.1.2",
     "get-env": "^0.5.10",
     "gm": "^1.23.0",
-    "helmet": "^3.8.0",
+    "helmet": "^3.8.1",
     "i18n": "^0.8.3",
     "less": "^3.0.0-alpha.2",
     "less-plugin-clean-css": "^1.5.1",
-    "mailgun-js": "^0.11.3",
+    "mailgun-js": "^0.12.1",
     "morgan": "^1.8.2",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^2.0.0-rc.3",
     "randomstring": "^1.1.5",
-    "redis": "^2.7.1",
-    "showdown": "^1.7.1",
-    "xlsx": "^0.10.8"
+    "redis": "^2.8.0",
+    "showdown": "^1.7.2",
+    "xlsx": "^0.11.1"
   },
   "devDependencies": {},
   "semistandard": {
