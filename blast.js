@@ -14,7 +14,8 @@ if (argv.length > 5 ||
     isNaN(year) ||
     typeof subject !== 'string' || subject === '' ||
     typeof textFile !== 'string' || textFile === '') {
-  console.error('Usage: ' + process.argv[0] + ' <year> <subject> <text file> [html file] [sender]');
+  console.error('Usage: ' + process.argv[1] + ' \\\n  <year> \\\n  <subject> \\\n  <text file> \\\n  [html file] \\\n  [sender]\n');
+  console.error('Example: ' + process.argv[1] + ' \\\n  2017 \\\n  "Donations for DeJā 2017" \\\n  blast.donations.txt \\\n  blast.donations.html \\\n  "Ministry of Finance <ministry-of-finance@sparklatvia.lv>"\n');
   process.exit(1);
 }
 
