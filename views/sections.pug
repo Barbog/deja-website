@@ -6,17 +6,17 @@ block body
       ul.siblingpages
         each siblingpage in siblingpages
           li.siblingpage
-            a(class=(__(siblingpage.title) === title || !acl(siblingpage.acl) ? 'disabled' : '') class=(__(siblingpage.title) === title ? 'current' : '') href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
+            a(class=(__(siblingpage.title) === title || !acl(siblingpage.acl) ? 'disabled' : '') class=(__(siblingpage.title) === title ? 'current' : '') href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(siblingpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-').split('(').join('').split(')').join('').split('!').join(''))
               p= __(siblingpage.title)
   section
     h1.title.center= title
     if markdown
       != markdown
     if nextpage
-      a.nextpage(href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))= __('Next Page')
+      a.nextpage(href=[ '', getLocale() ].concat(stackpages.slice(0, stackpages.length - 1)).concat([ __(nextpage).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-').split('(').join('').split(')').join('').split('!').join(''))= __('Next Page')
     if subpages && subpages.length > 0
       ul.grid-logo
         each subpage in subpages
           li.grid
-            a(class=(!acl(subpage.acl) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-'))
+            a(class=(!acl(subpage.acl) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-').split('(').join('').split(')').join('').split('!').join(''))
               p= __(subpage.title)

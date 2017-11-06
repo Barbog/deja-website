@@ -1,13 +1,13 @@
 extends layout.pug
 
 mixin tree-button(name, edge)
-  a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-').split('/').join('-') + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-') class='tree-' + name.toLowerCase().split(' ').join('-').split('/').join('-'))
-    img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-') + '.png' title=__(name) width=edge height=edge)
+  a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') class='tree-' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))
+    img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.png' title=__(name) width=edge height=edge)
 
 mixin section(name)
   - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl)
   if accessible || (name === 'Visa Application' && acl('email'))
-    a(class=(accessible ? '' : 'disabled').trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-'))= __(name).toUpperCase()
+    a(class=(accessible ? '' : 'disabled').trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __(name).toUpperCase()
 
 block home
   img.home.disabled(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='750' height='750')
@@ -76,5 +76,5 @@ block body
       each event in globalEvents
         .carousel-cell
           a(target='_blank' href=event.link class=(event.link ? '' : 'disabled'))
-            img(src='/images/global-events/' + event.what.toLowerCase().split(' ').join('-').split('/').join('-') + '.png' alt=event.what width='150' height='79')
+            img(src='/images/global-events/' + event.what.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.png' alt=event.what width='150' height='79')
             p #{event.what.toUpperCase()}#[br]#{event.when}
