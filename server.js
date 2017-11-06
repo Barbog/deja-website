@@ -746,7 +746,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-');
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('');
     }
   });
 
@@ -787,7 +787,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-');
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('');
     }
   });
 
@@ -821,7 +821,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
       req.setLocale(locale);
       const name = req.body ? req.body.name : '';
       const email = req.body ? typeof req.body.email === 'string' ? req.body.email.toLowerCase() : '' : '';
-      const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-') + '?email=check';
+      const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?email=check';
 
       const rerender = err => {
         res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, err: err, name: name, email: email }, (err, html) => {
@@ -927,7 +927,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
     for (var locale in subhash) {
       if (!subhash.hasOwnProperty(locale)) { continue; }
       navbarHash[locale] = subhash[locale];
-      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-');
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('');
     }
   });
 
@@ -948,7 +948,7 @@ function catchAllFor (backstack, sitemap) {
     stack[stack.length] = { title: {}, href: {}, render: page.render };
 
     const reduceToHref = locale => {
-      return stack.reduce((prev, next) => prev + '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale);
+      return stack.reduce((prev, next) => prev + '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''), '/' + locale);
     };
 
     i18n.__h(page.title).forEach(subhash => {
@@ -980,10 +980,10 @@ function catchAllFor (backstack, sitemap) {
             const target = res.locals.user
               ? page.render.previouspage
                 ? stack.slice(0, -1).reduce((prev, next) => prev +
-                  '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
-                    '/' + req.__(page.render.previouspage).toLowerCase().split(' ').join('-').split('/').join('-')
+                  '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''), '/' + locale) +
+                    '/' + req.__(page.render.previouspage).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')
                 : '/' + locale + '/'
-              : '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-') + '?l=' + req.url;
+              : '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url;
             res.render('redirect', { target: target }, (err, html) => {
               res.status(303);
               res.location(target);
@@ -1008,7 +1008,7 @@ function catchAllFor (backstack, sitemap) {
               const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
               if (res.locals.user[field]) {
                 const target = '/' + locale + '/' + page.questions.nextPage
-                  .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-')).join('/');
+                  .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')).join('/');
                 res.render('redirect', { target: target }, (err, html) => {
                   res.status(303);
                   res.location(target);
@@ -1034,8 +1034,8 @@ function catchAllFor (backstack, sitemap) {
               const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer');
               if (res.locals.user[field]) {
                 const target = (stack.slice(0, -1).reduce((prev, next) => prev +
-                  '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
-                    '/' + req.__(page.render.nextpage).toLowerCase().split(' ').join('-').split('/').join('-'));
+                  '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''), '/' + locale) +
+                    '/' + req.__(page.render.nextpage).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''));
                 res.render('redirect', { target: target }, (err, html) => {
                   res.status(303);
                   res.location(target);
@@ -1197,7 +1197,7 @@ function catchAllFor (backstack, sitemap) {
           app.post(encodeURI(localeHash[locale]), (req, res) => {
             const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'questions');
             if (!res.locals.user || !res.locals.user[field]) {
-              const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-') + '?l=' + req.url;
+              const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url;
               res.render('redirect', { target: target }, (err, html) => {
                 res.status(303);
                 res.location(target);
@@ -1281,7 +1281,7 @@ function catchAllFor (backstack, sitemap) {
               res.locals.user[fieldAns] = valueAns;
 
               const target = '/' + locale + '/' + page.questions.nextPage
-                .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-')).join('/');
+                .map(part => req.__(part).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')).join('/');
               res.render('redirect', { target: target }, (err, html) => {
                 res.status(303);
                 res.location(target);
@@ -1396,8 +1396,8 @@ function catchAllFor (backstack, sitemap) {
 
             const moveForward = () => {
               const target = stack.slice(0, -1).reduce((prev, next) => prev +
-                '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-'), '/' + locale) +
-                  '/' + req.__(page.render.nextpage).toLowerCase().split(' ').join('-').split('/').join('-');
+                '/' + next.title[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''), '/' + locale) +
+                  '/' + req.__(page.render.nextpage).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('');
               res.render('redirect', { target: target }, (err, html) => {
                 res.status(303);
                 res.location(target);
@@ -1521,7 +1521,7 @@ function catchAllFor (backstack, sitemap) {
       for (var locale in stack[stack.length - 1].title) {
         if (!stack[stack.length - 1].title.hasOwnProperty(locale)) { continue; }
         catchAll(stack[stack.length - 1].href, locale,
-          stack.map(el => el.title.en.toLowerCase().split(' ').join('-').split('/').join('-')).join('.'),
+          stack.map(el => el.title.en.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')).join('.'),
           stack[stack.length - 1].title[locale], stack[stack.length - 1].render);
       }
     } else if (typeof page.hidden === 'string') {
@@ -1547,7 +1547,7 @@ function catchAllFor (backstack, sitemap) {
       for (var localeRedirect in stack[stack.length - 1].title) {
         if (!stack[stack.length - 1].title.hasOwnProperty(localeRedirect)) { continue; }
         catchAllRedirect(stack[stack.length - 1].href[localeRedirect], localeRedirect, stack[stack.length - 1].href[localeRedirect] + '/' +
-          i18n.__({ phrase: page.hidden, locale: localeRedirect }).toLowerCase().split(' ').join('-').split('/').join('-'));
+          i18n.__({ phrase: page.hidden, locale: localeRedirect }).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''));
       }
     }
 
