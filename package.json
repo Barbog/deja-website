@@ -13,7 +13,7 @@
     "node": "^6.10.0"
   },
   "dependencies": {
-    "async": "^2.5.0",
+    "async": "^2.6.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
@@ -31,8 +31,8 @@
     "pug": "^2.0.0-rc.4",
     "randomstring": "^1.1.5",
     "redis": "^2.8.0",
-    "showdown": "^1.8.1",
-    "xlsx": "^0.11.8"
+    "showdown": "^1.8.2",
+    "xlsx": "^0.11.10"
   },
   "devDependencies": {},
   "semistandard": {

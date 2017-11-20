@@ -1,32 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
   <script src="../jquery.modal.js" type="text/javascript" charset="utf-8"></script>
   <link rel="stylesheet" href="../jquery.modal.css" type="text/css" media="screen" />
 
   <script src="highlight/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8"> hljs.initHighlightingOnLoad(); </script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <link rel="stylesheet" href="highlight/github.css" type="text/css" media="screen" />
-  <link href='http://fonts.googleapis.com/css?family=Roboto:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400" rel="stylesheet">
   <style type="text/css" media="screen">
-    html { background: #ddd; }
-    body { font: normal 18px/1.6 'Open Sans', "Helvetica Neue", Arial, sans-serif; font-weight: 300; color: #777; padding: 2em 5%; width: 80%; max-width: 900px; margin: 0 auto; background: #fff; }
+    html {
+      font-size: 18px;
+    }
+
+    body {
+      font-weight: 400;
+      font-family: "Nunito", "Helvetica Neue", arial, sans-serif;
+      line-height: 1.666;
+      -webkit-font-smoothing: antialiased;
+      color: #5e6c76;
+      margin: 0;
+      padding: 10px 0 0 0;
+    }
+
+    .band {
+      background-image: linear-gradient(to right, #2a27a8 0%,#8c50bc 50%,#fc6e6c 100%);
+      height: 10px;
+      top: 0;
+      right: 0;
+      left: 0;
+      position: fixed;
+    }
+
+    .wrapper {
+      padding: 2em 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     small { color: #aaa; }
-    h1,h2,h3,h4 { color: #444; font-weight: 700; font-size: 1.6em; letter-spacing: -1px; }
-    a { color: #0086B3; font-weight: 700; }
-    a:hover { color: #000; }
-    p code, li code {background:#ffffcc; color: #444; }
-    pre { font-size: 12px; line-height: 18px; }
-    pre code { overflow: scroll; padding: 1em; border-radius: 10px; }
-    hr { height: 10px; background: #eee; border: none; }
+    h1,h2,h3,h4 { color: #404a50; font-weight: 800; font-size: 1.75em; line-height: 1.1; margin: 0 0 1.5rem 0; }
+    h2 a { color: #cad1d5; border: none; }
+    h2 a:hover { color: #fa0065; }
+    a { color: #fa0065; font-weight: 700; transition-duration: .2s; text-decoration: none; border-bottom: 2px solid transparent; }
+    a:hover { color: #22272a; border-color: #22272a; }
+    p, ul, ol, pre { margin: 0 auto 1.5rem auto; }
+    p code, li code {color: #000080; font-size: .9em; }
+    pre { font-size: 14px; line-height: 2; }
+    pre code { overflow: scroll; padding: 1em; border-radius: 4px; background: #f9fafb; color: #475359; }
+    hr { height: 3px; background: #f0f2f3; border: none; margin: 3rem 0; border-radius: 3px; }
     table {width:100%;border-collapse:collapse;}
     td { border: 1px solid #eee; padding: 15px; }
     td pre { margin: 0; }
+    code { font-family: 'fira mono', monospace; }
+    a.btn {
+      color: #fff;
+      background: #FF0066;
+      padding: .5rem 1rem;
+      display: inline-block;
+      border-radius: 4px;
+      transition-duration: .25s;
+      border: none;
+      font-size: 14px;
+    }
+    a.btn:hover {
+      background: #22272a;
+    }
 
-    body > .modal {
-      display: none;
+    .header h1 {
+      margin: 1rem 0 .5rem 0;
+    }
+
+    .header iframe {
+      margin-bottom: 2rem;
+    }
+
+    .header p {
+      margin: 0 0 .5rem 0;
+      font-size: 1.25rem;
+    }
+
+    .header ul {
+      list-style-type: none;
+      margin-right: 0;
+      padding: 0;
+      line-height: 2;
+    }
+
+    .header ul li:before {
+      content: '\2714';
+      margin-right: .5em;
+      color: #94be47;
+      font-size: .75em;
     }
 
     /* Example 2 (login form) */
@@ -60,74 +131,108 @@
       width: 200px;
     }
 
-
     .part {
       display: none;
     }
 
+    .modal p { margin: 1em 0; }
+    .modal a.close-modal { border: none; }
+
+    @media(max-width: 600px) {
+      html {
+        font-size: 14px;
+      }
+      h2 a { display: block; margin-bottom: 0.5em; }
+      pre { font-size: 11px; line-height: 1.5; }
+      pre code { padding: 5px; }
+      a.btn { display: block; text-align: center; padding: 1rem; }
+    }
+
   </style>
   <title>jQuery Modal</title>
+  <meta name="description" content="jQuery Modal is the easiest way to display modal windows with jQuery. Built by Kyle Fox.">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="https://kylefox.ca/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://kylefox.ca/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://kylefox.ca/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://kylefox.ca/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://kylefox.ca/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://kylefox.ca/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://kylefox.ca/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://kylefox.ca/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="https://kylefox.ca/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="https://kylefox.ca/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="https://kylefox.ca/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://kylefox.ca/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://kylefox.ca/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#f0f0f0">
+  <meta name="msapplication-TileImage" content="https://kylefox.ca/mstile-144x144.png">
+
 </head>
 <body>
+  <div class="band"></div>
+  <div class="wrapper">
 
-<h1>jQuery Modal</h1>
-<p><em>the simplest modal you ever did see.</em> &ndash; <a href="http://github.com/kylefox/jquery-modal">Code on GitHub &raquo;</a></p>
-<ul>
-  <li>Automatic binding using HTML semantics</li>
-  <li>No images &amp; light-weight <small>(about 1k minified)</small></li>
-  <li>Simple markup makes it easy to style</li>
-  <li>Attach custom behaviour using <a href="http://api.jquery.com/category/events/">jQuery events</a></li>
-  <li>Close with click or ESC key</li>
-  <li>Works in every single browser known to man (including <a href="http://lynx.invisible-island.net/current/">Lynx</a>)</li>
-  <li>Built by <a href="http://kylefox.ca/">Kyle Fox</a>, the nicest guy you've never met.</li>
-</ul>
+<div class="header">
+  <h1>jQuery Modal</h1>
+  <p class="sub">The simplest modal you ever did see.</p>
+  <a class="github-button" href="https://github.com/kylefox/jquery-modal" data-size="large" data-show-count="true" aria-label="Star kylefox/jquery-modal on GitHub">Star</a>
 
+  <ul>
+    <li>Automatic binding using HTML semantics</li>
+    <li>No images &amp; light-weight <small>(about 1k minified)</small></li>
+    <li>Simple markup makes it easy to style</li>
+    <li>Attach custom behaviour using <a href="http://api.jquery.com/category/events/">jQuery events</a></li>
+    <li>Close with click or ESC key</li>
+    <li>Built by <a href="https://twitter.com/kylefox" target="_blank">@kylefox</a> 🍸</li>
+  </ul>
+</div>
 
+<hr>
 
+<h2 id="install"><a href="#install">#</a> Install</h2>
 
+<p>The simplest method is to use the hosted version from <a href="https://cdnjs.com/libraries/jquery-modal">cdnjs</a>:</p>
+
+<pre><code>&lt;!-- Remember to include jQuery :) --&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- jQuery Modal --&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css&quot; /&gt;</code></pre>
+
+<p>Refer to the <a href="https://github.com/kylefox/jquery-modal#installation">README</a> for more installation options.</p>
 
 <hr />
 
-<h2>Example 1: Open &amp; Close with links</h2>
+<h2 id="example-1"><a href="#example-1">#</a> Example 1: Open &amp; Close with links</h2>
 <ol>
-  <li>Embed modal HTML in document <small>(and hide it)</small></li>
+  <li>Embed modal HTML in document</li>
   <li>Create a link with <code>rel="modal:open"</code> and set the <code>href</code> attribute to the modal's DOM id.</li>
 </ol>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;/style&gt;
-  &lt;!-- Don't forget to include jQuery ;) --&gt;
-  &lt;script src=&quot;jquery.modal.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<pre><code>&lt;!-- Modal HTML embedded directly into document --&gt;
+&lt;div id=&quot;ex1&quot; class=&quot;modal&quot;&gt;
+  &lt;p&gt;Thanks for clicking. That felt good.&lt;/p&gt;
+  &lt;a href=&quot;#&quot; rel=&quot;modal:close&quot;&gt;Close&lt;/a&gt;
+&lt;/div&gt;
 
-  &lt;!-- Modal HTML embedded directly into document --&gt;
-  &lt;div id=&quot;ex1&quot; style=&quot;display:none;&quot;&gt;
-    &lt;p&gt;Thanks for clicking.  That felt good.  &lt;a href=&quot;#&quot; rel=&quot;modal:close&quot;&gt;Close&lt;/a&gt; or press ESC&lt;/p&gt;
-  &lt;/div&gt;
+&lt;!-- Link to open the modal --&gt;
+&lt;p&gt;&lt;a href=&quot;#ex1&quot; rel=&quot;modal:open&quot;&gt;Open Modal&lt;/a&gt;&lt;/p&gt;</code></pre>
 
-  &lt;!-- Link to open the modal --&gt;
-  &lt;p&gt;&lt;a href=&quot;#ex1&quot; rel=&quot;modal:open&quot;&gt;Open Modal&lt;/a&gt;&lt;/p&gt;
+<a class="btn" href="#ex1" rel="modal:open">Open Modal</a>
 
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<!-- Link to open the modal -->
-<p>Demo: <a href="#ex1" rel="modal:open">Open Modal</a></p>
-
-<!-- Modal HTML embedded directly into document -->
-<div class="modal" id="ex1" style="display:none;">
+<div class="modal" id="ex1">
   <p>Thanks for clicking.  That felt good.  <br />Click <a href="#" rel="modal:close">close</a>, click the overlay, or press ESC</p>
 </div>
 
 
 <hr />
 
-<h2>Example 2: styled login form &amp; events</h2>
+<h2 id="example-2"><a href="#example-2">#</a> Example 2: styled login form &amp; events</h2>
 
-<p>This <a href="#ex2" rel="modal:open">example</a> demonstrates how visually customizable the modal is.</p>
+<p>This example demonstrates how visually customizable the modal is.</p>
+
+<a class="btn" href="#ex2" rel="modal:open">Open Modal</a>
 
 <!-- Modal HTML embedded directly into document -->
 <form action="" class="login_form modal" id="ex2" style="display:none;">
@@ -139,28 +244,33 @@
 
 <hr />
 
-<h2>Example 3: adjusting to content</h2>
-<p>This <a href="#ex3" rel="modal:open">example</a> shows how modals are centered automatically. It also demonstrates how a vertical scrollbar appears whenever the modal content overflows.</p>
+<h2 id="example-3"><a href="#example-3">#</a> Example 3: adjusting to content</h2>
+<p>This example shows how modals are centered automatically. It also demonstrates how a vertical scrollbar appears whenever the modal content overflows.</p>
 <div id="ex3" class="modal">
   <p><a id="more" href="#more">More!</a></p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
 
+<a class="btn" href="#ex3" rel="modal:open">Open Modal</a>
+
 <hr />
 
-<h2>Example 4: AJAX</h2>
+<h2 id="example-4"><a href="#example-4">#</a> Example 4: AJAX</h2>
 
-<p>This <a href="ajax.html" rel="modal:open">first example</a> uses <code>rel="modal:open"</code> to automatically load the page contents into a modal via AJAX:</p>
+<p>Use <code>rel="modal:open"</code> to automatically load the page contents into a modal via AJAX:</p>
 
 <pre><code>&lt;a href=&quot;ajax.html&quot; rel=&quot;modal:open&quot;&gt;example&lt;/a&gt;</code></pre>
 
-<p>This <a href="ajax2.html" id="manual-ajax">second example</a> shows how you can manually load AJAX pages into a modal. Note that the AJAX response must be wrapped in a div with class <code>modal</code>:</p>
+<p><a class="btn" href="ajax.html" rel="modal:open">Open Modal</a></p>
+
+<p>You can also manually load AJAX pages into a modal. Note that the AJAX response must be wrapped in a div with class <code>modal</code>:</p>
 
 <pre><code>&lt;!-- Normal link --&gt;<br/>&lt;a href=&quot;ajax.html&quot; id=&quot;manual-ajax&quot;&gt;second example&lt;/a&gt;</code></pre>
 
 <pre><code>// Open modal in AJAX callback
 $('#manual-ajax').click(function(event) {
   event.preventDefault();
+  this.blur(); // Manually remove focus from clicked link.
   $.get(this.href, function(html) {
     $(html).appendTo('body').modal();
   });
@@ -168,13 +278,13 @@ $('#manual-ajax').click(function(event) {
 
 <pre><code>&lt;!-- AJAX response must be wrapped in the modal's root class. --&gt;<br/>&lt;div class=&quot;modal&quot;&gt;<br/>  &lt;p&gt;Second AJAX Example!&lt;/p&gt;<br/>&lt;/div&gt;</pre></code>
 
-<p>If you want more spinner styles, check out <a href="http://ajaxload.info/">ajaxload.info</a>.</p>
+<a class="btn" href="ajax2.html" id="manual-ajax">Open Modal</a>
 
 <hr />
 
-<h2>Example 5: the un-closable window</h2>
-<p>
-  This <a href="#ex5">example</a> demonstrates how to disable the default methods of closing the modal:
+<h2 id="example-5"><a href="#example-5">#</a> Example 5: the un-closable window</h2>
+
+<p>This demonstrates how to disable the default methods of closing the modal.</p>
 
 <pre><code> $("#sticky").modal({
   escapeClose: false,
@@ -182,20 +292,22 @@ $('#manual-ajax').click(function(event) {
   showClose: false
 });</code></pre>
 
+<a class="btn" href="#ex5">Open Modal</a>
 
-</p>
 <div id="ex5" class="modal">
   <p>If you do this, be sure to provide the user with an alternate method of <a href="#" rel="modal:close">closing the window.</a></p>
 </div>
 
 <hr />
 
-<h2>Example 6: Multiple Modals</h2>
+<h2 id="example-6"><a href="#example-6">#</a> Example 6: Multiple Modals</h2>
 
-<p>
-  This <a href="#ex6-1" rel="modal:open">example</a> shows how only one modal can be open at a time. If you open a new modal while an existing modal is open, the existing modal is closed first.
-  If you need to stack multiple modals at the same time, just set the <code>closeExisting</code> option to <code>false</code>.
-  See an example <a href="#ex6-1b" rel="modal:open">here</a>.
+<p>By default, only one modal can be open at a time. If you open a new modal while an existing modal is open, the existing modal is closed first.</p>
+
+<p><a class="btn" href="#ex6-1" rel="modal:open">Open Modals</a>
+
+</p>
+  However, if you need to stack multiple modals at the same time, just set the <code>closeExisting</code> option to <code>false</code>.
 </p>
 
 <pre><code>
@@ -203,6 +315,8 @@ $('#sub-modal').modal({
   closeExisting: false
 });
 </pre></code>
+
+<a class="btn" href="#ex6-1b" rel="modal:open">Open Modals</a>
 
 <div class="modal" id="ex6-1" style="display:none;">
   <p>I'm the first modal. <a href="#ex6-2" rel="modal:open">Open second modal...</a></p>
@@ -239,27 +353,35 @@ $('#sub-modal').modal({
 
 <hr />
 
-<h2>Example 7: Fade Transitions</h2>
+<h2 id="example-7"><a href="#example-7">#</a> Example 7: Fade Transitions</h2>
 
-<p>This <a href="#ex7">example</a> shows how you can do a simple fade by specifying the <code>fadeDuration</code> option.</p>
+<p>You can achieve a simple fade effect by specifying the <code>fadeDuration</code> option.</p>
 
 <pre><code> $("#fade").modal({
   fadeDuration: 100
 });</code></pre>
 
-<p>You can also use <code>fadeDelay</code> to control the point during the overlay's fade in at which the modal fades in. For <a href="#ex8">example</a>, to fade in the modal when the overlay transition is 50% complete:</p>
+<p><a class="btn" href="#ex7">Open Modal</a></p>
+
+<p>You can also use <code>fadeDelay</code> to control the point during the overlay's fade in at which the modal fades in. For example, to fade in the modal when the overlay transition is 50% complete:</p>
 
 <pre><code> $("#fade").modal({
   fadeDuration: 1000,
   fadeDelay: 0.50
 });</code></pre>
 
-<p>The default value is <code>1.0</code>, meaning the window transition begins once the overlay transition has finished. Values greater than <code>1.0</code> mean there is a delay between the completed overlay transition and the start of the window transition, <a href="#ex9">example</a>:</p>
+<p><a class="btn" href="#ex8">Open Modal</a></p>
+
+<p>
+  The default value is <code>1.0</code>, meaning the window transition begins once the overlay transition has finished.
+  Values greater than <code>1.0</code> mean there is a delay between the completed overlay transition and the start of the window transition:</p>
 
 <pre><code> $("#fade").modal({
   fadeDuration: 1000,
   fadeDelay: 1.75 // Will fade in 750ms after the overlay finishes.
 });</code></pre>
+
+<p><a class="btn" href="#ex9">Open Modal</a></p>
 
 <p><small>Tip: set <code>fadeDelay: 0</code> to have the overlay and window fade in simultaneously.</small></p>
 
@@ -284,9 +406,9 @@ $('#sub-modal').modal({
 
 <hr/>
 
-<h2>Example 10: Custom Class for Close Button</h2>
+<h2 id="example-8"><a href="#example-8">#</a> Example 8: Custom Class for Close Button</h2>
 <p>
-  This <a href="#ex10">example</a> demonstrates how to add extra classes to the close button (for custom styles for the close button):
+  This example demonstrates how to add extra classes to the close button (for custom styles for the close button):
 </p>
 
 <pre><code> $("#custom-close").modal({
@@ -314,6 +436,8 @@ $('#sub-modal').modal({
   -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
   box-shadow:         1px 1px 5px rgba(0,0,0,0.5);
 }</code></pre>
+
+<a class="btn" href="#ex10">Open Modal</a>
 
 <div id="ex10" class="modal">
   <p>This modal has a fancy-shmancy close button.</p>
@@ -367,6 +491,7 @@ $('#sub-modal').modal({
 
     $('#manual-ajax').click(function(event) {
       event.preventDefault();
+      this.blur();
       $.get(this.href, function(html) {
         $(html).appendTo('body').modal();
       });
@@ -433,5 +558,6 @@ $('#sub-modal').modal({
 
 </script>
 
+</div>
 </body>
 </html>
