@@ -24,7 +24,7 @@ The visas help to determine how many people will be attending and how they plan 
 
 <span style="color:#77011e;"><u> "How can I participate in DeJā?"</u></span>
 
-- First, register to this site if you haven't done so already.  Start by going to the log in button on the top left of the site and follow the link.
+- First, create an account on this site if you haven't done so already.  Start by going to the log in button on the top left of the site and follow the link.
 
 - Second, check your email for the password.  You will be able to change it after you have logged in.
 
@@ -50,13 +50,13 @@ The Visa will only be available after you have read the:
 
 <span style="color:#77011e;"><u>"I have an idea for a(n) (fire sculpture, art installation, workshop, etc) , is it ok for me to do this?"</u></span>
 
-DeJā is a canvass for you to come and express yourself.  If you have an idea that you wish to materialize, DeJā is most likely the place to do it at.  Please refer to the "fire rules" and the "making your art green" sections inside of the website, once you have registered and logged in.
+DeJā is a canvass for you to come and express yourself.  If you have an idea that you wish to materialize, DeJā is most likely the place to do it at.  Please refer to the "fire rules" and the "making your art green" sections inside of the website, once you have created an account and logged in.
 
 
 
 <span style="color:#77011e;"><u>"This is my first burn and I have no idea as to what to do for the event, how can i help?"</u></span>
 
-If you are unsure as to what to do, take a look at the "creation" section after you have registered and logged in, this will give you an idea as to how the infrastructure of the event is organized and where you can volunteer.  Once you arrive at DeJā you will be able to sign up for one or more of the various shifts at the posts where volunteers will be needed.  If this is your first burn, integrate and take it easy, get familiar with the grounds, and consider volunteering 1 or 2 shifts.
+If you are unsure as to what to do, take a look at the "creation" section after you have created an account and logged in, this will give you an idea as to how the infrastructure of the event is organized and where you can volunteer.  Once you arrive at DeJā you will be able to sign up for one or more of the various shifts at the posts where volunteers will be needed.  If this is your first burn, integrate and take it easy, get familiar with the grounds, and consider volunteering 1 or 2 shifts.
 
 
 

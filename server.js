@@ -798,13 +798,13 @@ app.all('/admin/visa-application/:year', returnBadAction);
 })();
 
 (() => {
-  const title = 'Register';
+  const title = 'Create account';
 
-  const catchRegister = locale => {
+  const catchCreateAccount = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale);
 
-      res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
+      res.render('create-account', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
         if (err) {
           res.status(500);
           res.type('text/plain; charset=utf-8');
@@ -824,7 +824,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
       const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?email=check';
 
       const rerender = err => {
-        res.render('register', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, err: err, name: name, email: email }, (err, html) => {
+        res.render('create-account', { altLocales: localeHash, title: req.__(title), markdown: '', hideNavigation: true, err: err, name: name, email: email }, (err, html) => {
           if (err) {
             res.status(500);
             res.type('text/plain; charset=utf-8');
@@ -933,7 +933,7 @@ app.all('/admin/visa-application/:year', returnBadAction);
 
   for (var locale in navbarHash) {
     if (!navbarHash.hasOwnProperty(locale)) { continue; }
-    catchRegister(locale);
+    catchCreateAccount(locale);
   }
 })();
 
