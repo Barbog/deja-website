@@ -45,11 +45,12 @@ const getAltLocales = locales => {
     return {};
   }
 
+  console.log(Object.keys(locales))
   return Object.keys(locales)
     .filter(locale => !noAltsList.includes(locale))
     .reduce((o, locale) => {
       o[locale] = locales[locale];
-      return locales;
+      return o;
     }, {});
 };
 
