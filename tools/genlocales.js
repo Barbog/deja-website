@@ -5,7 +5,7 @@ let output = {};
 
 let path = require('path');
 let root = path.join(__dirname, '..');
-let locales = path.join(root, 'locales', 'en.json');
+let locales = path.join(root, 'locales');
 
 let fs = require('fs');
 
@@ -95,4 +95,11 @@ JSON.parse(fs.readFileSync(path.join(root, 'visa-application.json'), { encoding:
 });
 visaApplication.filter(item => typeof item === 'string').sort().forEach(item => { output[item] = item; });
 
-fs.writeFileSync(locales, JSON.stringify(output, null, '\t') + '\n', { encoding: 'utf8' });
+fs.writeFileSync(path.join(locales, 'en.json'), JSON.stringify(output, null, '\t') + '\n', { encoding: 'utf8' });
+
+fs.readdirSync(locales).filter(fn => fn !== 'en.json').forEach(fn => {
+  let data = JSON.parse(fs.readFileSync(path.join(locales, fn), { encoding: 'utf8' }));
+  output = JSON.parse(JSON.stringify(output));
+  Object.keys(output).filter(key => data.hasOwnProperty(key)).forEach(key => output[key] = data[key]);
+  fs.writeFileSync(path.join(locales, fn), JSON.stringify(output, null, '\t') + '\n', { encoding: 'utf8' });
+});
