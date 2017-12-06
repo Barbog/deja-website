@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 After experiencing a week of openness,  freedom and self-expression, coming back can be challenging.  Side effects might include temptation to throw everything away and run away to the circus, or something similar.  Take some time to reintegrate into default,
 
-- <span style ="color:#77011e;">;**Do Not**</span> rush into any life-changing decision right away.
+- <span style ="color:#77011e;">**Do Not**</span> rush into any life-changing decision right away.
   - Even if it feels like DeJā has changed you and opened your eyes.
 - Leave some time for the dust to settle (no pun intended) before you decide to quit your job, leave your partner, move country or otherwise.
   - It might be the right decision in the long run, but chances are that you’re not thinking quite rationally yet.
@@ -16,13 +16,15 @@ After experiencing a week of openness,  freedom and self-expression, coming bac
   - Though you might be eager to share this experience with them, respect their wants and needs too,
     - <span style="color:#77011e;">Do Not</span> force-feed them DeJā stories if they’re not that interested.
 
+
+
 <span style="color:limegreen;">**<u>Stay Connected</u>**</span>
 
 It is not uncommon to experience feelings of wanting to reunite and return.
 
 <span style="color:#fdb913;">TIP</span>:  carry a notebook and something to write with so you can collect contact information of your new friends.
 
-<span style="color:limegreen;"><u>Connect With SLACK</u>
+<span style="color:limegreen;"><u>Connect With SLACK</u></span>
 
 https://balticburners.slack.com
 

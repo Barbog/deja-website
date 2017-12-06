@@ -14,9 +14,9 @@ When you arrive at DeJā,  you will first be required to check in at the gate. 
 
 <span style="color:#fdb913;"><u>**Early arrivals**</u></span>
 
-This year the gathering will begin on Wednesday the 21st of June, 2017 so as to include the equinox.
+This year the gathering will begin on Thursday. the 21st of June 2018, so as to include the equinox.
 
-Those who volunteer for build are welcome on the property starting Saturday June 17th.
+Those who volunteer for build are welcome on the property starting Saturday June 16th.
 
 We encourage you to come as early as you can manage if you you are setting up an installation or theme camp.
 
@@ -24,7 +24,7 @@ We encourage you to come as early as you can manage if you you are setting up an
 
 <span style="color:#fdb913;"><u>**Parking**</u></span>
 
-All cars and vehicles please have: **driver's name,  tent location/color phone number/contact method/ fixed to one of your windows ** so someone can contact you if need be.
+All cars and vehicles please have: **driver's name,  tent location/color/descriptio,  phone number/contact method/ fixed to one of your windows ** so someone can contact you if need be.
 
 - You are allowed to drive to your camp and drop off your gear and then come back and park in the lot.
 - There is a designated area for RV's and campers.
@@ -51,7 +51,7 @@ All cars and vehicles please have: **driver's name,  tent location/color phone n
 
 <span style="color:gold;">TIP:</span> Put your full focus on living in our village for the duration of the event. You have 51 weeks a year to live in the default world.
 
-- We encourage you to leave on Sunday, after MOOP lines are done.
+- We encourage you to leave on Tuesday, after MOOP lines are done.
 
   - IF we didn't already say it, take your garbage with you and dispose of it properly/
 

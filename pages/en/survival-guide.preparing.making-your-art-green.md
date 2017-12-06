@@ -9,11 +9,18 @@ Thank you for contributing art to DeJā.  Art is at the center of our community.
 Again, we recommend the 6 R’s:
 
 - **<span style="color:#006a44;">Respect.</span>**
+
 - **<span style="color:lime;">Rethink.</span>**
+
 - **<span style="color:#006a44;">Reduce.</span>**
+
 - **<span style="color:lime;">Reuse.</span>**
+
 - **<span style ="color:#006a44;">Recycle.</span>**
+
 - **<span style="color:lime;">Restore.</span>**
+
+  ​
 
 
 

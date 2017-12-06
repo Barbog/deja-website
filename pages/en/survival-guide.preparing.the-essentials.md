@@ -22,10 +22,11 @@ Below is a list of things you should have.
 - Plastic Boxes with Lids
   - Good to store clothes or food in, especially if you forgot to close your tent when it is raining.
   - Ensure that your belongings are waterproof!!
-  - Your Own Cup, plate/bowl, fork, spoon, knife and a can opener
 
-  <span style="color:#fdb913;">TIP:</span>  Clip on your Cup to carry around - great for when you are gifted a drinks.
+- Your Own Cup, plate/bowl, fork, spoon, knife and a can opener
 
+
+<span style="color:#fdb913;">TIP:</span>  Clip on your Cup to carry around - great for when you are gifted a drinks.
 
 - Camping gear, based on your needs.
   - Bear in mind that nights can get cold.
@@ -57,4 +58,3 @@ Below is a list of things you should have.
 - Water-resisting clothes  
   - Poncho  
   - Bring rain boots and warm socks to keep your feet dry.
-

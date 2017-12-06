@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-*at the heart of the event are 2 agencies composing this ministry:
+At the heart of the event are 2 agencies composing this ministry:
 
 - The Volunteer Sign Up Hub.
 
