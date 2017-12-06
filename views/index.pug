@@ -13,6 +13,7 @@ block home
   img.home.disabled(src='/images/logo.png' alt=__('Logo of Degošie Jāņi') width='750' height='750')
 
 block body
+  - let now = new Date()
   nav
     if user
       a(href='#userdata' rel='modal:open')
@@ -41,18 +42,23 @@ block body
       +section('Donation')
       +section('Network')
       +section('FAQ\'ing read me!')
-      p #{__('31 May:')}#[br]#{__('Application deadline.')}
+      - let applicationStart = +(new Date(now.getFullYear(), 4, 31))
+      - let applicationEnd = +(new Date(now.getFullYear() + ((+now) > applicationStart ? 1 : 0), 6, 1))
+      - let daysTillApplication = Math.ceil((applicationEnd - (+now)) / 1000 / 60 / 60 / 24)
+      if (+now) > applicationEnd || daysTillApplication <= 0
+        p= __('Registration period closed.')
+      else
+        p= __n('%s day to register.', '%s days to register.', daysTillApplication)
       if user
         p #{__('17 June — 20 June:')}#[br]#{__('Early arrivals.')}
       p #{__('21 June — 25 June:')}#[br]#{__('DeJā.')}
       if user
         p #{__('26 June:')}#[br]#{__('Strike begins.')}
   nav
-    - let now = Date.now()
-    - let burnEnd = +(new Date((new Date()).getFullYear(), 5, 25))
-    - let burnStart = +(new Date((new Date()).getFullYear() + (now > burnEnd ? 1 : 0), 5, 21))
-    - let daysTillBurn = Math.ceil((burnStart - now) / 1000 / 60 / 60 / 24)
-    if now > burnStart || daysTillBurn <= 0
+    - let burnEnd = +(new Date(now.getFullYear(), 5, 25))
+    - let burnStart = +(new Date(now.getFullYear() + ((+now) > burnEnd ? 1 : 0), 5, 21))
+    - let daysTillBurn = Math.ceil((burnStart - (+now)) / 1000 / 60 / 60 / 24)
+    if (+now) > burnStart || daysTillBurn <= 0
       p= __('We are burning right now')
     else
       p= __n('We burn in %s day', 'We burn in %s days', daysTillBurn)

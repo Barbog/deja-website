@@ -49,7 +49,7 @@ const getAltLocales = locales => {
     .filter(locale => !noAltsList.includes(locale))
     .reduce((o, locale) => {
       o[locale] = locales[locale];
-      return obj;
+      return locales;
     }, {});
 };
 
