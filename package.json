@@ -31,8 +31,8 @@
     "pug": "^2.0.0-rc.4",
     "randomstring": "^1.1.5",
     "redis": "^2.8.0",
-    "showdown": "^1.8.4",
-    "xlsx": "^0.11.12"
+    "showdown": "^1.8.5",
+    "xlsx": "^0.11.13"
   },
   "devDependencies": {},
   "semistandard": {
