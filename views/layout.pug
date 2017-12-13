@@ -31,10 +31,11 @@ html(lang=getLocale())
     header
       .header-top
       .header-bar
-        if user
-          a.sign-in(href='/' + getLocale() + '/' + __('Log Out').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __('Log Out').toUpperCase()
-        else
-          a.sign-in(href='/' + getLocale() + '/' + __('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __('Log In').toUpperCase()
+        block sign-in
+          if user
+            a.sign-in(href='/' + getLocale() + '/' + __('Log Out').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __('Log Out').toUpperCase()
+          else
+            a.sign-in(href='/' + getLocale() + '/' + __('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __('Log In').toUpperCase()
         if altLocales
           .lang
             each href, locale in altLocales
