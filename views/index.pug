@@ -42,8 +42,10 @@ block body
       +section('Donation')
       +section('Network')
       +section('FAQ\'ing read me!')
-      - let applicationStart = +(new Date(now.getFullYear(), 4, 31))
-      - let applicationEnd = +(new Date(now.getFullYear() + ((+now) > applicationStart ? 1 : 0), 6, 1))
+      - let applicationEnd = +(new Date(now.getFullYear(), 4, 31))
+      - if ((+now) > applicationEnd) applicationEnd = +(new Date(now.getFullYear() + 1, 4, 31))
+      - let applicationStart = +(new Date(now.getFullYear() + 1, 6, 1))
+      - if (applicationEnd < applicationStart) applicationStart = +(new Date(now.getFullYear(), 6, 1))
       - let daysTillApplication = Math.ceil((applicationEnd - (+now)) / 1000 / 60 / 60 / 24)
       if (+now) > applicationEnd || daysTillApplication <= 0
         p= __('Registration period closed.')
