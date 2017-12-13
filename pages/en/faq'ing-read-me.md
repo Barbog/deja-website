@@ -8,9 +8,9 @@ A burn is an autonomous, non-commercial gathering, co-created by the attending p
 
 
 
-<span style="color:#77011e;"><u>"Why do i need a visa?"</u></span>
+<span style="color:#77011e;"><u>"Why do i need to apply for entry?"</u></span>
 
-DeJā is an interactive and participatory event, by filling out your visa application you enter the rabbit hole. Doing so is your first step in getting involved and shows your interest in participating.   Once you have submitted your visa, you will receive a notification with details you will need to read and your name will be added to the guest list.
+DeJā is an interactive and participatory event, by filling out your entry application you enter the rabbit hole. Doing so is your first step in getting involved and shows your interest in participating.   Once you have submitted your entry, you will receive a notification with details you will need to read and your name will be added to the guest list.
 
 
 
@@ -18,7 +18,7 @@ DeJā is an interactive and participatory event, by filling out your visa applic
 
 DeJā is a private gathering celebrated on private property, open to those who learn about the event and make their way to the property.
 
-The visas help to determine how many people will be attending and how they plan to participate. This in turn helps with the logistics of the infrastructure as well as providing a census.
+The entries help to determine how many people will be attending and how they plan to participate. This in turn helps with the logistics of the infrastructure as well as providing a census.
 
 
 
@@ -30,15 +30,15 @@ The visas help to determine how many people will be attending and how they plan 
 
 - Third, log in and read sections: Burn Etiquette and Survival Guide and answer the questions at the end of the sections.
 
-- Fourth, fill out the visa application, which will only become available after reading both sections and answering the test questions.
+- Fourth, fill out the entry application, which will only become available after reading both sections and answering the test questions.
 
 - Fifth, get involved, create a project, a workshop, volunteer, donate, check the slack channel which you will be invited to join and paricipate in the conversations that interest you.
 
 
 
-<span style="color:#77011e;"><u>Why can't I open the visa application tab?</u></span>
+<span style="color:#77011e;"><u>Why can't I open the entry application tab?</u></span>
 
-The Visa will only be available after you have read the:
+The Entry will only be available after you have read the:
 
 - Burn Etiquette
 

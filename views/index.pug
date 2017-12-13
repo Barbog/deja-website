@@ -6,7 +6,7 @@ mixin tree-button(name, edge)
 
 mixin section(name)
   - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl)
-  if accessible || (name === 'Visa Application' && acl('email'))
+  if accessible || (name === 'Enter DeJā' && acl('email'))
     a(class=(accessible ? '' : 'disabled').trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __(name).toUpperCase()
 
 block home
@@ -38,7 +38,7 @@ block body
       +section('Burn Etiquette')
       +section('Survival Guide')
       +section('Creation')
-      +section('Visa Application')
+      +section('Enter DeJā')
       +section('Donation')
       +section('Network')
       +section('FAQ\'ing read me!')

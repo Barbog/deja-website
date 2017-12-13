@@ -12,7 +12,7 @@ We have been able to follow through with this experiment for 3 years now, due to
 
 The goal is to continue operating via voluntary donations.  So long as basic expenses continue to be covered,  this event will continue to operate without the need for charging an admission fee
 
-If you wish to attend,  you will need to read the [Survival Guide](https://dejā.lv/en/survival-guide), and the [Burn Etiquette,](https://dejā.lv/en/burn-etiquette/the-code-of-the-republic)  and submit your visa application before the deadline of May 31st, 2017.
+If you wish to attend,  you will need to read the [Survival Guide](https://dejā.lv/en/survival-guide), and the [Burn Etiquette,](https://dejā.lv/en/burn-etiquette/the-code-of-the-republic)  and submit your entry application before the deadline of May 31st, 2017.
 
 By getting familiar with the ministries in the [Creation](https://dejā.lv/en/creation/volunteering) section could help direct your funds in the area you would like to see them applied.
 

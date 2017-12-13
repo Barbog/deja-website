@@ -4,7 +4,7 @@ block body
   if user
     section
       != markdown || ''
-    form.visa-application(action=altLocales[getLocale()] method='post')
+    form.enter-deja(action=altLocales[getLocale()] method='post')
       section
         if questions && questions.length > 0
           each question in questions

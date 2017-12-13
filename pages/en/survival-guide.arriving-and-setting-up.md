@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 <span style="color:#fdb913;"><u>**Checking in**</u></span>
 
-When you arrive at DeJā,  you will first be required to check in at the gate.  All co-creators will be required to show their approved visa along with their ID to be able to check in. You can use a digital copy instead of printing it out.
+When you arrive at DeJā,  you will first be required to check in at the gate.  All co-creators will be required to show their approved entries along with their ID to be able to check in. You can use a digital copy instead of printing it out.
 
 ​The greeters team will be there to help you integrate.
 

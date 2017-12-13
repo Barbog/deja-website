@@ -481,13 +481,13 @@
     ]
   },
   {
-    "title": "Visa Application",
+    "title": "Enter DeJā",
     "hidden": "Status",
     "acl": "none",
     "subpages": [
       {
         "title": "Status",
-        "type": "visa-status",
+        "type": "entry-status",
         "acl": "none",
         "render": {
           "previouspage": "Basic Information"
@@ -495,7 +495,7 @@
       },
       {
         "title": "Basic Information",
-        "type": "visa-application",
+        "type": "enter-deja",
         "acl": "none",
         "render": {
           "nextpage": "Fuck Commerce"
@@ -503,7 +503,7 @@
       },
       {
         "title": "Fuck Commerce",
-        "type": "visa-application",
+        "type": "enter-deja",
         "acl": "none",
         "render": {
           "nextpage": "Don't let it hit the ground, but let the bodies hit the floor"
@@ -511,7 +511,7 @@
       },
       {
         "title": "Don't let it hit the ground, but let the bodies hit the floor",
-        "type": "visa-application",
+        "type": "enter-deja",
         "acl": "none",
         "render": {
           "nextpage": "Self Expression"
@@ -519,7 +519,7 @@
       },
       {
         "title": "Self Expression",
-        "type": "visa-application",
+        "type": "enter-deja",
         "acl": "none",
         "render": {
           "nextpage": "Consent"
@@ -527,7 +527,7 @@
       },
       {
         "title": "Consent",
-        "type": "visa-application",
+        "type": "enter-deja",
         "acl": "none",
         "render": {
           "nextpage": "Participation"
@@ -535,7 +535,7 @@
       },
       {
         "title": "Participation",
-        "type": "visa-application",
+        "type": "enter-deja",
         "acl": "none",
         "render": {
           "nextpage": "Volunteering"
@@ -543,7 +543,7 @@
       },
       {
         "title": "Volunteering",
-        "type": "visa-application",
+        "type": "enter-deja",
         "acl": "none",
         "render": {
           "nextpage": "Status"

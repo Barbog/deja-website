@@ -37,7 +37,7 @@ const readJsonFileSync = filename => JSON.parse(fs.readFileSync(path.join(__dirn
 const sitemap = readJsonFileSync('sitemap.json');
 const ministrySlackChannels = readJsonFileSync('ministry-slack-channels.json');
 const questions = readJsonFileSync('questions.json');
-const visaApplication = readJsonFileSync('visa-application.json');
+const visaApplication = readJsonFileSync('enter-deja.json');
 const noAltsList = readJsonFileSync('no-alts-list.json');
 
 const getAltLocales = locales => {
@@ -404,7 +404,7 @@ const buildWorksheet = data => {
   return worksheet;
 };
 
-app.get('/admin/visa-application/:year', (req, res, next) => {
+app.get('/admin/enter-deja/:year', (req, res, next) => {
   if (!res.locals.user || !res.locals.user.admin) {
     next();
     return;
@@ -478,7 +478,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
 
             obj['__virgin'] = ((obj['years-in-deja'] === 0 || obj['years-in-deja'] === '0') && obj['previous-burns'] === 'no') ? 'yes' : '';
 
-            db.hget('user:' + email, 'answer.Visa Application.' + visaApplication[visaApplication.length - 1].title + '.' + year, (err, applicationtime) => {
+            db.hget('user:' + email, 'answer.Enter DeJā.' + visaApplication[visaApplication.length - 1].title + '.' + year, (err, applicationtime) => {
               if (err) {
                 console.error(err.message);
                 applicationtime = null;
@@ -594,12 +594,12 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
             .concat(applications.filter(application => !application['__virgin']).map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')));
 
           let sheetNames = [
-            'Visa Applications',
+            'Enter DeJā',
             'Virgins',
             'Veterans'
           ];
           let sheets = {
-            'Visa Applications': buildWorksheet(applicationsData),
+            'Enter DeJā': buildWorksheet(applicationsData),
             'Virgins': buildWorksheet(virginApplicationsData),
             'Veterans': buildWorksheet(veteranApplicationsData)
           };
@@ -643,7 +643,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
 
           res.status(200);
           res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-          res.setHeader('Content-Disposition', 'attachment; filename=visa-application.' + year + '.xlsx');
+          res.setHeader('Content-Disposition', 'attachment; filename=enter-deja.' + year + '.xlsx');
           res.send(Buffer.from(xlsx.write({
             SheetNames: sheetNames,
             Sheets: sheets
@@ -653,7 +653,7 @@ app.get('/admin/visa-application/:year', (req, res, next) => {
     });
   });
 });
-app.all('/admin/visa-application/:year', returnBadAction);
+app.all('/admin/enter-deja/:year', returnBadAction);
 
 (() => {
   const title = 'Log In';
@@ -984,7 +984,7 @@ function catchAllFor (backstack, sitemap) {
         page.questions = page.questions[item.title.en];
       });
       if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
-    } else if (page.type === 'visa-application') {
+    } else if (page.type === 'enter-deja') {
       page.questions = visaApplication.filter(section => section.title === page.title)[0];
       if (typeof page.questions !== 'object' || page.questions === null) { page.questions = {}; }
     }
@@ -1042,7 +1042,7 @@ function catchAllFor (backstack, sitemap) {
               } else {
                 callback(null, false);
               }
-            } else if (page.type === 'visa-application') {
+            } else if (page.type === 'enter-deja') {
               if (!res.locals.user) {
                 callback(null, false);
                 return;
@@ -1145,7 +1145,7 @@ function catchAllFor (backstack, sitemap) {
                   }
                 });
               }
-            } else if (page.type === 'visa-application') {
+            } else if (page.type === 'enter-deja') {
               res.locals.questions = page.questions.questions.slice(0);
               setViewStatus();
             } else {
@@ -1313,7 +1313,7 @@ function catchAllFor (backstack, sitemap) {
               });
             });
           });
-        } else if (page.type === 'visa-application') {
+        } else if (page.type === 'enter-deja') {
           app.post(encodeURI(localeHash[locale]), (req, res) => {
             if (!res.locals.user) {
               res.status(400);
@@ -1506,11 +1506,11 @@ function catchAllFor (backstack, sitemap) {
                           return;
                         }
 
-                        app.render('email-visa-psbqueue', { visaPeriod }, (err, html) => {
+                        app.render('email-entry-psbqueue', { visaPeriod }, (err, html) => {
                           mailgun.messages().send({
                             from: 'Degošie Jāņi <game@sparklatvia.lv>',
                             to: aemail,
-                            subject: 'Your visa application status for DeJā ' + visaPeriod,
+                            subject: 'Your entry status for DeJā ' + visaPeriod,
                             text: 'Thank you for your submission!' + '\n\n' +
                               'You will be receiving another email with more information.',
                             html: err ? undefined : html
@@ -1767,19 +1767,19 @@ const emailApply = (visaPeriod, priority, callback) => {
 
           if (visasBeingSentOut) {
             // Visas are not being sent out yet. Ship it.
-            console.log('Sending out a visa e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
+            console.log('Sending out an entry e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
 
             const send = (pngBuffer) => {
               let aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email;
               if (typeof aemail !== 'string' || aemail === '') {
                 aemail = email;
               }
-              app.render('email-visa-final', { visaPeriod }, (err, html) => {
+              app.render('email-entry-final', { visaPeriod }, (err, html) => {
                 mailgun.messages().send({
                   from: 'Degošie Jāņi <game@sparklatvia.lv>',
                   to: aemail,
-                  subject: 'Your visa application status for DeJā ' + visaPeriod,
-                  text: 'Congratulations! Enclosed is your visa for DeJā ' + visaPeriod + '.' + '\n\n' +
+                  subject: 'Your entry status for DeJā ' + visaPeriod,
+                  text: 'Congratulations! Enclosed is your entry for DeJā ' + visaPeriod + '.' + '\n\n' +
                     'You will need to show a digital copy or a printout of it when you arrive at the gate.' + '\n\n' +
                     'There are 3 attachments in this email. Read them all. Information about donations, meal plan and Slack are enclosed as well as the directions to the property. Please do not share these.' + '\n\n' +
                     'Slack will be inviting you to join the Baltic Burners team. Use it to communicate, to organize and to plan. See you soon!',
@@ -1797,7 +1797,7 @@ const emailApply = (visaPeriod, priority, callback) => {
                     }),
                     new mailgun.Attachment({
                       data: pngBuffer,
-                      filename: 'visa.png',
+                      filename: 'entry.png',
                       contentType: 'image/png'
                     })
                   ]
@@ -1940,9 +1940,9 @@ const emailApply = (visaPeriod, priority, callback) => {
                 name = name.join(' ');
               }
 
-              gm(path.join(__dirname, 'email', 'visa.png'))
+              gm(path.join(__dirname, 'email', 'entry.png'))
                 .gravity('center')
-                .font(path.join(__dirname, 'email', 'visa.ttf'))
+                .font(path.join(__dirname, 'email', 'entry.ttf'))
                 .fontSize(42).pointSize(42)
                 .fill('white')
                 .drawText(412, 6, name, 'center')
@@ -1974,11 +1974,11 @@ const emailApply = (visaPeriod, priority, callback) => {
             // Resend an email requiring user confirmation about attendance later down the line.
             console.log('Sending out an informational confirmation e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.');
 
-            app.render('email-visa-seeyou', { visaPeriod }, (err, html) => {
+            app.render('email-entry-seeyou', { visaPeriod }, (err, html) => {
               mailgun.messages().send({
                 from: 'Degošie Jāņi <game@sparklatvia.lv>',
                 to: aemail,
-                subject: 'Your visa application status for DeJā ' + visaPeriod,
+                subject: 'Your entry status for DeJā ' + visaPeriod,
                 text: 'Thank you for your submission!' + '\n\n' +
                   'You will be receiving another email with more information. See you next year!',
                 html: err ? undefined : html

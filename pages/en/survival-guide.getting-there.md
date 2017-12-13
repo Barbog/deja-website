@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 <span style="color:#fdb913;">**<u>Getting There</u>**</span>
 
-You will receive directions to the farm shortly after you have applied for your visa.
+You will receive directions to the farm shortly after you have applied for your entry.
 
 - <span style="color:#77011e;">Do Not</span>  share this information on line anywhere.
 

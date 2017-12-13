@@ -1,7 +1,7 @@
 {
   "Burn Etiquette": {
     "Questions": {
-      "nextPage": [ "Visa Application" ],
+      "nextPage": [ "Enter DeJā" ],
       "questions": [
         {
           "question": "How many principles are there in the Code of the Republic?",
@@ -233,7 +233,7 @@
       }
     },
     "Final Questions": {
-      "nextPage": [ "Visa Application" ],
+      "nextPage": [ "Enter DeJā" ],
       "questions": [
         {
           "question": "MOOP sweeps are highly encouraged.",
@@ -244,7 +244,7 @@
           ]
         },
         {
-          "question": "If someone asks you for directions, it is okay to share them even if they have not filled out a Visa.",
+          "question": "If someone asks you for directions, it is okay to share them even if they have not entered DeJā.",
           "expectedAnswer": "False",
           "answers": [
             "True",

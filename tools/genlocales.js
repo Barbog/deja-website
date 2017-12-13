@@ -77,7 +77,7 @@ iterateQs(JSON.parse(fs.readFileSync(path.join(root, 'questions.json'), { encodi
 questions.filter(item => typeof item === 'string').sort().forEach(item => { output[item] = item; });
 
 let visaApplication = [];
-JSON.parse(fs.readFileSync(path.join(root, 'visa-application.json'), { encoding: 'utf8' })).forEach(section => {
+JSON.parse(fs.readFileSync(path.join(root, 'enter-deja.json'), { encoding: 'utf8' })).forEach(section => {
   visaApplication[visaApplication.length] = section.title;
   if (section.subtitle) { visaApplication[visaApplication.length] = section.subtitle; }
   if (section.questions) {

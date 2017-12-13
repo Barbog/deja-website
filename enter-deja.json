@@ -348,7 +348,7 @@
       {
         "id": "email",
         "title": "E-mail confirmation",
-        "subtitle": "Please confirm the e-mail you created your account on this site with – your visa approval will be sent to it and it will be used to connect you in the appropriate Slack channels.",
+        "subtitle": "Please confirm the e-mail you created your account on this site with – your entry approval will be sent to it and it will be used to connect you in the appropriate Slack channels.",
         "type": "email"
       }
     ]
