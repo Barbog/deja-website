@@ -148,11 +148,11 @@
             "title": "What should I expect",
             "acl": "answer.Burn Etiquette.Questions",
             "render": {
-              "nextpage": "Why do I need to register"
+              "nextpage": "To enter DeJā"
             }
           },
           {
-            "title": "Why do I need to register",
+            "title": "To enter DeJā",
             "acl": "answer.Burn Etiquette.Questions",
             "render": {
               "nextpage": "Why are there no tickets sold"
@@ -160,7 +160,7 @@
           },
           {
             "title": "Why are there no tickets sold",
-            "acl": "view.Survival Guide.The Beginner's Guide.Why do I need to register",
+            "acl": "view.Survival Guide.The Beginner's Guide.To enter DeJā",
             "render": {
               "nextpage": "Questions"
             }

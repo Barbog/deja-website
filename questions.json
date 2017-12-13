@@ -81,11 +81,13 @@
             ]
           },
           {
-            "question": "Why do I need to register?",
-            "expectedAnswer": "To get into DeJā",
+            "question": "How do I enter DeJā?",
+            "expectedAnswer": "I read everything on this website and get my name on the guest list by filling out the questionnaire when I come to the end of the website",
             "answers": [
-              "To get into DeJā",
-              "To fly to Berlin"
+              "I read everything on this website and get my name on the guest list by filling out the questionnaire when I come to the end of the website",
+              "I crash the gate by parachuting in",
+              "I bribe the Big Brother by buying some cake",
+              "I build a Trojan horse and let my friends secretly carry me in"
             ]
           },
           {
