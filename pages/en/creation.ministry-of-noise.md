@@ -2,7 +2,11 @@
 typora-root-url: ../static
 ---
 
-facilitates the quality and quantity of sound on the main stage at DeJā.  DJ's, VJ's, tech people are welcome to volunteer their talents here.
+This ministry is made up of all the DJ's, VJ's, and tech people that bring the noise to farm. They facilitates the quality and quantity of sound.
 
-There are no shifts for this ministry. If you wish to perform and wish to use the sound system, please use our Noise 2017 channel in Slack to make yourself known and be in contact with the noise lead who will be able to schedule you and answer your questions.
+If you DJ, you are invited to collaborate with ohers to create your own theme in a dome or however you chose to set up your dance area. 
+
+
+
+There are no shifts for this ministry. If you wish to perform and  collaborate  please use our Noise 2017 channel in Slack to make yourself known and be in contact with the noise lead who will be able to answer your questions.
 
