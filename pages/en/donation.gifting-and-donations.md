@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 DeJā comes to life via collective ideas, actions, gifts, donations, skills, volunteering and participation. If not for these DeJā would not be.
 
-<u><span style="color:#77011e;">Donation Driven, as opposed to Ticket Sales.</u></span>
+<span style="color:#77011e;"><u>Donation Driven, as opposed to Ticket Sales.</u></span>
 
 The concept of DeJā is to merge the core values of the burn with the local midsummer solstice celebration.   In the spirit of spreading the burn culture and the local traditions <span style="color:#fdb913;">there are no ticket sales,</span> thus making the event accessible to anyone who is willing to make the trek out here in order to participate as well as allow for participants to donate according to their means.
 
