@@ -17,5 +17,4 @@ however we do need 2 Co-leads willing to cover ensure the following is taken car
   - helping to keep the kitchen area organized.
   - rotating the water and changing it out as needed.
 - Organize a team to do a Moop sweep on the final day of the event.
-- Raise awareness if som
 
