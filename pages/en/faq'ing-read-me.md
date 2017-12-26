@@ -4,15 +4,15 @@ typora-root-url: ../static
 
 <span style="color:#77011e;"><u>"What is a burn?"</u></span>
 
-A burn is an autonomous, unsponsored, non-commercial gathering, co-created by the attending participants who are guided by the principles of <span style="color:#77011e;">[Burning Man](http://burningman.org/).</span>
+A burn is an autonomous, unsponsored, non-commercial gathering, co-created by the attending participants who are guided by the principles of <span style="color:#77011e;">[Burning Man](http://burningman.org/).</span>,
 
 
 
 <span style="color:#77011e;"><u>"Why do i need to apply for entry?"</u></span>
 
-DeJā is an interactive and participatory event, by filling out the enter Dejā form you enter the rabbit hole. Doing so is your first step in getting involved and shows your interest in participating.  Once you have submitted your form, you will receive a confirmation email with some extra details and your name will be added to the guest list.
+Because DeJā is an interactive and participatory event.  By filling out the <span style="color:#77011e;">Enter Dejā</span> form you enter the rabbit hole.  Doing so is your first step in getting involved and shows your interest in participating.  Once you have submitted your form, you will receive a confirmation email with some important details and your name will be added to the guest list.
 
-The Enter DeJā form helps to determine how many people, theme camps, sound systems will be attending. This in turn helps with the logistics of the infrastructure as well as providing a census
+The <span style="color:#77011e;">Enter DeJā</span> form helps to determine how many people, theme camps, sound systems will be attending. This in turn helps with the logistics of the infrastructure as well as providing a census.
 
 
 
@@ -26,16 +26,16 @@ Because DeJā is a private gathering celebrated on private property, yet open to
 
 
 
-<span style="color:#77011e;"><u>"How do I gain access to enter DeJā?"</u></span>
+<span style="color:#77011e;"><u>"How do I gain access to **Enter DeJā**?"</u></span>
 
-DeJā is an interactive and participatory event focused on growing our local an international community of burners.  To help assure that those in attendance of are of like minds and undersand where they are going,  we ask that everyone interested in participating:
-- First, create an account on this site if you haven't done so already.  Start by going to the log in button on the top left of this site and follow the link.
+DeJā is an interactive and participatory event focused on growing our local and international community.  To help assure that those in attendance of are of like minds as well as they undersand where they are going,  we ask that everyone interested in participating:
+- First, create an account on this site.  If you haven't done so already.  Start by going to the log in button on the top left of this site and follow the link.
 - Second, check your email for the password.  You will be able to change it after you have logged in.
-- Third, log in and read sections: 
-  - Burn Etiquette and,
-  - Survival Guide and,
+- Third, log in and read ALL of the following sections: 
+  - Burn Etiquette
+  - Survival Guide, and
   - Answer the questions at the end of each section.
-- Fourth, fill out the Enter DeJā form, which will only become available after reading both sections and answering the questions.
+- Fourth, fill out the Enter DeJā form, **which will only become available after** reading both sections and answering the questions.
 - Fifth, get involved, create a project, a workshop, volunteer, donate, check the slack channel which you will be invited to join and paricipate in the conversations that interest you.
 
 
@@ -49,7 +49,7 @@ The Enter DeJā form will only be available after you have read the:
 
 - <span style="color:#77011e;">Survival Guide
 
-- <span style="color:#77011e;">And have answered the questions at the end of each section.
+- And have answered the questions at the end of each section.
 
 
 
@@ -66,7 +66,11 @@ DeJā is a canvass for you to come and express yourself.  If you have an idea th
 
 <span style="color:#77011e;"><u>"This is my first burn and I have no idea as to what to do for the event, how can i help?"</u></span>
 
-If you are unsure as to what to do, take a look at the <span style="color:#77011e;">CREATION</span> section after you have created an account and logged in, this will give you an idea as to how the infrastructure of the event is organized and where you can volunteer.  Once you arrive at DeJā you will be able to sign up for one or more of the various shifts at the posts where volunteers will be needed.  If this is your first burn, integrate and take it easy, get familiar with the grounds, and consider volunteering 1 or 2 shifts.
+If you are unsure as to what to do, take a look at the <span style="color:#77011e;">CREATION</span> section after you have created an account and logged in, this will give you an idea as to how the infrastructure of the event is organized and where you can best volunteer.  
+
+Once you arrive at DeJā you will be able to sign up for one or more of the various shifts at the posts where volunteers will be needed. Or you can check the dedicated slack channels for each ministry and sign up pre-event. 
+
+If this is your first burn, integrate and take it easy, get familiar with the grounds, and consider volunteering 1 or 2 shifts.
 
 
 
