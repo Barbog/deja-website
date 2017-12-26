@@ -32,9 +32,9 @@ DeJā is an interactive and participatory event focused on growing our local an 
 - First, create an account on this site if you haven't done so already.  Start by going to the log in button on the top left of this site and follow the link.
 - Second, check your email for the password.  You will be able to change it after you have logged in.
 - Third, log in and read sections: 
-  - <span style="color:#77011e;">Burn Etiquette</span> and,
-  - <span style="color:#77011e;">Survival Guide</span> and,
-  - <span style="color:#77011e;">Answer the questions at the end of each section.</span>
+  - Burn Etiquette and,
+  - Survival Guide and,
+  - Answer the questions at the end of each section.
 - Fourth, fill out the Enter DeJā form, which will only become available after reading both sections and answering the questions.
 - Fifth, get involved, create a project, a workshop, volunteer, donate, check the slack channel which you will be invited to join and paricipate in the conversations that interest you.
 
@@ -45,11 +45,11 @@ DeJā is an interactive and participatory event focused on growing our local an 
 <span style="color:#77011e;"><u>Why can't I open the Enter DeJā tab?</u></span>
 
 The Enter DeJā form will only be available after you have read the:
-- Burn Etiquette
+- <span style="color:#77011e;">Burn Etiquette
 
-- Survival Guide
+- <span style="color:#77011e;">Survival Guide
 
-- And have answered the questions at the end of each section.
+- <span style="color:#77011e;">And have answered the questions at the end of each section.
 
 
 
