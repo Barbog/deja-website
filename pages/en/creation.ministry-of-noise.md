@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-This ministry is made up of all the DJ's, VJ's, and tech people that bring the noise to farm. They facilitates the quality and quantity of sound.
+This ministry is made up of all the DJ's, VJ's, and tech people that bring the noise to farm. They facilitate the quality and quantity of sound.
 
 If you DJ, you are invited to collaborate with ohers to create your own theme in a dome or however you chose to set up your dance area. 
 
