@@ -7,8 +7,12 @@ typora-root-url: ../static
 Dejā ir
 
 - DeJā ir saīsinājums no „Degošie Jāņi” vasaras saulgriežu svinības.
-- Autonoma kopā sanākšana, kurai par iedvesmu kalpo „Burning Man” festivāla un kustības filosofija.
-- Uz ziedojumiem balstīts un brīvprātīgo rīkots pasākums. Šis nav komerciāls pasākums – par pasākuma veidošanu neviens nesaņem nekādu atlīdzību . Pasākumā nekas netiek pārdots. Mēs netirgojam biļetes uz šo pasākumu, tas netiek reklamēts medijos.
+- A "Burn" - Autonoma kopā sanākšana, kurai par iedvesmu kalpo <span style="color:#77011e;">„[Burning Man](http://burningman.org/)”</span> festivāla un kustības filosofija.
+- Uz ziedojumiem balstīts un brīvprātīgo rīkots pasākums. Šis nav komerciāls pasākums – 
+  - Par pasākuma veidošanu neviens nesaņem nekādu atlīdzību . 
+  - Pasākumā nekas netiek pārdots. 
+  - Mēs netirgojam biļetes uz šo pasākumu, 
+  - Tas netiek reklamēts medijos.
 - Radošuma, pašizpausmes, līdzdalības un kopienas eksperiments. To radāt, pieredzat un galu galā demontējat tikai un vienīgi jūs
 - Tukša vide, kurā radīt un izpausties.
   - Īslaicīga mītne, kurā tu sastapsi daudzveidīgu, māksliniecisku un daudznacionālu indivīdu kolektīvu, kas līdzdarbojas, lai uzburtu  maģiju vidē, kur jātrenē sava patstāvība un jāpaļaujas uz saviem spēkiem.
@@ -17,7 +21,7 @@ Dejā ir
 
 **<span style="color:#77011e;"><u>Kad?**</u></span>
 
-DeJā sākas trešdien, 21. jūnijā un noslēdzas 25. jūnija vakarā
+DeJā sākas ceturtdien, 21. jūnijā un noslēdzas 25. jūnija vakarā
 
 
 
