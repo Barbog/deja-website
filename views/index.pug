@@ -2,7 +2,7 @@ extends layout.pug
 
 mixin tree-button(name, edge)
   a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') class='tree-' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))
-    img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.png' title=__(name) width=edge height=edge)
+    img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.svg' title=__(name) width=edge height=edge)
 
 mixin section(name)
   - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl)
@@ -20,7 +20,7 @@ block body
         p= __mf('Hi {name}', { name: user.name }).toUpperCase()
   section.bgless.nav-indent
     .tree
-      img(src='/images/principles/tree.png' alt=__('Tree of Life') width='210' height='380')
+      img(src='/images/principles/tree.svg' alt=__('Tree of Life') width='210' height='380')
       +tree-button('Be Present', '30')
       +tree-button('Co-creation', '30')
       +tree-button('Community', '30')
