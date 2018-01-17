@@ -2,17 +2,15 @@
 typora-root-url: ../static
 ---
 
-To vada kaņepes gariņi, kas brīnumainā veidā uzrauga teritoriju un rīko nepiederīgo materiālu savākšanas. Organizē atkritumu pārstrādāšanu un kompostu. Jebkurš ir laipni gaidīts. Pienākumu veikšanai nav nepieciešams ieturēt nekādu minimālo skaidrības līmeni.
+To vada kaņepes gariņi, kas brīnumainā veidā uzrauga teritoriju un rīko nepiederīgo materiālu savākšanas. Organizē atkritumu pārstrādāšanu un kompostu. Kas ir šīs maģiskās radības? Jebkurš dalībnieks DeJā. Ja tu atrodi MOOP lūdzu nogādā to īstajā vietā. 
 
-<span style="color:fdb913;"><u>Nepieciešams zināt:</u></span>
+Pienākumu veikšanai nav nepieciešams ieturēt nekādu minimālo skaidrības līmeni.
 
-- Šai Ministrijai ir nepieciešami 2 vadītāji. Vadītāju pienākumos ietilpst tukšo maiņu aizpildīšana.
+Lai gan, mums ir nepieciešami 2 līderus, kas parūpēsies par sekojošo:
 
 <span style="color:fdb913;"><u>Atbildības:</u></span>
 
-- Iesakām vadītājiem sākt vākt brīvprātīgos jau pirms pasākuma;
-  - Šim nolūkam izmanto Slack.
-- Atbildībā ietilpst pārbaudīt tualetes – vai tajās ir tualetes papīrs un roku dezinfekcijas līdzeklis;
+- Pienākumos ietilpst pārbaudīt tualetes – vai tajās ir tualetes papīrs un roku dezinfekcijas līdzeklis;
 - Klaiņojot pa apkārtni, savākt pamanītos atkritumus un citus nepiederīgus materiālus, atbrīvoties no tiem pareizajā veidā;
 - Tie, kas darbojas šajā Ministrijā, būs ciešā saiknē ar Uztura Ministriju;
   - Palīdzot virtuves zonas organizēšanā.
