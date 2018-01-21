@@ -24,7 +24,7 @@ Teams of no less than 2 at each shift.
 
 <span style="color:fdb913">20th of June</span>
 
-- shift from 21:00 - 23:59
+- 21:00 - 23:59 (shift 1)
 
 
 <span style="color:fdb913">21st, 22nd, 23rd of June</span>
