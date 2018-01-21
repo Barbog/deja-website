@@ -2,14 +2,14 @@
 typora-root-url: ../static
 ---
 
-Is managed by hemp spirits who magically oversee the grounds, conduct MOOP sweeps, and organize recycling and compost.  Who are these magical creatures? each and every participant at DeJā. If you encounter MOOP please relocate it to its proper place.  
+Is managed by hemp spirits who magically oversee the grounds, conduct MOOP sweeps, and organize recycling and compost.  Who are these magical creatures?  Each and every participant at DeJā. If you encounter MOOP please relocate it to its proper place.  
 
 No minimal level of sobriety is required to complete the necessary duties of this ministry.
 
 However we do need 2 Co-leads willing to ensure the following is taken care of:
 
 
-<span style="color:fdb913;"><u>Responsibilities</u></span>
+<span style="color:#77011e;"><u>Responsibilities</u></span>
 
 - Check up on toilets and make sure there is toilet paper and hand sanitizer.
 - As you wander around the property keep your eyes open for MOOP and if you come across any, dispose of it properly.
