@@ -2,13 +2,13 @@
 typora-root-url: ../static
 ---
 
-"**we are not a cult**"
+**we are not a cult**
 
-Greeters are the first point of contact once paricipants have entered the gates.  Their purpose is to make all arrivals feel welcome and at home.
+**Greeters** are the first point of contact once paricipants have entered the gates.  Their purpose is to make all arrivals feel welcome and at home.  
 
-Upon passing the gates our integrators will interogate and indoctrinate you in the ways of the burn.  Just say yes, please, now and thank you.  Burners need apply.
+Upon passing the gates our integrators may interogate and indoctrinate you, by whichever mean consensually suits your needs,  in the ways of the burn.  Just say:  yes, please, now and thank you.  
 
-No minimal level of sobriety required to fulfill these roles.
+No minimal level of sobriety required to fulfill these roles, but experienced burners preferred for leading and volunteering for this team.
 
 
 
@@ -20,13 +20,12 @@ This 24-hour operation begins on the evening of the 20th of June and is schedule
 
 
 
-20th of June
+<span style="color:fdb913">20th of June</span>
 
 - shift from 21:00 - 23:59
 
 
-
-21st, 22nd, 23rd of June
+<span style="color:fdb913">21st, 22nd, 23rd of June</span>
 
 - 00:00 — 2:59 (shift 1)
 - 03:00 — 5:59 (shift 2)
@@ -39,7 +38,7 @@ This 24-hour operation begins on the evening of the 20th of June and is schedule
 
 
 
-<u>Responsibilities</u>
+<u><span style="color:fdb913">Responsibilities</u></span>
 
 - Use the Slack channel to coordinate and recruit volunteers before the event.
 
