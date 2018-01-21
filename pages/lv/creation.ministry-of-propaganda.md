@@ -10,11 +10,14 @@ Propagandas Ministrija, pazīstama arī kā „Lielais Brālis”, ir iesaistīt
 
 A functioning level of sobriety is needed for this Ministry
 
-Šī komanda strādā ar:
+
+
+<span style="color:#77011e;">Šī komanda strādā ar:</span>
 
 - Tīmekli un sociālajiem medijiem;
 - Kompasa turēšanu nofiksētā pozīcijā uz pasākuma vīziju un filozofiju;
 - Komunikācijām;
 - Kaķu ganīšanu;
 - Kopā sanākšanas (Meet&Greet) pasākumu vadīšanu.
+
 

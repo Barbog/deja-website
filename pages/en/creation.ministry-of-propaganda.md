@@ -10,7 +10,9 @@ This ministry does not stop working. It is dedicated to DeJā year round. wears 
 
 A functioning level of sobriety is needed for this Ministry
 
-This crew handles:
+
+
+<span style="color:#77011e;">This crew handles:</span>
 
 - Web and social-media presence.
 
