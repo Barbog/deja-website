@@ -2,12 +2,14 @@
 typora-root-url: ../static
 ---
 
-responsible for:
+<span style="color:#77011e;"><u>Responsible for:</u></span>
 
-- transparent book keeping
-- budgeting
-- finance distribution
-- art grant distribution
+
+
+- Transparent book keeping
+- Budgeting
+  - Finance distribution
+  - Art grant distribution
 
 
 
