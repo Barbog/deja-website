@@ -14,7 +14,9 @@ No minimal level of sobriety required to fulfill these roles, but experienced bu
 
 <span style="color:fdb913"><u>Need to know:</u></span>
 
-This 24-hour operation begins on the evening of the 20th of June and is scheduled to work in 3 hour shifts throughout the event.  Teams of no less than 2 at each shift.
+This 24-hour operation begins on the evening of the 20th of June and is scheduled to work in 3 hour shifts throughout the event. 
+
+Teams of no less than 2 at each shift.
 
 2 co-leads are needed to manage this ministry.
 
