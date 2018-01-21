@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-„Mēs neesam kults”
+„**Mēs neesam kults**”
 
 Sagaidītāji ir pirmais kontakta punkts dalībniekiem, kuri ierodas pie ieejas vārtiem. Viņu mērķis ir likt visiem, kas ierodas, justies gaidītiem. 
 
