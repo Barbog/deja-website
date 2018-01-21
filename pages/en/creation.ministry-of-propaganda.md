@@ -22,5 +22,6 @@ A functioning level of sobriety is needed for this Ministry
 
 - Cat herding.
 
-- Hosts Meet & Greets.
+- Hosts monthly Meet & Greets on the last Saturday of the month, between September through April
+
 
