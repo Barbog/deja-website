@@ -2,6 +2,10 @@
 typora-root-url: ../static
 ---
 
-Rūpējas par skaņas kvalitāti un kvantitāti uz galvenās skatuves DeJā. Savus talantus šeit ieguldīt ir aicināti dīdžeji, videomākslinieki, tehniskie cilvēki.
+This ministry is made up of all the DJ's, VJ's, and tech people that bring the noise to farm. They facilitate the quality and quantity of sound.
 
-Šajā Ministrijā nav maiņas. Ja vēlies uzstāties un izmantot kopējo skaņas sistēmu, lūdzu, izmanto mūsu Slack kanāla Noise 2017 sadaļu, informē par sevi un sazinies ar Trokšņu ministru, kurš varēs tevi ielikt grafikā un atbildēs uz taviem jautājumiem.
+If you DJ, you are invited to collaborate with others to create your own theme in a dome or however you chose to set up your dance area. 
+
+
+
+There are no shifts for this ministry. If you wish to perform and  collaborate  please use our Noise 2017 channel in Slack to make yourself known and be in contact with the noise lead who will be able to answer your questions.

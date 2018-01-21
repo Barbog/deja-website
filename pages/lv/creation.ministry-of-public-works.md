@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<span style="color:fdb913;">„Pirmie, kas ierodas, pēdējie, kas dodas prom.”</span>
+<span style="color:#77011e;">**Pirmie, kas ierodas, pēdējie, kas dodas prom.**</span>
 
 Šī ir vieta tiem, kas ir prasmīgi ar dažādiem rīkiem vai vēlas kļūt noderīgāki.
 
@@ -10,7 +10,7 @@ typora-root-url: ../static
 
 
 
-<span style="color:fdb913;"><u>Nepieciešamība:</u></span>
+<span style="color:#77011e;"><u>Nepieciešamība:</u></span>
 
 Vairākas palīdzīgas rokas, 2 vadītāji, lai organizētu šo ministriju. Ja tas ir kaut kas, ko vēlies darīt, iepazīstini sevi Sabiedrisko darbu Ministrijā mūsu Slack kanālā. Satiec komandu ar kuru darbosies  un izmanto kanālu, lai organizētu savu komandu un sazinātos savā starpā.
 
@@ -18,7 +18,7 @@ PIEZĪME: Nosacījums tam, lai kļūtu par vienu no vadītājiem, ir galdniecīb
 
 
 
-<span style="color:fdb913;"><u>Prasības:</u></span>
+<span style="color:#77011e;"><u>Prasības:</u></span>
 
 - Spēja un/ vai interese būvēt, veidot lietas;
 
@@ -28,7 +28,7 @@ PIEZĪME: Nosacījums tam, lai kļūtu par vienu no vadītājiem, ir galdniecīb
 
   ​
 
-<span style="color:fdb913;"><u>Noderīgi zināt:</u></span>
+<span style="color:#77011e;"><u>Noderīgi zināt:</u></span>
 
 - Lielākā daļa no darba tev būs jāveic nedēļās pirms paša pasākuma;
 - Agrā ierašanās sākas sestdien – 16. jūnijā;
@@ -36,7 +36,7 @@ PIEZĪME: Nosacījums tam, lai kļūtu par vienu no vadītājiem, ir galdniecīb
 
 
 
-<span style="color:fdb913;"><u>Pienākumi būs pirms pasākuma un pēc tā</u></span>
+<span style="color:#77011e;"><u>Pienākumi būs pirms pasākuma un pēc tā</u></span>
 
 Šī komanda dara sekojošajās lietas:
 
@@ -49,5 +49,5 @@ PIEZĪME: Mums ir aptuveni sešas nedēļas nogales pirms pasākuma, kurās izda
 - Organizē vajadzīgo materiālu iegādi un pārvadāšanu;
 - Izstrādā dizainu dažādajiem posteņiem, kas būs nepieciešami mūsu pagaidu ciematam, kā arī tos uzbūvē;
 - Paliek uz novākšanos;
-  - Tas sastāv no nojaukšanas un atkritumu patruļas.
+  - Kas ir STRIKE — Tas sastāv no nojaukšanas un atkritumu patruļas.
 

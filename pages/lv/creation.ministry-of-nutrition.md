@@ -6,4 +6,4 @@ Koordinē kopējo virtuvi, veido vegānisko maltīšu plānu un rūpējās par v
 
 
 
-Lai saņemtu informāciju par to, kā pieteikties par pavāru vai virtuves palīgu, skaties kitchen_crew_2017 sadaļā mūsu Slack kanālā.
+Lai saņemtu informāciju par to, kā pieteikties par pavāru vai virtuves palīgu, skaties kitchen_crew_2018 sadaļā mūsu Slack kanālā.
