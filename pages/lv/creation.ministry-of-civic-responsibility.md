@@ -9,7 +9,7 @@ Pasākuma sirdī atrodas divas aģentūras, kas veido šo Ministriju
 
 Šo grupu anektēs Integrācijas Ministrija, siena nav iekļauta.
 
-<span style="color:fdb913;">Piezīme:</span>
+<span style="color:#77011e;"><u>Piezīme:</u></span>
 
 - Vadītājiem no jebkuras no divām grupām ir jāaizpilda vietas, ja nav neviens cits, kas piesakās;
 - Vadītājiem jābūt pieejamiem pasākuma laikā;
@@ -18,7 +18,7 @@ Pasākuma sirdī atrodas divas aģentūras, kas veido šo Ministriju
 
 
 
-<span style="color:fdb913;">Brīvprātīgo pierakstīšanās centrs</span>
+<span style="color:#77011e;"><u>Brīvprātīgo pierakstīšanās centrs</u></span>
 
 - Integrētāji norādīs uz šo kā vietu, kur brīvprātīgie var pierakstīties ierodoties;
 - Vadītājiem vajadzēs radīt piekļuves punktu, kur dalībniekiem pierakstīties brīvprātīgajam darbam. Tā ir interaktīva metode, kā dalībniekiem pierakstīties uz daudzajām maiņām;
@@ -33,7 +33,7 @@ Pasākuma sirdī atrodas divas aģentūras, kas veido šo Ministriju
 
 
 
-<span style="color:fdb913;"><u>Informācijas centrs</u></u></span>
+<span style="color:#77011e;"><u>Informācijas centrs</u></u></span>
 
 - Radīs pamanāmu piekļuves punktu informācijai par pasākumiem;
 - Nodarbosies ar paziņojumiem;
