@@ -14,7 +14,7 @@ This 24-hour operation begins on the evening of the 20th of June and is schedule
 
 - 20th of June
 
-  - shift from 21:00 - 23:59
+  - 21:00 - 23:59 (shift 1)
 
 
 
