@@ -2,11 +2,9 @@
 typora-root-url: ../static
 ---
 
-Because your entry application is your RSVP which will get your name on the guest list.
-
-
-
 <span style="color:#77011e;"><u>Why do I need to be on the guest list if this is a burn?</u></span>
+
+Because your entry application will get your name on the guest list. If you are not on the list, you will be denied entry. 
 
 DeJā is a private gathering celebrated on private property, open to those who learn about the event and make their way to the property.
 
