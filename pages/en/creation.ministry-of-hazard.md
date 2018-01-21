@@ -2,18 +2,20 @@
 typora-root-url: ../static
 ---
 
-When the shit hits the fan this crew steps in, so when doing your shift here, you must be sober.
-
 The function of this ministry is to take care of any emergencies that may arise at the event.
 
-<span style="color:fdb913;"><u>The following people should apply:</u></span>
+So when the shit hits the fan this crew steps in.  When doing your shift here, you must be sober.
+
+
+
+<span style="color:#77011e;"><u>The following people should apply:</u></span>
 
 - Those with medic training or first aid skills.
 - Those wih psychology skills.
 - Those wih a disposition to help others.
 - If you have been a Ranger or a Nomad or the equivalent at any regional burn.
 
-<span style="color:fdb913;"><u>need to know</u></span>
+<span style="color:#77011e;"><u>Need to know</u></span>
 
 Those who are co-leading and managing this ministry should create:
 

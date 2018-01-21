@@ -2,18 +2,20 @@
 typora-root-url: ../static
 ---
 
-Ja rodas ekstremālas situācijas, iesaistās šī komanda, tāpēc esot maiņā šajā postenī tev IR jābūt skaidrā.
-
 Šīs Ministrijas funkcija ir tikt galā ar ārkārtas situācijām, kas var rasties pasākuma laikā. 
 
-<span style="color:fdb913;"><u>Pieteikties vajadzētu šādiem cilvēkiem:</span>
+Ja rodas ekstremālas situācijas, iesaistās šī komanda, tāpēc esot maiņā šajā postenī tev IR jābūt skaidrā.
+
+
+
+<span style="color:#77011e;"><u>Pieteikties vajadzētu šādiem cilvēkiem:</span>
 
 - Cilvēkiem, kuriem ir mediķa kvalifikācija vai pirmās palīdzības prasmes;
 - Cilvēkiem ar prasmēm psiholoģijā;
 - Cilvēkiem ar vēlmi palīdzēt citiem;
 - Ja esi bijis „reindžers” vai „nomads” vai pildījis tamlīdzīgus uzdevumus jebkurā Burn pasākumā.
 
-<span style="color:fdb913;"><u>Noderīgi zināt:</u></span>
+<span style="color:#77011e;"><u>Noderīgi zināt:</u></span>
 
 Tiem, kas vada šo ministriju, vajadzētu izveidot:
 
