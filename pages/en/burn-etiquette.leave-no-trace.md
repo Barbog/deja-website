@@ -10,7 +10,7 @@ If it doesn't look like it belongs on the ground, pick it up and put it with you
 
 - <span style="color:#77011e;">**Never**</span> ever let trash hit the ground.
 - <span style="color:#006a44;">**Pick up after yourself.**</span>
-- If it is your cigarette butt, beer can or decoration, it goes with you when you leave. **No excuses**.
+- If it is your cigarette butt, beer can or decoration, it goes with you when you leave. <span style="color:#77011e;">**No excuses**</span>
 - Take everything you bring to the event back home with you: pack it in, pack it out – every last tiny scrap.
 - If you happen to see someone littering, kindly educate them.  No trash bins will be provided.
 
