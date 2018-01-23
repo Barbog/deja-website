@@ -18,7 +18,7 @@ DeJā dzimst sadarbībā un kopīgā radīšanā;. Mūsu kopienas spēks ir kop�
 
 <span style="color:#77011e;">**<u>Consent</u>**</span>
 
-
+Show respect and ask before proceeding. Always. Regardless it be for photos, hugs, food, massages, sex, critique, the last cookie. Communication is the best lubricant.
 
 <span style="color:#77011e;">**<u>Pašizpausme</u>**</span>
 

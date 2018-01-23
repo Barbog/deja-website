@@ -16,11 +16,7 @@ DeJā comes to life when we cooperate and collaborate. The strength of our commu
 
 <span style="color:#77011e;">**<u>Consent</u>**</span>
 
-
-
-
-
-
+Show respect and ask before proceeding. Always. Regardless it be for photos, hugs, food, massages, sex, critique, the last cookie. Communication is the best lubricant.
 
 <span style="color:#77011e;">**<u>Self-Expression.</u>**</span>
 
