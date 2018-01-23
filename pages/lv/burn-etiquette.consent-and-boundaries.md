@@ -14,7 +14,7 @@ Mēs vēlamies novērst seksuālu uzmākšanos un uzbrukumus, tajā pašā laik�
   - Pārliecinies, vai visas iesaistītās puses piekrīt pirms fiziskas saskarsmes (apskāvieni, petings, sekss)
 - Izrādi cieņu
    <span style="color:#fdb913;">**Atļauja ir jāsaņem no personas**</span> , kas nepārprotami kontrolē savu ķermeni un prātu pietiekoši, lai šādu atļauju dotu
-- Ja kāds nekontrolē savu prātu vai ķermeni  <span style="color:#77011e;">– šāds cilvēks nevar sniegt tev atļauju
+- Ja kāds nekontrolē savu prātu vai ķermeni  <span style="color:#77011e;">– šāds cilvēks nevar sniegt tev atļauju</span>
 - Ja kāda dalībnieka uzvedība ir necienoša, aizvainojoša vai klaji bīstama un ar lūgumu to pārtraukt nepietiek, neklusē un vērsies informācijas centrā pēc palīdzības
 
 Katram cilvēkam robežas ir atšķirīgas … Esi apdomīgs un pajautā. Pajautāšana nekādu ļaunumu nenodarīs.

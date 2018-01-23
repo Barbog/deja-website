@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<span style="color:#77011e;"><u>**CONSENT, CONSIDERATION AND BOUNDARIES**</u></span>
+<span style="color:#77011e;"><u>**Consent, Consideration and Boundaries**</u></span>
 
 DeJā is a pro-consent event.  It is an extremely free and open-minded environment . . . However, it is important to be respectful of other people’s boundaries.
 
@@ -13,7 +13,7 @@ Each of us wants to help prevent sexual harassment and assault while ensuring th
   - Make sure that all sides are mutually in agreement prior to physical encounters (hugging, groping, spanking, sex)
 - Be respectful.
    <span style="color:#fdb913;">**Consent must be clearly granted**</span> from an individual who is clearly in control of their faculties enough to grant it.
-- If someone is not in control of their faculties,  <span style="color:#77011e;">they cannot grant you consent.
+- If someone is not in control of their faculties,  <span style="color:#77011e;">they cannot grant you consent.</span>
 - If someone’s behaviour is really disrespectful or downright dangerous and asking them to stop is not enough, make yourself heard or report them at the Info Center.
 
 
