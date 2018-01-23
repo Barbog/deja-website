@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 Higiēna
 
-<span style="color:006a44;">**Mazgā**</span> rokas un  <span style="color:fdb913;">**izmanto roku dezinfekcijas līdzekli:**</span>
+<span style="color:#006a44;">**Mazgā**</span> rokas un  <span style="color:#fdb913;">**izmanto roku dezinfekcijas līdzekli:**</span>
 
 - Pēc tualetes apmeklējuma
 - Pirms ēdiena gatavošanas vai ēšanas
