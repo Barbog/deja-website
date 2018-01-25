@@ -8,15 +8,12 @@ Mēs nevēlamies radīt papildu izmaksas fermai, tāpēc silti iesakām sagādā
 
 , Vari, sagādāt pats savu ģeneratoru, tomēr
 
-- - <span style="color:#fdb913;">Ja taisies ņemt līdzi savu ģeneratoru, 
-
-    - padomā par to, vai tā radītais troksnis nenomāks dabas skaņas;</span>
-
-      ​
+- <span style="color:#fdb913;">Ja taisies ņemt līdzi savu ģeneratoru, padomā par to, vai tā radītais troksnis nenomāks dabas skaņas;</span>
 
 
-- - <span style="color:#fdb913;">Padoms profesionāļiem:</span> ja tev ir iespēja uzstādīt videi draudzīgu strāvas avotu, mēs silti iesakām tā arī darīt.
+​
 
+- <span style="color:#fdb913;">Padoms profesionāļiem:</span> ja tev ir iespēja uzstādīt videi draudzīgu strāvas avotu, mēs silti iesakām tā arī darīt.
 
 
 

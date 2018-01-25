@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-<span style="color:#fdb913;">esakām pasākuma laikā nelietot nevienu no šīm ierīcēm.
+<span style="color:#fdb913;">Esakām pasākuma laikā nelietot nevienu no šīm ierīcēm.
 
 Tu atrodies DeJā, lai būtu DeJā, nevis savā mobilajā ierīcē.
 
