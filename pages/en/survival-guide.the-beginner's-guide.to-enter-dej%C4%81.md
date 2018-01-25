@@ -12,7 +12,7 @@ The entries help us determine how many people will be attending and how they pla
 
 <span style="color:#77011e;"><u>**Why can't I open the entry application tab?**</u></span>
 
-If you wish to particiapate, start by reading:
+If you wish to participate, start by reading:
 
 - Burn Etiquette
 - Survival Guide
