@@ -12,7 +12,7 @@ If you don't make it happen, who will?
 
 
 
-<span style="color:#fdb913;">Leave No Trace.  </span> No one will clean up after you.</span>
+<span style="color:#fdb913;">Leave No Trace. </span>  No one will clean up after you.
 
 
 
