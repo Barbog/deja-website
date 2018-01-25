@@ -16,7 +16,7 @@ Because of the location and proximity to the border, there is poor wi-fi/cellula
 
 
 
-<span style="color:#77011e;">do not post</span>  anything about DeJā to FB or other social media sites during the days while you are at the gathering.
+<span style="color:#77011e;">Do not post</span>  anything about DeJā to FB or other social media sites during the days while you are at the gathering.
 
 
 
