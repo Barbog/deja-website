@@ -7,8 +7,8 @@ typora-root-url: ../static
 
 Vari rēķināties ar:
 
-- -	vasaras saulgriežu svinībām;
-- -	Neko citu.
+- vasaras saulgriežu svinībām;
+- Neko citu.
 
 Ja tu neatnes to līdzi, vai neparūpējies, lai tas notiktu, tad tā nebūs.
 
