@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 Below is a list of things you should have.
 
-<span style="color:#77011e;"><u>**The Essentials - Highly Recommended**</u></span>
+<u>**The Essentials - <span style="color:#77011e;">Highly Recommended**</u></span>
 
 - 3-5 liters of water per person per day.
   - For drinking, food preparation. etc.

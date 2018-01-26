@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-Anyone under the age of 18 needs to be accompanied by a guardian in order to enter,  as DeJā is an adult-oriented event.
+Anyone under the age of 18 needs to be accompanied by a guardian in order to enter, because DeJā is an adult-oriented event.
 
 
 
