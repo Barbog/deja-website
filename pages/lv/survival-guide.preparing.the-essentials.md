@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 Tālāk ir uzskaitītas lietas, ko paņemt līdzi:
 
-<span style="color:#77011e;">**Nepieciešamais – augstākajā mērā ieteicams:**</span> 
+**Nepieciešamais --<span style="color:limegreen;">— augstākajā mērā ieteicams:**</span> 
 
 - 3 – 5 litri ūdens katrai dienai uz vienu cilvēku 
 
