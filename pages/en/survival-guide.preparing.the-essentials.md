@@ -2,11 +2,11 @@
 typora-root-url: ../static
 ---
 
-<span style="color:limegreen;"><u>**Practice self-reliance**</u></span> – bring everything you will need to stay healthy, comfortable and safe. Pooling resources with others can make transporting and arranging necessities much easier.
+<span style="color:limegreen;">**Practice self-reliance**</span> – bring everything you will need to stay healthy, comfortable and safe. Pooling resources with others can make transporting and arranging necessities much easier.
 
 Below is a list of things you should have.
 
-<u>**The Essentials - <span style="color:#77011e;">Highly Recommended**</u></span>
+**The Essentials --<span style="color:#77011e;">--Highly Recommended**</span>
 
 - 3-5 liters of water per person per day.
   - For drinking, food preparation. etc.
