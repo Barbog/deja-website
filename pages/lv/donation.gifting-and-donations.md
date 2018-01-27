@@ -12,7 +12,7 @@ Mēs esam varējuši turpināt šo eksperimentu šādā veidā jau trīs gadus, 
 
 Mūsu mērķis ir turpināt darboties, balstoties uz ziedojumiem. Kamēr pamatizmaksas tiek nosegtas, šis pasākums turpinās strādāt, neprasot ieejas maksu.
 
-Ja vēlies piedalīties, tev ir jāizlasa Degošo etiķete, [Ceļvedis](https://dejā.lv/en/survival-guide) un jāiesūta savs vīzas pieteikums līdz 2017. gada 31. maijam.
+Ja vēlies piedalīties, tev ir jāizlasa Degošo etiķete, [Ceļvedis](https://dejā.lv/en/survival-guide) un jāiesūta savs dalības pieteikums līdz 31. maijam.
 
 Ja vajag palīdzību saprast, kā vēlies lai tavus ziedotos līdzekļus izmanto, palasi par dažādajām Ministrijām [Radīšanas](https://dejā.lv/en/creation/volunteering)  sadaļā.
 

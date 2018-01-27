@@ -19,4 +19,4 @@ Ar 215 dalībniekiem šajā gadā vidējais naudas daudzums uz katru apmeklētā
 
 Eesam pievienojuši budžeta pārskatu PDF formātā, kur sīkāk ir  aprakstīt līdzekļu izlietojums. 
 
-Par cik mēs nevēlamies pieprasīt ieejas maksu šim pasākumam, mēs lūdzam jūs paturēt šo informāciju prātā un apsvērt domu ziedot / dāvināt mūsu 2017. gada saietam. 
+Par cik mēs nevēlamies pieprasīt ieejas maksu šim pasākumam, mēs lūdzam jūs paturēt šo informāciju prātā un apsvērt domu ziedot / dāvināt mūsu saietam. 

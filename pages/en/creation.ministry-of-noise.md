@@ -8,5 +8,5 @@ If you DJ, you are invited to collaborate with ohers to create your own theme in
 
 
 
-There are no shifts for this ministry. If you wish to perform and  collaborate  please use our Noise 2017 channel in Slack to make yourself known and be in contact with the noise lead who will be able to answer your questions.
+There are no shifts for this ministry. If you wish to perform and  collaborate  please use our Noise channel in Slack to make yourself known and be in contact with the noise lead who will be able to answer your questions.
 
