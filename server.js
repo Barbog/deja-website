@@ -27,6 +27,7 @@ const getVisaPeriod = () => {
   return now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1);
 };
 
+const crypto = require('crypto');
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
@@ -156,6 +157,14 @@ const returnBadAction = (req, res) => {
 };
 
 app.use((req, res, next) => {
+  crypto.randomBytes(16, (err, buf) => {
+    if (err) throw err;
+    res.locals.nonce = buf.toString('hex');
+    next();
+  });
+});
+
+app.use((req, res, next) => {
   res.set('Cache-Control', 'private, max-age=60');
   res.set('Content-Security-Policy', 'base-uri \'self\';' +
     'default-src \'none\';' +
@@ -164,7 +173,7 @@ app.use((req, res, next) => {
     'frame-ancestors \'self\';' +
     'img-src \'self\';' +
     'object-src \'self\';' +
-    'script-src \'self\';' +
+    'script-src \'self\' \'nonce-' + res.locals.nonce + '\' \'strict-dynamic\';' +
     'style-src \'self\';');
   /* TODO HPKP
   res.set('Public-Key-Pins', 'pin-sha256="YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=";' +
