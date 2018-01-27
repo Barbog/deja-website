@@ -22,6 +22,8 @@ Vēsture
 
 - [AR, AT, BE, BR, CA, CN, DE, EE, ES, FI, FR, GR, HR, HU, IL, IT, LV, LT, SE, NL, NO, UA, UK, US, VE]
 
+  ​
 
+Video Below: filmed at the first DeJā celebration
 
 <div class="iframe"><iframe src="https://player.vimeo.com/video/100194629?byline=0&color=ffffff&portrait=0&title=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
