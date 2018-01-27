@@ -174,7 +174,7 @@ app.use((req, res, next) => {
     'img-src \'self\';' +
     'object-src \'self\';' +
     'script-src \'self\' \'nonce-' + res.locals.nonce + '\' \'strict-dynamic\';' +
-    'style-src \'self\';')
+    'style-src \'unsafe-inline\' \'self\';')
   /* TODO HPKP
   res.set('Public-Key-Pins', 'pin-sha256="YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=";' +
     'pin-sha256="sRHdihwgkaib1P1gxX8HFszlD+7/gTfNvuAybgLPNis=";' +
