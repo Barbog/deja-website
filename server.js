@@ -127,7 +127,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('x-powered-by', false)
 
 app.use(require('morgan')('dev'))
-app.use(require('helmet')())
+app.use(require('helmet')({ hsts: false }))
 app.use(require('body-parser').json())
 app.use(require('body-parser').urlencoded({ extended: true }))
 app.use(require('cookie-parser')())
@@ -177,13 +177,7 @@ app.use((req, res, next) => {
     'object-src \'self\';' +
     'script-src \'self\' \'nonce-' + res.locals.nonce + '\' \'strict-dynamic\';' +
     'style-src \'unsafe-inline\' \'self\';')
-  /* TODO HPKP
-  res.set('Public-Key-Pins', 'pin-sha256="YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=";' +
-    'pin-sha256="sRHdihwgkaib1P1gxX8HFszlD+7/gTfNvuAybgLPNis=";' +
-    'max-age=0;includeSubDomains'); */
   res.set('Referrer-Policy', 'no-referrer')
-  /* TODO HSTS
-  res.set('Strict-Transport-Security', 'max-age=0;includeSubDomains;preload'); */
   res.set('X-Content-Type-Options', 'nosniff')
   res.set('X-Frame-Options', 'SAMEORIGIN')
   res.set('X-XSS-Protection', '1;mode=block')
