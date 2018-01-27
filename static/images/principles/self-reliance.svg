@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 198 150.8" style="enable-background:new 0 0 198 150.8;" xml:space="preserve">
+	 viewBox="0 0 150.8 150.8" style="enable-background:new 0 0 150.8 150.8;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#77011e;}
+	.st0{fill:#771021;}
 </style>
 <g>
 	<g>
-		<rect x="95.4" y="63.4" class="st0" width="6.9" height="41.3"/>
+		<rect x="71.4" y="58" class="st0" width="10" height="59.6"/>
 	</g>
 	<g>
-		<polygon class="st0" points="96.9,97.1 101.8,102 78.3,125.5 68.4,125.6 		"/>
+		<polygon class="st0" points="73.6,106.7 80.6,113.7 46.7,147.7 32.4,147.8 		"/>
 	</g>
 	<g>
-		<polygon class="st0" points="101.1,97.1 96.2,102 119.7,125.5 129.6,125.6 		"/>
+		<polygon class="st0" points="79.6,106.7 72.6,113.7 106.5,147.7 120.8,147.8 		"/>
 	</g>
 	<g>
 		<g>
-			<path class="st0" d="M98.8,67c-11.5,0-20.9-9.4-20.9-20.9s9.4-20.9,20.9-20.9s20.9,9.4,20.9,20.9S110.4,67,98.8,67z M98.8,30.8
-				c-8.4,0-15.3,6.9-15.3,15.3s6.9,15.3,15.3,15.3s15.3-6.9,15.3-15.3S107.3,30.8,98.8,30.8z"/>
+			<path class="st0" d="M76.3,63.2c-16.6,0-30.2-13.6-30.2-30.2S59.7,2.9,76.3,2.9s30.2,13.6,30.2,30.2S93.1,63.2,76.3,63.2z
+				 M76.3,11c-12.1,0-22.1,10-22.1,22.1s10,22.1,22.1,22.1s22.1-10,22.1-22.1S88.6,11,76.3,11z"/>
 		</g>
 	</g>
 	<g>
-		<circle class="st0" cx="98.8" cy="46.1" r="8.5"/>
+		<circle class="st0" cx="76.3" cy="33.1" r="12.3"/>
 	</g>
 </g>
 </svg>
