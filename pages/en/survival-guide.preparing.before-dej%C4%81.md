@@ -53,5 +53,5 @@ If taking the bus or sharing a car, **ensure** you have a way of taking your gar
 
 
 
-<span style="color:#fdb913;">**Tag**</span>all of your belongings (keys, cameras, phones, etc.) you would want returned if misplaced: with your name, phone number and address.
+<span style="color:#fdb913;">**Tag**</span> all of your belongings (keys, cameras, phones, etc.) you would want returned if misplaced: with your name, phone number and address.
 

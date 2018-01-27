@@ -16,6 +16,10 @@ Mēs no saviem pasākumiem esam izslēguši jebkādus komerciālus darījumus. M
 
 DeJā dzimst sadarbībā un kopīgā radīšanā;. Mūsu kopienas spēks ir kopīgas darbošanās rezultāts. Tu esi aicināts dalīties ar savām prasmēm un pielietot savu radošumu. Mēs sanākam kopā, lai dalītos ar savu aizraušanos un lai mācītos viens no otra.
 
+<span style="color:#77011e;">**<u>Consent</u>**</span>
+
+Show respect and ask before proceeding. Always. Regardless it be for photos, hugs, food, massages, sex, critique, the last cookie. Communication is the best lubricant.
+
 <span style="color:#77011e;">**<u>Pašizpausme</u>**</span>
 
 Izbaudi brīvību izpaust sevi, nebaidoties no apkārtējo vērtējuma vai nosodījuma! Tava unikālā  personība ir viena no daudzajām dāvanām, ko tu vari sniegt mūsu kopienai. DeJā ir iespēja sevi brīvi izpaust , taču neaizmirsi cienīt apkārtējo tiesības. Dari ko vēlies, kamēr vien tu neaizskar citus un  nenodari nevienam pāri.

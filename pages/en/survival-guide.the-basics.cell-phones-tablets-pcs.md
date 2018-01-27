@@ -8,7 +8,7 @@ You are at DeJā to be at DeJā
 
 Because of the location and proximity to the border, there is poor wi-fi/cellular  access on the property and phones will roam between different providers, attempting to find the best signal.
 
-- set to airplane mode so you don't roam.
+- Set to airplane mode so you don't roam.
 
 
 
@@ -16,7 +16,7 @@ Because of the location and proximity to the border, there is poor wi-fi/cellula
 
 
 
-<span style="color:#77011e;">do not post</span>  anything about DeJā to FB or other social media sites during the days while you are at the gathering.
+<span style="color:#77011e;">Do not post</span>  anything about DeJā to FB or other social media sites during the days while you are at the gathering.
 
 
 

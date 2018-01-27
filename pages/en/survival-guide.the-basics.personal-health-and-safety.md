@@ -6,7 +6,7 @@ Although DeJā happens on a relatively safe location:
 
 - <span style="color:#fdb913;">Use common sense</span> when exploring, wandering, climbing, etc.
 
-At times DeJā can be potentially challenging, weather wise and emotionally:
+At times DeJā may be potentially challenging, weather wise and emotionally:
 
 - Come prepared to confront the challenges and be responsible for your own survival.
 

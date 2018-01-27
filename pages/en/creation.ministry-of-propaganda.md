@@ -2,15 +2,19 @@
 typora-root-url: ../static
 ---
 
-<span style="color:fdb913;">chaos from order.</span>
+<span style="color:#77011e;">**Chaos From Order.**</span>
 
 The ministry of propaganda, aka “Big Brother”  is involved in every facet of the event: pre-, during and post throughout the entire year.
 
 This ministry does not stop working. It is dedicated to DeJā year round. wears many hats and is there for you if you have any questions.
 
-This crew handles:
+A functioning level of sobriety is needed for this Ministry
 
-- Web and social-media presence,
+
+
+<span style="color:#77011e;">This crew handles:</span>
+
+- Web and social-media presence.
 
 - Keeps the compass fixed to the vision and the philosophy of the gathering.
 
@@ -18,5 +22,6 @@ This crew handles:
 
 - Cat herding.
 
-- hosts Meet & Greets.
+- Hosts monthly Meet & Greets on the last Saturday of the month, between September through April
+
 

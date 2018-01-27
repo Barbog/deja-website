@@ -14,6 +14,10 @@ We have removed commercial transactions from our social environments. We choose 
 
 DeJā comes to life when we cooperate and collaborate. The strength of our community comes from working together. You will be encouraged to share and explore your own creativity and skills. We all are here to share our passions and learn from each other.
 
+<span style="color:#77011e;">**<u>Consent</u>**</span>
+
+Show respect and ask before proceeding. Always. Regardless it be for photos, hugs, food, massages, sex, critique, the last cookie. Communication is the best lubricant.
+
 <span style="color:#77011e;">**<u>Self-Expression.</u>**</span>
 
 Experience the freedom to be yourself without judgment. Your individuality is one of the many gifts you can share with the community.  DeJā is an opportunity to express yourself freely, while still respecting your fellow participant’s rights and liberties. Do what you will, harm none.

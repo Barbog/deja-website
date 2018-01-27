@@ -15,9 +15,6 @@ Lai gan naudas darījumi pasākuma laikā ir nevēlami, rīkojot pasākumu, daž
     - Šajos pieteikumos tev kā māksliniekam vajadzētu norādīt sava darba radīšanas izmaksas un darba vizuālu reprezentāciju
       - Naudas apmērs, ko mākslinieki saņem dotācijas ceļā, ir atkarīgs no ziedojumu pārpalikuma pēc vispārēju izmaksu segšanas. To, cik saņem katrs mākslinieks, nosaka tas starp cik māksliniekiem šī summa ir jāsadala
 
-- - Naudas apmērs, ko mākslinieki saņem dotācijas ceļā, ir atkarīgs no ziedojumu pārpalikuma pēc vispārēju izmaksu segšanas. To, cik saņem katrs mākslinieks, nosaka tas starp cik māksliniekiem šī summa ir jāsadala.
+        ​
 
-  ​
-
-  - ​
 

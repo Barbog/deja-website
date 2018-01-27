@@ -2,13 +2,11 @@
 typora-root-url: ../static
 ---
 
-<span style="color:limegreen;"><u>**Esi patstāvīgs un pašpietiekams**</span> ņem līdzi visu, kas tev būs nepieciešams veselībai, komfortam un drošībai. Transportēšanos daudz vienkāršāku var padarīt, apvienojot resursus ar citiem dalībniekiem.
+<span style="color:limegreen;">**Esi patstāvīgs un pašpietiekams**</span> ņem līdzi visu, kas tev būs nepieciešams veselībai, komfortam un drošībai. Transportēšanos daudz vienkāršāku var padarīt, apvienojot resursus ar citiem dalībniekiem.
 
 Tālāk ir uzskaitītas lietas, ko paņemt līdzi:
 
-<span style="color:#77011e;"><u>**Nepieciešamais – augstākajā mērā ieteicams:**</u>
-
-</span> 
+**Nepieciešamais --<span style="color:limegreen;">— augstākajā mērā ieteicams:**</span> 
 
 - 3 – 5 litri ūdens katrai dienai uz vienu cilvēku 
 

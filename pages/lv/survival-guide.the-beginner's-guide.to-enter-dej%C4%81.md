@@ -23,7 +23,7 @@ Ja vēlies piedalīties, sākumā izlasi:
 
 Kad būsi izlasījis šīs sadaļas, varēsi pieteikties.
 
-<span style="color:#fdb913;"><u>*Neesi sarakstā?  Netiec iekšā pasākumā!  Bez izņēmumiem!*</u></span>
+<span style="color:#fdb913;"><u>*Neesi sarakstā?   Netiec iekšā pasākumā!   Bez izņēmumiem!*</u></span>
 
 
 

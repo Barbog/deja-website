@@ -17,7 +17,7 @@ Below are some <span style="color:#fdb913;">tips</span> as to what you can do to
 
 Practicing a Leave No Trace Ethic is simple: <span style="color:#fdb913;">Leave the place you visit the same or better than how you found it.</span>
 
-- Leave no trace <span style="color:limegreen;">starts</span>before you head out to the farm, it starts when you develop your plan for the burn.
+- Leave no trace <span style="color:limegreen;">starts</span> before you head out to the farm, it starts when you develop your plan for the burn.
   - Carefully consider any items you plan on bringing that could become MOOP.
   - Set your end-of-event line sweep plan and schedule.
 

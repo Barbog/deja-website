@@ -6,13 +6,13 @@ Atvēro robežu gestapo pie ieejas pārbaudīs tavu vīzu ja tu vēlēsies tad i
 
 
 
-<span style="color:fdb913;"><u>Noderīgi zināt:</u></span>
+<span style="color:#77011e;"><u>Noderīgi zināt:</u></span>
 
 Šī diennakts operācija sākas 20. jūnijā un notiks 3 stundu maiņās visu pasākuma laiku. 
 
 - 20. jūnijs
 
-  - maiņa no 21:00 - 23:59
+  - 21:00 - 23:59 (1. maiņa)
 
 - 21. 22. 23. jūnijs
 
