@@ -22,17 +22,17 @@
     "front-matter": "^2.3.0",
     "get-env": "^0.5.10",
     "gm": "^1.23.1",
-    "helmet": "^3.9.0",
+    "helmet": "^3.10.0",
     "i18n": "^0.8.3",
     "less": "^3.0.0-alpha.4",
     "less-plugin-clean-css": "^1.5.1",
-    "mailgun-js": "^0.14.1",
+    "mailgun-js": "^0.14.2",
     "morgan": "^1.9.0",
     "pug": "^2.0.0-rc.4",
     "randomstring": "^1.1.5",
     "redis": "^2.8.0",
     "showdown": "^1.8.6",
-    "xlsx": "^0.11.17"
+    "xlsx": "^0.11.18"
   },
   "devDependencies": {},
   "semistandard": {
