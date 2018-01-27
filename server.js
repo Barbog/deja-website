@@ -157,6 +157,26 @@ const returnBadAction = (req, res) => {
 
 app.use((req, res, next) => {
   res.set('Cache-Control', 'private, max-age=60');
+  res.set('Content-Security-Policy', 'base-uri \'self\';' +
+    'default-src \'none\';' +
+    'font-src \'self\' data:;' +
+    'form-action \'self\';' +
+    'frame-ancestors \'self\';' +
+    'img-src \'self\';' +
+    'object-src \'self\';' +
+    'script-src \'self\';' +
+    'style-src \'self\';');
+  /* TODO HPKP
+  res.set('Public-Key-Pins', 'pin-sha256="YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=";' +
+    'pin-sha256="sRHdihwgkaib1P1gxX8HFszlD+7/gTfNvuAybgLPNis=";' +
+    'max-age=0;includeSubDomains'); */
+  res.set('Referrer-Policy', 'no-referrer');
+  /* TODO HSTS
+  res.set('Strict-Transport-Security', 'max-age=0;includeSubDomains;preload'); */
+  res.set('X-Content-Type-Options', 'nosniff');
+  res.set('X-Frame-Options', 'SAMEORIGIN');
+  res.set('X-XSS-Protection', '1;mode=block');
+
   next();
 });
 
