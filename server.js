@@ -171,6 +171,7 @@ app.use((req, res, next) => {
     'font-src \'self\' data:;' +
     'form-action \'self\';' +
     'frame-ancestors \'self\';' +
+    'frame-src \'self\' https://player.vimeo.com;' +
     'img-src \'self\';' +
     'object-src \'self\';' +
     'script-src \'self\' \'nonce-' + res.locals.nonce + '\' \'strict-dynamic\';' +
