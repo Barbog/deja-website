@@ -167,6 +167,7 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   res.set('Cache-Control', 'private, max-age=60')
   res.set('Content-Security-Policy', 'base-uri \'self\';' +
+    'connect-src \'self\';' +
     'default-src \'none\';' +
     'font-src \'self\' data:;' +
     'form-action \'self\';' +

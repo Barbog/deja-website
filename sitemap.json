@@ -493,7 +493,7 @@
         "type": "entry-status",
         "acl": [
           "answer.Survival Guide.Final Questions",
-          "answer.Visa Application.Volunteering.{visaPeriod}"
+          "answer.Enter DeJā.Volunteering.{visaPeriod}"
         ],
         "render": {
           "previouspage": "Basic Information"
@@ -510,7 +510,7 @@
       {
         "title": "Fuck Commerce",
         "type": "enter-deja",
-        "acl": "answer.Visa Application.Basic Information.{visaPeriod}",
+        "acl": "answer.Enter DeJā.Basic Information.{visaPeriod}",
         "render": {
           "nextpage": "Don't let it hit the ground, but let the bodies hit the floor"
         }
@@ -518,7 +518,7 @@
       {
         "title": "Don't let it hit the ground, but let the bodies hit the floor",
         "type": "enter-deja",
-        "acl": "answer.Visa Application.Fuck Commerce.{visaPeriod}",
+        "acl": "answer.Enter DeJā.Fuck Commerce.{visaPeriod}",
         "render": {
           "nextpage": "Self Expression"
         }
@@ -526,7 +526,7 @@
       {
         "title": "Self Expression",
         "type": "enter-deja",
-        "acl": "answer.Visa Application.Don't let it hit the ground, but let the bodies hit the floor.{visaPeriod}",
+        "acl": "answer.Enter DeJā.Don't let it hit the ground, but let the bodies hit the floor.{visaPeriod}",
         "render": {
           "nextpage": "Consent"
         }
@@ -534,7 +534,7 @@
       {
         "title": "Consent",
         "type": "enter-deja",
-        "acl": "answer.Visa Application.Self Expression.{visaPeriod}",
+        "acl": "answer.Enter DeJā.Self Expression.{visaPeriod}",
         "render": {
           "nextpage": "Participation"
         }
@@ -542,7 +542,7 @@
       {
         "title": "Participation",
         "type": "enter-deja",
-        "acl": "answer.Visa Application.Self Expression.{visaPeriod}",
+        "acl": "answer.Enter DeJā.Self Expression.{visaPeriod}",
         "render": {
           "nextpage": "Volunteering"
         }
@@ -550,7 +550,7 @@
       {
         "title": "Volunteering",
         "type": "enter-deja",
-        "acl": "answer.Visa Application.Participation.{visaPeriod}",
+        "acl": "answer.Enter DeJā.Participation.{visaPeriod}",
         "render": {
           "nextpage": "Status"
         }
