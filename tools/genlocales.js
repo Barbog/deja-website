@@ -100,6 +100,6 @@ fs.writeFileSync(path.join(locales, 'en.json'), JSON.stringify(output, null, '\t
 fs.readdirSync(locales).filter(fn => fn !== 'en.json').forEach(fn => {
   let data = JSON.parse(fs.readFileSync(path.join(locales, fn), { encoding: 'utf8' }))
   output = JSON.parse(JSON.stringify(output))
-  Object.keys(output).filter(key => data.hasOwnProperty(key)).forEach(key => output[key] = data[key])
+  Object.keys(output).filter(key => data.hasOwnProperty(key)).forEach(key => { output[key] = data[key] })
   fs.writeFileSync(path.join(locales, fn), JSON.stringify(output, null, '\t') + '\n', { encoding: 'utf8' })
 })
