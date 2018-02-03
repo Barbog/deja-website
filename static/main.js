@@ -118,7 +118,7 @@ $(function () {
     if (links.length > 0) {
       $(links[Math.floor(Math.random() * links.length)]).addClass('hover')
     }
-    setTimeout(hoverTree, (Math.floor(Math.random() * 10) + 10) * 1000) // every 10 - 20 seconds
+    setTimeout(hoverTree, (Math.floor(Math.random() * 2) + 2) * 1000) // every 2 - 4 seconds
   }
   hoverTree()
 })
