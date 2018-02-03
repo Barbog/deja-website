@@ -132,7 +132,7 @@ button, a {
 
 .modal {
   background: @light;
-  color: #fff;
+  color: #FFF;
   margin: 0;
   padding: 20px;
 
@@ -145,7 +145,7 @@ button, a {
     border: 0;
     font-size: @font-size * 1.4;
     background-color: @light;
-    color: #fff;
+    color: #FFF;
     font-weight: normal;
   }
 
@@ -360,15 +360,15 @@ nav {
 section {
   margin: 0;
   padding: 30px;
-  background-color: #956929;
+  background-color: @dark;
   max-width: 100%;
   font-size: @font-size * 1.4;
   line-height: @line-height;
   vertical-align: top;
   transition: width .1s ease-in-out, max-width .1s ease-in-out;
 
-  &, a { color: lighten(#a98551, 35%);
-    &.disabled { color: #a98551; }
+  &, a { color: lighten(@light, 35%);
+    &.disabled { color: @light; }
     &.current { color: @accent; } }
 
   &.bgless {
@@ -409,14 +409,14 @@ section {
   }
 
   &.survival-guide li.grid {
-    &:nth-child(1) a { background: url(/images/survival-guide/abstract_1.svg) center/cover repeat, #a98551; }
-    &:nth-child(2) a { background: url(/images/survival-guide/abstract_2.svg) center/cover repeat, #a98551; }
-    &:nth-child(3) a { background: url(/images/survival-guide/abstract_3.svg) center/cover repeat, #a98551; }
-    &:nth-child(4) a { background: url(/images/survival-guide/abstract_4.svg) center/cover repeat, #a98551; }
-    &:nth-child(5) a { background: url(/images/survival-guide/abstract_5.svg) center/cover repeat, #a98551; }
-    &:nth-child(6) a { background: url(/images/survival-guide/abstract_6.svg) center/cover repeat, #a98551; }
-    &:nth-child(7) a { background: url(/images/survival-guide/abstract_7.svg) center/cover repeat, #a98551; }
-    &:nth-child(8) a { background: url(/images/survival-guide/abstract_8.svg) center/cover repeat, #a98551; }
+    &:nth-child(1) a { background: url(/images/survival-guide/abstract_1.svg) center/cover repeat, @light; }
+    &:nth-child(2) a { background: url(/images/survival-guide/abstract_2.svg) center/cover repeat, @light; }
+    &:nth-child(3) a { background: url(/images/survival-guide/abstract_3.svg) center/cover repeat, @light; }
+    &:nth-child(4) a { background: url(/images/survival-guide/abstract_4.svg) center/cover repeat, @light; }
+    &:nth-child(5) a { background: url(/images/survival-guide/abstract_5.svg) center/cover repeat, @light; }
+    &:nth-child(6) a { background: url(/images/survival-guide/abstract_6.svg) center/cover repeat, @light; }
+    &:nth-child(7) a { background: url(/images/survival-guide/abstract_7.svg) center/cover repeat, @light; }
+    &:nth-child(8) a { background: url(/images/survival-guide/abstract_8.svg) center/cover repeat, @light; }
   }
 
   .title {
@@ -499,7 +499,7 @@ section {
         background: @light;
 
         &.disabled {
-          color: #a98551;
+          color: @light;
         }
 
         p {
@@ -555,22 +555,29 @@ section {
     button, a {
       position: absolute;
       margin: 0 auto;
-      @tree-button-size: 30px;
+      padding: 2%;
+      @tree-button-size: 32px;
       width: 100% * (@tree-button-size / @tree-width);
       height: 100% * (@tree-button-size / @tree-height);
+      border-radius: @tree-button-size;
+      background-color: @dark;
 
-      &.tree-fuck-commerce { top: 4%; left: 0; right: 0; .transform(translateX(7%)); }
-      &.tree-each-1-teach-1 { top: 29%; left: 100% * (12px / @tree-width) + 1px; }
-      &.tree-conscent { top: 21%; left: 0; right: 0; .transform(translateX(7%)); }
-      &.tree-gifting { top: 29%; right: 100% * (12px / @tree-width); }
-      &.tree-co-creation { top: 38.6%; left: 0; right: 0; .transform(translateX(7%)); }
-      &.tree-openness { top: 46.2%; left: 100% * (12px / @tree-width) + 1px; img { max-width: 90%; margin-top: 5%; } }
-      &.tree-self-expression { top: 46.2%; right: 100% * (12px / @tree-width); }
-      &.tree-participation { top: 55%; left: 0; right: 0; .transform(translateX(7%)); }
-      &.tree-community { top: 64%; left: 100% * (12px / @tree-width) + 1px; img { max-width: 80%; margin-top: 10%; } }
-      &.tree-be-present { top: 64%; right: 100% * (12px / @tree-width); }
-      &.tree-environmental-consciousness { top: 72%; left: 0; right: 0; .transform(translateX(7%)); }
-      &.tree-self-reliance { top: 89%; left: 0; right: 0; .transform(translateX(7%)); }
+      .tree-left(@top) { top: @top; left: 100% * (4px / @tree-width) + 1px; }
+      .tree-mid(@top) { top: @top; left: 0; right: 0; .transform(translateX(7%)); }
+      .tree-right(@top) { top: @top; right: 100% * (4px / @tree-width); }
+
+      &.tree-fuck-commerce { .tree-mid(4%); }
+      &.tree-each-1-teach-1 { .tree-left(28.5%); }
+      &.tree-conscent { .tree-mid(20%); }
+      &.tree-gifting { .tree-right(28.5%); }
+      &.tree-co-creation { .tree-mid(38.6%); }
+      &.tree-openness { .tree-left(45.3%); }
+      &.tree-self-expression { .tree-right(45.3%); }
+      &.tree-participation { .tree-mid(53%); }
+      &.tree-community { .tree-left(62.8%); }
+      &.tree-be-present { .tree-right(62.8%); }
+      &.tree-environmental-consciousness { .tree-mid(71%); }
+      &.tree-self-reliance { .tree-mid(87%); }
     }
   }
 
@@ -595,7 +602,7 @@ section {
       vertical-align: middle;
       font-size: @font-size * 2;
       line-height: @line-height;
-      color: #fff;
+      color: #FFF;
       word-wrap: break-word;
 
       @media (max-width: (@tree-width * 2)) { & {
@@ -678,7 +685,7 @@ form {
   label {
     padding-top: 40px;
     padding-bottom: 10px;
-    color: #fff;
+    color: #FFF;
     &:first-of-type { padding-top: 0; }
   }
 
@@ -773,7 +780,7 @@ form {
       }
 
       + label {
-        color: #fff;
+        color: #FFF;
       }
 
       &:checked + label {
