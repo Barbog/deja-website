@@ -113,4 +113,12 @@ $(function () {
       document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365)
     }
   })
+  var hoverTree = function () {
+    var links = $('.tree a').removeClass('hover')
+    if (links.length > 0) {
+      $(links[Math.floor(Math.random() * links.length)]).addClass('hover')
+    }
+    setTimeout(hoverTree, (Math.floor(Math.random() * 10) + 10) * 1000) // every 10 - 20 seconds
+  }
+  hoverTree()
 })
