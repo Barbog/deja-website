@@ -28,7 +28,6 @@
     "less-plugin-clean-css": "^1.5.1",
     "mailgun-js": "^0.14.2",
     "morgan": "^1.9.0",
-    "pdf-merge": "^1.0.2",
     "pdfkit": "^0.8.3",
     "pug": "^2.0.0-rc.4",
     "randomstring": "^1.1.5",

@@ -85,11 +85,27 @@ const i18n = require('i18n')
 const less = require('less')
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true })
 const mailgun = require('mailgun-js')({ apiKey: getKey('mailgun'), domain: 'mg.sparklatvia.lv' })
+const PDFDocument = require('pdfkit')
+// let entryPageOptions = { size: [ 841.9, 428.8 ], margin: 0 }
+PDFDocument.prototype.svg = function (svg, x, y, options) { require('svg-to-pdfkit')(this, svg, x, y, options); return this }
 const randomstring = require('randomstring')
 const redis = require(env === 'dev' ? 'fakeredis' : 'redis')
 const showdown = new (require('showdown').Converter)()
 const svgo = new (require('svgo'))()
 const xlsx = require('xlsx')
+
+// let doc = new PDFDocument({ autoFirstPage: false })
+// doc.pipe(fs.createWriteStream('output.pdf'))
+// doc.info.Author = 'Degošie Jāņi'
+// doc.info.Title = 'Visa Approved'
+
+// doc.addPage(entryPageOptions)
+// doc.svg(fs.readFileSync('email/entry_front.svg', { encoding: 'utf8' }), 0, 0, {})
+
+// doc.addPage(entryPageOptions)
+// doc.svg(fs.readFileSync('email/entry_back.svg', { encoding: 'utf8' }), 0, 0, {})
+
+// doc.end()
 
 let svgs = {}
 const getSvg = filename => {
