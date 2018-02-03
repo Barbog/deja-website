@@ -1168,7 +1168,7 @@ function catchAllFor (backstack, sitemap) {
                 const renderParams = Object.assign({
                   altLocales: getAltLocales(localeHash),
                   title: req.__(title),
-                  stackpages: stack.map(el => el.title.en),
+                  stackpages: stack.map(el => el.title[locale]),
                   subpages: page.subpages.filter(page => page.type !== 'questions'),
                   siblingpages: sitemap.filter(page => page.type !== 'questions'),
                   markdown: markdown
