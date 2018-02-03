@@ -185,7 +185,7 @@ header {
       background-size: auto 100%;
     } }
 
-    img {
+    img, svg {
       display: block;
       margin: 0 auto;
       width: auto;
@@ -260,7 +260,7 @@ header {
       &.disabled:hover { .transform(translateX(-50%)); }
     }
 
-    img.home {
+    img.home, svg.home {
       top: 123px;
       @media (min-width: (@desktop-size)) { & { top: -35px; } }
       display: block;
@@ -518,7 +518,7 @@ section {
     }
   }
 
-  img {
+  img, svg {
     position: relative;
     display: inline-block;
     left: 50%;
@@ -546,7 +546,7 @@ section {
       margin-right: 160px;
     } }
 
-    img {
+    img, svg {
       width: 100%;
       max-width: 100%;
       height: auto;
@@ -557,10 +557,16 @@ section {
       margin: 0 auto;
       padding: 2%;
       @tree-button-size: 32px;
-      width: 100% * (@tree-button-size / @tree-width);
-      height: 100% * (@tree-button-size / @tree-height);
+      width: @tree-button-size;
+      height: @tree-button-size;
       border-radius: @tree-button-size;
       background-color: @dark;
+
+      div {
+        box-sizing: border-box;
+        width: @tree-button-size;
+        height: @tree-button-size;
+      }
 
       .tree-left(@top) { top: @top; left: 100% * (4px / @tree-width) + 3px; }
       .tree-mid(@top) { top: @top; left: 0; right: 0; .transform(translateX(7%)); }
@@ -571,13 +577,16 @@ section {
       &.tree-conscent { .tree-mid(20%); }
       &.tree-gifting { .tree-right(28.5%); }
       &.tree-co-creation { .tree-mid(38.6%); }
-      &.tree-openness { .tree-left(45.3%); }
+      &.tree-openness { .tree-left(45.3%); div { padding: 2px; } }
       &.tree-self-expression { .tree-right(45.3%); }
       &.tree-participation { .tree-mid(53%); }
-      &.tree-community { .tree-left(62.8%); }
+      &.tree-community { .tree-left(62.8%); div { padding: 4px; } }
       &.tree-be-present { .tree-right(62.8%); }
       &.tree-environmental-consciousness { .tree-mid(71%); }
       &.tree-self-reliance { .tree-mid(87%); }
+
+      &, svg path { transition: background-color .2s linear; }
+      &:hover, &.hover { background-color: @accent; svg path { fill: @dark; } }
     }
   }
 
@@ -585,12 +594,12 @@ section {
     margin-left: 40px;
     margin-bottom: 30px;
 
-    img {
+    img, svg {
       width: auto;
       height: 40px;
     }
 
-    img, p {
+    img, svg, p {
       display: inline-block;
       position: relative;
       left: 0;
@@ -620,7 +629,7 @@ section {
   &.entry-status {
     padding: 100px 0;
 
-    img {
+    img, svg {
       width: 250px;
       max-width: 90%;
       height: auto;
@@ -851,7 +860,7 @@ form {
       height: 140px;
       color: #FFF;
 
-      img {
+      img, svg {
         position: absolute;
         top: 16px;
         max-width: 80%;

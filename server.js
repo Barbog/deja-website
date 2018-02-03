@@ -88,7 +88,28 @@ const mailgun = require('mailgun-js')({ apiKey: getKey('mailgun'), domain: 'mg.s
 const randomstring = require('randomstring')
 const redis = require(env === 'dev' ? 'fakeredis' : 'redis')
 const showdown = new (require('showdown').Converter)()
+const svgo = new (require('svgo'))()
 const xlsx = require('xlsx')
+
+let svgs = {}
+const getSvg = filename => {
+  if (svgs.hasOwnProperty(filename)) {
+    return svgs[filename].data
+  }
+
+  let absPath = path.join(__dirname, 'static', filename)
+  fs.readFile(absPath, { encoding: 'utf8' }, (err, source) => {
+    if (!err) {
+      svgo.optimize(source, { path: absPath }).then(svg => { svgs[filename] = svg })
+    }
+  })
+
+  return null
+}
+const getSvgDir = directory =>
+  fs.readdirSync(path.join(__dirname, 'static', directory)).forEach(filename => filename.endsWith('.svg') ? getSvg(path.join(directory, filename)) : null)
+getSvgDir('images/principles')
+getSvgDir('images/survival-guide')
 
 const db = redis.createClient()
 db.on('error', err => {
@@ -173,7 +194,7 @@ app.use((req, res, next) => {
     'form-action \'self\';' +
     'frame-ancestors \'self\';' +
     'frame-src \'self\' https://player.vimeo.com;' +
-    'img-src \'self\';' +
+    'img-src \'self\' data:;' +
     'object-src \'self\';' +
     'script-src \'self\' \'nonce-' + res.locals.nonce + '\' \'strict-dynamic\';' +
     'style-src \'unsafe-inline\' \'self\';')
@@ -234,6 +255,8 @@ app.use((req, res, next) => {
 
     return false
   }
+
+  res.locals.svg = getSvg
 
   const token = req.cookies.token
 

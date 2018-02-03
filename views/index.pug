@@ -1,8 +1,8 @@
 extends layout.pug
 
-mixin tree-button(name, edge)
+mixin tree-button(name)
   a(href='/' + getLocale() + '/' + __('Tree').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') class='tree-' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))
-    img(src='/images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.svg' title=__(name) width=edge height=edge)
+    div(title=__(name))!= svg('images/principles/' + name.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.svg')
 
 mixin section(name)
   - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl)
@@ -20,19 +20,19 @@ block body
         p= __mf('Hi {name}', { name: user.name }).toUpperCase()
   section.bgless.nav-indent
     .tree
-      img(src='/images/tree.svg' alt=__('Tree of Life') width='210' height='436')
-      +tree-button('Be Present', '30')
-      +tree-button('Co-creation', '30')
-      +tree-button('Community', '30')
-      +tree-button('Conscent', '30')
-      +tree-button('Each 1 Teach 1', '30')
-      +tree-button('Environmental Consciousness', '30')
-      +tree-button('Fuck Commerce', '30')
-      +tree-button('Gifting', '30')
-      +tree-button('Openness', '30')
-      +tree-button('Participation', '30')
-      +tree-button('Self-expression', '30')
-      +tree-button('Self Reliance', '30')
+      div(alt=__('Tree of Life'))!= svg('images/tree.svg')
+      +tree-button('Be Present')
+      +tree-button('Co-creation')
+      +tree-button('Community')
+      +tree-button('Conscent')
+      +tree-button('Each 1 Teach 1')
+      +tree-button('Environmental Consciousness')
+      +tree-button('Fuck Commerce')
+      +tree-button('Gifting')
+      +tree-button('Openness')
+      +tree-button('Participation')
+      +tree-button('Self-expression')
+      +tree-button('Self Reliance')
   nav
     div
       +section('What is DeJā')
