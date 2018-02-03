@@ -19,4 +19,5 @@ block body
         each subpage in subpages
           li.grid
             a(class=(!acl(subpage.acl) ? 'disabled' : '') href=[ '', getLocale() ].concat(stackpages).concat([ __(subpage.title).split('/').join('-') ]).join('/').toLowerCase().split(' ').join('-').split('(').join('').split(')').join('').split('!').join(''))
+              div.background
               p= __(subpage.title)
