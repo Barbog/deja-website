@@ -1421,7 +1421,7 @@ function catchAllFor (backstack, sitemap) {
                   h[id] = JSON.stringify(ans)
                   break
                 case 'email':
-                  if (typeof ans !== 'string' || ans !== res.locals.user.email) {
+                  if (typeof ans !== 'string' || ans.toLowerCase() !== res.locals.user.email.toLowerCase()) {
                     rerender()
                     return
                   }

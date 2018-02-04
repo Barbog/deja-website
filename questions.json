@@ -5,7 +5,7 @@
       "questions": [
         {
           "question": "How many principles are there in the Code of the Republic?",
-          "expectedAnswer": "11",
+          "expectedAnswer": "12",
           "answers": [
             "10",
             "11",
