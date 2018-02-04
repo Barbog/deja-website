@@ -124,6 +124,8 @@ const getSvg = filename => {
 }
 const getSvgDir = directory =>
   fs.readdirSync(path.join(__dirname, 'static', directory)).forEach(filename => filename.endsWith('.svg') ? getSvg(path.join(directory, filename)) : null)
+getSvgDir('images')
+getSvgDir('images/global-events')
 getSvgDir('images/principles')
 getSvgDir('images/survival-guide')
 
