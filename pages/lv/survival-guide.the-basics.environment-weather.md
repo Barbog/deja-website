@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-**Vide / laika apstākļi**
+
 
 Vienīgais, kas ir paredzams par laika apstākļiem, ir tas, ka tie ir neparedzami, ar diezgan lielu lietus iespējamību. Pasākums notiek industriālās kaņepes saimniecībā, dziļos laukos. Pilsētas ļaudīm iesakām ģērbties atbilstoši.
 

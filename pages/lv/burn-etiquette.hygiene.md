@@ -9,4 +9,4 @@ Higiēna
 - Pēc tualetes apmeklējuma
 - Pirms ēdiena gatavošanas vai ēšanas
 - Ja strādā virtuvē – pirms maiņas sākuma
-- Tu diez vai vēlies būt atbildīgs par to, ka pasākuma dalībnieki saslimst dēļ tā, ka tu nenomazgāji rokas pirms ēst gatavošanas
+- Tu diez vai vēlies būt atbildīgs par to, ka pasākuma dalībnieki saslimst tādēļ, ka tu nenomazgāji rokas pirms ēst gatavošanas

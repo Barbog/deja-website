@@ -3,14 +3,14 @@ typora-root-url: ../static
 ---
 
 
-**Ko sagaidīt**
+****
 
 Vari rēķināties ar:
 
 - vasaras saulgriežu svinībām;
-- Neko citu.
+- neko citu.
 
-Ja tu neatnes to līdzi, vai neparūpējies, lai tas notiktu, tad tā nebūs.
+Ja tu neatnes to līdzi vai neparūpējies, lai tas notiktu, tad tā nebūs.
 
 
 

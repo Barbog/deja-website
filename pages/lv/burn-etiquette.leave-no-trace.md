@@ -2,11 +2,11 @@
 typora-root-url: ../static
 ---
 
-Neatstāj nekādas pēdas
+
 
 Mēs esam atbildīgi par mūsu pasākuma ilgtspēju, rūpējoties par apkārtējo vidi un neatstājot nekādus atkritumus.
 
-**M.O.O.P ** ir <span style="color:#77011e;">**Matter Out Of Place**</span>nepiederīgi materiāli
+**M.O.O.P ** ir <span style="color:#77011e;">**Matter Out Of Place**</span> nepiederīgi materiāli
 
 Ja kaut kas izskatās nepiederīgs uz zemes, tad savāc to un ievieto pie saviem atkritumiem.
 

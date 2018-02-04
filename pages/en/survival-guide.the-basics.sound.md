@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-You may want to sleep while others are partying,
+You may want to sleep while others are partying.
 
 - Bring earplugs, as the sound travels far on the property.
 

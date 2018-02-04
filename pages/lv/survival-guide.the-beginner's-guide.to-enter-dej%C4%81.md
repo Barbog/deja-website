@@ -2,10 +2,6 @@
 typora-root-url: ../static
 ---
 
-<span style="color:#77011e;"><u>**Kāpēc man ir jāpiesakās?**</u></span>
-
-Tāpēc, ka tavs pieteikums ir tava rezervācija, tavs*RSVP*, pateicoties kam tavs vārds būs viesu sarakstā.
-
 <span style="color:#77011e;"><u>**Kāpēc man vajag būt viesu sarakstā?**</u></span>
 
 DeJā ir privāts pasākums, kas notiek privātīpašumā un ir pieejams tiem, kuri ir iepazinušies ar pasākumu.
