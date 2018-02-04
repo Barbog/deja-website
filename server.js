@@ -243,6 +243,11 @@ if (env === 'dev') {
   app.all('/favicon.png', returnBadAction)
 }
 
+app.use((req, res, next) => {
+  console.log(res.body.length)
+  next()
+})
+
 app.use(express.static(path.join(__dirname, 'static')))
 app.use(express.static(path.join(__dirname, 'bower_components')))
 
@@ -1421,7 +1426,12 @@ function catchAllFor (backstack, sitemap) {
                   h[id] = JSON.stringify(ans)
                   break
                 case 'email':
-                  if (typeof ans !== 'string' || ans.toLowerCase() !== res.locals.user.email.toLowerCase()) {
+                  if (typeof ans !== 'string') {
+                    rerender()
+                    return
+                  }
+                  ans = ans.toLowerCase()
+                  if (ans !== res.locals.user.email) {
                     rerender()
                     return
                   }
