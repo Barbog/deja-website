@@ -80,33 +80,18 @@ const bcrypt = require('bcryptjs')
 const env = require('get-env')()
 const express = require('express')
 const frontMatter = require('front-matter')
-const gm = require('gm')
 const interceptor = require('express-interceptor')
 const i18n = require('i18n')
 const less = require('less')
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true })
 const mailgun = require('mailgun-js')({ apiKey: getKey('mailgun'), domain: 'mg.sparklatvia.lv' })
 const PDFDocument = require('pdfkit')
-// let entryPageOptions = { size: [ 841.9, 428.8 ], margin: 0 }
 PDFDocument.prototype.svg = function (svg, x, y, options) { require('svg-to-pdfkit')(this, svg, x, y, options); return this }
 const randomstring = require('randomstring')
 const redis = require(env === 'dev' ? 'fakeredis' : 'redis')
 const showdown = new (require('showdown').Converter)()
 const svgo = new (require('svgo'))()
 const xlsx = require('xlsx')
-
-// let doc = new PDFDocument({ autoFirstPage: false })
-// doc.pipe(fs.createWriteStream('output.pdf'))
-// doc.info.Author = 'Degošie Jāņi'
-// doc.info.Title = 'Visa Approved'
-
-// doc.addPage(entryPageOptions)
-// doc.svg(fs.readFileSync('email/entry_front.svg', { encoding: 'utf8' }), 0, 0, {})
-
-// doc.addPage(entryPageOptions)
-// doc.svg(fs.readFileSync('email/entry_back.svg', { encoding: 'utf8' }), 0, 0, {})
-
-// doc.end()
 
 let svgs = {}
 const getSvg = filename => {
@@ -1847,7 +1832,7 @@ const emailApply = (visaPeriod, priority, callback) => {
             // Visas are being sent out. Ship it.
             console.log('Sending out an entry e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.')
 
-            const send = (pngBuffer) => {
+            const send = (pdfBuffer) => {
               let aemail = typeof application.email === 'string' ? JSON.parse(application.email) : application.email
               if (typeof aemail !== 'string' || aemail === '') {
                 aemail = email
@@ -1874,7 +1859,7 @@ const emailApply = (visaPeriod, priority, callback) => {
                       contentType: 'application/pdf'
                     }),
                     new mailgun.Attachment({
-                      data: pngBuffer,
+                      data: pdfBuffer,
                       filename: 'entry.png',
                       contentType: 'image/png'
                     })
@@ -2018,32 +2003,44 @@ const emailApply = (visaPeriod, priority, callback) => {
                 name = name.join(' ')
               }
 
-              gm(path.join(__dirname, 'email', 'entry.png'))
-                .gravity('center')
-                .font(path.join(__dirname, 'email', 'entry.ttf'))
-                .fontSize(42).pointSize(42)
-                .fill('white')
-                .drawText(412, 6, name, 'center')
-                .toBuffer('png', (err, pngBuffer) => {
-                  if (err) {
-                    callback(err)
-                    return
-                  }
+              let doc = new PDFDocument({ autoFirstPage: false })
+              doc.font(path.join(__dirname, 'email', 'entry.ttf'))
 
-                  if (user['visaid:' + visaPeriod] !== visaId) {
-                    db.hset('user:' + email, 'visaid:' + visaPeriod, visaId, err => {
-                      if (err) {
-                        callback(err)
-                        return
-                      }
+              var buffers = []
+              doc.on('data', data => { buffers.push(data) })
+              doc.on('end', () => {
+                let pdfBuffer = Buffer.concat(buffers)
 
-                      user['visaid:' + visaPeriod] = visaId
-                      send(pngBuffer)
-                    })
-                  } else {
-                    send(pngBuffer)
-                  }
-                })
+                if (user['visaid:' + visaPeriod] !== visaId) {
+                  db.hset('user:' + email, 'visaid:' + visaPeriod, visaId, err => {
+                    if (err) {
+                      callback(err)
+                      return
+                    }
+
+                    user['visaid:' + visaPeriod] = visaId
+                    send(pdfBuffer)
+                  })
+                } else {
+                  send(pdfBuffer)
+                }
+              })
+
+              doc.info.Author = 'Degošie Jāņi'
+              doc.info.Subject = 'Entry Visa Approved'
+              doc.info.Title = 'Entry Visa Approved'
+
+              doc.addPage({ size: [ 841.9, 428.8 ], margin: 0 })
+              doc.svg(fs.readFileSync(path.join(__dirname, 'email', 'entry_front.svg'), { encoding: 'utf8' }), 0, 0, {})
+                .fontSize(12).fillColor('white')
+                .text('#' + visaId, 10, 10, { width: 160, align: 'left' })
+                .fontSize(24).fillColor('white')
+                .text(name, 630, 185, { width: 160, align: 'center' })
+
+              doc.addPage({ size: [ 841.9, 428.8 ], margin: 0 })
+              doc.svg(fs.readFileSync(path.join(__dirname, 'email', 'entry_back.svg'), { encoding: 'utf8' }), 0, 0, {})
+
+              doc.end()
             }
 
             image()
