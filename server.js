@@ -243,11 +243,6 @@ if (env === 'dev') {
   app.all('/favicon.png', returnBadAction)
 }
 
-app.use((req, res, next) => {
-  console.log(res.body.length)
-  next()
-})
-
 app.use(express.static(path.join(__dirname, 'static')))
 app.use(express.static(path.join(__dirname, 'bower_components')))
 
