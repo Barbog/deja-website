@@ -24,6 +24,6 @@ Vēsture
 
   ​
 
-<span style="color:#77011e;">Video Below:</span> filmed at the first DeJā celebration
+<span style="color:#77011e;">Video Zemak:</span> filmēts pirmajās DeJā svinībās
 
 <div class="iframe"><iframe src="https://player.vimeo.com/video/100194629?byline=0&color=ffffff&portrait=0&title=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
