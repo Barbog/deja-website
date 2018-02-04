@@ -1860,8 +1860,8 @@ const emailApply = (visaPeriod, priority, callback) => {
                     }),
                     new mailgun.Attachment({
                       data: pdfBuffer,
-                      filename: 'entry.png',
-                      contentType: 'image/png'
+                      filename: 'entry.pdf',
+                      contentType: 'application/pdf'
                     })
                   ]
                 }, err => {
