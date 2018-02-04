@@ -81,6 +81,7 @@ const env = require('get-env')()
 const express = require('express')
 const frontMatter = require('front-matter')
 const gm = require('gm')
+const interceptor = require('express-interceptor')
 const i18n = require('i18n')
 const less = require('less')
 const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced: true })
@@ -203,8 +204,15 @@ app.use((req, res, next) => {
   })
 })
 
+app.use(interceptor((req, res) => {
+  return {
+    isInterceptable: () => res.get('Content-Type') === 'image/svg+xml',
+    intercept: (body, send) => { svgo.optimize(body, {}).then(svg => { send(svg.data) }) }
+  }
+}))
+
 app.use((req, res, next) => {
-  res.set('Cache-Control', 'private, max-age=60')
+  res.set('Cache-Control', 'private, max-age=60') // may be overwritten as 'no-store' lower down
   res.set('Content-Security-Policy', 'base-uri \'self\';' +
     'connect-src \'self\';' +
     'default-src \'none\';' +
