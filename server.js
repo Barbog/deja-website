@@ -379,7 +379,7 @@ app.post('/user/update', (req, res) => {
       }
 
       if (typeof reply !== 'string' || reply === '') {
-        // We still want to run bcrypt to avoid any timing attacks.
+        // We still want to run bcrypt to avoid any timing attacks, because best practices.
         reply = ''
       }
 
@@ -409,7 +409,7 @@ app.post('/user/update', (req, res) => {
     })
   }
 
-  // We should be waiting on the DB here, really.
+  // TODO Actually wait on the database.
   setTimeout(() => {
     res.status(200)
     res.type('application/json; charset=utf-8')
@@ -775,7 +775,7 @@ app.all('/admin/enter-deja/:year', returnBadAction);
         }
 
         if (typeof reply !== 'string' || reply === '') {
-          // We still want to run bcrypt to avoid timing attacks.
+          // We still want to run bcrypt to avoid any timing attacks, because best practices.
           reply = ''
         }
 
@@ -934,7 +934,7 @@ app.all('/admin/enter-deja/:year', returnBadAction);
           return
         }
 
-        // We still want to run bcrypt to avoid timing attacks.
+        // We still want to run bcrypt to avoid any timing attacks, because best practices.
         db.hexists('user:' + email, 'password', (err, reply) => {
           if (err) {
             rerender(new Error('Internal database error encountered.'))
@@ -1831,7 +1831,7 @@ const emailApply = (visaPeriod, priority, callback) => {
           }
 
           if (visasBeingSentOut) {
-            // Visas are not being sent out yet. Ship it.
+            // Visas are being sent out. Ship it.
             console.log('Sending out an entry e-mail to (' + priority + ') ' + email + ' via ' + aemail + '.')
 
             const send = (pngBuffer) => {
