@@ -50,4 +50,4 @@ Mēs esam daudz un dažādu cilvēku kopums, kas sastāv no pašpietiekamiem ind
 
 <span style="color:#77011e;">**<u>Vide</u>**</span>
 
-Šis ir pasākums, kas aiz sevis neatstāj nekādu ietekmi uz apkārtējo vidi. Mūsu kopienā valda dziļa atbildības sajūta attiecībā uz mūsu vidi. Mēs esam apņēmušies neatstāt nekādas fizisku ietekmi vai bojājumus. Mēs satīrām pēc sevis, un aizejot atstājam tikai pēdu nospiedumus. Ja vien iespējams, vietas, kur tiekamies, mēs atstājam labākā un skaistākā stāvoklī nekā tās bija pirms ieradāmies.
+Šis ir pasākums, kas aiz sevis neatstāj nekādu ietekmi uz apkārtējo vidi. Mūsu kopienā valda dziļa atbildības sajūta attiecībā uz mūsu vidi. Mēs esam apņēmušies neatstāt nekādas fizisku ietekmi vai bojājumus. Mēs satīrām pēc sevis, un aizejot atstājam tikai pēdu nospiedumus. Ja vien iespējams, vietas, kur tiekamies, mēs atstājam labākā un skaistākā stāvoklī nekā tās bija pirms ieradāmies. "Neatstāj neko aiz sevis" stils.
