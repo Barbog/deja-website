@@ -8,8 +8,6 @@ typora-root-url: ../static
 
   - Ir ieteicams paņemt vairāk nekā vajag tev pašām, lai varētu padalīties ar citiem.
 
-  <span style="color:#fdb913;">Piezīme: </span> tradicionāli šajos svētkos dzer alu.
-
   ​
 
 - <span style="color:limegreen;">**Eksotiskas drēbes**</span>

@@ -13,7 +13,7 @@ Below is a list of things you should have.
 
 
 
-- Water-bottle to carry around.
+- Water-bottle —  to carry around.
 
 
 - Enough food for the duration of your stay.
@@ -36,7 +36,7 @@ Below is a list of things you should have.
 - Flashlight or LED light for your tent.
 - Rubbish bags.
   - For your camping area.
-  - Bags - good for carrying with you to collect any random MOOP  as you wander around the property so that you can do your part in Leaving a Better Trace.
+  - Bags - good for carrying with you to collect any random MOOP as you wander around the property so that you can do your part in Leaving a Better Trace.
 - Pocket ashtray, if you are a smoker.
 - Torch (LED head-torches are great, as the batteries last well and your hands are left free).
 - Bug repellent.
@@ -56,5 +56,5 @@ Below is a list of things you should have.
 - Clothing – the temperatures can vary drastically, so the key to staying comfortable is having multiple layers.
 - Sunglasses.
 - Water-resisting clothes  
-  - Poncho  
+  - Poncho.  
   - Bring rain boots and warm socks to keep your feet dry.

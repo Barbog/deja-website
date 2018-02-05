@@ -16,21 +16,10 @@ Ja vēlies gatavot, tu esi laipni lūgts šo virtuvi izmantot. Atceries pēc sev
 
 - Izmanto roku mazgāšanas staciju pirms ej virtuvē;
 - Parūpējies, lai pārējie dara to pašu;
-- Mainiet slapjo staciju ar citiem pēc katra vajadzības;-
+- Mainiet slapjo staciju ar citiem pēc katra vajadzības;
 - Satīri visu, ko sasmērē. Tu esi atbildīgs par satīrīšanu pēc sevis un personīgo trauku un galda rīku mazgāšanu;
 - Ja ievēro, ka kaut ko ir nepieciešams izdarīt – izdari to.
 
 <span style="color:#77011e;">**Vēl viena lieta:**</span>
 
-Pirms pasākuma būs iespēja iegādāties dalību ēdināšanas plānā. Ja izvēlēsies šo variantu, daļa no naudas aizies, lai paēdinātu brīvprātīgos virtuves darbiniekus. Tu vari uzzināt vairāk mūsu Slack kanālā (baltic burners).
-
-
-
-
-
-
-
-
-
-- ​
-
+Pirms pasākuma būs iespēja iegādāties dalību ēdināšanas plānā. Ja izvēlēsies šo variantu, daļa no naudas aizies, lai paēdinātu brīvprātīgos virtuves darbiniekus. Tu vari uzzināt vairāk mūsu Slack kanālā (baltic burners).​
