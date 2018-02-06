@@ -1984,27 +1984,12 @@ const emailApply = (visaPeriod, priority, callback) => {
             }
 
             const image = () => {
-              let aname = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname']
-              let name = (typeof aname === 'string' ? aname : user.name).trim().toUpperCase().split(' ')
-              if (name.length > 2) {
-                for (var i = 0; i < name.length; i++) {
-                  name[i] = {
-                    w: name[i],
-                    len: name[i].length + (i > 0 ? name[i - 1].len + 1 : 0)
-                  }
-                }
-                let midlen = name[name.length - 1].len / 2
-                let splitoff = name.reduce((prev, curr) => {
-                  return (Math.abs(curr.len - midlen) < Math.abs(prev - midlen) ? curr.len : prev)
-                }, -1)
-                name = (name.reduce((out, curr) => out + (curr.len <= splitoff ? ' ' + curr.w : ''), '').trim() + '\n' +
-                  name.reduce((out, curr) => out + (curr.len > splitoff ? ' ' + curr.w : ''), '').trim()).trim()
-              } else {
-                name = name.join(' ')
-              }
+              // const PDFDocument = require('pdfkit') ; PDFDocument.prototype.svg = function (svg, x, y, options) { require('svg-to-pdfkit')(this, svg, x, y, options); return this }
+              // let __dirname = '.' ; let name = 'VALTERS JANSONS' ; let visaId = 1023
+              let name = (typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname']).trim().toUpperCase()
 
               let doc = new PDFDocument({ autoFirstPage: false })
-              doc.font(path.join(__dirname, 'email', 'entry.ttf'))
+              // doc.pipe(new fs.FileWriteStream('output.pdf'))
 
               var buffers = []
               doc.on('data', data => { buffers.push(data) })
@@ -2030,15 +2015,22 @@ const emailApply = (visaPeriod, priority, callback) => {
               doc.info.Subject = 'Entry Visa Approved'
               doc.info.Title = 'Entry Visa Approved'
 
-              doc.addPage({ size: [ 841.9, 428.8 ], margin: 0 })
-              doc.svg(fs.readFileSync(path.join(__dirname, 'email', 'entry_front.svg'), { encoding: 'utf8' }), 0, 0, {})
-                .fontSize(12).fillColor('white')
-                .text('#' + visaId, 10, 10, { width: 160, align: 'left' })
-                .fontSize(24).fillColor('white')
-                .text(name, 630, 185, { width: 160, align: 'center' })
+              let fontCallback = (family, bold, italic, fontOptions) => {
+                let arial = /(?:^|[, ])['"](Arial(?:-(?:Bold)?(?:Italic)?)?MT)['"](?:$|[, ])/.exec(family)
+                if (arial) return path.join(__dirname, 'email', arial[1] + '.ttf')
+                let antonio = /(?:^|[, ])['"](Antonio-(?:Bold|Light|Regular))['"](?:$|[, ])/.exec(family)
+                if (antonio) return path.join(__dirname, 'email', antonio[1] + '.ttf')
+                return path.join(__dirname, 'email', 'ArialMT.ttf')
+              }
 
-              doc.addPage({ size: [ 841.9, 428.8 ], margin: 0 })
-              doc.svg(fs.readFileSync(path.join(__dirname, 'email', 'entry_back.svg'), { encoding: 'utf8' }), 0, 0, {})
+              doc.addPage({ size: [ 841.9, 429.7 ], margin: 0 })
+              doc.svg(fs.readFileSync(path.join(__dirname, 'email', 'entry_front.svg'), { encoding: 'utf8' }), 0, 0, { fontCallback })
+                .font(path.join(__dirname, 'email', 'Antonio-Bold.ttf'))
+                .fontSize(24).fillColor('white').text(name, 630, 165, { width: 160, align: 'center' })
+                .fontSize(12).fillColor('white').text('#' + visaId, 10, 10, { width: 160, align: 'left' })
+
+              doc.addPage({ size: [ 841.9, 429.7 ], margin: 0 })
+              doc.svg(fs.readFileSync(path.join(__dirname, 'email', 'entry_back.svg'), { encoding: 'utf8' }), 0, 0, { fontCallback })
 
               doc.end()
             }
