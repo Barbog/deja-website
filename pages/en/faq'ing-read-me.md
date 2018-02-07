@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 <span style="color:#77011e;"><u>"What is a burn?"</u></span>
 
-A burn is an autonomous, unsponsored, non-commercial gathering, co-created by the attending participants who are guided by the principles of <span style="color:#77011e;">[Burning Man](http://burningman.org/).</span>,
+A burn is an autonomous, unsponsored, non-commercial gathering, co-created by the attending participants who are guided by the principles of <span style="color:#77011e;">[Burning Man](http://burningman.org/).</span>
 
 
 
@@ -28,7 +28,7 @@ Because DeJā is a private gathering celebrated on private property, yet open to
 
 <span style="color:#77011e;"><u>"How do I gain access to **Enter DeJā**?"</u></span>
 
-DeJā is an interactive and participatory event focused on growing our local and international community.  To help assure that those in attendance of are of like minds as well as they undersand where they are going,  we ask that everyone interested in participating:
+DeJā is an interactive and participatory event focused on growing our local and international community.  To help assure that those in attendance of are of like minds as well as they understand where they are going,  we ask that everyone interested in participating:
 - First, create an account on this site.  If you haven't done so already.  Start by going to the log in button on the top left of this site and follow the link.
 - Second, check your email for the password.  You will be able to change it after you have logged in.
 - Third, log in and read ALL of the following sections: 
@@ -98,4 +98,4 @@ If you do not have time to read the information on this site in order to get int
 
 <span style="color:#77011e;"> <u>"I heard that [Burning Man](http://burningman.org/) is happening in Latvia"</u></span>
 
-Unfortunately you heard wrong info.  What has come to Latvia is a gathering inspired by the ethos of <span style="color:#77011e;">[Burning Man.](http://burningman.org/)</span> A regional event known to the locals as Degošie Jāņi, or DeJā for the ease of our internationals, which celebrates  and highlighs the local national holiday and is infused with the flavor of the event that happens out in Nevada.  We are an unofficial regional event and will continue to be so as this is the wish of the local community.
+Unfortunately you heard wrong info.  What has come to Latvia is a gathering inspired by the ethos of <span style="color:#77011e;">[Burning Man.](http://burningman.org/)</span> A regional event known to the locals as Degošie Jāņi, or DeJā for the ease of our internationals, which celebrates  and highlights the local national holiday and is infused with the flavor of the event that happens out in Nevada.  We are an unofficial regional event and will continue to be so as this is the wish of the local community.

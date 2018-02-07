@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-**Kas tiek nodrošināts**
+****
 
 DeJā tu atradīsi:
 

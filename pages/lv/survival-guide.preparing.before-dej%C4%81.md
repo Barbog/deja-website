@@ -12,7 +12,7 @@ Pienācīga sagatavošanās noteikti ir nepieciešamība, ja vēlamies padarīt 
 
 
 
-<span style="color:limegreen;"><u>**Neņem līdzi daudz iepakojumus**</u></span>
+<span style="color:limegreen;"><u>**Neņem līdzi daudz iepakojumu**</u></span>
 
 Jo mazāk ienes iekšā, jo mazāk būs jānes ārā
 
@@ -34,7 +34,7 @@ Domājot par katru lietu, ko ņemsi līdzi, padomā arī par to, kā dabūsi to 
 - Ja esi nonācis pie milzīga tovera ar ēdienu un pārāk maz cilvēkiem, lai to apēstu: pasauc kaimiņus. Tas būs labāks risinājums nekā stūķēt smagu, mitru atkritumu maisu kādam bagāžniekā;
 - <span style="color:#77011e;">**Izvairies no situācijas, kad tev jāiepako iepakojums**</span>
 - Atbrīvo vietu, noņemot iepakojumus no dažādiem produktiem. Būs mazāk atkritumu, ko vest atpakaļ;
-- <span style="color:#77011e;">zvairies</span> no stikla iepakojumiem. Tie var saplīst
+- <span style="color:#77011e;">Izvairies</span> no stikla iepakojumiem. Tie var saplīst
 - <span style="color:#77011e;">Neņem līdzi, </span>spīdumus (glitter) vai spalvas. Tos ir praktiski neiespējami savākt.
 
 
@@ -45,7 +45,7 @@ Toties droši <span style="color:limegreen;">ņem līdzi:</span>
 - **Cimdus**– lai savāktu asus vai netīrus priekšmetus;
 - **Magnētu**, lai savāktu jebkādas mazas metāliskas daļiņas;
 - **Pats savu krūzi, šķīvi, bļodu, nažus, dakšas un karotes.** Vienreiz lietojamie trauki ir lielākais atkritumu avots festivālos. Pārliecinies, ka tev vienmēr līdzi ir viegli pārnēsājama krūzīte;
-- **SMĒĶĒTĀJI: Nopērciet vai izveidojiet pārnēsājamu pelnu trauku** kur likt savus izsmēķus;
+- **SMĒĶĒTĀJI: Nopērciet vai izveidojiet pārnēsājamu pelnu trauku**, kur likt savus izsmēķus;
 - <span style="color:#77011e;">Nekad un nekādā gadījumā nemetiet izsmēķus uz zemes!</span>
 
 <span style="color:#fdb913;">Atvēli</span> savā mašīnā vietu atkritumiem.

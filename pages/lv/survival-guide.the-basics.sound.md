@@ -2,9 +2,9 @@
 typora-root-url: ../static
 ---
 
-Tu iespējams vēlēsies gulēt, kamēr citi izklaidējas,
+Tu, iespējams, vēlēsies gulēt, kamēr citi izklaidējas,
 
-- Ņem līdzi ausu aizbāžņus; skaņa, mūzika pasākuma  teritorijā ir dzirdama gandrīz visur.
+- Ņem līdzi ausu aizbāžņus: skaņa, mūzika pasākuma  teritorijā ir dzirdama gandrīz visur.
 
 Ir pieejama arī „klusā kempinga zona”.
 

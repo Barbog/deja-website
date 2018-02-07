@@ -10,7 +10,7 @@ DeJā var būt potenciāli samērā sarežģīta pieredze laika apstākļu ziņ�
 
 - Nāc sagatavojies šiem izaicinājumiem un esi atbildīgs par savu izdzīvošanu.
 
-Apkārtnē ir tumšs; kad esi tālāk no izgaismotajām zonām, esi uzmanīgs:
+Apkārtnē ir tumšs: kad esi tālāk no izgaismotajām zonām, esi uzmanīgs:
 
 - Neesi tumsonis un izgaismo sevi, savu apmetni un mākslas darbus.
 

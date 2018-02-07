@@ -4,9 +4,9 @@ typora-root-url: ../static
 
 <span class="center" style="color:gold;"><u>**Padomi un norādes**</u></span>
 
-<span style="color:limegreen;">**Ņem vērā**</span> ļoti mazus priekšmetus
+<span style="color:limegreen;">**Pievērs uzmanību</span> ļoti maziem priekšmetiem
 
-- Nekādas pēdas nozīmē NEKĀDAS pēdas;
+- Neatstāj neko aiz sevis nozīmē NEKO neatstāt;
 - Padomā par lietām, kas šķiet pārāk nelielas atkritumiem. Tai skaitā: matiem, sērkociņiem, izsmēķiem, spalvām, savilcējiem;
 - Kad esi savācis atkritumus un sakrāmējis visas mantas, vēl pēdējo reizi pārmeklē savu telts vietu un pārliecinies, vai nav palikuši izsmēķi, mazi papīri u.tml. Šādas lietas bieži būs paslēpušās zem teltīm vai mašīnām;
 - <span style="color:#fdb913;">**Plāno**</span> kopā ar ceļabiedriem, kā aiztransportēt atkritumus prom no fermas.

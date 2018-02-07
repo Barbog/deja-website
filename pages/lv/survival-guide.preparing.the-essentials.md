@@ -50,7 +50,7 @@ Tālāk ir uzskaitītas lietas, ko paņemt līdzi:
 
   - Atceries, ka te var būt ērces.
 
-- Auļošanās krēmu;
+- Sauļošanās krēmu;
 
 - Tualetes un higiēnas preces;
 
