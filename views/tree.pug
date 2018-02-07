@@ -3,6 +3,6 @@ extends layout.pug
 block body
   section
     .tree-front
-      div(alt=(__(title) || ''))!= svg('images/principles/' + title.toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.svg')
+      != svg('images/principles/' + (origTitle || title).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '.svg')
       p= __(title) || ''
     != markdown || ''

@@ -723,7 +723,7 @@ app.all('/admin/enter-deja/:year', returnBadAction);
       const location = (typeof req.query.l === 'string' && url.parse('https://xn--dej-3oa.lv' + req.query.l).path === req.query.l ? req.query.l : '') ||
         (req.body ? req.body.location : '') || ('/' + locale + '/')
 
-      res.render('log-in', { altLocales: getAltLocales(localeHash), title: req.__(title), markdown: '', hideNavigation: true, location: location, emailCheck: emailCheck }, (err, html) => {
+      res.render('log-in', { altLocales: getAltLocales(localeHash), title: req.__(title), origTitle: title, markdown: '', hideNavigation: true, location: location, emailCheck: emailCheck }, (err, html) => {
         if (err) {
           res.status(500)
           res.type('text/plain; charset=utf-8')
@@ -743,7 +743,7 @@ app.all('/admin/enter-deja/:year', returnBadAction);
       const location = (req.body ? req.body.location : '') || ('/' + locale + '/')
 
       const rerender = err => {
-        res.render('log-in', { altLocales: getAltLocales(localeHash), title: req.__(title), markdown: '', hideNavigation: true, location: location, err: err, email: email }, (err, html) => {
+        res.render('log-in', { altLocales: getAltLocales(localeHash), title: req.__(title), origTitle: title, markdown: '', hideNavigation: true, location: location, err: err, email: email }, (err, html) => {
           if (err) {
             res.status(500)
             res.type('text/plain; charset=utf-8')
@@ -879,7 +879,7 @@ app.all('/admin/enter-deja/:year', returnBadAction);
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale)
 
-      res.render('create-account', { altLocales: getAltLocales(localeHash), title: req.__(title), markdown: '', hideNavigation: true }, (err, html) => {
+      res.render('create-account', { altLocales: getAltLocales(localeHash), title: req.__(title), origTitle: title, markdown: '', hideNavigation: true }, (err, html) => {
         if (err) {
           res.status(500)
           res.type('text/plain; charset=utf-8')
@@ -899,7 +899,7 @@ app.all('/admin/enter-deja/:year', returnBadAction);
       const location = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?email=check'
 
       const rerender = err => {
-        res.render('create-account', { altLocales: getAltLocales(localeHash), title: req.__(title), markdown: '', hideNavigation: true, err: err, name: name, email: email }, (err, html) => {
+        res.render('create-account', { altLocales: getAltLocales(localeHash), title: req.__(title), origTitle: title, markdown: '', hideNavigation: true, err: err, name: name, email: email }, (err, html) => {
           if (err) {
             res.status(500)
             res.type('text/plain; charset=utf-8')
@@ -1226,6 +1226,7 @@ function catchAllFor (backstack, sitemap) {
                 const renderParams = Object.assign({
                   altLocales: getAltLocales(localeHash),
                   title: req.__(title),
+                  origTitle: title,
                   stackpages: stack.map(el => el.title[locale]),
                   subpages: page.subpages.filter(page => page.type !== 'questions'),
                   siblingpages: sitemap.filter(page => page.type !== 'questions'),
