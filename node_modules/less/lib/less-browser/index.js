@@ -22,7 +22,7 @@ module.exports = function(window, options) {
     var cache = less.cache = options.cache || require("./cache")(window, options, less.logger);
     require('./image-size')(less.environment);
 
-    //Setup user functions - Deprecate?
+    // Setup user functions - Deprecate?
     if (options.functions) {
         less.functions.functionRegistry.addMultiple(options.functions);
     }
@@ -30,13 +30,7 @@ module.exports = function(window, options) {
     var typePattern = /^text\/(x-)?less$/;
 
     function clone(obj) {
-        var cloned = {};
-        for (var prop in obj) {
-            if (obj.hasOwnProperty(prop)) {
-                cloned[prop] = obj[prop];
-            }
-        }
-        return cloned;
+        return JSON.parse(JSON.stringify(obj || {}));
     }
 
     // only really needed for phantom
@@ -60,7 +54,7 @@ module.exports = function(window, options) {
                 var lessText = style.innerHTML || '';
                 instanceOptions.filename = document.location.href.replace(/#.*$/, '');
 
-                /*jshint loopfunc:true */
+                /* jshint loopfunc:true */
                 // use closure to store current style
                 less.render(lessText, instanceOptions,
                         bind(function(style, e, result) {
@@ -116,7 +110,7 @@ module.exports = function(window, options) {
 
             }
 
-            //TODO add tests around how this behaves when reloading
+            // TODO add tests around how this behaves when reloading
             errors.remove(path);
 
             instanceOptions.rootFileInfo = newFileInfo;
@@ -131,13 +125,14 @@ module.exports = function(window, options) {
             });
         }
 
-        fileManager.loadFile(sheet.href, null, instanceOptions, environment, function(e, loadedFile) {
-            if (e) {
-                callback(e);
-                return;
-            }
-            loadInitialFileCallback(loadedFile);
-        });
+        fileManager.loadFile(sheet.href, null, instanceOptions, environment)
+            .then(function(loadedFile) {
+                loadInitialFileCallback(loadedFile);
+            }).catch(function(err) {
+                console.log(err);
+                callback(err);
+            });
+
     }
 
     function loadStyleSheets(callback, reload, modifyVars) {
