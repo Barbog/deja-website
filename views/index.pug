@@ -43,7 +43,15 @@ block body
       +section('Donation')
       +section('Network')
       +section('FAQ\'ing read me!')
-      p= __('To enter DeJā, get your invite by May 31.')
+      - let applicationEnd = +(new Date(now.getFullYear(), 4, 31))
+      - if ((+now) > applicationEnd) applicationEnd = +(new Date(now.getFullYear() + 1, 4, 31))
+      - let applicationStart = +(new Date(now.getFullYear() + 1, 6, 1))
+      - if (applicationEnd < applicationStart) applicationStart = +(new Date(now.getFullYear(), 6, 1))
+      - let daysTillApplication = Math.ceil((applicationEnd - (+now)) / 1000 / 60 / 60 / 24)
+      if (+now) > applicationEnd || daysTillApplication <= 0
+        p= __('Portal is closed. Take the next shuttle.')
+      else
+        p= __n('To enter DeJā, get your invite by May 31. (%s day left.)', 'To enter DeJā, get your invite by May 31. (%s days left.)', daysTillApplication)
       if user
         p #{__('17 June — 20 June:')}#[br]#{__('Early arrivals.')}
       p #{__('21 June — 25 June:')}#[br]#{__('DeJā.')}

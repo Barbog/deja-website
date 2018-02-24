@@ -114,14 +114,18 @@
 	"No": "No",
 	"Oh no!": "Oh no!",
 	"Password": "Password",
+	"Portal is closed. Take the next shuttle.": "Portal is closed. Take the next shuttle.",
 	"Strike begins.": "Strike begins.",
 	"Thank you for your registration": "Thank you for your registration",
-	"To enter DeJā, get your invite by May 31.": "To enter DeJā, get your invite by May 31.",
 	"Tree of Life": "Tree of Life",
 	"Upcoming Global Events": "Upcoming Global Events",
 	"We are burning right now": "We are burning right now",
 	"Yes": "Yes",
 	"Your confirmation email has been sent": "Your confirmation email has been sent",
+	"To enter DeJā, get your invite by May 31. (%s day left.)": {
+		"one": "To enter DeJā, get your invite by May 31. (%s day left.)",
+		"other": "To enter DeJā, get your invite by May 31. (%s days left.)"
+	},
 	"We burn in %s day": {
 		"one": "We burn in %s day",
 		"other": "We burn in %s days"
