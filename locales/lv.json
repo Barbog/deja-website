@@ -114,18 +114,14 @@
 	"No": "Nē",
 	"Oh no!": "O nē!",
 	"Password": "Parole",
-	"Portal is closed. Take the next shuttle.": "Portal is closed. Take the next shuttle.",
 	"Strike begins.": "Sākas nobūve.",
 	"Thank you for your registration": "Paldies par reģistrēšanos",
+	"To enter DeJā, get your invite by May 31.": "To enter DeJā, get your invite by May 31.",
 	"Tree of Life": "Dzīvības koks",
 	"Upcoming Global Events": "Gaidāmie pasākumi pasaulē",
 	"We are burning right now": "Šobrīd notiek DeJā",
 	"Yes": "Jā",
 	"Your confirmation email has been sent": "Tev ir nosūtīts apstiprinājuma e-pasts",
-	"%s day to enter DeJā.": {
-		"one": "%s day to enter DeJā.",
-		"other": "%s days to enter DeJā."
-	},
 	"We burn in %s day": {
 		"one": "DeJā sākas pēc %s dienas",
 		"other": "DeJā sākas pēc %s dienām"
