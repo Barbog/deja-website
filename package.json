@@ -34,8 +34,8 @@
     "redis": "^2.8.0",
     "showdown": "^1.8.6",
     "svg-to-pdfkit": "^0.1.7",
-    "svgo": "^1.0.4",
-    "xlsx": "^0.12.2"
+    "svgo": "^1.0.5",
+    "xlsx": "^0.12.3"
   },
   "devDependencies": {},
   "semistandard": {
