@@ -1,12 +1,12 @@
 /*!
- * Flickity v2.0.11
+ * Flickity v2.1.0
  * Touch, responsive, flickable carousels
  *
  * Licensed GPLv3 for open source use
  * or Flickity Commercial License for commercial use
  *
- * http://flickity.metafizzy.co
- * Copyright 2017 Metafizzy
+ * https://flickity.metafizzy.co
+ * Copyright 2015-2018 Metafizzy
  */
 
 ( function( window, factory ) {

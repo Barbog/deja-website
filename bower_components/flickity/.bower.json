@@ -24,7 +24,7 @@
     "carousel",
     "touch"
   ],
-  "homepage": "http://flickity.metafizzy.co",
+  "homepage": "https://flickity.metafizzy.co",
   "authors": [
     "Metafizzy"
   ],
@@ -40,14 +40,14 @@
     "gulpfile.js",
     "notes.md"
   ],
-  "version": "2.0.11",
-  "_release": "2.0.11",
+  "version": "2.1.0",
+  "_release": "2.1.0",
   "_resolution": {
     "type": "version",
-    "tag": "v2.0.11",
-    "commit": "17dcaf182b581c185fc2035fabbf8a7deaf92e75"
+    "tag": "v2.1.0",
+    "commit": "bf8f32dc9da5827f4e8ccf5adeed0b470473b4ef"
   },
   "_source": "https://github.com/metafizzy/flickity.git",
-  "_target": "^2.0.11",
+  "_target": "^2.1.0",
   "_originalSource": "flickity"
 }
