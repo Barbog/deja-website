@@ -1843,22 +1843,11 @@ const emailApply = (visaPeriod, priority, callback) => {
                   from: 'Degošie Jāņi <game@sparklatvia.lv>',
                   to: aemail,
                   subject: 'Your entry status for DeJā ' + visaPeriod,
-                  text: 'Congratulations! Enclosed is your entry for DeJā ' + visaPeriod + '.' + '\n\n' +
-                    'You will need to show a digital copy or a printout of it when you arrive at the gate.' + '\n\n' +
-                    'There are 3 attachments in this email. Read them all. Information about donations, meal plan and Slack are enclosed as well as the directions to the property. Please do not share these.' + '\n\n' +
-                    'Slack will be inviting you to join the Baltic Burners team. Use it to communicate, to organize and to plan. See you soon!',
+                  text: 'Hello! Enclosed is a re-issue of your entry for DeJā ' + visaPeriod + '.' + '\n\n' +
+                    'Our sincere apologies for letting 2017 let slip through in the previously issued entry paperwork to you.' + '\n\n' +
+                    'As always, see you soon!',
                   html: err ? undefined : html,
                   attachment: [
-                    new mailgun.Attachment({
-                      data: path.join(__dirname, 'email', 'details.pdf'),
-                      filename: 'details.pdf',
-                      contentType: 'application/pdf'
-                    }),
-                    new mailgun.Attachment({
-                      data: path.join(__dirname, 'email', 'directions.pdf'),
-                      filename: 'directions.pdf',
-                      contentType: 'application/pdf'
-                    }),
                     new mailgun.Attachment({
                       data: pdfBuffer,
                       filename: 'entry.pdf',
