@@ -2,7 +2,7 @@
   "name": "unidragger",
   "main": "unidragger.js",
   "dependencies": {
-    "unipointer": "^2.2.0"
+    "unipointer": "^2.3.0"
   },
   "authors": [
     "David DeSandro <desandrocodes@gmail.com>"
@@ -28,14 +28,14 @@
     "package.json"
   ],
   "homepage": "https://github.com/metafizzy/unidragger",
-  "version": "2.2.3",
-  "_release": "2.2.3",
+  "version": "2.3.0",
+  "_release": "2.3.0",
   "_resolution": {
     "type": "version",
-    "tag": "v2.2.3",
-    "commit": "87a7cbc8269485d0b4912da55b46762999ed30c6"
+    "tag": "v2.3.0",
+    "commit": "f0804542da7387f1b209fbe06740f02c081b3335"
   },
   "_source": "https://github.com/metafizzy/unidragger.git",
-  "_target": "^2.2.3",
+  "_target": "^2.3.0",
   "_originalSource": "unidragger"
 }
