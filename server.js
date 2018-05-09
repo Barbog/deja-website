@@ -1838,146 +1838,186 @@ const emailApply = (visaPeriod, priority, callback) => {
               if (typeof aemail !== 'string' || aemail === '') {
                 aemail = email
               }
-              app.render('email-entry-final', { visaPeriod }, (err, html) => {
+
+              const name = (typeof application['name-surname'] === 'string'
+                ? JSON.parse(application['name-surname']) : application['name-surname']).trim().toUpperCase()
+
+              let internaltext = 'A new Visa (#' + visaId + ') for DeJā ' + visaPeriod + ' has been issued to ' + name + '.'
+              const fae = {}
+              visaApplication.forEach(section => {
+                fae[section.title] = {}
+                internaltext += '\n\n# ' + section.title
+                section.questions.forEach(question => {
+                  let answer = ''
+                  try {
+                    if (application[question.id]) {
+                      answer = JSON.parse(application[question.id])
+                    }
+                  } catch (err) {
+                    answer = ''
+                  }
+
+                  fae[section.title][question.title] = answer
+                  internaltext += '\n' + question.title + ': ' + answer
+                })
+              })
+
+              app.render('email-entry-internalfinal', { visaId, visaPeriod, name, fae }, (err, html) => {
                 mailgun.messages().send({
                   from: 'Degošie Jāņi <game@sparklatvia.lv>',
-                  to: aemail,
-                  subject: 'Your entry status for DeJā ' + visaPeriod,
-                  text: 'Congratulations! Enclosed is your entry for DeJā' + (typeof visaPeriod === 'string' ? ' ' + visaPeriod : '') + '.\n\n' +
-                    'You will need to show a digital copy or a printout of it when you arrive at the gate.' + '\n\n' +
-                    'There are 3 attachments in this email. Read them all. Information about donations, meal plan and Slack are enclosed as well as the directions to the property. Please do not share these.' + '\n\n' +
-                    'Slack will be inviting you to join the Baltic Burners team. Use it to communicate, to organize and to plan. See you soon!',
+                  to: 'Tester TODO <valter.jansons@gmail.com>',
+                  subject: 'New Visa for DeJā ' + visaPeriod,
+                  text: internaltext,
                   html: err ? undefined : html,
-                  attachment: [
-                    new mailgun.Attachment({
-                      data: path.join(__dirname, 'email', 'details.pdf'),
-                      filename: 'details.pdf',
-                      contentType: 'application/pdf'
-                    }),
-                    new mailgun.Attachment({
-                      data: path.join(__dirname, 'email', 'directions.pdf'),
-                      filename: 'directions.pdf',
-                      contentType: 'application/pdf'
-                    }),
-                    new mailgun.Attachment({
-                      data: pdfBuffer,
-                      filename: 'entry.pdf',
-                      contentType: 'application/pdf'
-                    })
-                  ]
+                  attachment: []
                 }, err => {
                   if (err) {
                     callback(err)
                     return
                   }
 
-                  let name = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname']
-                  name = typeof name === 'string' ? name.split(' ') : ''
-                  let surname = name.pop()
-                  name = name.join(' ')
-
-                  let channels = [ 'general', 'random' ]
-                  let ministries = typeof application['ministry-choice'] === 'string' ? JSON.parse(application['ministry-choice']) : application['ministry-choice']
-                  if (Array.isArray(ministries)) {
-                    Object.keys(ministrySlackChannels).forEach(match => {
-                      ministries.forEach(ministry => {
-                        if (ministry.toLowerCase().indexOf(match.toLowerCase()) !== -1) {
-                          channels = channels.concat(Array.isArray(ministrySlackChannels[match]) ? ministrySlackChannels[match] : [ ministrySlackChannels[match] ])
-                        }
-                      })
-                    })
-                    channels = channels.filter(channel => typeof channel === 'string').sort().filter((channel, index, array) => {
-                      return index === 0 || channel !== array[index - 1]
-                    })
-                  }
-
-                  slack('channels.list', {
-                    exclude_archived: true,
-                    exclude_members: true
-                  }, (err, data) => {
-                    if (err) {
-                      console.error(err.stack)
-                      channels = null
-                    } else {
-                      if (Array.isArray(channels)) {
-                        channels = channels
-                          .map(name => data.channels.filter(channel => channel.name === name)[0])
-                          .filter(metadata => typeof metadata === 'object' && metadata !== null)
-                          .map(metadata => metadata.id)
-                      }
-                    }
-
-                    slack('users.admin.invite', {
-                      email: aemail,
-                      channels: Array.isArray(channels) ? channels.join(',') : undefined,
-                      first_name: name,
-                      last_name: surname,
-                      resend: true
+                  app.render('email-entry-final', { visaPeriod }, (err, html) => {
+                    mailgun.messages().send({
+                      from: 'Degošie Jāņi <game@sparklatvia.lv>',
+                      to: aemail,
+                      subject: 'Your entry status for DeJā ' + visaPeriod,
+                      text: 'Congratulations! Enclosed is your entry for DeJā' + (typeof visaPeriod === 'string' ? ' ' + visaPeriod : '') + '.' + '\n\n' +
+                        'You will need to show a digital copy or a printout of it when you arrive at the gate.' + '\n\n' +
+                        'There are 3 attachments in this email. Read them all. Information about donations, meal plan and Slack are enclosed as well as the directions to the property. Please do not share these.' + '\n\n' +
+                        'Slack will be inviting you to join the Baltic Burners team. Use it to communicate, to organize and to plan. See you soon!',
+                      html: err ? undefined : html,
+                      attachment: [
+                        new mailgun.Attachment({
+                          data: path.join(__dirname, 'email', 'details.pdf'),
+                          filename: 'details.pdf',
+                          contentType: 'application/pdf'
+                        }),
+                        new mailgun.Attachment({
+                          data: path.join(__dirname, 'email', 'directions.pdf'),
+                          filename: 'directions.pdf',
+                          contentType: 'application/pdf'
+                        }),
+                        new mailgun.Attachment({
+                          data: pdfBuffer,
+                          filename: 'entry.pdf',
+                          contentType: 'application/pdf'
+                        })
+                      ]
                     }, err => {
-                      const pushrem = () => {
-                        db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
-                          if (err) {
-                            callback(err)
-                            return
-                          }
+                      if (err) {
+                        callback(err)
+                        return
+                      }
 
-                          db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
-                            if (err) {
-                              callback(err)
-                              return
+                      let name = typeof application['name-surname'] === 'string' ? JSON.parse(application['name-surname']) : application['name-surname']
+                      name = typeof name === 'string' ? name.split(' ') : ''
+                      let surname = name.pop()
+                      name = name.join(' ')
+
+                      let channels = [ 'general', 'random' ]
+                      let ministries = typeof application['ministry-choice'] === 'string' ? JSON.parse(application['ministry-choice']) : application['ministry-choice']
+                      if (Array.isArray(ministries)) {
+                        Object.keys(ministrySlackChannels).forEach(match => {
+                          ministries.forEach(ministry => {
+                            if (ministry.toLowerCase().indexOf(match.toLowerCase()) !== -1) {
+                              channels = channels.concat(Array.isArray(ministrySlackChannels[match]) ? ministrySlackChannels[match] : [ ministrySlackChannels[match] ])
                             }
-
-                            callback(null)
                           })
+                        })
+                        channels = channels.filter(channel => typeof channel === 'string').sort().filter((channel, index, array) => {
+                          return index === 0 || channel !== array[index - 1]
                         })
                       }
 
-                      if (err) {
-                        if (err.code === 'already_in_team') {
-                          slack('users.list', {
-                            presence: false
-                          }, (err, data) => {
-                            let users = []
-                            if (err) {
-                              console.error(err.stack)
-                            } else {
-                              if (Array.isArray(data.members)) {
-                                users = data.members
-                                  .filter(member => (member.profile || {}).email === aemail)
-                                  .map(member => member.id)
-                              }
-                            }
+                      slack('channels.list', {
+                        exclude_archived: true,
+                        exclude_members: true
+                      }, (err, data) => {
+                        if (err) {
+                          console.error(err.stack)
+                          channels = null
+                        } else {
+                          if (Array.isArray(channels)) {
+                            channels = channels
+                              .map(name => data.channels.filter(channel => channel.name === name)[0])
+                              .filter(metadata => typeof metadata === 'object' && metadata !== null)
+                              .map(metadata => metadata.id)
+                          }
+                        }
 
-                            if (users.length === 0) {
-                              console.error('No such Slack user with e-mail ' + aemail + ' found.')
-                              pushrem()
-                            } else {
-                              let user = users[0]
-                              async.each(Array.isArray(channels) ? channels : [], (channel, callback) => {
-                                slack('channels.invite', {
-                                  channel,
-                                  user
-                                }, err => {
-                                  if (err) {
-                                    console.error(err.stack)
-                                  }
-                                  callback(null)
-                                })
-                              }, err => {
+                        slack('users.admin.invite', {
+                          email: aemail,
+                          channels: Array.isArray(channels) ? channels.join(',') : undefined,
+                          first_name: name,
+                          last_name: surname,
+                          resend: true
+                        }, err => {
+                          const pushrem = () => {
+                            db.rpush('invited:' + visaPeriod + ':' + priority, email, err => {
+                              if (err) {
+                                callback(err)
+                                return
+                              }
+
+                              db.lrem('queue:' + visaPeriod + ':' + priority, 0, email, err => {
+                                if (err) {
+                                  callback(err)
+                                  return
+                                }
+
+                                callback(null)
+                              })
+                            })
+                          }
+
+                          if (err) {
+                            if (err.code === 'already_in_team') {
+                              slack('users.list', {
+                                presence: false
+                              }, (err, data) => {
+                                let users = []
                                 if (err) {
                                   console.error(err.stack)
+                                } else {
+                                  if (Array.isArray(data.members)) {
+                                    users = data.members
+                                      .filter(member => (member.profile || {}).email === aemail)
+                                      .map(member => member.id)
+                                  }
                                 }
-                                pushrem()
+
+                                if (users.length === 0) {
+                                  console.error('No such Slack user with e-mail ' + aemail + ' found.')
+                                  pushrem()
+                                } else {
+                                  let user = users[0]
+                                  async.each(Array.isArray(channels) ? channels : [], (channel, callback) => {
+                                    slack('channels.invite', {
+                                      channel,
+                                      user
+                                    }, err => {
+                                      if (err) {
+                                        console.error(err.stack)
+                                      }
+                                      callback(null)
+                                    })
+                                  }, err => {
+                                    if (err) {
+                                      console.error(err.stack)
+                                    }
+                                    pushrem()
+                                  })
+                                }
                               })
+                            } else {
+                              console.error(err.stack)
+                              pushrem()
                             }
-                          })
-                        } else {
-                          console.error(err.stack)
-                          pushrem()
-                        }
-                      } else {
-                        pushrem()
-                      }
+                          } else {
+                            pushrem()
+                          }
+                        })
+                      })
                     })
                   })
                 })
