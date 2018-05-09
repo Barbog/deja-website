@@ -21,13 +21,7 @@ html(lang=getLocale())
         if locale !== getLocale()
           link(rel='alternate' hreflang=locale href=href)
   body
-    if user
-      form#userdata.modal(action=((altLocales || {})[getLocale()] || '/') method='post' style='display:none')
-        input#realname(type='text' name='realname' autocomplete='name' value=user.name data-name=user.name placeholder=__('Name'))
-        input#password(type='password' name='password' autocomplete='current-password' placeholder=__('Current password, if you want to change it'))
-        input#newpassword(type='password' name='newpassword' autocomplete='new-password' style='display:none' placeholder=__('New password'))
-        input#newpasswordrepeat(type='password' name='newpasswordrepeat' autocomplete='new-password' style='display:none' placeholder=__('New password, repeated'))
-        button(type='submit')= __('Close')
+    block prebody
     header
       .header-top
       .header-bar
