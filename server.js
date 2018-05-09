@@ -1996,7 +1996,7 @@ const emailApply = (visaPeriod, priority, callback) => {
                                       channel,
                                       user
                                     }, err => {
-                                      if (err) {
+                                      if (err && err.code !== 'already_in_channel') {
                                         console.error(err.stack)
                                       }
                                       callback(null)
