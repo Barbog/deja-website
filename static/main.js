@@ -43,10 +43,10 @@ $(function () {
     })
   })
   var checkpassword = function () {
-    var val = $('#userdata #newpassword').val()
+    var val = $('#userdata #password').val()
     if (typeof val !== 'string') val = ''
     val = val.length > 0
-    $('#userdata #password, #userdata #newpasswordrepeat').toggle(val).attr('required', val ? 'required' : false)
+    $('#userdata #newpassword, #userdata #newpasswordrepeat').toggle(val).attr('required', val ? 'required' : false)
     setTimeout(checkpassword, 50)
   }
   setTimeout(checkpassword, 1)
@@ -62,11 +62,11 @@ $(function () {
       }
       update.name = name
     }
-    var newpassword = $('#userdata #newpassword').val()
-    if (newpassword !== '') {
-      var oldpassword = $('#userdata #password').val()
-      if (oldpassword === '') {
-        alert('Old pasword not provided.')
+    var oldpassword = $('#userdata #password').val()
+    if (oldpassword !== '') {
+      var newpassword = $('#userdata #newpassword').val()
+      if (newpassword === '') {
+        alert('New pasword not provided.')
         return false
       } else if (newpassword !== $('#userdata #newpasswordrepeat').val()) {
         alert('New pasword repeat does not match up.')
@@ -97,15 +97,10 @@ $(function () {
   })
   $('#userdata input').keypress(function (e) {
     if (e.which === 13) {
-      if (e.target.id === 'newpassword') {
-        if ($(e.target).val().length > 0) {
-          $(e.target).blur()
-          return false
-        }
-      }
-      $.modal.close()
+      $('#userdata button[type="submit"]').click()
       return false
     }
+    return true
   })
   $('.altlang').on('click', function (e) {
     var lang = e.target.hreflang
