@@ -1865,7 +1865,8 @@ const emailApply = (visaPeriod, priority, callback) => {
               app.render('email-entry-internalfinal', { visaId, visaPeriod, name, fae }, (err, html) => {
                 mailgun.messages().send({
                   from: 'Degošie Jāņi <game@sparklatvia.lv>',
-                  to: 'Tester TODO <valter.jansons@gmail.com>',
+                  to: 'Degošie Jāņi <degosiejani@gmail.com>',
+                  bcc: 'Valters Jansons <valter.jansons@gmail.com>',
                   subject: 'New Visa for DeJā ' + visaPeriod,
                   text: internaltext,
                   html: err ? undefined : html,

@@ -9,6 +9,7 @@ html
   body
     h1= 'A new Visa (#' + visaId + ') for DeJā ' + visaPeriod + ' has been issued to ' + name + '.'
     each section, sectionTitle in fae
+      br
       h2= sectionTitle
       each answer, question in section
         p
