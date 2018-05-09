@@ -24,8 +24,8 @@ html(lang=getLocale())
     if user
       form#userdata.modal(action=altLocales[getLocale()] method='post' style='display:none')
         input#realname(type='text' name='realname' value=user.name data-name=user.name autocomplete='name' placeholder=__('Name'))
-        input#password(type='password' name='password' style='display:none' placeholder=__('Current password, if you want to change it'))
-        input#newpassword(type='password' name='newpassword' placeholder=__('New password'))
+        input#password(type='password' name='password' placeholder=__('Current password, if you want to change it'))
+        input#newpassword(type='password' name='newpassword' style='display:none' placeholder=__('New password'))
         input#newpasswordrepeat(type='password' name='newpasswordrepeat' style='display:none' placeholder=__('New password, repeated'))
         button(type='submit')= __('Close')
     header
