@@ -116,4 +116,8 @@ $(function () {
     setTimeout(hoverTree, (Math.floor(Math.random() * 2) + 2) * 1000) // every 2 - 4 seconds
   }
   hoverTree()
+  $('.datatable').DataTable({
+    paging: false,
+    scrollX: false
+  })
 })
