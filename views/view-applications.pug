@@ -7,15 +7,15 @@ block body
       != markdown || ''
     section.bgless.center
       if isIndex
-        a(href='..')= __('Go back')
-      else
         a(href='/x-admin/download-applications/' + year)= __('Download snapshot')
+      else
+        a(href='..')= __('Go back')
     if pages
       each page, pageName in pages
         if isIndex
           section.bgless
-            h1
-              a(href=altLocales[getLocale()] + '/' + __(page).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __(page)
+            a(href=altLocales[getLocale()] + '/' + __(page).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))
+              h1= __(page)
         else
           section.bgless
             h1= __(pageName)
