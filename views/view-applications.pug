@@ -11,12 +11,13 @@ block body
       else
         a(href='..')= __('Go back')
     if pages
-      each page, pageName in pages
-        if isIndex
-          section.bgless
-            a(href=altLocales[getLocale()] + '/' + __(page).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))
-              h1= __(page)
-        else
+      if isIndex
+        section.bgless
+          each pageName in pages
+            a(href=altLocales[getLocale()] + '/' + __(pageName).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))
+              h1= __(pageName)
+      else
+        each page, pageName in pages
           section.bgless
             h1= __(pageName)
             table.datatable
