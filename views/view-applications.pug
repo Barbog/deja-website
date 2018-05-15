@@ -9,7 +9,7 @@ block body
       if isIndex
         a(href='/x-admin/download-applications/' + year)= __('Download snapshot')
       else
-        a(href='..')= __('Go back')
+        a(href='.')= __('Go back')
     if pages
       if isIndex
         section.bgless
@@ -20,7 +20,7 @@ block body
         each page, pageName in pages
           section.bgless
             h1= __(pageName)
-            table.datatable
+            table.datatable(data-order='[[ 0, "desc" ]]')
               thead
                 - let header = page.shift()
                 tr
