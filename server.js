@@ -767,7 +767,7 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
         return
       }
 
-      const target = localeHash[locale] + '/' + getVisaPeriod()
+      const target = encodeURI(localeHash[locale]) + '/' + getVisaPeriod()
       res.render('redirect', { target }, (err, html) => {
         res.status(303)
         res.location(target)
@@ -800,7 +800,7 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
         }
 
         const localeHashSuffixed = {}
-        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = localeHash[lh] + '/' + encodeURIComponent(req.params.year) })
+        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
 
         res.render('view-applications', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, pages: Object.keys(pages) }, (err, html) => {
           if (err) {
@@ -817,6 +817,29 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
       })
     })
     app.all(encodeURI(localeHash[locale] + '/:year'), returnBadAction)
+
+    app.get(encodeURI(localeHash[locale] + '/:year/'), (req, res) => {
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
+        return
+      }
+
+      const target = encodeURI(localeHash[locale]) + '/' + encodeURIComponent(req.params.year)
+      res.render('redirect', { target }, (err, html) => {
+        res.status(303)
+        res.location(target)
+        if (err) {
+          res.type('text/plain; charset=utf-8')
+          res.send(target)
+          console.error(err.stack)
+        } else {
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+    })
+    app.all(encodeURI(localeHash[locale] + '/:year/'), returnBadAction)
 
     app.get(encodeURI(localeHash[locale] + '/:year/:pageNames'), (req, res) => {
       req.setLocale(locale)
@@ -835,7 +858,7 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
         }
 
         const localeHashSuffixed = {}
-        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = localeHash[lh] + '/' + encodeURIComponent(req.params.year) + '/' + encodeURIComponent(req.params.pageNames) })
+        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) + '/' + encodeURIComponent(req.params.pageNames) })
 
         Object.keys(pages).filter(pageName => req.params.pageNames.split('!').indexOf(req.__(pageName).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')) === -1).forEach(pageName => { delete pages[pageName] })
 
