@@ -25,7 +25,7 @@ block body
                 - let header = page.shift()
                 tr
                   each col, index in header
-                    th(data-priority=(index === 0 ? 1 : name === 'Name, Surname' ? 2 : 3))= __(col)
+                    th(data-priority=(index === 0 ? 1 : col === 'Name, Surname' ? 2 : 3))= __(col)
               tbody
                 each entry in page
                   tr
