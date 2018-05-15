@@ -118,6 +118,6 @@ $(function () {
   hoverTree()
   $('.datatable').DataTable({
     paging: false,
-    scrollX: false
+    responsive: true
   })
 })

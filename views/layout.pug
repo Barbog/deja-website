@@ -16,6 +16,7 @@ html(lang=getLocale())
     link(rel='stylesheet' href='/EasyAutocomplete/dist/easy-autocomplete.min.css')
     link(rel='stylesheet' href='/jquery-modal/jquery.modal.min.css')
     link(rel='stylesheet' href='/datatables.net-dt/css/jquery.dataTables.min.css')
+    link(rel='stylesheet' href='/datatables.net-responsive-dt/css/responsive.dataTables.min.css')
     link(rel='stylesheet' href='/main.css')
     if altLocales
       each href, locale in altLocales
@@ -52,5 +53,6 @@ html(lang=getLocale())
     script(src='/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js' nonce=nonce)
     script(src='/jquery-modal/jquery.modal.min.js' nonce=nonce)
     script(src='/datatables.net/js/jquery.dataTables.min.js' nonce=nonce)
+    script(src='/datatables.net-responsive/js/dataTables.responsive.min.js' nonce=nonce)
     script(src='/main.js' nonce=nonce)
 = '\n'
