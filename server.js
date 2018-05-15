@@ -724,40 +724,48 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
 (() => {
   const title = 'View Applications'
 
+  const preprocess = (req, res) => {
+    if (!res.locals.user) {
+      const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url
+      res.render('redirect', { target }, (err, html) => {
+        res.status(303)
+        res.location(target)
+        if (err) {
+          res.type('text/plain; charset=utf-8')
+          res.send(target)
+          console.error(err.stack)
+        } else {
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+      return true
+    } else if (!res.locals.user.admin) {
+      res.render('403', { title: '403' }, (err, html) => {
+        if (err) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(err.stack)
+        } else {
+          res.status(403)
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+      return true
+    } else {
+      return false
+    }
+  }
+
   const catchVisaApplications = locale => {
     app.get(encodeURI(localeHash[locale]), (req, res, next) => {
-      if (!res.locals.user) {
-        const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url
-        res.render('redirect', { target }, (err, html) => {
-          res.status(303)
-          res.location(target)
-          if (err) {
-            res.type('text/plain; charset=utf-8')
-            res.send(target)
-            console.error(err.stack)
-          } else {
-            res.type('text/html; charset=utf-8')
-            res.send(html)
-          }
-        })
-        return
-      } else if (!res.locals.user.admin) {
-        res.render('403', { title: '403' }, (err, html) => {
-          if (err) {
-            res.status(500)
-            res.type('text/plain; charset=utf-8')
-            res.send('Something broke horribly. Sorry.')
-            console.error(err.stack)
-          } else {
-            res.status(403)
-            res.type('text/html; charset=utf-8')
-            res.send(html)
-          }
-        })
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
         return
       }
-
-      req.setLocale(locale)
 
       const target = localeHash[locale] + '/' + getVisaPeriod()
       res.render('redirect', { target }, (err, html) => {
@@ -774,39 +782,13 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
       })
     })
     app.all(encodeURI(localeHash[locale]), returnBadAction)
+
     app.get(encodeURI(localeHash[locale] + '/:year'), (req, res) => {
-      if (!res.locals.user) {
-        const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url
-        res.render('redirect', { target }, (err, html) => {
-          res.status(303)
-          res.location(target)
-          if (err) {
-            res.type('text/plain; charset=utf-8')
-            res.send(target)
-            console.error(err.stack)
-          } else {
-            res.type('text/html; charset=utf-8')
-            res.send(html)
-          }
-        })
-        return
-      } else if (!res.locals.user.admin) {
-        res.render('403', { title: '403' }, (err, html) => {
-          if (err) {
-            res.status(500)
-            res.type('text/plain; charset=utf-8')
-            res.send('Something broke horribly. Sorry.')
-            console.error(err.stack)
-          } else {
-            res.status(403)
-            res.type('text/html; charset=utf-8')
-            res.send(html)
-          }
-        })
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
         return
       }
-
-      req.setLocale(locale)
 
       gatherApplications('' + req.params.year, (err, pages) => {
         if (err) {
@@ -817,7 +799,10 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
           return
         }
 
-        res.render('view-applications', { altLocales: getAltLocales(localeHash), title: req.__(title), markdown: '', year: '' + req.params.year, pages }, (err, html) => {
+        const localeHashSuffixed = {}
+        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = localeHash[lh] + '/' + encodeURIComponent(req.params.year) })
+
+        res.render('view-applications', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, pages: Object.keys(pages) }, (err, html) => {
           if (err) {
             res.status(500)
             res.type('text/plain; charset=utf-8')
@@ -832,6 +817,43 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
       })
     })
     app.all(encodeURI(localeHash[locale] + '/:year'), returnBadAction)
+
+    app.get(encodeURI(localeHash[locale] + '/:year/:pageNames'), (req, res) => {
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
+        return
+      }
+
+      gatherApplications('' + req.params.year, (err, pages) => {
+        if (err) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(err.stack)
+          return
+        }
+
+        const localeHashSuffixed = {}
+        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = localeHash[lh] + '/' + encodeURIComponent(req.params.year) + '/' + encodeURIComponent(req.params.pageNames) })
+
+        Object.keys(pages).filter(pageName => req.params.pageNames.split('!').indexOf(req.__(pageName).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')) === -1).forEach(pageName => { delete pages[pageName] })
+
+        res.render('view-applications', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, pages }, (err, html) => {
+          if (err) {
+            res.status(500)
+            res.type('text/plain; charset=utf-8')
+            res.send('Something broke horribly. Sorry.')
+            console.error(err.stack)
+          } else {
+            res.status(200)
+            res.type('text/html; charset=utf-8')
+            res.send(html)
+          }
+        })
+      })
+    })
+    app.all(encodeURI(localeHash[locale] + '/:year/:pageName'), returnBadAction)
   }
 
   const navbarHash = {}
