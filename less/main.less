@@ -889,3 +889,9 @@ form {
     }
   }
 }
+
+/* workaround for /datatables.net-responsive-dt/css/responsive.dataTables.min.css
+   setting the background as 'transparent !important' upon hover */
+table.dataTable > tbody > tr.child:hover {
+  background-color: whitesmoke !important;
+}
