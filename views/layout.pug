@@ -42,6 +42,10 @@ html(lang=getLocale())
     block body
       section
         != markdown || ''
+    if user
+      section.bgless.center
+        if user.admin && __('View Applications') !== title
+          a(href='/' + getLocale() + '/' + __('View Applications').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __('View Applications').toUpperCase()
     script(src='/jquery/dist/jquery.min.js' nonce=nonce)
     script(src='/flickity/dist/flickity.pkgd.min.js' nonce=nonce)
     script(src='/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js' nonce=nonce)

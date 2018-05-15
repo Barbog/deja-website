@@ -462,38 +462,25 @@ const buildWorksheet = data => {
   return worksheet
 }
 
-app.get('/admin/enter-deja/:year', (req, res, next) => {
-  if (!res.locals.user || !res.locals.user.admin) {
-    next()
-    return
-  }
+const gatherApplications = (year, callback) => {
+  if (typeof callback !== 'function') return
 
-  const year = '' + req.params.year
-  if (isNaN(parseInt(year, 10))) {
-    res.status(400)
-    res.type('text/plain; charset=utf-8')
-    res.send('Year provided must be a number.')
-    return
+  if (typeof year === 'number') year = '' + year
+  const parsedYear = parseInt(year, 10)
+  if (isNaN(parsedYear) || '' + parsedYear !== year) {
+    return callback(new Error('Expected year to be a number'), {})
   }
 
   db.keys('visa:' + year + ':*', (err, applications) => {
     if (err) {
-      res.status(500)
-      res.type('text/plain; charset=utf-8')
-      res.send('Something broke horribly. Sorry.')
-      console.error(err.stack)
-      return
+      return callback(err, {})
     }
 
     async.map([ 'invited:' + year + ':veteran', 'invited:' + year + ':virgin' ], (key, callback) => {
       db.lrange(key, 0, 1000, callback)
     }, (err, invitees) => {
       if (err) {
-        res.status(500)
-        res.type('text/plain; charset=utf-8')
-        res.send('Something broke horribly. Sorry.')
-        console.error(err.stack)
-        return
+        return callback(err, {})
       }
 
       invitees = invitees.reduce((array, current) => array.concat(Array.isArray(current) ? current : []), [])
@@ -502,11 +489,7 @@ app.get('/admin/enter-deja/:year', (req, res, next) => {
         db.lrange(key, 0, 1000, callback)
       }, (err, queuees) => {
         if (err) {
-          res.status(500)
-          res.type('text/plain; charset=utf-8')
-          res.send('Something broke horribly. Sorry.')
-          console.error(err.stack)
-          return
+          return callback(err, {})
         }
 
         queuees = queuees.reduce((array, current) => array.concat(Array.isArray(current) ? current : []), [])
@@ -595,11 +578,7 @@ app.get('/admin/enter-deja/:year', (req, res, next) => {
           })
         }, (err, applications) => {
           if (err) {
-            res.status(500)
-            res.type('text/plain; charset=utf-8')
-            res.send('Something broke horribly. Sorry.')
-            console.error(err.stack)
-            return
+            return callback(err, {})
           }
 
           applications = applications.sort((a, b) => {
@@ -643,23 +622,19 @@ app.get('/admin/enter-deja/:year', (req, res, next) => {
               'type': 'text'
             }
           ])
-          const applicationsData = [ applicationsHeader.map(question => question.title) ]
-            .concat(applications.map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
 
-          const virginApplicationsData = [ applicationsHeader.map(question => question.title) ]
-            .concat(applications.filter(application => application['__virgin']).map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
-          const veteranApplicationsData = [ applicationsHeader.map(question => question.title) ]
-            .concat(applications.filter(application => !application['__virgin']).map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
-
-          let sheetNames = [
-            'Enter DeJā',
-            'Virgins',
-            'Veterans'
-          ]
-          let sheets = {
-            'Enter DeJā': buildWorksheet(applicationsData),
-            'Virgins': buildWorksheet(virginApplicationsData),
-            'Veterans': buildWorksheet(veteranApplicationsData)
+          let pages = {
+            'Enter DeJā': [ applicationsHeader.map(question => question.title) ]
+              .concat(applications
+                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || ''))),
+            'Virgins': [ applicationsHeader.map(question => question.title) ]
+              .concat(applications
+                .filter(application => application['__virgin'])
+                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || ''))),
+            'Veterans': [ applicationsHeader.map(question => question.title) ]
+              .concat(applications
+                .filter(application => !application['__virgin'])
+                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
           }
 
           applications.reduce((array, application) => {
@@ -673,10 +648,9 @@ app.get('/admin/enter-deja/:year', (req, res, next) => {
             }
             return array
           }, []).sort().forEach(ministry => {
-            let sheetName = ministry.replace(/[^A-z0-9(), ]/g, '').replace(/^Ministry of /i, '').split(')')[0].trim()
-            while (sheetName.indexOf('  ') !== -1) sheetName = sheetName.split('  ').join(' ')
-            sheetName = sheetName.substr(0, 30)
-            sheetNames.push(sheetName)
+            let pageName = ministry.replace(/[^A-z0-9(), ]/g, '').replace(/^Ministry of /i, '').split(')')[0].trim()
+            while (pageName.indexOf('  ') !== -1) pageName = pageName.split('  ').join(' ')
+            pageName = pageName.substr(0, 30)
             let ministryHeader = visaApplication.reduce((prev, next) => prev.concat(next.questions), [
               {
                 'id': '__visaid',
@@ -689,29 +663,193 @@ app.get('/admin/enter-deja/:year', (req, res, next) => {
                 'type': 'yes/no'
               }
             ]).filter(question => question.id !== 'ministry-choice')
-            let ministryData = [ ministryHeader.map(question => question.title) ]
+            pages[pageName] = [ ministryHeader.map(question => question.title) ]
               .concat(applications.filter(application => {
                 let applicationMinistries = application['ministry-choice']
                 if (!Array.isArray(applicationMinistries) || applicationMinistries.indexOf(ministry) === -1) return false
                 if (typeof application['__visaid'] !== 'number' && (typeof application['__visaid'] !== 'string' || application['__visaid'] === '')) return false
                 return true
               }).map(application => ministryHeader.slice(0).map(question => application[question.id] || '')))
-            sheets[sheetName] = buildWorksheet(ministryData)
           })
 
-          res.status(200)
-          res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-          res.setHeader('Content-Disposition', 'attachment; filename=enter-deja.' + year + '.xlsx')
-          res.send(Buffer.from(xlsx.write({
-            SheetNames: sheetNames,
-            Sheets: sheets
-          }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'))
+          callback(null, pages)
         })
       })
     })
   })
+}
+
+app.get('/x-admin/download-applications/:year', (req, res, next) => {
+  if (!res.locals.user || !res.locals.user.admin) {
+    next()
+    return
+  }
+
+  const year = '' + req.params.year
+  if (isNaN(parseInt(year, 10))) {
+    res.status(400)
+    res.type('text/plain; charset=utf-8')
+    res.send('Year provided must be a number.')
+    return
+  }
+
+  gatherApplications(year, (err, pages) => {
+    if (err) {
+      res.status(500)
+      res.type('text/plain; charset=utf-8')
+      res.send('Something broke horribly. Sorry.')
+      console.error(err.stack)
+      return
+    }
+
+    const pageNames = Object.keys(pages)
+
+    res.status(200)
+    res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    res.setHeader('Content-Disposition', 'attachment; filename=enter-deja.' + year + '.xlsx')
+    res.send(Buffer.from(xlsx.write({
+      SheetNames: pageNames,
+      Sheets: pageNames.map(pageName => buildWorksheet(pages[pageName]))
+    }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'))
+  })
 })
-app.all('/admin/enter-deja/:year', returnBadAction);
+app.all('/x-admin/download-applications/:year', (req, res, next) => {
+  if (!res.locals.user || !res.locals.user.admin) {
+    next()
+  } else {
+    returnBadAction(req, res)
+  }
+});
+
+(() => {
+  const title = 'View Applications'
+
+  const catchVisaApplications = locale => {
+    app.get(encodeURI(localeHash[locale]), (req, res, next) => {
+      if (!res.locals.user) {
+        const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url
+        res.render('redirect', { target }, (err, html) => {
+          res.status(303)
+          res.location(target)
+          if (err) {
+            res.type('text/plain; charset=utf-8')
+            res.send(target)
+            console.error(err.stack)
+          } else {
+            res.type('text/html; charset=utf-8')
+            res.send(html)
+          }
+        })
+        return
+      } else if (!res.locals.user.admin) {
+        res.render('403', { title: '403' }, (err, html) => {
+          if (err) {
+            res.status(500)
+            res.type('text/plain; charset=utf-8')
+            res.send('Something broke horribly. Sorry.')
+            console.error(err.stack)
+          } else {
+            res.status(403)
+            res.type('text/html; charset=utf-8')
+            res.send(html)
+          }
+        })
+        return
+      }
+
+      req.setLocale(locale)
+
+      const target = localeHash[locale] + '/' + getVisaPeriod()
+      res.render('redirect', { target }, (err, html) => {
+        res.status(303)
+        res.location(target)
+        if (err) {
+          res.type('text/plain; charset=utf-8')
+          res.send(target)
+          console.error(err.stack)
+        } else {
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+    })
+    app.all(encodeURI(localeHash[locale]), returnBadAction)
+    app.get(encodeURI(localeHash[locale] + '/:year'), (req, res) => {
+      if (!res.locals.user) {
+        const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url
+        res.render('redirect', { target }, (err, html) => {
+          res.status(303)
+          res.location(target)
+          if (err) {
+            res.type('text/plain; charset=utf-8')
+            res.send(target)
+            console.error(err.stack)
+          } else {
+            res.type('text/html; charset=utf-8')
+            res.send(html)
+          }
+        })
+        return
+      } else if (!res.locals.user.admin) {
+        res.render('403', { title: '403' }, (err, html) => {
+          if (err) {
+            res.status(500)
+            res.type('text/plain; charset=utf-8')
+            res.send('Something broke horribly. Sorry.')
+            console.error(err.stack)
+          } else {
+            res.status(403)
+            res.type('text/html; charset=utf-8')
+            res.send(html)
+          }
+        })
+        return
+      }
+
+      req.setLocale(locale)
+
+      gatherApplications('' + req.params.year, (err, pages) => {
+        if (err) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(err.stack)
+          return
+        }
+
+        res.render('view-applications', { altLocales: getAltLocales(localeHash), title: req.__(title), markdown: '', year: '' + req.params.year, pages }, (err, html) => {
+          if (err) {
+            res.status(500)
+            res.type('text/plain; charset=utf-8')
+            res.send('Something broke horribly. Sorry.')
+            console.error(err.stack)
+          } else {
+            res.status(200)
+            res.type('text/html; charset=utf-8')
+            res.send(html)
+          }
+        })
+      })
+    })
+    app.all(encodeURI(localeHash[locale] + '/:year'), returnBadAction)
+  }
+
+  const navbarHash = {}
+  const localeHash = {}
+
+  i18n.__h(title).forEach(subhash => {
+    for (var locale in subhash) {
+      if (!subhash.hasOwnProperty(locale)) { continue }
+      navbarHash[locale] = subhash[locale]
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')
+    }
+  })
+
+  for (var locale in navbarHash) {
+    if (!navbarHash.hasOwnProperty(locale)) { continue }
+    catchVisaApplications(locale)
+  }
+})();
 
 (() => {
   const title = 'Log In'

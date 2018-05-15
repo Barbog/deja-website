@@ -1,0 +1,23 @@
+extends layout.pug
+
+block body
+  if user && user.admin
+    section
+      != markdown || ''
+    section.bgless.center
+      a(href='/x-admin/download-applications/' + year)= __('Download snapshot')
+    if pages
+      each page, pageName in pages
+        section.bgless
+          h1= __(pageName)
+          table
+            thead
+              - let header = page.shift()
+              tr
+                each col in header
+                  th= __(col)
+            tbody
+              each entry in page
+                tr
+                  each col in entry
+                    td= col
