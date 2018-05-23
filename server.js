@@ -1110,15 +1110,15 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
           return
         }
 
-        // We still want to run bcrypt to avoid any timing attacks, because best practices.
-        db.hexists('user:' + email, 'password', (err, reply) => {
+        // This is a stub for allowing 'do not email me' functionality.
+        db.hexists('user:' + email, 'nopassword', (err, nreply) => {
           if (err) {
             rerender(new Error('Internal database error encountered.'))
             console.error(err.stack)
             return
           }
 
-          if (reply) {
+          if (nreply) {
             res.render('redirect', { target: location }, (err, html) => {
               res.status(303)
               res.location(location)
@@ -1134,40 +1134,48 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
             return
           }
 
-          db.hmset('user:' + email, { password: hash, name: name }, err => {
+          db.hexists('user:' + email, 'password', (err, preply) => {
             if (err) {
               rerender(new Error('Internal database error encountered.'))
               console.error(err.stack)
               return
             }
 
-            app.render('email-password', { password: password }, (err, html) => {
-              mailgun.messages().send({
-                from: 'Degošie Jāņi <game@sparklatvia.lv>',
-                to: email,
-                subject: 'Your registration with DeJā',
-                text: 'Welcome!' + '\n\n' +
-                  'Your password is ' + password + '.' + '\n\n' +
-                  'If you did not register for anything, just ignore this message.',
-                html: err ? undefined : html
-              }, err => {
-                if (err) {
-                  rerender(new Error('Internal dispatching error encountered.'))
-                  console.error(err.stack)
-                  return
-                }
+            db.hmset('user:' + email, { password: hash, name: name }, err => {
+              if (err) {
+                rerender(new Error('Internal database error encountered.'))
+                console.error(err.stack)
+                return
+              }
 
-                res.render('redirect', { target: location }, (err, html) => {
-                  res.status(303)
-                  res.location(location)
+              app.render(preply ? 'email-passwordreset' : 'email-passwordnew', { password: password }, (err, html) => {
+                mailgun.messages().send({
+                  from: 'Degošie Jāņi <game@sparklatvia.lv>',
+                  to: email,
+                  subject: 'Your registration with DeJā',
+                  text: 'Welcome!' + '\n\n' +
+                    'Your ' + (preply ? 'new ' : '') + 'password is ' + password + '.' + '\n\n' +
+                    'If you did not register for anything, just ignore this message.',
+                  html: err ? undefined : html
+                }, err => {
                   if (err) {
-                    res.type('text/plain; charset=utf-8')
-                    res.send(location)
+                    rerender(new Error('Internal dispatching error encountered.'))
                     console.error(err.stack)
-                  } else {
-                    res.type('text/html; charset=utf-8')
-                    res.send(html)
+                    return
                   }
+
+                  res.render('redirect', { target: location }, (err, html) => {
+                    res.status(303)
+                    res.location(location)
+                    if (err) {
+                      res.type('text/plain; charset=utf-8')
+                      res.send(location)
+                      console.error(err.stack)
+                    } else {
+                      res.type('text/html; charset=utf-8')
+                      res.send(html)
+                    }
+                  })
                 })
               })
             })
