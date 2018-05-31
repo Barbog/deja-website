@@ -58,7 +58,7 @@ block body
       +section('FAQ\'ing read me!')
       - let applicationEnd = new Date(now.getFullYear(), 5, 1, 10) // June 1, 10:00
       - let visaPeriod = now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1)
-      - applicationEnd = +(new Date(visaPeriod, 5, 1, 10) // June 1, 10:00
+      - applicationEnd = +(new Date(visaPeriod, 5, 1, 10)) // June 1, 10:00
       - let applicationStart = +(new Date(visaPeriod - 1, 6, 1))
       - let daysTillApplication = Math.ceil((applicationEnd - (+now)) / 1000 / 60 / 60 / 24)
       if (+now) < applicationStart || daysTillApplication <= 0
