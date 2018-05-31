@@ -6,7 +6,7 @@ mixin tree-button(name)
 
 mixin section(name)
   - let now = new Date()
-  - let applicationEnd = new Date(now.getFullYear(), 5, 1, 5) // June 1, 05:00
+  - let applicationEnd = new Date(now.getFullYear(), 5, 1, 1) // June 1, 01:00
   - let visaPeriod = now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1)
   - let applicationStart = +(new Date(visaPeriod - 1, 6, 1))
   - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl) && (name !== 'Enter DeJā' || (+now) > applicationStart)
@@ -56,9 +56,9 @@ block body
       +section('Donation')
       +section('Network')
       +section('FAQ\'ing read me!')
-      - let applicationEnd = new Date(now.getFullYear(), 5, 1, 5) // June 1, 05:00
+      - let applicationEnd = new Date(now.getFullYear(), 5, 1, 1) // June 1, 01:00
       - let visaPeriod = now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1)
-      - applicationEnd = +(new Date(visaPeriod, 5, 1, 5))
+      - applicationEnd = +(new Date(visaPeriod, 5, 1, 1) // June 1, 01:00
       - let applicationStart = +(new Date(visaPeriod - 1, 6, 1))
       - let daysTillApplication = Math.ceil((applicationEnd - (+now)) / 1000 / 60 / 60 / 24)
       if (+now) < applicationStart || daysTillApplication <= 0
