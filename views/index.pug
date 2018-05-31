@@ -9,7 +9,7 @@ mixin section(name)
   - let applicationEnd = new Date(now.getFullYear(), 5, 1, 5) // June 1, 05:00
   - let visaPeriod = now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1)
   - let applicationStart = +(new Date(visaPeriod - 1, 6, 1))
-  - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl) && (name !== 'Enter DeJā' || (+now) < applicationStart)
+  - let accessible = acl((subpages.filter(page => page.title === name)[0] || {}).acl) && (name !== 'Enter DeJā' || (+now) > applicationStart)
   if accessible || (name === 'Enter DeJā' && acl('email'))
     a(class=(accessible ? '' : 'disabled').trim() href='/' + getLocale() + '/' + __(name).toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join(''))= __(name).toUpperCase()
 
