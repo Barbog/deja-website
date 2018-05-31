@@ -1297,6 +1297,24 @@ function catchAllFor (backstack, sitemap) {
                 return
               }
 
+              if (+(new Date(getVisaPeriod() - 1, 6, 1)) > Date.now()) {
+                // It is not July 1 yet so no new applications!
+                res.render('403', { title: '403', message: req.__('Portal is closed. Take the next shuttle.') }, (err, html) => {
+                  if (err) {
+                    res.status(500)
+                    res.type('text/plain; charset=utf-8')
+                    res.send('Something broke horribly. Sorry.')
+                    console.error(err.stack)
+                  } else {
+                    res.status(403)
+                    res.type('text/html; charset=utf-8')
+                    res.send(html)
+                  }
+                })
+                callback(null, true)
+                return
+              }
+
               const field = stack.reduce((prev, next) => prev + '.' + next.title.en, 'answer')
               if (res.locals.user[field]) {
                 const target = (stack.slice(0, -1).reduce((prev, next) => prev +
@@ -1586,6 +1604,23 @@ function catchAllFor (backstack, sitemap) {
                   res.send(html)
                 }
               })
+            }
+
+            if (+(new Date(getVisaPeriod() - 1, 6, 1)) > Date.now()) {
+              // It is not July 1 yet so no new applications!
+              res.render('403', { title: '403', message: req.__('Portal is closed. Take the next shuttle.') }, (err, html) => {
+                if (err) {
+                  res.status(500)
+                  res.type('text/plain; charset=utf-8')
+                  res.send('Something broke horribly. Sorry.')
+                  console.error(err.stack)
+                } else {
+                  res.status(403)
+                  res.type('text/html; charset=utf-8')
+                  res.send(html)
+                }
+              })
+              return
             }
 
             const h = {}
