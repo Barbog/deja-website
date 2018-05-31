@@ -23,7 +23,7 @@ const shuffle = (array) => {
 
 const getVisaPeriod = () => {
   const now = new Date()
-  const applicationEnd = new Date(now.getFullYear(), 5, 1, 15) // June 1, 1500
+  const applicationEnd = new Date(now.getFullYear(), 5, 1, 5) // June 1, 05:00
   return now.getFullYear() + ((+applicationEnd) > (+now) ? 0 : 1)
 }
 
