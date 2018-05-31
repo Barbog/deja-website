@@ -767,7 +767,11 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
         return
       }
 
-      const target = encodeURI(localeHash[locale]) + '/' + getVisaPeriod()
+      const redirectPeriod = getVisaPeriod()
+      const periodStartDate = new Date(redirectPeriod - 1, 6, 1) // July 1
+      if (+(periodStartDate) > Date.now()) { redirectPeriod-- }
+
+      const target = encodeURI(localeHash[locale]) + '/' + redirectPeriod
       res.render('redirect', { target }, (err, html) => {
         res.status(303)
         res.location(target)
@@ -1297,7 +1301,7 @@ function catchAllFor (backstack, sitemap) {
                 return
               }
 
-              if (+(new Date(getVisaPeriod() - 1, 6, 1)) > Date.now()) {
+              if (+(new Date(getVisaPeriod() - 1, 6, 1)) > Date.now()) { // July 1
                 // It is not July 1 yet so no new applications!
                 res.render('403', { title: '403', message: req.__('Portal is closed. Take the next shuttle.') }, (err, html) => {
                   if (err) {
@@ -1606,7 +1610,7 @@ function catchAllFor (backstack, sitemap) {
               })
             }
 
-            if (+(new Date(getVisaPeriod() - 1, 6, 1)) > Date.now()) {
+            if (+(new Date(getVisaPeriod() - 1, 6, 1)) > Date.now()) { // July 1
               // It is not July 1 yet so no new applications!
               res.render('403', { title: '403', message: req.__('Portal is closed. Take the next shuttle.') }, (err, html) => {
                 if (err) {
