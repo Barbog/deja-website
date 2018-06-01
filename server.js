@@ -767,7 +767,7 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
         return
       }
 
-      const redirectPeriod = getVisaPeriod()
+      let redirectPeriod = getVisaPeriod()
       const periodStartDate = new Date(redirectPeriod - 1, 6, 1) // July 1
       if (+(periodStartDate) > Date.now()) { redirectPeriod-- }
 
