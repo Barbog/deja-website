@@ -984,7 +984,7 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
               return
             }
 
-            res.cookie('token', token, { path: '/', maxAge: 1000 * tokenExpirySeconds, httpOnly: true, secure: true })
+            res.cookie('token', token, { path: '/', maxAge: 1000 * tokenExpirySeconds, httpOnly: true, secure: true, sameSite: 'Strict' })
 
             res.render('redirect', { target: location }, (err, html) => {
               res.status(303)
@@ -1029,7 +1029,7 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
     app.get(encodeURI(localeHash[locale]), (req, res) => {
       req.setLocale(locale)
       const location = (req.body ? req.body.location : '') || (req.headers ? req.headers.referer : '') || ('/' + locale + '/')
-      res.cookie('token', '', { path: '/', maxAge: 1, httpOnly: true, secure: true })
+      res.cookie('token', '', { path: '/', maxAge: 1, httpOnly: true, secure: true, sameSite: 'Strict' })
       res.render('redirect', { target: location }, (err, html) => {
         res.status(303)
         res.location(location)

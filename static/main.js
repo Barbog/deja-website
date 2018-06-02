@@ -105,7 +105,7 @@ $(function () {
   $('.altlang').on('click', function (e) {
     var lang = e.target.hreflang
     if (lang) {
-      document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365)
+      document.cookie = 'lang=' + lang + ';path=/;max-age=' + (60 * 60 * 24 * 365) + ';secure;samesite=Strict'
     }
   })
   var hoverTree = function () {
