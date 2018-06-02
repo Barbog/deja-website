@@ -20,7 +20,7 @@ block body
         each page, pageName in pages
           section.bgless
             h1= __(pageName)
-            table.datatable.display(data-order='[[ 0, "desc" ]]')
+            table.datatable.display(data-order='[[ 0, "desc" ]]' style='display:none')
               thead
                 - let header = page.shift()
                 tr
