@@ -568,7 +568,7 @@ const gatherApplications = (year, callback) => {
               } else if (queuees.indexOf(email) !== -1) {
                 let queueNumber = '' + (queuees.indexOf(email) + 1)
                 while (queueNumber.length < 3) queueNumber = '0' + queueNumber
-                obj['__visaid'] = 'Queue - #' + queueNumber
+                obj['__visaid'] = 'Queue #' + queueNumber
                 callback(null, obj)
               } else {
                 obj['__visaid'] = ''
@@ -634,6 +634,10 @@ const gatherApplications = (year, callback) => {
             'Veterans': [ applicationsHeader.map(question => question.title) ]
               .concat(applications
                 .filter(application => !application['__virgin'])
+                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || ''))),
+            'Health Issues': [ applicationsHeader.map(question => question.title) ]
+              .concat(applications
+                .filter(application => application['health-issues'] && application['health-issues'] !== 'no')
                 .map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
           }
 
