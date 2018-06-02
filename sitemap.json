@@ -1,5 +1,14 @@
 [
   {
+    "title": "Privacy Policy",
+    "hidden": true,
+    "subpages": [
+      {
+        "title": "Latest"
+      }
+    ]
+  },
+  {
     "title": "Tree",
     "hidden": true,
     "subpages": [

@@ -1,5 +1,6 @@
 /* eslint-env browser, jquery */
 $(function () {
+  $('html').removeClass('noscript')
   $('.disabled').on('click', function (e) {
     e.preventDefault()
   })

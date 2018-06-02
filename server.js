@@ -976,6 +976,7 @@ app.all('/x-admin/download-applications/:year', (req, res, next) => {
           }
 
           const token = randomstring.generate({ length: 32, charset: 'alphanumeric' })
+          // Remember to keep the expiry in sync with what `privacy-policy.md` states!
           const tokenExpirySeconds = 60/* s */ * 60/* m */ * 3/* h */
           db.setex('session:' + token, tokenExpirySeconds, email, err => {
             if (err) {

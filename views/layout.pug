@@ -1,6 +1,6 @@
 doctype html
 = '\n'
-html(lang=getLocale())
+html.noscript(lang=getLocale())
   = '\n'
   head
     meta(charset='utf-8')
@@ -23,6 +23,11 @@ html(lang=getLocale())
         if locale !== getLocale()
           link(rel='alternate' hreflang=locale href=href)
   body
+    noscript
+      p
+        b= __('Your browser does not support scripting!')
+        br
+        = __('Please enable JavaScript or try a different browser.')
     block prebody
     header
       .header-top
