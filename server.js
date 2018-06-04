@@ -671,15 +671,17 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
 
       xlsx.utils.book_append_sheet(book, sheet, pageName)
 
-      if (typeof book.Pages[pageName] !== 'object' || book.Pages[pageName] === null) {
-        console.error(`Page ${pageName} could not be found in book. Ignoring.`)
+      if (typeof book.Sheets !== 'object' || book.Sheets === null) {
+        console.error(`No sheets could not be found in the book. Ignoring.`)
+      } else if (typeof book.Sheets[pageName] !== 'object' || book.Sheets[pageName] === null) {
+        console.error(`Sheet ${pageName} could not be found in the book. Ignoring.`)
       } else {
-        if (typeof book.Pages[pageName]['!cols'] !== 'object' || book.Pages[pageName]['!cols'] === null) { book.Pages[pageName]['!cols'] = {} }
+        if (typeof book.Sheets[pageName]['!cols'] !== 'object' || book.Sheets[pageName]['!cols'] === null) { book.Sheets[pageName]['!cols'] = {} }
 
         const header = pages[pageName][0] || []
         for (let i = 0; i < header.length; i++) {
-          if (typeof book.Pages[pageName]['!cols'][i] !== 'object' || book.Pages[pageName]['!cols'][i] === null) { book.Pages[pageName]['!cols'][i] = {} }
-          book.Pages[pageName]['!cols'][i].wch = typeof header[i] === 'string' ? Math.min(header[i].length, 30) : 15
+          if (typeof book.Sheets[pageName]['!cols'][i] !== 'object' || book.Sheets[pageName]['!cols'][i] === null) { book.Sheets[pageName]['!cols'][i] = {} }
+          book.Sheets[pageName]['!cols'][i].wch = typeof header[i] === 'string' ? Math.min(header[i].length, 30) : 15
         }
       }
     })
