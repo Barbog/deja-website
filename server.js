@@ -642,7 +642,7 @@ const gatherApplications = (year, callback) => {
   })
 }
 
-app.get('/x-admin/download-applications/:year', (req, res, next) => {
+app.get('/x-admin/download-applications/:year.xlsx', (req, res, next) => {
   if (!res.locals.user || !res.locals.user.admin) {
     next()
     return
@@ -692,7 +692,7 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
     res.send(Buffer.from(xlsx.write(book, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'))
   })
 })
-app.all('/x-admin/download-applications/:year', (req, res, next) => {
+app.all('/x-admin/download-applications/:year.xlsx', (req, res, next) => {
   if (!res.locals.user || !res.locals.user.admin) {
     next()
   } else {
