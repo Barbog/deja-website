@@ -575,19 +575,27 @@ const gatherApplications = (year, callback) => {
           let pages = {
             'Enter DeJā': [ applicationsHeader.map(question => question.title) ]
               .concat(applications
-                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || ''))),
+                .map(application => applicationsHeader.slice(0)
+                  .map(question => application[question.id] || '')
+                  .map(answer => Array.isArray(answer) ? answer.join(', ') : answer))),
             'Virgins': [ applicationsHeader.map(question => question.title) ]
               .concat(applications
                 .filter(application => application['__virgin'])
-                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || ''))),
+                .map(application => applicationsHeader.slice(0)
+                  .map(question => application[question.id] || '')
+                  .map(answer => Array.isArray(answer) ? answer.join(', ') : answer))),
             'Veterans': [ applicationsHeader.map(question => question.title) ]
               .concat(applications
                 .filter(application => !application['__virgin'])
-                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || ''))),
+                .map(application => applicationsHeader.slice(0)
+                  .map(question => application[question.id] || '')
+                  .map(answer => Array.isArray(answer) ? answer.join(', ') : answer))),
             'Health Issues': [ applicationsHeader.map(question => question.title) ]
               .concat(applications
                 .filter(application => application['health-issues'] && application['health-issues'] !== 'no')
-                .map(application => applicationsHeader.slice(0).map(question => application[question.id] || '')))
+                .map(application => applicationsHeader.slice(0)
+                  .map(question => application[question.id] || '')
+                  .map(answer => Array.isArray(answer) ? answer.join(', ') : answer)))
           }
 
           applications.reduce((array, application) => {
@@ -622,7 +630,9 @@ const gatherApplications = (year, callback) => {
                 if (!Array.isArray(applicationMinistries) || applicationMinistries.indexOf(ministry) === -1) return false
                 if (typeof application['__visaid'] !== 'number' && (typeof application['__visaid'] !== 'string' || application['__visaid'] === '')) return false
                 return true
-              }).map(application => ministryHeader.slice(0).map(question => application[question.id] || '')))
+              }).map(application => ministryHeader.slice(0)
+                .map(question => application[question.id] || '')
+                .map(answer => Array.isArray(answer) ? answer.join(', ') : answer)))
           })
 
           callback(null, pages)
