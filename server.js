@@ -411,57 +411,6 @@ app.post('/user/update', (req, res) => {
 })
 app.all('/user/update', returnBadAction)
 
-const buildWorksheet = data => {
-  const worksheet = { '!cols': [], '!rows': [] }
-  const range = { s: { c: 10000000, r: 10000000 }, e: { c: 0, r: 0 } }
-
-  if (Array.isArray(data)) {
-    for (let r = 0; r < data.length; ++r) {
-      worksheet['!rows'][r] = { hpt: 16 }
-      if (Array.isArray(data[r])) {
-        for (let c = 0; c < data[r].length; ++c) {
-          if (range.s.r > r) { range.s.r = r }
-          if (range.s.c > c) { range.s.c = c }
-          if (range.e.r < r) { range.e.r = r }
-          if (range.e.c < c) { range.e.c = c }
-
-          let cell = { v: data[r][c], t: 's', s: {} }
-          if (r === 0) {
-            worksheet['!cols'][c] = { wch: typeof cell.v === 'string' ? Math.min(cell.v.length, 30) : 15 }
-          }
-          if (cell.v !== null) {
-            let vint = parseInt(cell.v, 10)
-            if (typeof cell.v === 'number') {
-              cell.t = 'n'
-            } else if (typeof cell.v === 'boolean') {
-              cell.t = 'b'
-            } else if (!isNaN(vint) && '' + vint === cell.v) {
-              cell.v = vint
-              cell.t = 'n'
-            } else if (cell.v === 'true' || cell.v === 'false') {
-              cell.v = cell.v === 'true'
-              cell.t = 'b'
-            } else {
-              if (Array.isArray(cell.v)) {
-                cell.v = cell.v.join(', ')
-              }
-              cell.t = 's'
-            }
-
-            worksheet[xlsx.utils.encode_cell({ c, r })] = cell
-          }
-        }
-      }
-    }
-  }
-
-  if (range.s.c > range.e.c) range.s.c = range.e.c
-  if (range.s.r > range.e.r) range.s.r = range.e.r
-  worksheet['!ref'] = xlsx.utils.encode_range(range)
-
-  return worksheet
-}
-
 const gatherApplications = (year, callback) => {
   if (typeof callback !== 'function') return
 
@@ -706,15 +655,16 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
       return
     }
 
-    const pageNames = Object.keys(pages)
+    const book = xlsx.utils.book_new()
+    Object.keys(pages).forEach(pageName => {
+      const sheet = xlsx.utils.aoa_to_sheet(pages[pageName])
+      xlsx.utils.book_append_sheet(book, sheet, pageName)
+    })
 
     res.status(200)
     res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     res.setHeader('Content-Disposition', 'attachment; filename=enter-deja.' + year + '.xlsx')
-    res.send(Buffer.from(xlsx.write({
-      SheetNames: pageNames,
-      Sheets: pageNames.map(pageName => buildWorksheet(pages[pageName]))
-    }, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'))
+    res.send(Buffer.from(xlsx.write(book, { bookType: 'xlsx', bookSST: true, type: 'base64' }), 'base64'))
   })
 })
 app.all('/x-admin/download-applications/:year', (req, res, next) => {
