@@ -671,13 +671,15 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
 
       xlsx.utils.book_append_sheet(book, sheet, pageName)
 
-      if (typeof book[pageName]['!cols'] !== 'object' || book[pageName]['!cols'] === null) { book[pageName]['!cols'] = {} }
+      if (typeof book.Pages[pageName] !== 'object' || book.Pages[pageName] === null) {
+        stderr(`Page ${pageName} could not be found in book. Ignoring.`)
+      } else {
+        if (typeof book.Pages[pageName]['!cols'] !== 'object' || book.Pages[pageName]['!cols'] === null) { book.Pages[pageName]['!cols'] = {} }
 
-      if (typeof book[pageName] === 'object' && book[pageName] !== null) {
         const header = pages[pageName][0] || []
         for (let i = 0; i < header.length; i++) {
-          if (typeof book[pageName]['!cols'][i] !== 'object' || book[pageName]['!cols'][i] === null) { book[pageName]['!cols'][i] = {} }
-          book[pageName]['!cols'][i].wch = typeof header[i] === 'string' ? Math.min(header[i].length, 30) : 15
+          if (typeof book.Pages[pageName]['!cols'][i] !== 'object' || book.Pages[pageName]['!cols'][i] === null) { book.Pages[pageName]['!cols'][i] = {} }
+          book.Pages[pageName]['!cols'][i].wch = typeof header[i] === 'string' ? Math.min(header[i].length, 30) : 15
         }
       }
     })
