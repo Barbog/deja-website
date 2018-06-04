@@ -676,7 +676,7 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
       } else if (typeof book.Sheets[pageName] !== 'object' || book.Sheets[pageName] === null) {
         console.error(`Sheet ${pageName} could not be found in the book. Ignoring.`)
       } else {
-        if (typeof book.Sheets[pageName]['!cols'] !== 'object' || book.Sheets[pageName]['!cols'] === null) { book.Sheets[pageName]['!cols'] = {} }
+        if (!Array.isArray(book.Sheets[pageName]['!cols'])) { book.Sheets[pageName]['!cols'] = [] }
 
         const header = pages[pageName][0] || []
         for (let i = 0; i < header.length; i++) {
