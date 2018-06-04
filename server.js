@@ -668,6 +668,11 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
     const book = xlsx.utils.book_new()
     Object.keys(pages).forEach(pageName => {
       const sheet = xlsx.utils.aoa_to_sheet(pages[pageName])
+      const header = pages[pageName][0] || []
+      for (let i = 0; i < header.length; i++) {
+        if (typeof sheet['!cols'][i] !== 'object' || sheet['!cols'][i] === null) { sheet['!cols'][i] = {} }
+        sheet['!cols'][i].wch = typeof header[i] === 'string' ? Math.min(header[i].length, 30) : 15
+      }
       xlsx.utils.book_append_sheet(book, sheet, pageName)
     })
 
