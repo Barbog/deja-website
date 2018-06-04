@@ -669,15 +669,17 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
     Object.keys(pages).forEach(pageName => {
       const sheet = xlsx.utils.aoa_to_sheet(pages[pageName])
 
-      if (typeof sheet['!cols'] !== 'object' || sheet['!cols'] === null) { sheet['!cols'] = {} }
-
-      const header = pages[pageName][0] || []
-      for (let i = 0; i < header.length; i++) {
-        if (typeof sheet['!cols'][i] !== 'object' || sheet['!cols'][i] === null) { sheet['!cols'][i] = {} }
-        sheet['!cols'][i].wch = typeof header[i] === 'string' ? Math.min(header[i].length, 30) : 15
-      }
-
       xlsx.utils.book_append_sheet(book, sheet, pageName)
+
+      if (typeof book[pageName]['!cols'] !== 'object' || book[pageName]['!cols'] === null) { book[pageName]['!cols'] = {} }
+
+      if (typeof book[pageName] === 'object' && book[pageName] !== null) {
+        const header = pages[pageName][0] || []
+        for (let i = 0; i < header.length; i++) {
+          if (typeof book[pageName]['!cols'][i] !== 'object' || book[pageName]['!cols'][i] === null) { book[pageName]['!cols'][i] = {} }
+          book[pageName]['!cols'][i].wch = typeof header[i] === 'string' ? Math.min(header[i].length, 30) : 15
+        }
+      }
     })
 
     res.status(200)
