@@ -672,7 +672,7 @@ app.get('/x-admin/download-applications/:year', (req, res, next) => {
       xlsx.utils.book_append_sheet(book, sheet, pageName)
 
       if (typeof book.Pages[pageName] !== 'object' || book.Pages[pageName] === null) {
-        stderr(`Page ${pageName} could not be found in book. Ignoring.`)
+        console.error(`Page ${pageName} could not be found in book. Ignoring.`)
       } else {
         if (typeof book.Pages[pageName]['!cols'] !== 'object' || book.Pages[pageName]['!cols'] === null) { book.Pages[pageName]['!cols'] = {} }
 
