@@ -765,12 +765,12 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         bolditalics: path.join(__dirname, 'email', 'Arial-BoldItalicMT.ttf')
       } })).createPdfKitDocument({
         pageSize: 'A4',
-        pageOrientation: 'portrait',
+        pageOrientation: 'horizontal',
         pageMargins: 60,
         footer: (currentPage, pageCount) => { return { text: `${currentPage.toString()} / ${pageCount}`, alignment: 'center' } },
         styles: { tableHeader: { bold: true, fontSize: 14 } },
         defaultStyle: { color: 'black', font: 'Arial', fontSize: 12 },
-        content: [ { table: { headerRows: 2, widths: [ 40, '*', '*', 60, '*' ], body } } ]
+        content: [ { table: { headerRows: 2, widths: [ 60, '*', '*', 60, '*' ], body } } ]
       })
       archive.append(pdf, { name: `${pageName}.pdf` })
       pdf.end()
