@@ -755,11 +755,11 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
       for (let i = 1; i < pages[pageName].length; i++) {
         const row = pages[pageName]
         body.push([
-          row[header.indexOf('Virgin')],
-          row[header.indexOf('Name, Surname')],
-          row[header.indexOf('Nickname/Playa name')],
-          row[header.indexOf('Visa ID')],
-          row[header.indexOf('Application Completion')]
+          row[header.indexOf('Virgin')] || '',
+          row[header.indexOf('Name, Surname')] || '',
+          row[header.indexOf('Nickname/Playa name')] || '',
+          row[header.indexOf('Visa ID')] || '',
+          row[header.indexOf('Application Completion')] || ''
         ])
       }
 
