@@ -756,7 +756,7 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         row[header.indexOf('Nickname/Playa name')] || '',
         row[header.indexOf('Visa ID')] || '',
         row[header.indexOf('Application Completion')] || ''
-      ]).sort((a, b) => a[1].toUpperCase() === b[1].toUpperCase() ? 0 : a[1].toUpperCase() < b[1].toUpperCase() ? -1 : 1))
+      ]).sort((a, b) => a[1].localeCompare(b[1]))
 
       const pdf = (new PdfMake({ Arial: {
         normal: path.join(__dirname, 'email', 'ArialMT.ttf'),
