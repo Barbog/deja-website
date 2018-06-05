@@ -751,12 +751,12 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           { text: 'REGISTRATION', style: 'tableHeader' }
         ]
       ].concat(pages[pageName].map(row => [
-        row[header.indexOf('Virgin')] || '',
+        (row[header.indexOf('Virgin')] || '') === 'yes' ? 'Yes' : '',
         row[header.indexOf('Name, Surname')] || '',
         row[header.indexOf('Nickname/Playa name')] || '',
         row[header.indexOf('Visa ID')] || '',
         row[header.indexOf('Application Completion')] || ''
-      ]).sort((a, b) => a[1] === b[1] ? 0 : a[1] < b[1] ? -1 : 1))
+      ]).sort((a, b) => a[1].toUpperCase() === b[1].toUpperCase() ? 0 : a[1].toUpperCase() < b[1].toUpperCase() ? -1 : 1))
 
       const pdf = (new PdfMake({ Arial: {
         normal: path.join(__dirname, 'email', 'ArialMT.ttf'),
@@ -770,7 +770,7 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         footer: (currentPage, pageCount) => { return { text: `${currentPage.toString()} / ${pageCount}`, alignment: 'center' } },
         styles: { tableHeader: { bold: true, fontSize: 14 } },
         defaultStyle: { color: 'black', font: 'Arial', fontSize: 12 },
-        content: [ { table: { headerRows: 2, widths: [ 50, '*', '*', 50, '*' ], body } } ]
+        content: [ { table: { headerRows: 2, widths: [ 40, '*', '*', 60, '*' ], body } } ]
       })
       archive.append(pdf, { name: `${pageName}.pdf` })
       pdf.end()
