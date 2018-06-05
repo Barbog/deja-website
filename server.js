@@ -753,7 +753,7 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
 
       const header = pages[pageName][0] || []
       for (let i = 1; i < pages[pageName].length; i++) {
-        const row = pages[pageName]
+        const row = pages[pageName][i]
         body.push([
           row[header.indexOf('Virgin')] || '',
           row[header.indexOf('Name, Surname')] || '',
