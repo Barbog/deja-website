@@ -740,28 +740,23 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
     archive.pipe(res)
 
     Object.keys(pages).forEach(pageName => {
+      const header = pages[pageName].shift() || []
       const body = [
-        [ { text: pageName, style: 'tableHeader', colSpan: 5, alignment: 'center' }, {}, {}, {}, {} ],
+        [ { text: pageName.toUpperCase(), style: 'tableHeader', colSpan: 5, alignment: 'center' }, {}, {}, {}, {} ],
         [
-          { text: 'Virgin', style: 'tableHeader' },
-          { text: 'Full Name', style: 'tableHeader' },
-          { text: 'Nickname', style: 'tableHeader' },
-          { text: 'Visa ID', style: 'tableHeader' },
-          { text: 'Registration', style: 'tableHeader' }
+          { text: 'VIRGIN', style: 'tableHeader' },
+          { text: 'FULL NAME', style: 'tableHeader' },
+          { text: 'NICKNAME', style: 'tableHeader' },
+          { text: 'VISA ID', style: 'tableHeader' },
+          { text: 'REGISTRATION', style: 'tableHeader' }
         ]
-      ]
-
-      const header = pages[pageName][0] || []
-      for (let i = 1; i < pages[pageName].length; i++) {
-        const row = pages[pageName][i]
-        body.push([
-          row[header.indexOf('Virgin')] || '',
-          row[header.indexOf('Name, Surname')] || '',
-          row[header.indexOf('Nickname/Playa name')] || '',
-          row[header.indexOf('Visa ID')] || '',
-          row[header.indexOf('Application Completion')] || ''
-        ])
-      }
+      ].concat(pages[pageName].map(row => [
+        row[header.indexOf('Virgin')] || '',
+        row[header.indexOf('Name, Surname')] || '',
+        row[header.indexOf('Nickname/Playa name')] || '',
+        row[header.indexOf('Visa ID')] || '',
+        row[header.indexOf('Application Completion')] || ''
+      ]).sort((a, b) => a[1] === b[1] ? 0 : a[1] < b[1] ? -1 : 1))
 
       const pdf = (new PdfMake({ Arial: {
         normal: path.join(__dirname, 'email', 'ArialMT.ttf'),
