@@ -625,6 +625,12 @@ const gatherApplications = (year, callback) => {
                 'title': 'Virgin',
                 'type': 'yes/no'
               }
+            ]).concat([
+              {
+                'id': '__applicationtime',
+                'title': 'Application Completion',
+                'type': 'text'
+              }
             ]).filter(question => question.id !== 'ministry-choice')
             pages[pageName] = [ ministryHeader.map(question => question.title) ]
               .concat(applications.filter(application => {
