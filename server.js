@@ -75,6 +75,7 @@ const getKey = name => {
   return null
 }
 
+const archiver = require('archiver')
 const async = require('async')
 const bcrypt = require('bcryptjs')
 const env = require('get-env')()
@@ -87,6 +88,7 @@ const lessCleanCss = new (require('less-plugin-clean-css'))({ s1: true, advanced
 const mailgun = require('mailgun-js')({ apiKey: getKey('mailgun'), domain: 'sparklatvia.lv' })
 const PDFDocument = require('pdfkit')
 PDFDocument.prototype.svg = function (svg, x, y, options) { require('svg-to-pdfkit')(this, svg, x, y, options); return this }
+const PdfMake = require('pdfmake')
 const randomstring = require('randomstring')
 const redis = require(env === 'dev' ? 'fakeredis' : 'redis')
 const showdown = new (require('showdown').Converter)()
@@ -693,6 +695,96 @@ app.get('/x-admin/download-applications/:year.xlsx', (req, res, next) => {
   })
 })
 app.all('/x-admin/download-applications/:year.xlsx', (req, res, next) => {
+  if (!res.locals.user || !res.locals.user.admin) {
+    next()
+  } else {
+    returnBadAction(req, res)
+  }
+})
+
+app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
+  if (!res.locals.user || !res.locals.user.admin) {
+    next()
+    return
+  }
+
+  const year = '' + req.params.year
+  if (isNaN(parseInt(year, 10))) {
+    res.status(400)
+    res.type('text/plain; charset=utf-8')
+    res.send('Year provided must be a number.')
+    return
+  }
+
+  gatherApplications(year, (err, pages) => {
+    if (err) {
+      res.status(500)
+      res.type('text/plain; charset=utf-8')
+      res.send('Something broke horribly. Sorry.')
+      console.error(err.stack)
+      return
+    }
+
+    const archive = archiver('zip', { zlib: { level: 9 } })
+
+    archive.on('error', err => {
+      res.status(500)
+      res.type('text/plain; charset=utf-8')
+      res.send('Something broke horribly. Sorry.')
+      console.error(err.stack)
+    })
+
+    res.status(200)
+    res.type('application/zip')
+    res.setHeader('Content-Disposition', 'attachment; filename=enter-deja.' + year + '.pdf.zip')
+    archive.pipe(res)
+
+    Object.keys(pages).forEach(pageName => {
+      const body = [
+        [ { text: pageName, style: 'tableHeader', colSpan: 5, alignment: 'center' }, {}, {}, {}, {} ],
+        [
+          { text: 'Virgin', style: 'tableHeader' },
+          { text: 'Full Name', style: 'tableHeader' },
+          { text: 'Nickname', style: 'tableHeader' },
+          { text: 'Visa ID', style: 'tableHeader' },
+          { text: 'Registration', style: 'tableHeader' }
+        ]
+      ]
+
+      const header = pages[pageName][0] || []
+      for (let i = 1; i < pages[pageName].length; i++) {
+        const row = pages[pageName]
+        body.push([
+          row[header.indexOf('Virgin')],
+          row[header.indexOf('Name, Surname')],
+          row[header.indexOf('Nickname/Playa name')],
+          row[header.indexOf('Visa ID')],
+          row[header.indexOf('Application Completion')]
+        ])
+      }
+
+      const pdf = (new PdfMake({ Arial: {
+        normal: path.join(__dirname, 'email', 'ArialMT.ttf'),
+        bold: path.join(__dirname, 'email', 'Arial-BoldMT.ttf'),
+        italics: path.join(__dirname, 'email', 'Arial-ItalicMT.ttf'),
+        bolditalics: path.join(__dirname, 'email', 'Arial-BoldItalicMT.ttf')
+      } })).createPdfKitDocument({
+        pageSize: 'A4',
+        pageOrientation: 'portrait',
+        pageMargins: 60,
+        footer: (currentPage, pageCount) => { return { text: `${currentPage.toString()} / ${pageCount}`, alignment: 'center' } },
+        styles: { tableHeader: { bold: true, fontSize: 14 } },
+        defaultStyle: { color: 'black', font: 'Arial', fontSize: 12 },
+        content: [ { table: { headerRows: 2, widths: [ 50, '*', '*', 50, '*' ], body } } ]
+      })
+      archive.append(pdf, { name: `${pageName}.pdf` })
+      pdf.end()
+    })
+
+    archive.finalize()
+  })
+})
+app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
   if (!res.locals.user || !res.locals.user.admin) {
     next()
   } else {

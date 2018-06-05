@@ -13,6 +13,7 @@
     "node": "^6.10.0"
   },
   "dependencies": {
+    "archiver": "^2.1.1",
     "async": "^2.6.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
@@ -29,6 +30,7 @@
     "mailgun-js": "^0.18.0",
     "morgan": "^1.9.0",
     "pdfkit": "^0.8.3",
+    "pdfmake": "^0.1.36",
     "pug": "^2.0.3",
     "randomstring": "^1.1.5",
     "redis": "^2.8.0",

@@ -7,7 +7,8 @@ block body
       != markdown || ''
     section.bgless.center
       if isIndex
-        a(href='/x-admin/download-applications/' + year + '.xlsx')= __('Download snapshot').toUpperCase()
+        a(href='/x-admin/download-applications/' + year + '.xlsx')= __('Download .xlsx').toUpperCase()
+        a(href='/x-admin/download-applications/' + year + '.pdf.zip')= __('Download .pdf.zip').toUpperCase()
       else
         a(href='.')= __('Go back').toUpperCase()
     if pages
