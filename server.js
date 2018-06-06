@@ -778,7 +778,7 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         footer: (currentPage, pageCount) => { return { text: `${currentPage.toString()} / ${pageCount}`, alignment: 'center' } },
         styles: { tableHeader: { bold: true, fontSize: 14 } },
         defaultStyle: { color: 'black', font: 'Arial', fontSize: 12 },
-        content: [ { table: { headerRows: 2, widths: [ 60, 'auto', '*', 60, '*', '*' ], body } } ]
+        content: [ { table: { headerRows: 2, widths: [ 60, '*', 'auto', 60, 'auto', 'auto' ], body } } ]
       })
       archive.append(pdf, { name: `${pageName}.pdf` })
       pdf.end()
