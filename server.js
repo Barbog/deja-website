@@ -748,20 +748,22 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
     Object.keys(pages).forEach(pageName => {
       const header = pages[pageName].shift() || []
       const body = [
-        [ { text: pageName.toUpperCase(), style: 'tableHeader', colSpan: 5, alignment: 'center' }, {}, {}, {}, {} ],
+        [ { text: pageName.toUpperCase(), style: 'tableHeader', colSpan: 6, alignment: 'center' }, {}, {}, {}, {}, {} ],
         [
           { text: 'VIRGIN', style: 'tableHeader' },
           { text: 'FULL NAME', style: 'tableHeader' },
           { text: 'NICKNAME', style: 'tableHeader' },
           { text: 'VISA ID', style: 'tableHeader' },
-          { text: 'REGISTRATION', style: 'tableHeader' }
+          { text: 'REGISTRATION', style: 'tableHeader' },
+          { text: 'EMAIL', style: 'tableHeader' }
         ]
       ].concat(pages[pageName].map(row => [
         (row[header.indexOf('Virgin')] || '') === 'yes' ? 'Yes' : '',
         row[header.indexOf('Name, Surname')] || '',
         row[header.indexOf('Nickname/Playa name')] || '',
         row[header.indexOf('Visa ID')] || '',
-        row[header.indexOf('Application Completion')] || ''
+        row[header.indexOf('Application Completion')] || '',
+        row[header.indexOf('E-mail confirmation')] || ''
       ]).sort((a, b) => a[1].localeCompare(b[1])))
 
       const pdf = (new PdfMake({ Arial: {
@@ -776,7 +778,7 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         footer: (currentPage, pageCount) => { return { text: `${currentPage.toString()} / ${pageCount}`, alignment: 'center' } },
         styles: { tableHeader: { bold: true, fontSize: 14 } },
         defaultStyle: { color: 'black', font: 'Arial', fontSize: 12 },
-        content: [ { table: { headerRows: 2, widths: [ 60, '*', '*', 60, '*' ], body } } ]
+        content: [ { table: { headerRows: 2, widths: [ 60, '*', 'auto', 60, 'auto', 'auto' ], body } } ]
       })
       archive.append(pdf, { name: `${pageName}.pdf` })
       pdf.end()
