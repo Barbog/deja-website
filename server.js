@@ -772,8 +772,8 @@ app.get('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         italics: path.join(__dirname, 'email', 'Arial-ItalicMT.ttf'),
         bolditalics: path.join(__dirname, 'email', 'Arial-BoldItalicMT.ttf')
       } })).createPdfKitDocument({
-        pageSize: 'A4',
-        pageOrientation: 'landscape',
+        pageSize: 'A3',
+        pageOrientation: 'portrait',
         pageMargins: 60,
         footer: (currentPage, pageCount) => { return { text: `${currentPage.toString()} / ${pageCount}`, alignment: 'center' } },
         styles: { tableHeader: { bold: true, fontSize: 14 } },
