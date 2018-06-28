@@ -34,14 +34,14 @@
   ],
   "homepage": "https://datatables.net",
   "license": "MIT",
-  "version": "2.2.2",
-  "_release": "2.2.2",
+  "version": "2.2.3",
+  "_release": "2.2.3",
   "_resolution": {
     "type": "version",
-    "tag": "2.2.2",
-    "commit": "57d237503665c32bb2f1a7d7768f47a90ef9ef67"
+    "tag": "2.2.3",
+    "commit": "7a6603780fc7e56990f1ddea5af5f60fa3ff6ddd"
   },
   "_source": "https://github.com/DataTables/Dist-DataTables-Responsive-DataTables.git",
-  "_target": "^2.2.2",
+  "_target": "^2.2.3",
   "_originalSource": "datatables.net-responsive-dt"
 }
