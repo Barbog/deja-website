@@ -49,7 +49,7 @@ const getKey = name => {
 }
 
 const async = require('async')
-const mailgun = require('mailgun-js')({ apiKey: getKey('mailgun'), domain: 'mg.sparklatvia.lv' })
+const mailgun = require('mailgun-js')({ apiKey: getKey('mailgun'), domain: 'sparklatvia.lv' })
 const redis = require('redis')
 
 const db = redis.createClient()
