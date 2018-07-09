@@ -25,9 +25,9 @@
     "get-env": "^0.5.10",
     "helmet": "^3.12.1",
     "i18n": "^0.8.3",
-    "less": "^3.0.4",
+    "less": "^3.5.3",
     "less-plugin-clean-css": "^1.5.1",
-    "mailgun-js": "^0.19.0",
+    "mailgun-js": "^0.20.0",
     "morgan": "^1.9.0",
     "pdfkit": "^0.8.3",
     "pdfmake": "^0.1.37",
@@ -37,7 +37,7 @@
     "showdown": "^1.8.6",
     "svg-to-pdfkit": "^0.1.7",
     "svgo": "^1.0.5",
-    "xlsx": "^0.13.1"
+    "xlsx": "^0.13.2"
   },
   "devDependencies": {},
   "semistandard": {
