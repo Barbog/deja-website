@@ -13,7 +13,7 @@
     "node": "^6.10.0"
   },
   "dependencies": {
-    "archiver": "^2.1.1",
+    "archiver": "^3.0.0",
     "async": "^2.6.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
@@ -28,16 +28,16 @@
     "less": "^3.8.1",
     "less-plugin-clean-css": "^1.5.1",
     "mailgun-js": "^0.20.0",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "pdfkit": "^0.8.3",
-    "pdfmake": "^0.1.37",
+    "pdfmake": "^0.1.38",
     "pug": "^2.0.3",
     "randomstring": "^1.1.5",
     "redis": "^2.8.0",
     "showdown": "^1.8.6",
     "svg-to-pdfkit": "^0.1.7",
-    "svgo": "^1.0.5",
-    "xlsx": "^0.13.3"
+    "svgo": "^1.1.1",
+    "xlsx": "^0.14.0"
   },
   "devDependencies": {},
   "semistandard": {
