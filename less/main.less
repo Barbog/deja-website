@@ -81,7 +81,7 @@ body {
   > div { overflow-x: initial; }
 }
 
-body, button, input, a {
+body, button, input, textarea, a {
   font-family: 'Gotham Book', 'GothamBook', 'Roboto Condensed', sans-serif;
   letter-spacing: .25px;
   line-height: @line-height;
@@ -136,7 +136,7 @@ button, a {
   margin: 0;
   padding: 20px;
 
-  input {
+  input, textarea {
     display: block;
     width: 100%;
     margin: 0 auto 20px auto;
@@ -735,21 +735,21 @@ section {
 }
 
 form {
-  label, input, .buttons {
+  p, label, input, textarea, .buttons {
     display: block;
     font-size: @font-size * 1.2;
     line-height: @line-height;
     font-weight: bold;
   }
 
-  label {
+  p, label {
     padding-top: 40px;
     padding-bottom: 10px;
     color: #FFF;
     &:first-of-type { padding-top: 0; }
   }
 
-  input {
+  input, textarea {
     width: 100%;
     outline: 0;
     border: 0;
@@ -767,7 +767,7 @@ form {
     margin: 40px 0 0 0;
     padding: 10px 40px;
     background-color: @accent;
-    a, button, input {
+    a, button, input, textarea {
       display: inline-block;
       color: #FFF;
       padding: 10px 0;
@@ -792,7 +792,7 @@ form {
   }
 
   &.questions, &.enter-deja {
-    input {
+    input, textarea {
       &[type='radio'], &[type='checkbox'] {
         display: inline-block;
         width: auto;
@@ -802,7 +802,7 @@ form {
       }
     }
 
-    label {
+    p, label {
       display: inline-block;
       max-width: 80%;
       padding: 0;
@@ -810,12 +810,12 @@ form {
   }
 
   &.enter-deja {
-    h1, h2, input, label, .easy-autocomplete {
+    h1, h2, input, textarea, p, label, .easy-autocomplete {
       width: auto;
       vertical-align: baseline;
     }
 
-    input, .easy-autocomplete {
+    input, textarea, .easy-autocomplete {
       vertical-align: top;
     }
 
@@ -828,7 +828,7 @@ form {
       }
     }
 
-    input, label {
+    input, textarea, p, label {
       color: @accent;
     }
 
