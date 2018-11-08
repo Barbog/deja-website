@@ -1070,7 +1070,7 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           return
         }
 
-        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`)
+        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
 
         const localeHashSuffixed = {}
         Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })

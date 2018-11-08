@@ -4,5 +4,8 @@ block body
   if user && user.admin
     section
       != markdown || ''
-    p= targets.length + ' targets:'
-    p= targets.join('\n')
+    p= targets.length + ' recipients:'
+    p
+      each target in targets
+        = target
+        br
