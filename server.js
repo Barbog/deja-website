@@ -1140,7 +1140,7 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
 
   for (var locale in navbarHash) {
     if (!navbarHash.hasOwnProperty(locale)) { continue }
-    catchVisaApplications(locale)
+    catchEmailBlast(locale)
   }
 })();
 
