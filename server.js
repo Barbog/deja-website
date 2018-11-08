@@ -975,6 +975,176 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
 })();
 
 (() => {
+  const title = 'Email Blast'
+
+  const preprocess = (req, res) => {
+    if (!res.locals.user) {
+      const target = '/' + locale + '/' + req.__('Log In').toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('') + '?l=' + req.url
+      res.render('redirect', { target }, (err, html) => {
+        res.status(303)
+        res.location(target)
+        if (err) {
+          res.type('text/plain; charset=utf-8')
+          res.send(target)
+          console.error(err.stack)
+        } else {
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+      return true
+    } else if (!res.locals.user.admin) {
+      res.render('403', { title: '403' }, (err, html) => {
+        if (err) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(err.stack)
+        } else {
+          res.status(403)
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+      return true
+    } else {
+      return false
+    }
+  }
+
+  const catchEmailBlast = locale => {
+    app.get(encodeURI(localeHash[locale]), (req, res, next) => {
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
+        return
+      }
+
+      let redirectPeriod = getVisaPeriod()
+      const periodStartDate = new Date(redirectPeriod - 1, 6, 1) // July 1
+      if (+(periodStartDate) > Date.now()) { redirectPeriod-- }
+
+      const target = encodeURI(localeHash[locale]) + '/' + redirectPeriod
+      res.render('redirect', { target }, (err, html) => {
+        res.status(303)
+        res.location(target)
+        if (err) {
+          res.type('text/plain; charset=utf-8')
+          res.send(target)
+          console.error(err.stack)
+        } else {
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+    })
+    app.all(encodeURI(localeHash[locale]), returnBadAction)
+
+    app.get(encodeURI(localeHash[locale] + '/:year'), (req, res) => {
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
+        return
+      }
+
+      gatherApplications('' + req.params.year, (err, pages) => {
+        if (err) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(err.stack)
+          return
+        }
+
+        const page = pages['Enter DeJā']
+
+        const header = page.shift()
+        const visaIdIndex = header.indexOf('Visa ID')
+        const nameIndex = header.indexOf('Name, Surname')
+        const emailIndex = header.indexOf('E-mail confirmation')
+        if (visaIdIndex === -1 || nameIndex === -1 || emailIndex === -1) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(`Email Blast Page Indexes Error: visaIdIndex=${visaIdIndex}, nameIndex=${nameIndex}, emailIndex=${emailIndex}`)
+          return
+        }
+
+        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`)
+
+        const localeHashSuffixed = {}
+        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
+
+        res.render('email-blast', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets }, (err, html) => {
+          if (err) {
+            res.status(500)
+            res.type('text/plain; charset=utf-8')
+            res.send('Something broke horribly. Sorry.')
+            console.error(err.stack)
+          } else {
+            res.status(200)
+            res.type('text/html; charset=utf-8')
+            res.send(html)
+          }
+        })
+      })
+    })
+    app.post(encodeURI(localeHash[locale] + '/:year'), (req, res) => {
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
+        return
+      }
+
+      // TODO Implement!
+      res.status(501)
+      res.type('text/plain; charset=utf-8')
+      res.send('The sending functionality has not been implemented yet. Sorry.')
+    })
+    app.all(encodeURI(localeHash[locale] + '/:year'), returnBadAction)
+
+    app.get(encodeURI(localeHash[locale] + '/:year/'), (req, res) => {
+      req.setLocale(locale)
+
+      if (preprocess(req, res)) {
+        return
+      }
+
+      const target = encodeURI(localeHash[locale]) + '/' + encodeURIComponent(req.params.year)
+      res.render('redirect', { target }, (err, html) => {
+        res.status(303)
+        res.location(target)
+        if (err) {
+          res.type('text/plain; charset=utf-8')
+          res.send(target)
+          console.error(err.stack)
+        } else {
+          res.type('text/html; charset=utf-8')
+          res.send(html)
+        }
+      })
+    })
+    app.all(encodeURI(localeHash[locale] + '/:year/'), returnBadAction)
+  }
+
+  const navbarHash = {}
+  const localeHash = {}
+
+  i18n.__h(title).forEach(subhash => {
+    for (var locale in subhash) {
+      if (!subhash.hasOwnProperty(locale)) { continue }
+      navbarHash[locale] = subhash[locale]
+      localeHash[locale] = '/' + locale + '/' + navbarHash[locale].toLowerCase().split(' ').join('-').split('/').join('-').split('(').join('').split(')').join('').split('!').join('')
+    }
+  })
+
+  for (var locale in navbarHash) {
+    if (!navbarHash.hasOwnProperty(locale)) { continue }
+    catchVisaApplications(locale)
+  }
+})();
+
+(() => {
   const title = 'Log In'
 
   const catchLogin = locale => {

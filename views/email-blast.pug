@@ -1,0 +1,8 @@
+extends layout.pug
+
+block body
+  if user && user.admin
+    section
+      != markdown || ''
+    p= targets.length + ' targets:'
+    p= targets.join('\n')
