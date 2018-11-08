@@ -1040,26 +1040,14 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
     })
     app.all(encodeURI(localeHash[locale]), returnBadAction)
 
-    app.get(encodeURI(localeHash[locale] + '/:year'), (req, res, next) => {
+    app.get(encodeURI(localeHash[locale] + '/:year'), (req, res) => {
       req.setLocale(locale)
 
       if (preprocess(req, res)) {
         return
       }
 
-      const year = req.params.year
-      if (isNaN(parseInt(year))) {
-        // A simple 404.
-        next()
-        return
-      }
-
-      const localeHashSuffixed = {}
-      Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(year) + '/' + encodeURIComponent(req.params.pageNames) })
-
-      async.map([ 'invited:' + year + ':veteran', 'invited:' + year + ':virgin' ], (key, callback) => {
-        db.lrange(key, 0, 1000, callback)
-      }, (err, groups) => {
+      gatherApplications('' + req.params.year, (err, pages) => {
         if (err) {
           res.status(500)
           res.type('text/plain; charset=utf-8')
@@ -1068,8 +1056,26 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           return
         }
 
-        let invitees = groups.reduce((array, group) => array.concat(group), []).sort()
-        res.render('email-blast', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets: invitees }, (err, html) => {
+        const page = pages['Enter DeJā']
+
+        const header = page.shift()
+        const visaIdIndex = header.indexOf('Visa ID')
+        const nameIndex = header.indexOf('Name, Surname')
+        const emailIndex = header.indexOf('E-mail confirmation')
+        if (visaIdIndex === -1 || nameIndex === -1 || emailIndex === -1) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(`Email Blast Page Indexes Error: visaIdIndex=${visaIdIndex}, nameIndex=${nameIndex}, emailIndex=${emailIndex}`)
+          return
+        }
+
+        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
+
+        const localeHashSuffixed = {}
+        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
+
+        res.render('email-blast', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets }, (err, html) => {
           if (err) {
             res.status(500)
             res.type('text/plain; charset=utf-8')
