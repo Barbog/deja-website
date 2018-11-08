@@ -1,0 +1,14 @@
+extends layout.pug
+
+block body
+  if user && user.admin
+    section
+      != markdown || ''
+    p= subject
+    p= text
+    p= html
+    p= targets.length + ' recipients:'
+    p
+      each target in targets
+        = target
+        br

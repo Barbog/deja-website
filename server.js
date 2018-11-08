@@ -1075,7 +1075,7 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         const localeHashSuffixed = {}
         Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
 
-        res.render('email-blast', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets }, (err, html) => {
+        res.render('email-blast-compose', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets }, (err, html) => {
           if (err) {
             res.status(500)
             res.type('text/plain; charset=utf-8')
@@ -1096,10 +1096,94 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
         return
       }
 
-      // TODO Implement!
-      res.status(501)
-      res.type('text/plain; charset=utf-8')
-      res.send('The sending functionality has not been implemented yet. Sorry.')
+      gatherApplications('' + req.params.year, (err, pages) => {
+        if (err) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(err.stack)
+          return
+        }
+
+        const page = pages['Enter DeJā']
+
+        const header = page.shift()
+        const visaIdIndex = header.indexOf('Visa ID')
+        const nameIndex = header.indexOf('Name, Surname')
+        const emailIndex = header.indexOf('E-mail confirmation')
+        if (visaIdIndex === -1 || nameIndex === -1 || emailIndex === -1) {
+          res.status(500)
+          res.type('text/plain; charset=utf-8')
+          res.send('Something broke horribly. Sorry.')
+          console.error(`Email Blast Page Indexes Error: visaIdIndex=${visaIdIndex}, nameIndex=${nameIndex}, emailIndex=${emailIndex}`)
+          return
+        }
+
+        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
+
+        const localeHashSuffixed = {}
+        Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
+
+        const subject = (req.body ? (req.body.subject || '') : '').trim()
+        const text = (req.body ? (req.body.text || '') : '').trim()
+
+        if (subject.length === 0 || text.length === 0) {
+          res.status(400)
+          res.type('text/plain; charset=utf-8')
+          res.send('Unable to send the blast. Content\'s missing.')
+          return
+        }
+
+        let html = '<!DOCTYPE html>\n<html lang="en">\n'
+        html += '<head><meta charset="utf-8"><title>Degošie Jāņi</title><meta name="viewport" content="width=device-width, initial-scale=1"></head>'
+        html += '<body><p>'
+        const ntable = {
+          '&': 'amp',
+          '<': 'lt',
+          '>': 'gt',
+          '"': 'quot'
+        }
+        html += text.trim()
+          .replace(/[&<>"]/g, ch => `&${ntable[ch]};`)
+          .replace(/[^ -\x7e]/g, ch => `&#${ch.charCodeAt(0).toString()};`)
+          .split('\n\n').map(paragraph => paragraph.trim()).join('</p><p>')
+          .split('\n').map(line => line.trim()).join('<br>')
+        html += '</p></body></html>\n'
+
+        // TODO Implement!
+        res.status(501)
+        res.type('text/plain; charset=utf-8')
+        res.send('The sending functionality has not been implemented yet. Sorry.')
+
+        mailgun.messages().send({
+          from: 'Degošie Jāņi <game@sparklatvia.lv>',
+          to: 'Valters Jansons <valter.jansons@gmail.com>', // TODO `targets`.
+          subject: `TEST -- ${subject}`, // TODO Tidy up.
+          text,
+          html
+        }, err => {
+          if (err) {
+            res.status(500)
+            res.type('text/plain; charset=utf-8')
+            res.send('Something broke horribly. Sorry.')
+            console.error(err.stack)
+            return
+          }
+
+          res.render('email-blast-deliver', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets, subject, text, html }, (err, html) => {
+            if (err) {
+              res.status(500)
+              res.type('text/plain; charset=utf-8')
+              res.send('Something broke horribly. Sorry.')
+              console.error(err.stack)
+            } else {
+              res.status(200)
+              res.type('text/html; charset=utf-8')
+              res.send(html)
+            }
+          })
+        })
+      })
     })
     app.all(encodeURI(localeHash[locale] + '/:year'), returnBadAction)
 
