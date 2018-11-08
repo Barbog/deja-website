@@ -4,7 +4,7 @@ typora-root-url: ../static
 
 These come in the form of time, energy, resources or funds. Everyone involved in the gathering contributes in the best way they can, thus benefiting the entire community.
 
-Although monetary transactions are not condoned during the event, expenses associated with producing the event do arise. 
+Although monetary transactions are not condoned during the event, expenses associated with producing the event do arise.
 
 - If making a financial contribution, please consider doing so before the Enter DeJā deadline.
 - If you decide to contribute financially, you are well within your rights to let us know how you wish for your donation to be used.

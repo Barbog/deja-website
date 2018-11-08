@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 Paldies tev par mākslu, ko sniedz DeJā. Māksla ir mūsu kopienas viena no galvenajām vērtībām. Šajā sadaļā varēsi atrast vērtīgu ieskatu tajā, kā padarīt savu mākslu videi draudzīgāku.
 
-Atkal iesakām sekot šiem 6 punktiem: 
+Atkal iesakām sekot šiem 6 punktiem:
 
 - <span style="color:#006a44;">**Cieni.**</span>
 
@@ -59,14 +59,14 @@ Dažos gadījumos ir nepieciešams nodrošināt strāvu instalācijai. Parasto �
 
 <span style="color:#77011e;">**<u>Neatstāj nekādas pēdas</u>**</span
 
-Celtniecības materiāli ir liels atkritumu avots. 
+Celtniecības materiāli ir liels atkritumu avots.
 
 - -	Koka skaidas, skabargas, naglas, skrūves, putekļi. Jā, tie visi ir nepiederīgi materiāli (M.O.O.P, matter-out-of-place);
 - -	Jebkas, kas nav no saimniecības, tiek uzskatīts par nepiederīgu materiālu.
 
 Ņem līdzi magnētiskos grābekļus, tie ir noderīgi, ja veic metālapstrādi, tai skaitā metināšanu, slīpēšanu, skrūvēšanu, skavošanu. Magnētiskie grābekļi ir viegls veids, kā satīrīt atkritumus, kas radušies no metālapstrādes.
 
-Celtniecības procesā izmanto paklājus, lai uz zemes nenonāktu skaidas, metāla skaidas un putekļi. Jā, tas var būt apgrūtinoši, bet tas katrā ziņā ir vieglāk, nekā vākt to visu no zemes. 
+Celtniecības procesā izmanto paklājus, lai uz zemes nenonāktu skaidas, metāla skaidas un putekļi. Jā, tas var būt apgrūtinoši, bet tas katrā ziņā ir vieglāk, nekā vākt to visu no zemes.
 
 Vieglākais universālais padoms ir: **neļauj nekam pieskarties zemei!**
 

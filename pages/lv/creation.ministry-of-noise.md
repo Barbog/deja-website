@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-Šo Ministriju veido visi dīdžeji, videomākslinieki un tehniskie cilvēki,kuri uz DeJā ved kādu skaņas iekārtu. Šī ministrija rūpējas par skaņaskvalitāti un kvantitāti. 
+Šo Ministriju veido visi dīdžeji, videomākslinieki un tehniskie cilvēki,kuri uz DeJā ved kādu skaņas iekārtu. Šī ministrija rūpējas par skaņaskvalitāti un kvantitāti.
 
 Šī Ministrija arī aicina mūziķus un izpildītājus vest līdzi savus aparātusun instrumentus un uzstāties kādā no brīvās improvizācijas skatuvēm vai zonām.
 

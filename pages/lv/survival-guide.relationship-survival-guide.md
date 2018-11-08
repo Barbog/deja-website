@@ -105,7 +105,7 @@ DeJā var būt attiecībām izaicinošs laiks : gan draudzīgām, gan romantisk�
 
 <span style="color:#fdb913;"><u>Dāvanas</u></span>
 
-- Puķes un šokolāde, vīns, siers, vienalga. Doma ir „Es atbraucu uz DeJā, bet es domāju *tikai* par tevi.” 
+- Puķes un šokolāde, vīns, siers, vienalga. Doma ir „Es atbraucu uz DeJā, bet es domāju *tikai* par tevi.”
 - Parūpējieties viens par otru;
   - Pārliecinieties, par to lai abi lietojat pietiekoši daudz ūdens. Ja būsiet dehidrējušies, tad diez vai labi satiksiet.
 
@@ -131,7 +131,7 @@ Te gaisā varētu virmot daudz seksuālas enerģijas. Jebkas var notikt un notik
   - Ja viņš vai viņa to nevēlas, tad ir citi, kas vēlas.
 - <span style ="color:lime;"><u>Izrādi cieņu</u></span>
   - Tas, ka cilvēks staigā apkārt kails, nenozīmē, ka tas cilvēks vēlas būt kails ar tevi mazā, šaurā telpā.
-- Iemācies pieņemt atbildi „nē” 
+- Iemācies pieņemt atbildi „nē”
   - Un nebaidies izmantot „nē” pats.
 - Atpūties pietiekami un paseko līdzi savam dažādu vielu patēriņam, kā arī neaizmirsti dzert ūdeni.
 - Don’t be afraid to try new things. If there was ever a space for exploring, this is it!

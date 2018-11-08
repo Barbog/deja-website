@@ -31,7 +31,7 @@ Because DeJā is a private gathering celebrated on private property, yet open to
 DeJā is an interactive and participatory event focused on growing our local and international community.  To help assure that those in attendance of are of like minds as well as they understand where they are going,  we ask that everyone interested in participating:
 - First, create an account on this site.  If you haven't done so already.  Start by going to the log in button on the top left of this site and follow the link.
 - Second, check your email for the password.  You will be able to change it after you have logged in.
-- Third, log in and read ALL of the following sections: 
+- Third, log in and read ALL of the following sections:
   - Burn Etiquette
   - Survival Guide, and
   - Answer the questions at the end of each section.
@@ -66,9 +66,9 @@ DeJā is a canvass for you to come and express yourself.  If you have an idea th
 
 <span style="color:#77011e;"><u>"This is my first burn and I have no idea as to what to do for the event, how can i help?"</u></span>
 
-If you are unsure as to what to do, take a look at the <span style="color:#77011e;">CREATION</span> section after you have created an account and logged in, this will give you an idea as to how the infrastructure of the event is organized and where you can best volunteer.  
+If you are unsure as to what to do, take a look at the <span style="color:#77011e;">CREATION</span> section after you have created an account and logged in, this will give you an idea as to how the infrastructure of the event is organized and where you can best volunteer.
 
-Once you arrive at DeJā you will be able to sign up for one or more of the various shifts at the posts where volunteers will be needed. Or you can check the dedicated slack channels for each ministry and sign up pre-event. 
+Once you arrive at DeJā you will be able to sign up for one or more of the various shifts at the posts where volunteers will be needed. Or you can check the dedicated slack channels for each ministry and sign up pre-event.
 
 If this is your first burn, integrate and take it easy, get familiar with the grounds, and consider volunteering 1 or 2 shifts.
 
@@ -78,7 +78,7 @@ If this is your first burn, integrate and take it easy, get familiar with the gr
 
 <span style="color:#77011e;"><u>"If you need help let me know"</u></span>
 
-Yes, help will be needed. However, keep in mind that DeJā is created by its participants.  What you choose to create for the event, whatever you wish to share and bring to the gathering, whether it is time, resources, art, energy or some of each, this is how you help the event, this is your contribution to the community.  
+Yes, help will be needed. However, keep in mind that DeJā is created by its participants.  What you choose to create for the event, whatever you wish to share and bring to the gathering, whether it is time, resources, art, energy or some of each, this is how you help the event, this is your contribution to the community.
 
 DeJā is a <span style="color:#77011e;">DO-ACRACY</span>, meaning if you see that something needs to be done, go ahead and do it.  If you think of something that will improve the gathering, take it upon yourself to do it.
 
@@ -88,7 +88,7 @@ DeJā is a <span style="color:#77011e;">DO-ACRACY</span>, meaning if you see tha
 
 <span style="color:#77011e;"> <u>"I am busy and don't have time to read all of this, can i just send someone a message and let them know I am coming"</u></span>
 
-No sorry, you cannot. This event operates under the premise that all animals are created equal. If the registration process is changed for you, then it has to be changed for everyone else.  
+No sorry, you cannot. This event operates under the premise that all animals are created equal. If the registration process is changed for you, then it has to be changed for everyone else.
 
 If you do not have time to read the information on this site in order to get into an essentially free event, then you most likely don't have the time to prepare and organize yourself to come to it and participate accordingly.
 

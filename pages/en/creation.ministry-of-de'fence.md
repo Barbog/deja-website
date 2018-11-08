@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-Open border gestapo will verify your entry paperwork upon arrival at the fence,  issue consensual spankings, and indiscriminately profile you in order to conduct interrogations when necessary.  
+Open border gestapo will verify your entry paperwork upon arrival at the fence,  issue consensual spankings, and indiscriminately profile you in order to conduct interrogations when necessary.
 
 During the days of DeJā they will be on watch 24 hours a day, working in teams of no less than 2 who will change shifts every 3 hours.
 

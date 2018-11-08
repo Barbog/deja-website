@@ -45,7 +45,7 @@ PIEZĪME: Nosacījums tam, lai kļūtu par vienu no vadītājiem, ir galdniecīb
 
 PIEZĪME: Mums ir aptuveni sešas nedēļas nogales pirms pasākuma, kurās izdarāmais darba apjoms būs atkarīgs no laika apstākļiem.
 
-- Vadītāji organizēs komandas, kas dosies uz īpašumu to sagatavot un uzbūvēt noteiktas celtnes; 
+- Vadītāji organizēs komandas, kas dosies uz īpašumu to sagatavot un uzbūvēt noteiktas celtnes;
 - Organizē vajadzīgo materiālu iegādi un pārvadāšanu;
 - Izstrādā dizainu dažādajiem posteņiem, kas būs nepieciešami mūsu pagaidu ciematam, kā arī tos uzbūvē;
 - Paliek uz novākšanos;

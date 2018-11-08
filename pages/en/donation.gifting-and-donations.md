@@ -18,7 +18,7 @@ By getting familiar with the ministries in the [Creation](https://dejā.lv/en/cr
 
 If you would like to contribute financially:
 
-1. email degosiejani@gmail.com and type DONATION in the subject line, you will receive an email with instructions, 
-2. or check our #Miinistry_of_finance SLACK channel for bank account details. 
+1. email degosiejani@gmail.com and type DONATION in the subject line, you will receive an email with instructions,
+2. or check our #Miinistry_of_finance SLACK channel for bank account details.
 
 

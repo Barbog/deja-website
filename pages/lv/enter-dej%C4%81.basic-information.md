@@ -6,7 +6,7 @@ Lūdzam ņemt vērā, ka šī pieteikuma brīvprātīga iesniegšana tiks uzskat
 
 Lai gan DeJā ir iekļaujošs un atvērts pasākums visiem dalībniekiem, šis ir privāts pasākums, kuru svin privātā saimniecībā. Atbraucēji bez vīzas, neatkarīgi no apstākļiem, netiks ielaisti teritorijā.
 
-Jums nāksies atbildēt uz personiska rakstura jautājumiem. 
+Jums nāksies atbildēt uz personiska rakstura jautājumiem.
 
 
 

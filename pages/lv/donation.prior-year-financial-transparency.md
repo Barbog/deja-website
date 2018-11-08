@@ -17,6 +17,6 @@ Ar 215 dalībniekiem šajā gadā vidējais naudas daudzums uz katru apmeklētā
 
 \2016. gadā xx dalībnieki kopā noziedoja xxxx EUR.
 
-Eesam pievienojuši budžeta pārskatu PDF formātā, kur sīkāk ir  aprakstīt līdzekļu izlietojums. 
+Eesam pievienojuši budžeta pārskatu PDF formātā, kur sīkāk ir  aprakstīt līdzekļu izlietojums.
 
-Par cik mēs nevēlamies pieprasīt ieejas maksu šim pasākumam, mēs lūdzam jūs paturēt šo informāciju prātā un apsvērt domu ziedot / dāvināt mūsu saietam. 
+Par cik mēs nevēlamies pieprasīt ieejas maksu šim pasākumam, mēs lūdzam jūs paturēt šo informāciju prātā un apsvērt domu ziedot / dāvināt mūsu saietam.

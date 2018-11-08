@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 DeJā ir privāts pasākums, kas notiek privātīpašumā un ir pieejams tiem, kuri ir iepazinušies ar pasākumu.
 
-Pieteikumi ļauj mums saprast, cik cilvēku piedalīsies, un kā viņi iesaistīsies pasākuma tapšanā. Tas savukārt mums palīdz plānot infrastruktūras loģistiku, kā arī saprast prognozējamo apmeklētāju skaitu. Tie arī palīdz mums saglabāt līdzsvaru starp tiem, kuri jau izprot mūsu kultūru un darbības principus, un jaunpienācējiem. 
+Pieteikumi ļauj mums saprast, cik cilvēku piedalīsies, un kā viņi iesaistīsies pasākuma tapšanā. Tas savukārt mums palīdz plānot infrastruktūras loģistiku, kā arī saprast prognozējamo apmeklētāju skaitu. Tie arī palīdz mums saglabāt līdzsvaru starp tiem, kuri jau izprot mūsu kultūru un darbības principus, un jaunpienācējiem.
 
 <span style="color:#77011e;"><u>**Kāpēc es nevaru atvērt pieteikuma sadaļu?**</u></span>
 

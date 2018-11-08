@@ -8,10 +8,10 @@ Dejā ir
 
 - DeJā ir saīsinājums no „Degošie Jāņi” vasaras saulgriežu svinības.
 - A "Burn" - Autonoma kopā sanākšana, kurai par iedvesmu kalpo <span style="color:#77011e;">„[Burning Man](http://burningman.org/)”</span> festivāla un kustības filosofija.
-- Uz ziedojumiem balstīts un brīvprātīgo rīkots pasākums. Šis nav komerciāls pasākums – 
-  - Par pasākuma veidošanu neviens nesaņem nekādu atlīdzību . 
-  - Pasākumā nekas netiek pārdots. 
-  - Mēs netirgojam biļetes uz šo pasākumu, 
+- Uz ziedojumiem balstīts un brīvprātīgo rīkots pasākums. Šis nav komerciāls pasākums –
+  - Par pasākuma veidošanu neviens nesaņem nekādu atlīdzību .
+  - Pasākumā nekas netiek pārdots.
+  - Mēs netirgojam biļetes uz šo pasākumu,
   - Tas netiek reklamēts medijos.
 - Radošuma, pašizpausmes, līdzdalības, kopienas un bez-naudas eksperiments. To radāt, pieredzat un galu galā demontējat tikai un vienīgi jūs
 - Tukša vide, kurā radīt un izpausties.

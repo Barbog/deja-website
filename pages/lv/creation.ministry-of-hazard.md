@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-Šīs Ministrijas funkcija ir tikt galā ar ārkārtas situācijām, kas var rasties pasākuma laikā. 
+Šīs Ministrijas funkcija ir tikt galā ar ārkārtas situācijām, kas var rasties pasākuma laikā.
 
 Ja rodas ekstremālas situācijas, iesaistās šī komanda, tāpēc esot maiņā šajā postenī tev IR jābūt skaidrā.
 

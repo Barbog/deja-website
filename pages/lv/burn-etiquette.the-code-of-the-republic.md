@@ -38,7 +38,7 @@ Neiznieko tagadni! Esi klātesošs un tver mirkli, kamēr tas nav pagājis! Tas 
 
 <span style="color:#77011e;">**<u>Patstāvība</u>**</span>
 
-Tu esi par sevi atbildīgs – garīgi, fiziski un emocionāli. Mēs mudinām dalībniekus atklāt savus iekšējos spēkus un resursus un izmantot tos.  Tas nozīmē paļauties uz sevi, būt pašpietiekamam un būt atbildīgam par savām vajadzībām, drošību un komfortu. Citi dalībnieki var tev palīdzēt un dalīties ar dažādām lietām, bet nepaļaujies uz to. Atbrauc sagatavojies. Tomēr, ja nepieciešams, noteikti vērsies pēc palīdzības pie apkārtējiem. 
+Tu esi par sevi atbildīgs – garīgi, fiziski un emocionāli. Mēs mudinām dalībniekus atklāt savus iekšējos spēkus un resursus un izmantot tos.  Tas nozīmē paļauties uz sevi, būt pašpietiekamam un būt atbildīgam par savām vajadzībām, drošību un komfortu. Citi dalībnieki var tev palīdzēt un dalīties ar dažādām lietām, bet nepaļaujies uz to. Atbrauc sagatavojies. Tomēr, ja nepieciešams, noteikti vērsies pēc palīdzības pie apkārtējiem.
 
 <span style="color:#77011e;">**<u>Līdzdalība</u>**</span>
 

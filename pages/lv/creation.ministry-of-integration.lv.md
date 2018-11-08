@@ -4,11 +4,11 @@ typora-root-url: ../static
 
 <span style="color:#77011e;">**Mēs neesam kults**”</span>
 
-**Sagaidītāji** ir pirmais kontakta punkts dalībniekiem, kuri ierodas pie ieejas vārtiem. Viņu mērķis ir likt visiem, kas ierodas, justies gaidītiem. 
+**Sagaidītāji** ir pirmais kontakta punkts dalībniekiem, kuri ierodas pie ieejas vārtiem. Viņu mērķis ir likt visiem, kas ierodas, justies gaidītiem.
 
 Ierodoties mūsu integrētāji nopratinās un apmācīs tevi DeJā  garā un kultūrā.
 
-Vienkārši saki jā, lūdzu, tagad un paldies. 
+Vienkārši saki jā, lūdzu, tagad un paldies.
 
 Minimālās skaidrības līmenis šīm lomām netiek pieprasītas.
 

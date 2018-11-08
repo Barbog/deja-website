@@ -6,7 +6,7 @@ typora-root-url: ../static
 
 The dates chosen for DeJā coincide with the midsummer solstice  for several reasons:
 
-- To add the element of a burn to this national holiday. 
+- To add the element of a burn to this national holiday.
 - To share the burn experience locally.
 - To share this magical time and the local traditions with those who travel from outside the Baltic States to celebrate the midsummer here.
 

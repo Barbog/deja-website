@@ -6,7 +6,7 @@ DeJā dzimst, pateicoties kolektīvām idejām, aktivitātei, dāvanām, ziedoju
 
 <span style="color:#fdb913;"><u>Balstīts uz ziedojumiem, nevis biļešu tirdzniecību.</u></span>
 
-DeJā koncepcija balstās uz Burning Man pamatvērtību apvienošanu ar Baltijas vasaras saulgriežu svinībām. Tā kā vēlamies dalīties ar Burning Man kultūru un vietējām tradīcijām – <span style="color:#77011e;">mēs neprasām maksu par ieeju</span>. Šādā veidā pasākums ir pieejams ikvienam, kas ir gatavs mērot ceļu, lai tajā piedalītos, kā arī ļauj katram ziedot atbilstoši savām iespējām. 
+DeJā koncepcija balstās uz Burning Man pamatvērtību apvienošanu ar Baltijas vasaras saulgriežu svinībām. Tā kā vēlamies dalīties ar Burning Man kultūru un vietējām tradīcijām – <span style="color:#77011e;">mēs neprasām maksu par ieeju</span>. Šādā veidā pasākums ir pieejams ikvienam, kas ir gatavs mērot ceļu, lai tajā piedalītos, kā arī ļauj katram ziedot atbilstoši savām iespējām.
 
 Mēs esam varējuši turpināt šo eksperimentu šādā veidā jau trīs gadus, pateicoties DeJā norises vietas īpašnieka dāsnumam un saņemtajiem ziedojumiem. Attiecīgi tagad daudz vairāk cilvēkiem ir piekļuve šai pieredzei un maģijai, kas notiek DeJā un Burning Man.
 

@@ -2,7 +2,7 @@
 typora-root-url: ../static
 ---
 
-To vada kaņepes gariņi, kas brīnumainā veidā uzrauga teritoriju un rīko nepiederīgo materiālu savākšanas. Organizē atkritumu pārstrādāšanu un kompostu. Kas ir šīs maģiskās radības? Jebkurš dalībnieks DeJā. Ja tu atrodi MOOP lūdzu nogādā to īstajā vietā. 
+To vada kaņepes gariņi, kas brīnumainā veidā uzrauga teritoriju un rīko nepiederīgo materiālu savākšanas. Organizē atkritumu pārstrādāšanu un kompostu. Kas ir šīs maģiskās radības? Jebkurš dalībnieks DeJā. Ja tu atrodi MOOP lūdzu nogādā to īstajā vietā.
 
 Pienākumu veikšanai nav nepieciešams ieturēt nekādu minimālo skaidrības līmeni.
 
