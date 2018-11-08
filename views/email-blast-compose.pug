@@ -4,8 +4,11 @@ block body
   if user && user.admin
     section
       != markdown || ''
-    p= targets.length + ' recipients:'
-    p
-      each target in targets
-        = target
-        br
+    h1= __n('You will be sending an email blast to %1$d person who has received a visa for %2$s.', 'You will be sending an email blast to %1$d people who have received visas for %2$s.', targets.length, 'DeJā' + year)
+    form.emailblast(action=altLocales[getLocale()] method='post')
+      label(for='subject')= __('Message subject (title)').toUpperCase()
+      input(type='text' id='subject' name='subject' required='required' value=(subject || '') autofocus='autofocus')
+      label(for='text')= __('Message content').toUpperCase()
+      textarea(id='text' name='text' required='required' cols='72' rows='6')= text || ''
+      div.buttons
+        button(type='submit')= __('Send').toUpperCase()

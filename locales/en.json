@@ -113,6 +113,8 @@
 	"Log In": "Log In",
 	"Log Out": "Log Out",
 	"Logo of Degošie Jāņi": "Logo of Degošie Jāņi",
+	"Message content": "Message content",
+	"Message subject (title)": "Message subject (title)",
 	"Name": "Name",
 	"New password": "New password",
 	"New password, repeated": "New password, repeated",
@@ -122,6 +124,7 @@
 	"Password": "Password",
 	"Please enable JavaScript or try a different browser.": "Please enable JavaScript or try a different browser.",
 	"Portal is closed. Take the next shuttle.": "Portal is closed. Take the next shuttle.",
+	"Send": "Send",
 	"Strike begins.": "Strike begins.",
 	"Thank you for your registration": "Thank you for your registration",
 	"The droids seem to be ignoring your request.": "The droids seem to be ignoring your request.",
@@ -132,6 +135,14 @@
 	"Yes": "Yes",
 	"Your browser does not support scripting!": "Your browser does not support scripting!",
 	"Your confirmation email has been sent": "Your confirmation email has been sent",
+	"You will be sending an email blast to %1$d person who has received a visa for %2$s.": {
+		"one": "You will be sending an email blast to %1$d person who has received a visa for %2$s.",
+		"other": "You will be sending an email blast to %1$d people who have received visas for %2$s."
+	},
+	"You have sent an email blast to %1$d person who has received a visa for %2$s.": {
+		"one": "You have sent an email blast to %1$d person who has received a visa for %2$s.",
+		"other": "You have sent an email blast to %1$d people who have received visas for %2$s."
+	},
 	"To enter DeJā, get your invite by May 31. (%s day left.)": {
 		"one": "To enter DeJā, get your invite by May 31. (%s day left.)",
 		"other": "To enter DeJā, get your invite by May 31. (%s days left.)"

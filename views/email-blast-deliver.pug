@@ -4,11 +4,4 @@ block body
   if user && user.admin
     section
       != markdown || ''
-    p= subject
-    p= text
-    p= html
-    p= targets.length + ' recipients:'
-    p
-      each target in targets
-        = target
-        br
+    h1= __n('You have sent an email blast to %1$d person who has received a visa for %2$s.', 'You have sent an email blast to %1$d people who have received visas for %2$s.', targets.length, 'DeJā' + year)

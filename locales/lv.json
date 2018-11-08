@@ -113,6 +113,8 @@
 	"Log In": "Ienākt",
 	"Log Out": "Iziet",
 	"Logo of Degošie Jāņi": "Degošie Jāņi logo",
+	"Message content": "Ziņas saturs",
+	"Message subject (title)": "Ziņas tēma (tituls)",
 	"Name": "Vārds",
 	"New password": "Jaunā parole",
 	"New password, repeated": "Jaunā parole vēlreiz",
@@ -122,6 +124,7 @@
 	"Password": "Parole",
 	"Please enable JavaScript or try a different browser.": "Lūdzu atļauj JavaScript vai pamēģini citu pārlūku.",
 	"Portal is closed. Take the next shuttle.": "Portal is closed. Take the next shuttle.",
+	"Send": "Sūtīt",
 	"Strike begins.": "Sākas nobūve.",
 	"Thank you for your registration": "Paldies par reģistrēšanos",
 	"The droids seem to be ignoring your request.": "Šķiet ka druīdi ignorē tavu pieprasījumu.",
@@ -132,6 +135,14 @@
 	"Yes": "Jā",
 	"Your browser does not support scripting!": "Tavs pārlūks neatbalsta skriptus!",
 	"Your confirmation email has been sent": "Tev ir nosūtīts apstiprinājuma e-pasts",
+	"You will be sending an email blast to %1$d person who has received a visa for %2$s.": {
+		"one": "Tu sūtīsi e-pasta bliezienu %1$d cilvēkam kurš ir saņēmis vīzu priekš %2$s.",
+		"other": "Tu sūtīsi e-pasta bliezienu %1$d cilvēkiem kuri ir saņēmuši vīzas priekš %2$s."
+	},
+	"You have sent an email blast to %1$d person who has received a visa for %2$s.": {
+		"one": "Tu esi nosūtījis e-pasta bliezienu %1$d cilvēkam kurš ir saņēmis vīzu priekš %2$s.",
+		"other": "Tu esi nosūtījis e-pasta bliezienu %1$d cilvēkiem kuri ir saņēmuši vīzas priekš %2$s."
+	},
 	"To enter DeJā, get your invite by May 31. (%s day left.)": {
 		"one": "Lai iekļūtu DeJā, saņem savu ielūgumu līdz 31. maijam. (%s diena atlikusi.)",
 		"other": "Lai iekļūtu DeJā, saņem savu ielūgumu līdz 31. maijam. (%s dienas atlikušas.)"

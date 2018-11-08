@@ -1070,7 +1070,8 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           return
         }
 
-        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
+        // const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
+        const targets = [ 'valter.jansons@gmail.com' ] // TODO Remove once testing's done.
 
         const localeHashSuffixed = {}
         Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
@@ -1119,7 +1120,8 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           return
         }
 
-        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
+        // const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
+        const targets = [ 'valter.jansons@gmail.com' ] // TODO Remove once testing's done.
 
         const localeHashSuffixed = {}
         Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
@@ -1150,37 +1152,34 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           .split('\n').map(line => line.trim()).join('<br>')
         html += '</p></body></html>\n'
 
-        // TODO Implement!
-        res.status(501)
-        res.type('text/plain; charset=utf-8')
-        res.send('The sending functionality has not been implemented yet. Sorry.')
-
-        mailgun.messages().send({
-          from: 'Degošie Jāņi <game@sparklatvia.lv>',
-          to: 'Valters Jansons <valter.jansons@gmail.com>', // TODO `targets`.
-          subject: `TEST -- ${subject}`, // TODO Tidy up.
-          text,
-          html
-        }, err => {
-          if (err) {
-            res.status(500)
-            res.type('text/plain; charset=utf-8')
-            res.send('Something broke horribly. Sorry.')
-            console.error(err.stack)
-            return
-          }
-
-          res.render('email-blast-deliver', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets, subject, text, html }, (err, html) => {
+        targets.forEach(target => {
+          mailgun.messages().send({
+            from: 'Degošie Jāņi <game@sparklatvia.lv>',
+            to: target,
+            subject,
+            text,
+            html
+          }, err => {
             if (err) {
               res.status(500)
               res.type('text/plain; charset=utf-8')
               res.send('Something broke horribly. Sorry.')
               console.error(err.stack)
-            } else {
-              res.status(200)
-              res.type('text/html; charset=utf-8')
-              res.send(html)
+              return
             }
+
+            res.render('email-blast-deliver', { altLocales: getAltLocales(localeHashSuffixed), title: req.__(title), markdown: '', year: '' + req.params.year, targets, subject, text, html }, (err, html) => {
+              if (err) {
+                res.status(500)
+                res.type('text/plain; charset=utf-8')
+                res.send('Something broke horribly. Sorry.')
+                console.error(err.stack)
+              } else {
+                res.status(200)
+                res.type('text/html; charset=utf-8')
+                res.send(html)
+              }
+            })
           })
         })
       })
