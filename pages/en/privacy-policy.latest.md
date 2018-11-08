@@ -1,3 +1,7 @@
+---
+typora-root-url: ../static
+---
+
 # Our Privacy Policy
 
 _Draft as of June 2, 2018._

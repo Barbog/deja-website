@@ -1,3 +1,7 @@
+---
+typora-root-url: ../static
+---
+
 Lūdzam ņemt vērā, ka šī pieteikuma brīvprātīga iesniegšana tiks uzskatīta par jūsu izteiktu vēlmi iegūt ieejas privilēģijas DeJā. Pieprasot uzņemšanu, jūs apzināties, ka būsiet par sevi atbildīgi. Jūs apņematies nevienu citu, kā vien sevi nesaukt pie atbildības par jebkādām jūsu apmeklējuma sekām.
 
 Lai gan DeJā ir iekļaujošs un atvērts pasākums visiem dalībniekiem, šis ir privāts pasākums, kuru svin privātā saimniecībā. Atbraucēji bez vīzas, neatkarīgi no apstākļiem, netiks ielaisti teritorijā.
