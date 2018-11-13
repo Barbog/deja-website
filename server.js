@@ -1070,8 +1070,8 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           return
         }
 
-        // const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
-        const targets = [ 'valter.jansons@gmail.com' ] // TODO Remove once testing's done.
+        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
+        console.log(targets) // TODO Remove after finishing troubleshooting.
 
         const localeHashSuffixed = {}
         Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
@@ -1120,8 +1120,7 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           return
         }
 
-        // const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
-        const targets = [ 'valter.jansons@gmail.com' ] // TODO Remove once testing's done.
+        const targets = page.filter(row => !isNaN(parseInt(row[visaIdIndex]))).map(row => `${row[nameIndex]} <${row[emailIndex]}>`).sort()
 
         const localeHashSuffixed = {}
         Object.keys(localeHash).forEach(lh => { localeHashSuffixed[lh] = encodeURI(localeHash[lh]) + '/' + encodeURIComponent(req.params.year) })
