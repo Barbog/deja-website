@@ -1146,8 +1146,9 @@ app.all('/x-admin/download-applications/:year.pdf.zip', (req, res, next) => {
           '"': 'quot'
         }
         html += text.trim()
+          .split('\r').join('')
           .replace(/[&<>"]/g, ch => `&${ntable[ch]};`)
-          .replace(/[^ -\x7e]/g, ch => `&#${ch.charCodeAt(0).toString()};`)
+          .replace(/[^ -\x7e]/g, ch => ch === '\n' ? '\n' : `&#${ch.charCodeAt(0).toString()};`)
           .split('\n\n').map(paragraph => paragraph.trim()).join('</p><p>')
           .split('\n').map(line => line.trim()).join('<br>')
         html += '</p></body></html>\n'
