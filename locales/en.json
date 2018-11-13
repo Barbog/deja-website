@@ -135,13 +135,13 @@
 	"Yes": "Yes",
 	"Your browser does not support scripting!": "Your browser does not support scripting!",
 	"Your confirmation email has been sent": "Your confirmation email has been sent",
-	"You will be sending an email blast to %1$d person who has received a visa for %2$s.": {
-		"one": "You will be sending an email blast to %1$d person who has received a visa for %2$s.",
-		"other": "You will be sending an email blast to %1$d people who have received visas for %2$s."
+	"You will be sending an email blast to %s person who has received a visa for DeJā {{year}}.": {
+		"one": "You will be sending an email blast to %s person who has received a visa for DeJā {{year}}.",
+		"other": "You will be sending an email blast to %s people who have received visas for DeJā {{year}}."
 	},
-	"You have sent an email blast to %1$d person who has received a visa for %2$s.": {
-		"one": "You have sent an email blast to %1$d person who has received a visa for %2$s.",
-		"other": "You have sent an email blast to %1$d people who have received visas for %2$s."
+	"You have sent an email blast to %s person who has received a visa for DeJā {{year}}.": {
+		"one": "You have sent an email blast to %s person who has received a visa for DeJā {{year}}.",
+		"other": "You have sent an email blast to %s people who have received visas for DeJā {{year}}."
 	},
 	"To enter DeJā, get your invite by May 31. (%s day left.)": {
 		"one": "To enter DeJā, get your invite by May 31. (%s day left.)",

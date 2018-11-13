@@ -135,13 +135,13 @@
 	"Yes": "Jā",
 	"Your browser does not support scripting!": "Tavs pārlūks neatbalsta skriptus!",
 	"Your confirmation email has been sent": "Tev ir nosūtīts apstiprinājuma e-pasts",
-	"You will be sending an email blast to %1$d person who has received a visa for %2$s.": {
-		"one": "Tu sūtīsi e-pasta bliezienu %1$d cilvēkam kurš ir saņēmis vīzu priekš %2$s.",
-		"other": "Tu sūtīsi e-pasta bliezienu %1$d cilvēkiem kuri ir saņēmuši vīzas priekš %2$s."
+	"You will be sending an email blast to %s person who has received a visa for DeJā {{year}}.": {
+		"one": "Tu sūtīsi e-pasta bliezienu %s cilvēkam kurš ir saņēmis vīzu priekš DeJā {{year}}.",
+		"other": "Tu sūtīsi e-pasta bliezienu %s cilvēkiem kuri ir saņēmuši vīzas priekš DeJā {{year}}."
 	},
-	"You have sent an email blast to %1$d person who has received a visa for %2$s.": {
-		"one": "Tu esi nosūtījis e-pasta bliezienu %1$d cilvēkam kurš ir saņēmis vīzu priekš %2$s.",
-		"other": "Tu esi nosūtījis e-pasta bliezienu %1$d cilvēkiem kuri ir saņēmuši vīzas priekš %2$s."
+	"You have sent an email blast to %s person who has received a visa for DeJā {{year}}.": {
+		"one": "Tu esi nosūtījis e-pasta bliezienu %s cilvēkam kurš ir saņēmis vīzu priekš DeJā {{year}}.",
+		"other": "Tu esi nosūtījis e-pasta bliezienu %s cilvēkiem kuri ir saņēmuši vīzas priekš DeJā {{year}}."
 	},
 	"To enter DeJā, get your invite by May 31. (%s day left.)": {
 		"one": "Lai iekļūtu DeJā, saņem savu ielūgumu līdz 31. maijam. (%s diena atlikusi.)",

@@ -5,7 +5,7 @@ block body
     section
       != markdown || ''
     form.emailblast(action=altLocales[getLocale()] method='post')
-      p= __n('You will be sending an email blast to %1$d person who has received a visa for %2$s.', 'You will be sending an email blast to %1$d people who have received visas for %2$s.', targets.length, 'DeJā' + year)
+      p= __n('You will be sending an email blast to %s person who has received a visa for DeJā {{year}}.', 'You will be sending an email blast to %s people who have received visas for DeJā {{year}}.', targets.length, { year })
       label(for='subject')= __('Message subject (title)').toUpperCase()
       input(type='text' id='subject' name='subject' required='required' value=(subject || '') autofocus='autofocus')
       label(for='text')= __('Message content').toUpperCase()
