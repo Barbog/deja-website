@@ -25,19 +25,19 @@
     "get-env": "^0.5.10",
     "helmet": "^3.15.0",
     "i18n": "^0.8.3",
-    "less": "^3.8.1",
+    "less": "^3.9.0",
     "less-plugin-clean-css": "^1.5.1",
     "mailgun-js": "^0.22.0",
     "morgan": "^1.9.1",
     "pdfkit": "^0.8.3",
-    "pdfmake": "^0.1.38",
+    "pdfmake": "^0.1.40",
     "pug": "^2.0.3",
     "randomstring": "^1.1.5",
     "redis": "^2.8.0",
-    "showdown": "^1.8.7",
+    "showdown": "^1.9.0",
     "svg-to-pdfkit": "^0.1.7",
     "svgo": "^1.1.1",
-    "xlsx": "^0.14.0"
+    "xlsx": "^0.14.1"
   },
   "devDependencies": {},
   "semistandard": {
